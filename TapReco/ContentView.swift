@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
-    let audioRecorder: AudioRecorder = AudioRecorder()
+    let audioRecorder: AudioRecoder = AudioRecorderImpl()
+    let audioPlayer: AudioPlayer = AudioPlayerImpl()
+    
     var body: some View {
         VStack {
             Button("録画開始") {
@@ -18,10 +20,10 @@ struct ContentView: View {
                 _ = self.audioRecorder.recordStop()
             }.padding(.bottom, 10.0)
             Button("再生開始") {
-                self.audioRecorder.playStart()
+                self.audioPlayer.playStart()
             }.padding(.bottom, 10.0)
             Button("再生停止") {
-                self.audioRecorder.playStop()
+                self.audioPlayer.playStop()
             }.padding(.bottom, 10.0)
         }
     }

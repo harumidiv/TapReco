@@ -13,7 +13,8 @@
 		492508A226DCF7D4005169AE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 492508A126DCF7D4005169AE /* Preview Assets.xcassets */; };
 		492508AD26DCF7D4005169AE /* TapRecoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492508AC26DCF7D4005169AE /* TapRecoTests.swift */; };
 		492508B826DCF7D4005169AE /* TapRecoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492508B726DCF7D4005169AE /* TapRecoUITests.swift */; };
-		49856ECB26E474030015C12E /* AudioRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49856ECA26E474030015C12E /* AudioRecorder.swift */; };
+		49856ECB26E474030015C12E /* AudioRecorderImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49856ECA26E474030015C12E /* AudioRecorderImpl.swift */; };
+		49856ECE26E474B80015C12E /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49856ECD26E474B80015C12E /* AudioPlayer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,7 +47,8 @@
 		492508B326DCF7D4005169AE /* TapRecoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TapRecoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		492508B726DCF7D4005169AE /* TapRecoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapRecoUITests.swift; sourceTree = "<group>"; };
 		492508B926DCF7D4005169AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		49856ECA26E474030015C12E /* AudioRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorder.swift; sourceTree = "<group>"; };
+		49856ECA26E474030015C12E /* AudioRecorderImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorderImpl.swift; sourceTree = "<group>"; };
+		49856ECD26E474B80015C12E /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,9 +99,9 @@
 		4925089926DCF7D3005169AE /* TapReco */ = {
 			isa = PBXGroup;
 			children = (
+				49856ECC26E474A40015C12E /* Utility */,
 				4925089A26DCF7D3005169AE /* TapRecoApp.swift */,
 				4925089C26DCF7D3005169AE /* ContentView.swift */,
-				49856ECA26E474030015C12E /* AudioRecorder.swift */,
 				4925089E26DCF7D4005169AE /* Assets.xcassets */,
 				492508A326DCF7D4005169AE /* Info.plist */,
 				492508A026DCF7D4005169AE /* Preview Content */,
@@ -131,6 +133,15 @@
 				492508B926DCF7D4005169AE /* Info.plist */,
 			);
 			path = TapRecoUITests;
+			sourceTree = "<group>";
+		};
+		49856ECC26E474A40015C12E /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				49856ECD26E474B80015C12E /* AudioPlayer.swift */,
+				49856ECA26E474030015C12E /* AudioRecorderImpl.swift */,
+			);
+			path = Utility;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,9 +273,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49856ECB26E474030015C12E /* AudioRecorder.swift in Sources */,
+				49856ECB26E474030015C12E /* AudioRecorderImpl.swift in Sources */,
 				4925089D26DCF7D3005169AE /* ContentView.swift in Sources */,
 				4925089B26DCF7D3005169AE /* TapRecoApp.swift in Sources */,
+				49856ECE26E474B80015C12E /* AudioPlayer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

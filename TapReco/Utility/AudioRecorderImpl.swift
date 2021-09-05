@@ -7,23 +7,20 @@
 
 import AVFoundation
 
-protocol RecorderDelegate: AVAudioRecorderDelegate {
+protocol AudioRecoder: AVAudioRecorderDelegate {
     func record()
     func recordStop() -> Data?
-    func playStart()
-    func playStop()
 }
  
-final class AudioRecorder: NSObject {
+final class AudioRecorderImpl: NSObject {
     private var audioRecorder: AVAudioRecorder!
-    var audioPlayer: AVAudioPlayer!
     
     private func getURL() -> URL{
         return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("sound.m4a")
     }
 }
 
-extension AudioRecorder: RecorderDelegate {
+extension AudioRecorderImpl: AudioRecoder {
     func record() {
         let session = AVAudioSession.sharedInstance()
         try! session.setCategory(AVAudioSession.Category.playAndRecord, options: [.defaultToSpeaker])
@@ -47,16 +44,5 @@ extension AudioRecorder: RecorderDelegate {
         let data = try? Data(contentsOf: getURL())
         return data
     }
-    
-    func playStart() {
-        audioPlayer = try! AVAudioPlayer(contentsOf: getURL())
-        audioPlayer.volume = 1.0
-        audioPlayer.prepareToPlay()
-        audioPlayer.play()
-    }
-    
-    func playStop() {
-        audioPlayer.stop()
-    }
-    
+        
 }
