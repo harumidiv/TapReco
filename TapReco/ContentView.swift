@@ -8,12 +8,26 @@
 import SwiftUI
 
 struct ContentView: View {
+    let audioRecorder: AudioRecoder = AudioRecorderImpl()
+    let audioPlayer: AudioPlayer = AudioPlayerImpl()
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        VStack {
+            Button("録画開始") {
+                self.audioRecorder.record()
+            }.padding(.bottom, 10.0)
+            Button("録画停止") {
+                _ = self.audioRecorder.recordStop()
+            }.padding(.bottom, 10.0)
+            Button("再生開始") {
+                self.audioPlayer.playStart()
+            }.padding(.bottom, 10.0)
+            Button("再生停止") {
+                self.audioPlayer.playStop()
+            }.padding(.bottom, 10.0)
+        }
     }
 }
-
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
