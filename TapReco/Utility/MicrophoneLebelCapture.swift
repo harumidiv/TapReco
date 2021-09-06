@@ -1,6 +1,6 @@
 //
 //  MicrophoneLebelCapture.swift
-//  TapReco
+//  ViewHeightSizeChange
 //
 //  Created by 佐川 晴海 on 2021/09/06.
 //
@@ -91,10 +91,10 @@ class MicrophoneLebelCapture {
             &levelMeter,
             &propertySize)
         
-        let minVol: Double = -160
-        let maxVol: Double = 0
+        let minVol: CGFloat = -160
+        let maxVol: CGFloat = 0
         // min: -60, max: -0 くらいが手元の環境では取れたのでそっちの方が綺麗に動く
-        let normalizationValue = (Double(levelMeter.mAveragePower) - minVol) / (maxVol - minVol)
-        self.delegate.didUpdatePowerLebel(value: CGFloat(normalizationValue))
+        let normalizationValue = (CGFloat(levelMeter.mAveragePower) - minVol) / (maxVol - minVol)
+        self.delegate.didUpdatePowerLebel(value: normalizationValue)
     }
 }
