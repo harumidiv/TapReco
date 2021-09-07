@@ -1,5 +1,5 @@
 //
-//  MicrophoneLebelCapture.swift
+//  MicrophoneLebelManager.swift
 //  ViewHeightSizeChange
 //
 //  Created by 佐川 晴海 on 2021/09/06.
@@ -14,20 +14,11 @@ func AudioQueueInputCallback(inUserData: UnsafeMutableRawPointer?, inAQ: AudioQu
     // NOP
 }
 
-protocol MicrophonePowerDelegate {
-    func didUpdatePowerLebel(value: CGFloat)
-}
+class MicrophoneLebelManager: ObservableObject {
+    @Published var volume: CGFloat = 0
 
-class MicrophoneLebelCapture {
-    var delegate: MicrophonePowerDelegate
-    
-    // 音声入力用のキューと監視用タイマーの準備
     var queue: AudioQueueRef!
     var recordingTimer: Timer!
-    
-    init(delegate: MicrophonePowerDelegate) {
-        self.delegate = delegate
-    }
     
     func startUpdatingVolume() {
         // 録音データを記録するフォーマット
@@ -73,6 +64,7 @@ class MicrophoneLebelCapture {
     
     func stopUpdatingVolume() {
         // Finish observation
+        
         self.recordingTimer.invalidate()
         self.recordingTimer = nil
         AudioQueueFlush(self.queue)
@@ -95,6 +87,7 @@ class MicrophoneLebelCapture {
         let maxVol: CGFloat = 0
         // min: -60, max: -0 くらいが手元の環境では取れたのでそっちの方が綺麗に動く
         let normalizationValue = (CGFloat(levelMeter.mAveragePower) - minVol) / (maxVol - minVol)
-        self.delegate.didUpdatePowerLebel(value: normalizationValue)
+        
+        self.volume = normalizationValue
     }
 }
