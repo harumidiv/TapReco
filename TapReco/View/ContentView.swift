@@ -27,11 +27,9 @@ struct ContentView: View {
                         }
                     }
                 
-                Image(systemName: "star")
-                    .frame(width: 100, height: 100, alignment: .center)
-                    .background(Color.green)
-                    .onTapGesture { /*NOP*/ }
-                    .allowsTightening(false)
+                LottieAnimationView().frame(width: 100)
+                    .onTapGesture {}
+                    .allowsHitTesting(false)
                 // TODO ここは半モーダルViewに移行する
 //                VStack {
 //                    Button("再生開始") {

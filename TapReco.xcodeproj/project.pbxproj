@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,6 +17,9 @@
 		49856ECE26E474B80015C12E /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49856ECD26E474B80015C12E /* AudioPlayer.swift */; };
 		49856F4E26E633080015C12E /* MicrophoneLebelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49856F4D26E633080015C12E /* MicrophoneLebelManager.swift */; };
 		49856F8926E6E76D0015C12E /* MicrophoneVolumeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49856F8826E6E76D0015C12E /* MicrophoneVolumeView.swift */; };
+		4994CC3326E78C39003A34ED /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 4994CC3226E78C39003A34ED /* Lottie */; };
+		4994CC3626E78CB4003A34ED /* LottieAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4994CC3526E78CB4003A34ED /* LottieAnimationView.swift */; };
+		4994CC3826E78D6A003A34ED /* microphone.json in Resources */ = {isa = PBXBuildFile; fileRef = 4994CC3726E78D6A003A34ED /* microphone.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +56,8 @@
 		49856ECD26E474B80015C12E /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 		49856F4D26E633080015C12E /* MicrophoneLebelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicrophoneLebelManager.swift; sourceTree = "<group>"; };
 		49856F8826E6E76D0015C12E /* MicrophoneVolumeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicrophoneVolumeView.swift; sourceTree = "<group>"; };
+		4994CC3526E78CB4003A34ED /* LottieAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieAnimationView.swift; sourceTree = "<group>"; };
+		4994CC3726E78D6A003A34ED /* microphone.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = microphone.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4994CC3326E78C39003A34ED /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,7 +112,7 @@
 				49856ECC26E474A40015C12E /* Utility */,
 				49856F8626E6E7070015C12E /* View */,
 				4925089A26DCF7D3005169AE /* TapRecoApp.swift */,
-				4925089E26DCF7D4005169AE /* Assets.xcassets */,
+				4994CC3926E78D6E003A34ED /* Recource */,
 				492508A326DCF7D4005169AE /* Info.plist */,
 				492508A026DCF7D4005169AE /* Preview Content */,
 			);
@@ -153,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				4925089C26DCF7D3005169AE /* ContentView.swift */,
+				4994CC3426E78C97003A34ED /* LottieAnimationView */,
 				49856F8726E6E7380015C12E /* MicrophoneVolumeView */,
 			);
 			path = View;
@@ -164,6 +171,23 @@
 				49856F8826E6E76D0015C12E /* MicrophoneVolumeView.swift */,
 			);
 			path = MicrophoneVolumeView;
+			sourceTree = "<group>";
+		};
+		4994CC3426E78C97003A34ED /* LottieAnimationView */ = {
+			isa = PBXGroup;
+			children = (
+				4994CC3526E78CB4003A34ED /* LottieAnimationView.swift */,
+			);
+			path = LottieAnimationView;
+			sourceTree = "<group>";
+		};
+		4994CC3926E78D6E003A34ED /* Recource */ = {
+			isa = PBXGroup;
+			children = (
+				4994CC3726E78D6A003A34ED /* microphone.json */,
+				4925089E26DCF7D4005169AE /* Assets.xcassets */,
+			);
+			path = Recource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -182,6 +206,9 @@
 			dependencies = (
 			);
 			name = TapReco;
+			packageProductDependencies = (
+				4994CC3226E78C39003A34ED /* Lottie */,
+			);
 			productName = TapReco;
 			productReference = 4925089726DCF7D3005169AE /* TapReco.app */;
 			productType = "com.apple.product-type.application";
@@ -253,6 +280,9 @@
 				Base,
 			);
 			mainGroup = 4925088E26DCF7D3005169AE;
+			packageReferences = (
+				4994CC3126E78C39003A34ED /* XCRemoteSwiftPackageReference "lottie-ios" */,
+			);
 			productRefGroup = 4925089826DCF7D3005169AE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -271,6 +301,7 @@
 			files = (
 				492508A226DCF7D4005169AE /* Preview Assets.xcassets in Resources */,
 				4925089F26DCF7D4005169AE /* Assets.xcassets in Resources */,
+				4994CC3826E78D6A003A34ED /* microphone.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,6 +328,7 @@
 			files = (
 				49856ECB26E474030015C12E /* AudioRecorderImpl.swift in Sources */,
 				4925089D26DCF7D3005169AE /* ContentView.swift in Sources */,
+				4994CC3626E78CB4003A34ED /* LottieAnimationView.swift in Sources */,
 				49856F4E26E633080015C12E /* MicrophoneLebelManager.swift in Sources */,
 				4925089B26DCF7D3005169AE /* TapRecoApp.swift in Sources */,
 				49856F8926E6E76D0015C12E /* MicrophoneVolumeView.swift in Sources */,
@@ -620,6 +652,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4994CC3126E78C39003A34ED /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.2.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4994CC3226E78C39003A34ED /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4994CC3126E78C39003A34ED /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4925088F26DCF7D3005169AE /* Project object */;
 }
