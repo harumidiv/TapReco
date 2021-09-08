@@ -14,21 +14,21 @@ struct MicrophoneVolumeView: View {
     var body: some View {
         HStack {
             Rectangle()
-                .foregroundColor(.gray)
+                .foregroundColor(.black)
                 .frame(width: 10, height: height + height * manager.volume)
             WaveView(manager: manager,
                      topViewHeight: 50,
                      BottomViewHeight: 100).frame(width: 10)
             Rectangle()
-                .foregroundColor(.gray)
+                .foregroundColor(.black)
                 .frame(width: 10, height: height + height * manager.volume)
                 // paddingで位置を調整することが可能
                 .padding(10)
             Rectangle()
-                .foregroundColor(.gray)
+                .foregroundColor(.black)
                 .frame(width: 10, height: height + height * manager.volume)
             Rectangle()
-                .foregroundColor(.gray)
+                .foregroundColor(.black)
                 .frame(width: 10, height: height + height * manager.volume)
         }
         .onAppear() {

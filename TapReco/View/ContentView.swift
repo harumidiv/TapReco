@@ -19,37 +19,47 @@ struct ContentView: View {
                 Rectangle()
                     .frame(width: UIScreen.main.bounds.width,
                            height: UIScreen.main.bounds.height)
-                    .foregroundColor(.orange)
+                    .foregroundColor(.gray)
                     .onTapGesture {
                         if !isRecording {
                             self.audioRecorder.record()
                             isRecording = true
                         }
                     }
-                
-                LottieAnimationView(name: "microphone", loopMode: .loop)
-                    .frame(width: 300, height: 300)
-                    .onTapGesture {}
-                    .allowsHitTesting(false)
-                // TODO ここは半モーダルViewに移行する
-//                VStack {
-//                    Button("再生開始") {
-//                        self.audioPlayer.playStart()
-//                    }.padding(.bottom, 10.0)
-//                    Button("再生停止") {
-//                        self.audioPlayer.playStop()
-//                    }.padding(.bottom, 10.0)
-//                }
+                VStack {
+                    Text("Voice memo")
+                        .font(.largeTitle)
+                    LottieAnimationView(name: "microphone", loopMode: .loop)
+                        .frame(width: 300, height: 300)
+                        .onTapGesture {}
+                        .allowsHitTesting(false)
+                }
             }
         } else {
-            HStack {
-                Button("録画停止") {
-                    _ = self.audioRecorder.recordStop()
-                    isRecording = false
-                }.padding(.bottom, 10.0)
-                MicrophoneVolumeView()
+            ZStack {
+                Rectangle()
+                    .frame(width: UIScreen.main.bounds.width,
+                           height: UIScreen.main.bounds.height)
+                    .foregroundColor(.gray)
+                    .onTapGesture {}
+                    .allowsTightening(false)
+                VStack {
+                    Text("Voice memo")
+                        .font(.largeTitle)
+                    MicrophoneVolumeView()
+                        .frame(width: 300, height: 300, alignment: .center)
+                        .border(Color.red, width: 1)
+                    Button("録画停止") {
+                        _ = self.audioRecorder.recordStop()
+                        isRecording = false
+                    }.frame(width: 200, height: 50, alignment: .center)
+                    .background(Color.black)
+                    .padding(10)
+                    Text("スライドして録音停止")
+                        .font(.body)
+                    
+                }
             }
-            
         }
         
     }
