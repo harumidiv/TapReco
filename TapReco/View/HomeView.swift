@@ -49,6 +49,8 @@ struct HomeView: View {
                     MicrophoneVolumeView()
                         .frame(width: 300, height: 300, alignment: .center)
                         .border(Color.red, width: 1)
+                    Text("00:00:00")
+                        .font(.largeTitle)
                     Button("録画停止") {
                         _ = self.audioRecorder.recordStop()
                         isRecording = false
