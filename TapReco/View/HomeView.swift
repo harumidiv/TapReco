@@ -33,6 +33,10 @@ struct HomeView: View {
                         .frame(width: 300, height: 300)
                         .onTapGesture {}
                         .allowsHitTesting(false)
+                    
+                    // 検証用でここに表示
+                    SlideToStopActionView()
+                        .frame(width: 300, height: 50)
                 }
             }
         } else {

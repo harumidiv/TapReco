@@ -21,6 +21,8 @@
 		4994CC3626E78CB4003A34ED /* LottieAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4994CC3526E78CB4003A34ED /* LottieAnimationView.swift */; };
 		4994CC3826E78D6A003A34ED /* microphone.json in Resources */ = {isa = PBXBuildFile; fileRef = 4994CC3726E78D6A003A34ED /* microphone.json */; };
 		49C0D12526E8DE6E00B3666E /* WaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C0D12426E8DE6E00B3666E /* WaveView.swift */; };
+		49C0D12C26E9033900B3666E /* SlideToStopActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C0D12B26E9033900B3666E /* SlideToStopActionView.swift */; };
+		49C0D12E26E904AA00B3666E /* SlideToActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C0D12D26E904AA00B3666E /* SlideToActionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +62,8 @@
 		4994CC3526E78CB4003A34ED /* LottieAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieAnimationView.swift; sourceTree = "<group>"; };
 		4994CC3726E78D6A003A34ED /* microphone.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = microphone.json; sourceTree = "<group>"; };
 		49C0D12426E8DE6E00B3666E /* WaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveView.swift; sourceTree = "<group>"; };
+		49C0D12B26E9033900B3666E /* SlideToStopActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideToStopActionView.swift; sourceTree = "<group>"; };
+		49C0D12D26E904AA00B3666E /* SlideToActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideToActionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +166,7 @@
 			children = (
 				4925089C26DCF7D3005169AE /* HomeView.swift */,
 				4994CC3426E78C97003A34ED /* LottieAnimationView */,
+				49C0D12926E902F500B3666E /* SlideToUnlock */,
 				49856F8726E6E7380015C12E /* MicrophoneVolumeView */,
 			);
 			path = View;
@@ -171,7 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				49856F8826E6E76D0015C12E /* MicrophoneVolumeView.swift */,
-				49C0D12426E8DE6E00B3666E /* WaveView.swift */,
+				49C0D12A26E9030500B3666E /* WaveView */,
 			);
 			path = MicrophoneVolumeView;
 			sourceTree = "<group>";
@@ -191,6 +196,23 @@
 				4925089E26DCF7D4005169AE /* Assets.xcassets */,
 			);
 			path = Recource;
+			sourceTree = "<group>";
+		};
+		49C0D12926E902F500B3666E /* SlideToUnlock */ = {
+			isa = PBXGroup;
+			children = (
+				49C0D12B26E9033900B3666E /* SlideToStopActionView.swift */,
+				49C0D12D26E904AA00B3666E /* SlideToActionView.swift */,
+			);
+			path = SlideToUnlock;
+			sourceTree = "<group>";
+		};
+		49C0D12A26E9030500B3666E /* WaveView */ = {
+			isa = PBXGroup;
+			children = (
+				49C0D12426E8DE6E00B3666E /* WaveView.swift */,
+			);
+			path = WaveView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -336,7 +358,9 @@
 				4925089B26DCF7D3005169AE /* TapRecoApp.swift in Sources */,
 				49856F8926E6E76D0015C12E /* MicrophoneVolumeView.swift in Sources */,
 				49856ECE26E474B80015C12E /* AudioPlayer.swift in Sources */,
+				49C0D12C26E9033900B3666E /* SlideToStopActionView.swift in Sources */,
 				49C0D12526E8DE6E00B3666E /* WaveView.swift in Sources */,
+				49C0D12E26E904AA00B3666E /* SlideToActionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
