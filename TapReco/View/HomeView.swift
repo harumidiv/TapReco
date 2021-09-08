@@ -11,7 +11,7 @@ struct HomeView: View {
     let audioRecorder: AudioRecoder = AudioRecorderImpl()
     let audioPlayer: AudioPlayer = AudioPlayerImpl()
     
-    @State var isRecording: Bool = false
+    @State var isRecording:Bool = false
     
     var body: some View {
         if !isRecording {
@@ -33,10 +33,6 @@ struct HomeView: View {
                         .frame(width: 300, height: 300)
                         .onTapGesture {}
                         .allowsHitTesting(false)
-                    
-                    // 検証用でここに表示
-                    SlideToStopActionView()
-                        .frame(width: 300, height: 50)
                 }
             }
         } else {
@@ -55,11 +51,11 @@ struct HomeView: View {
                         .border(Color.red, width: 1)
                     Text("00:00:00")
                         .font(.largeTitle)
-                    Button("録画停止") {
+                    SlideToStopActionView {
                         _ = self.audioRecorder.recordStop()
                         isRecording = false
-                    }.frame(width: 200, height: 50, alignment: .center)
-                    .background(Color.black)
+                    }
+                    .frame(width: 200, height: 50)
                     .padding(10)
                     Text("スライドして録音停止")
                         .font(.body)

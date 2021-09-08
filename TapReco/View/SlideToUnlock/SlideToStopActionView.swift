@@ -10,9 +10,14 @@ import SwiftUI
 
 struct SlideToStopActionView: UIViewRepresentable {
     var slideToActionView = SlideToActionView()
+    var completion: () -> Void
     
     func makeUIView(context: UIViewRepresentableContext<SlideToStopActionView>) -> UIView {
         let view = UIView(frame: .zero)
+        
+        slideToActionView.slideDidComplete = { () -> Void in
+            completion()
+        }
         
         // TODO ここを外で設定された値を引っ張ってきてcornerRadiusを設定したい
         let cornerRadius: CGFloat = 25

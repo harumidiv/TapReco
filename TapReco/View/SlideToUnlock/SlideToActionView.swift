@@ -40,9 +40,9 @@ final class SlideToActionView: UIView {
     }()
     
     private var leadingThumbnailViewConstraint: NSLayoutConstraint?
+    private var isFinished: Bool = false
     
-    // TODO この値の変更をSwiftUIに流す
-    var isFinished: Bool = false
+    var slideDidComplete: (()->Void)?
     
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
@@ -79,6 +79,7 @@ final class SlideToActionView: UIView {
             if translatedPoint >= xEndingPoint {
                 updateThumbnailPosition(xEndingPoint)
                 isFinished = true
+                slideDidComplete?()
                 return
             }
             
