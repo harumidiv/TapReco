@@ -12,7 +12,6 @@ struct MicrophoneVolumeView: View {
     @ObservedObject var microphoneLebelManager = MicrophoneLebelManager()
     
     var body: some View {
-        
         VStack {
             Rectangle()
                 .foregroundColor(.gray)
