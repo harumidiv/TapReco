@@ -9,20 +9,29 @@ import SwiftUI
 import Lottie
 
 struct LottieAnimationView: UIViewRepresentable {
-    func makeUIView(context: Context) -> AnimationView {
-        let view = AnimationView(name: "microphone", bundle: Bundle.main)
-        view.isUserInteractionEnabled = false
-        view.loopMode = .loop
-        view.play { (status) in
-            if status {
-                withAnimation(.interactiveSpring(response: 0.6, dampingFraction: 0.8, blendDuration: 0.8)) {
-                }
-            }
-        }
-
+    let name: String
+    let loopMode: LottieLoopMode
+    
+    var animationView = AnimationView()
+    
+    func makeUIView(context: UIViewRepresentableContext<LottieAnimationView>) -> UIView {
+        let view = UIView(frame: .zero)
+        
+        animationView.animation = Animation.named(name)
+        animationView.contentMode = .scaleAspectFit
+        animationView.loopMode = loopMode
+        animationView.play()
+        
+        animationView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(animationView)
+        
+        NSLayoutConstraint.activate([
+            animationView.heightAnchor.constraint(equalTo: view.heightAnchor),
+            animationView.widthAnchor.constraint(equalTo: view.widthAnchor)
+        ])
+        
         return view
     }
-
-    func updateUIView(_ uiView: AnimationView, context: Context) {
-    }
+    
+    func updateUIView(_ uiView: UIView, context: Context) {}
 }

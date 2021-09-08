@@ -27,7 +27,8 @@ struct ContentView: View {
                         }
                     }
                 
-                LottieAnimationView().frame(width: 100)
+                LottieAnimationView(name: "microphone", loopMode: .loop)
+                    .frame(width: 300, height: 300)
                     .onTapGesture {}
                     .allowsHitTesting(false)
                 // TODO ここは半モーダルViewに移行する
