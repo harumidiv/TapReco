@@ -10,25 +10,29 @@ import SwiftUI
 struct WaveView: View {
     @ObservedObject var manager: MicrophoneLebelManager
     
+    let width: CGFloat
     let topViewHeight: CGFloat
     let BottomViewHeight: CGFloat
+    let topViewColor: Color
+    let bottomViewColor: Color
     
-    private let margin: CGFloat = 5
+    var margin: CGFloat = 5
     
     var body: some View {
         GeometryReader { geometry in
-            let halfWidth = geometry.size.width / 2
             let halfHeiht = geometry.size.height / 2
             
             Rectangle()
-                .frame(width: 10, height: topViewHeight + (topViewHeight * manager.volume))
+                .frame(width: width,
+                       height: topViewHeight + (topViewHeight * manager.volume))
                 .foregroundColor(.red)
-                .offset(x: halfWidth,
+                .offset(x: 0,
                         y: halfHeiht - margin - topViewHeight - (topViewHeight * manager.volume))
             Rectangle()
-                .frame(width: 10, height: BottomViewHeight + (BottomViewHeight * manager.volume))
+                .frame(width: width,
+                       height: BottomViewHeight + (BottomViewHeight * manager.volume))
                 .foregroundColor(.blue)
-                .offset(x: halfWidth,
+                .offset(x: 0,
                         y: halfHeiht + margin)
         }
     }
