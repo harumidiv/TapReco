@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  HomeView.swift
 //  TapReco
 //
 //  Created by 佐川 晴海 on 2021/08/30.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct HomeView: View {
     let audioRecorder: AudioRecoder = AudioRecorderImpl()
     let audioPlayer: AudioPlayer = AudioPlayerImpl()
     
@@ -67,6 +67,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        HomeView()
     }
 }
