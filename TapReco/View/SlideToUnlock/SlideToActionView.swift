@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SwiftUI
 
 final class SlideToActionView: UIView {
     let backgroundView: UIView = {
@@ -53,9 +52,19 @@ final class SlideToActionView: UIView {
         super.init(frame: frame)
         setupView()
     }
+
     init() {
       super.init(frame: .zero)
         setupView()
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        let radius = self.frame.height / 2
+        backgroundView.layer.cornerRadius = radius
+        dragAreaView.layer.cornerRadius = radius
+        thumnailImageView.layer.cornerRadius = radius
     }
     
     @objc private func handlePanGesture(_ sender: UIPanGestureRecognizer) {

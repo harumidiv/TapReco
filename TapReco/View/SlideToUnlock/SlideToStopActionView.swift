@@ -9,22 +9,17 @@ import UIKit
 import SwiftUI
 
 struct SlideToStopActionView: UIViewRepresentable {
-    var slideToActionView = SlideToActionView()
     var completion: () -> Void
     
     func makeUIView(context: UIViewRepresentableContext<SlideToStopActionView>) -> UIView {
         let view = UIView(frame: .zero)
         
+        let slideToActionView = SlideToActionView()
         slideToActionView.slideDidComplete = { () -> Void in
             completion()
         }
         
-        // TODO ここを外で設定された値を引っ張ってきてcornerRadiusを設定したい
-        let cornerRadius: CGFloat = 25
-
-        slideToActionView.backgroundView.layer.cornerRadius = cornerRadius
-        slideToActionView.dragAreaView.layer.cornerRadius = cornerRadius
-        slideToActionView.thumnailImageView.layer.cornerRadius = cornerRadius
+        
         slideToActionView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(slideToActionView)
         
@@ -36,6 +31,5 @@ struct SlideToStopActionView: UIViewRepresentable {
         return view
     }
     
-    func updateUIView(_ uiView: UIView, context: Context) {
-    }
+    func updateUIView(_ uiView: UIView, context: Context) {}
 }
