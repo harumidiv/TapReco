@@ -7,9 +7,9 @@
 
 import AVFoundation
 
-protocol AudioRecoder: AVAudioRecorderDelegate {
+protocol AudioRecoder: AVAudioRecorderDelegate, ObservableObject {
     func record()
-    func recordStop() -> Data?
+    func recordStop()
 }
  
 final class AudioRecorderImpl: NSObject {
@@ -39,10 +39,8 @@ extension AudioRecorderImpl: AudioRecoder {
         audioRecorder.record()
     }
     
-    func recordStop() -> Data? {
+    func recordStop()  {
         audioRecorder.stop()
-        let data = try? Data(contentsOf: getURL())
-        return data
     }
         
 }

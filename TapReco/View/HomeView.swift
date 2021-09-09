@@ -8,23 +8,20 @@
 import SwiftUI
 
 struct HomeView: View {
-    let audioRecorder: AudioRecoder = AudioRecorderImpl()
-    let audioPlayer: AudioPlayer = AudioPlayerImpl()
+    @StateObject private var audioRecorder = AudioRecorderImpl()
+    @StateObject private var audioPlayer = AudioPlayerImpl()
     
-    @State var isRecording: Bool = false
+    @State var isRecording:Bool = false
     
     var body: some View {
-        if !isRecording {
-            ZStack {
+        ZStack {
+            if !isRecording {
                 Rectangle()
                     .frame(width: UIScreen.main.bounds.width,
                            height: UIScreen.main.bounds.height)
                     .foregroundColor(.gray)
                     .onTapGesture {
-                        if !isRecording {
-                            self.audioRecorder.record()
-                            isRecording = true
-                        }
+                        isRecording = true
                     }
                 VStack {
                     Text("Voice memo")
@@ -34,9 +31,7 @@ struct HomeView: View {
                         .onTapGesture {}
                         .allowsHitTesting(false)
                 }
-            }
-        } else {
-            ZStack {
+            } else {
                 Rectangle()
                     .frame(width: UIScreen.main.bounds.width,
                            height: UIScreen.main.bounds.height)
@@ -51,16 +46,19 @@ struct HomeView: View {
                         .border(Color.red, width: 1)
                     Text("00:00:00")
                         .font(.largeTitle)
-                    Button("録画停止") {
-                        _ = self.audioRecorder.recordStop()
-                        isRecording = false
-                    }.frame(width: 200, height: 50, alignment: .center)
-                    .background(Color.black)
-                    .padding(10)
+                    SlideToStopActionView(isRecording: $isRecording)
+                        .frame(width: 200, height: 50)
+                        .padding(10)
                     Text("スライドして録音停止")
                         .font(.body)
                     
                 }
+            }
+        }.onChange(of: isRecording) { isRecording in
+            if isRecording {
+                audioRecorder.record()
+            } else {
+                audioRecorder.recordStop()
             }
         }
         
