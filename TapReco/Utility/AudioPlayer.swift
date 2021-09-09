@@ -7,7 +7,7 @@
 
 import AVFoundation
 
-protocol AudioPlayer {
+protocol AudioPlayer: ObservableObject{
     func playStart()
     func playStop()
 }

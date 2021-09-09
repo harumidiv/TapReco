@@ -9,14 +9,14 @@ import UIKit
 import SwiftUI
 
 struct SlideToStopActionView: UIViewRepresentable {
-    var completion: () -> Void
+    @Binding var isRecording: Bool
     
     func makeUIView(context: UIViewRepresentableContext<SlideToStopActionView>) -> UIView {
         let view = UIView(frame: .zero)
         
         let slideToActionView = SlideToActionView()
-        slideToActionView.slideDidComplete = { () -> Void in
-            completion()
+        slideToActionView.slideDidComplete = {
+            isRecording = false
         }
         
         
