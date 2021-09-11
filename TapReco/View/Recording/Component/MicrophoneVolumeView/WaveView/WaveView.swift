@@ -15,23 +15,23 @@ struct WaveView: View {
     let BottomViewHeight: CGFloat
     let topViewColor: Color
     let bottomViewColor: Color
+    let weight: CGFloat
     
-    var margin: CGFloat = 5
+    private let margin: CGFloat = 4
     
     var body: some View {
         GeometryReader { geometry in
             let halfHeiht = geometry.size.height / 2
-            
-            Rectangle()
+            RoundedRectangle(cornerRadius: width / 2)
                 .frame(width: width,
-                       height: topViewHeight + (topViewHeight * manager.volume))
-                .foregroundColor(.red)
+                       height: topViewHeight + (topViewHeight * manager.volume) * weight)
+                .foregroundColor(topViewColor)
                 .offset(x: 0,
-                        y: halfHeiht - margin - topViewHeight - (topViewHeight * manager.volume))
-            Rectangle()
+                        y: halfHeiht - margin - topViewHeight - (topViewHeight * manager.volume) * weight)
+            RoundedRectangle(cornerRadius: width / 2)
                 .frame(width: width,
-                       height: BottomViewHeight + (BottomViewHeight * manager.volume))
-                .foregroundColor(.blue)
+                       height: BottomViewHeight + (BottomViewHeight * manager.volume) * weight)
+                .foregroundColor(bottomViewColor)
                 .offset(x: 0,
                         y: halfHeiht + margin)
         }

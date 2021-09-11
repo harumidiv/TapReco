@@ -14,7 +14,7 @@ struct StandbyView: View {
         Rectangle()
             .frame(width: UIScreen.main.bounds.width,
                    height: UIScreen.main.bounds.height)
-            .foregroundColor(.gray)
+            .foregroundColor(Color("tp_gray"))
             .onTapGesture {
                 isRecording = true
             }

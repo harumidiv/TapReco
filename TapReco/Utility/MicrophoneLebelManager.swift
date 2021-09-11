@@ -83,7 +83,7 @@ class MicrophoneLebelManager: ObservableObject {
             &levelMeter,
             &propertySize)
         
-        let minVol: CGFloat = -160
+        let minVol: CGFloat = -50
         let maxVol: CGFloat = 0
         // min: -60, max: -0 くらいが手元の環境では取れたのでそっちの方が綺麗に動く
         let normalizationValue = (CGFloat(levelMeter.mAveragePower) - minVol) / (maxVol - minVol)
