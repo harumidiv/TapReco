@@ -27,7 +27,6 @@ struct HomeView: View {
                 audioRecorder.recordStop()
             }
         }
-        
     }
 }
 

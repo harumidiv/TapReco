@@ -32,7 +32,7 @@ final class SlideToActionView: UIView {
     
     let dragAreaView: UIView = {
         let view = UIView()
-        view.backgroundColor = .gray
+        view.backgroundColor = UIColor(named: "tp_gray")
         view.clipsToBounds = true
         view.layer.masksToBounds = true
         return view
