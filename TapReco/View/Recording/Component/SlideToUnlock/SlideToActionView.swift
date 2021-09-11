@@ -16,7 +16,7 @@ final class SlideToActionView: UIView {
     
     let textLabel: UILabel = {
         let label = UILabel.init()
-        label.text = "Slide to stop"
+        label.text = "   スライドで録音停止"
         label.textColor = .white
         label.textAlignment = .center
         return label

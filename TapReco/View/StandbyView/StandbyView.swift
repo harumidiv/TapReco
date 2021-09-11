@@ -25,6 +25,8 @@ struct StandbyView: View {
                 .frame(width: 300, height: 300)
                 .onTapGesture {}
                 .allowsHitTesting(false)
+            Text("画面をタップで録音開始")
+                .font(.body)
         }
     }
 }

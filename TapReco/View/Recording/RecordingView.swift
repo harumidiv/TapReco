@@ -21,16 +21,13 @@ struct RecordingView: View {
             Text("Voice memo")
                 .font(.largeTitle)
             MicrophoneVolumeView()
-                .frame(width: 300, height: 300, alignment: .center)
-                .border(Color.red, width: 1)
+                .frame(width: 300, height: 200, alignment: .center)
             Text("00:00:00")
                 .font(.largeTitle)
+                .padding(20)
             SlideToStopActionView(isRecording: $isRecording)
-                .frame(width: 200, height: 50)
+                .frame(width: 250, height: 50)
                 .padding(10)
-            Text("スライドして録音停止")
-                .font(.body)
-            
         }
     }
 }
