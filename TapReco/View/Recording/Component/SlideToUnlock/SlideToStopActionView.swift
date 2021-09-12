@@ -10,12 +10,14 @@ import SwiftUI
 
 struct SlideToStopActionView: UIViewRepresentable {
     @Binding var isRecording: Bool
+    @ObservedObject var timerHolder: TimerHolder
     
     func makeUIView(context: UIViewRepresentableContext<SlideToStopActionView>) -> UIView {
         let view = UIView(frame: .zero)
         
         let slideToActionView = SlideToActionView()
         slideToActionView.slideDidComplete = {
+            timerHolder.stop()
             isRecording = false
         }
         

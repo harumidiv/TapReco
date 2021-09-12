@@ -20,9 +20,12 @@
 		4994CC3326E78C39003A34ED /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 4994CC3226E78C39003A34ED /* Lottie */; };
 		4994CC3626E78CB4003A34ED /* LottieAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4994CC3526E78CB4003A34ED /* LottieAnimationView.swift */; };
 		4994CC3826E78D6A003A34ED /* microphone.json in Resources */ = {isa = PBXBuildFile; fileRef = 4994CC3726E78D6A003A34ED /* microphone.json */; };
+		49BEE51F26EDDF460002C43B /* TimerHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BEE51E26EDDF460002C43B /* TimerHolder.swift */; };
 		49C0D12526E8DE6E00B3666E /* WaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C0D12426E8DE6E00B3666E /* WaveView.swift */; };
 		49C0D12C26E9033900B3666E /* SlideToStopActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C0D12B26E9033900B3666E /* SlideToStopActionView.swift */; };
 		49C0D12E26E904AA00B3666E /* SlideToActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C0D12D26E904AA00B3666E /* SlideToActionView.swift */; };
+		49C0D13026EA317500B3666E /* RecordingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C0D12F26EA317500B3666E /* RecordingView.swift */; };
+		49C0D13226EA31C900B3666E /* StandbyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C0D13126EA31C900B3666E /* StandbyView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,9 +64,12 @@
 		49856F8826E6E76D0015C12E /* MicrophoneVolumeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicrophoneVolumeView.swift; sourceTree = "<group>"; };
 		4994CC3526E78CB4003A34ED /* LottieAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieAnimationView.swift; sourceTree = "<group>"; };
 		4994CC3726E78D6A003A34ED /* microphone.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = microphone.json; sourceTree = "<group>"; };
+		49BEE51E26EDDF460002C43B /* TimerHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerHolder.swift; sourceTree = "<group>"; };
 		49C0D12426E8DE6E00B3666E /* WaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveView.swift; sourceTree = "<group>"; };
 		49C0D12B26E9033900B3666E /* SlideToStopActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideToStopActionView.swift; sourceTree = "<group>"; };
 		49C0D12D26E904AA00B3666E /* SlideToActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideToActionView.swift; sourceTree = "<group>"; };
+		49C0D12F26EA317500B3666E /* RecordingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingView.swift; sourceTree = "<group>"; };
+		49C0D13126EA31C900B3666E /* StandbyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandbyView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +163,7 @@
 				49856ECD26E474B80015C12E /* AudioPlayer.swift */,
 				49856ECA26E474030015C12E /* AudioRecorderImpl.swift */,
 				49856F4D26E633080015C12E /* MicrophoneLebelManager.swift */,
+				49BEE51E26EDDF460002C43B /* TimerHolder.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -165,9 +172,8 @@
 			isa = PBXGroup;
 			children = (
 				4925089C26DCF7D3005169AE /* HomeView.swift */,
-				4994CC3426E78C97003A34ED /* LottieAnimationView */,
-				49C0D12926E902F500B3666E /* SlideToUnlock */,
-				49856F8726E6E7380015C12E /* MicrophoneVolumeView */,
+				49C0D13326EA331E00B3666E /* StandbyView */,
+				49C0D13426EA332C00B3666E /* Recording */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -213,6 +219,33 @@
 				49C0D12426E8DE6E00B3666E /* WaveView.swift */,
 			);
 			path = WaveView;
+			sourceTree = "<group>";
+		};
+		49C0D13326EA331E00B3666E /* StandbyView */ = {
+			isa = PBXGroup;
+			children = (
+				49C0D13126EA31C900B3666E /* StandbyView.swift */,
+				4994CC3426E78C97003A34ED /* LottieAnimationView */,
+			);
+			path = StandbyView;
+			sourceTree = "<group>";
+		};
+		49C0D13426EA332C00B3666E /* Recording */ = {
+			isa = PBXGroup;
+			children = (
+				49C0D12F26EA317500B3666E /* RecordingView.swift */,
+				49C0D13526EA336600B3666E /* Component */,
+			);
+			path = Recording;
+			sourceTree = "<group>";
+		};
+		49C0D13526EA336600B3666E /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				49856F8726E6E7380015C12E /* MicrophoneVolumeView */,
+				49C0D12926E902F500B3666E /* SlideToUnlock */,
+			);
+			path = Component;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -355,9 +388,12 @@
 				4925089D26DCF7D3005169AE /* HomeView.swift in Sources */,
 				4994CC3626E78CB4003A34ED /* LottieAnimationView.swift in Sources */,
 				49856F4E26E633080015C12E /* MicrophoneLebelManager.swift in Sources */,
+				49BEE51F26EDDF460002C43B /* TimerHolder.swift in Sources */,
+				49C0D13226EA31C900B3666E /* StandbyView.swift in Sources */,
 				4925089B26DCF7D3005169AE /* TapRecoApp.swift in Sources */,
 				49856F8926E6E76D0015C12E /* MicrophoneVolumeView.swift in Sources */,
 				49856ECE26E474B80015C12E /* AudioPlayer.swift in Sources */,
+				49C0D13026EA317500B3666E /* RecordingView.swift in Sources */,
 				49C0D12C26E9033900B3666E /* SlideToStopActionView.swift in Sources */,
 				49C0D12526E8DE6E00B3666E /* WaveView.swift in Sources */,
 				49C0D12E26E904AA00B3666E /* SlideToActionView.swift in Sources */,

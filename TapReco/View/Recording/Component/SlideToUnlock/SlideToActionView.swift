@@ -16,7 +16,7 @@ final class SlideToActionView: UIView {
     
     let textLabel: UILabel = {
         let label = UILabel.init()
-        label.text = "Slide to stop"
+        label.text = "   スライドで録音停止"
         label.textColor = .white
         label.textAlignment = .center
         return label
@@ -32,7 +32,7 @@ final class SlideToActionView: UIView {
     
     let dragAreaView: UIView = {
         let view = UIView()
-        view.backgroundColor = .gray
+        view.backgroundColor = UIColor(named: "tp_gray")
         view.clipsToBounds = true
         view.layer.masksToBounds = true
         return view
