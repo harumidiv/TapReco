@@ -29,17 +29,17 @@ struct MicrophoneVolumeView: View {
                 RoundedRectangle(cornerRadius: width / 2)
                     .foregroundColor(Color("tp_dark_gray"))
                     .frame(width: width,
-                           height: 45 + (45 * manager.volume) * weight)
+                           height: abs(45 + (45 * manager.volume) * weight))
                     .padding(padding)
                 RoundedRectangle(cornerRadius: width / 2)
                     .foregroundColor(Color("tp_dark_gray"))
                     .frame(width: width,
-                           height: 30 + (30 * manager.volume) * weight)
+                           height: abs(30 + (30 * manager.volume) * weight))
                     .padding(padding)
                 RoundedRectangle(cornerRadius: width / 2)
                     .foregroundColor(Color("tp_dark_gray"))
                     .frame(width: width,
-                           height: 20 + (20 * manager.volume) * weight)
+                           height: abs(20 + (20 * manager.volume) * weight))
                     .offset(x: 0, y: -10.0)
                     .padding(padding)
                 WaveView(manager: manager,
@@ -55,12 +55,12 @@ struct MicrophoneVolumeView: View {
                 RoundedRectangle(cornerRadius: width / 2)
                     .foregroundColor(Color("tp_dark_gray"))
                     .frame(width: width,
-                           height: 45 + (45 * manager.volume) * weight)
+                           height: abs(45 + (45 * manager.volume) * weight))
                     .padding(padding)
                 RoundedRectangle(cornerRadius: width / 2)
                     .foregroundColor(Color("tp_yellow"))
                     .frame(width: width,
-                           height: 30 + (30 * manager.volume) * weight)
+                           height: abs(30 + (30 * manager.volume) * weight))
                     .offset(y: 11)
                     .padding(padding)
                 WaveView(manager: manager,
@@ -86,19 +86,19 @@ struct MicrophoneVolumeView: View {
                 RoundedRectangle(cornerRadius: width / 2)
                     .foregroundColor(Color("tp_green"))
                     .frame(width: width,
-                           height: 45 + (45 * manager.volume) * weight)
+                           height: abs(45 + (45 * manager.volume) * weight))
                     .padding(padding)
             }
             Group {
                 RoundedRectangle(cornerRadius: width / 2)
                     .foregroundColor(Color("tp_yellow"))
                     .frame(width: width,
-                           height: 30 + (30 * manager.volume) * weight)
+                           height: abs(30 + (30 * manager.volume) * weight))
                     .padding(padding)
                 RoundedRectangle(cornerRadius: width / 2)
                     .foregroundColor(Color("tp_yellow"))
                     .frame(width: width,
-                           height: 20 + (20 * manager.volume) * weight)
+                           height: abs(20 + (20 * manager.volume) * weight))
                     .padding(padding)
                 WaveView(manager: manager,
                          width: width,
@@ -113,7 +113,7 @@ struct MicrophoneVolumeView: View {
                 RoundedRectangle(cornerRadius: width / 2)
                     .foregroundColor(Color("tp_dark_gray"))
                     .frame(width: width,
-                           height: 35 + (35 * manager.volume) * weight)
+                           height: abs(35 + (35 * manager.volume) * weight))
                     .padding(padding)
                 WaveView(manager: manager,
                          width: width,
@@ -128,7 +128,7 @@ struct MicrophoneVolumeView: View {
                 RoundedRectangle(cornerRadius: width / 2)
                     .foregroundColor(Color("tp_dark_gray"))
                     .frame(width: width,
-                           height: 20 + (20 * manager.volume) * weight)
+                           height: abs(20 + (20 * manager.volume) * weight))
                     .offset(y: -10)
                     .padding(padding)
                 WaveView(manager: manager,
@@ -144,12 +144,12 @@ struct MicrophoneVolumeView: View {
                 RoundedRectangle(cornerRadius: width / 2)
                     .foregroundColor(Color("tp_dark_gray"))
                     .frame(width: width,
-                           height: 37 + (37 * manager.volume) * weight)
+                           height: abs(37 + (37 * manager.volume) * weight))
                     .padding(padding)
                 RoundedRectangle(cornerRadius: width / 2)
                     .foregroundColor(Color("tp_dark_gray"))
                     .frame(width: width,
-                           height: 30 + (30 * manager.volume) * weight)
+                           height: abs(30 + (30 * manager.volume) * weight))
                     .padding(padding)
             }
         }
