@@ -24,13 +24,13 @@ struct WaveView: View {
             let halfHeiht = geometry.size.height / 2
             RoundedRectangle(cornerRadius: width / 2)
                 .frame(width: width,
-                       height: topViewHeight + (topViewHeight * manager.volume) * weight)
+                       height: abs(topViewHeight + (topViewHeight * manager.volume) * weight))
                 .foregroundColor(topViewColor)
                 .offset(x: 0,
                         y: halfHeiht - margin - topViewHeight - (topViewHeight * manager.volume) * weight)
             RoundedRectangle(cornerRadius: width / 2)
                 .frame(width: width,
-                       height: BottomViewHeight + (BottomViewHeight * manager.volume) * weight)
+                       height: abs(BottomViewHeight + (BottomViewHeight * manager.volume) * weight))
                 .foregroundColor(bottomViewColor)
                 .offset(x: 0,
                         y: halfHeiht + margin)
