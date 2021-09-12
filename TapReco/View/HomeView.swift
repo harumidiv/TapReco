@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct HomeView: View {
     @StateObject private var audioRecorder = AudioRecorderImpl()
@@ -22,6 +23,7 @@ struct HomeView: View {
             }
         }.onChange(of: isRecording) { isRecording in
             if isRecording {
+                TimerHolder().start()
                 audioRecorder.record()
             } else {
                 audioRecorder.recordStop()

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct RecordingView: View {
     @Binding var isRecording: Bool
+    @StateObject private var timerHolder = TimerHolder()
     
     var body: some View {
         Rectangle()
@@ -22,12 +23,15 @@ struct RecordingView: View {
                 .font(.largeTitle)
             MicrophoneVolumeView()
                 .frame(width: 300, height: 200, alignment: .center)
-            Text("00:00:00")
-                .font(.largeTitle)
-                .padding(20)
-            SlideToStopActionView(isRecording: $isRecording)
+            Text(timerHolder.timerText)
+                .font(.custom("Avenir", size: 50))
+            SlideToStopActionView(isRecording: $isRecording,
+                                  timerHolder: timerHolder)
                 .frame(width: 250, height: 50)
                 .padding(10)
+        }
+        .onAppear{
+            timerHolder.start()
         }
     }
 }
