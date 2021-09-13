@@ -23,8 +23,19 @@ struct HomeView: View {
             }
         }.onChange(of: isRecording) { isRecording in
             if isRecording {
-                TimerHolder().start()
-                audioRecorder.record()
+                let group = DispatchGroup()
+                let dispatchQueue = DispatchQueue(label: "queue", attributes: .concurrent)
+                group.enter()
+                
+                dispatchQueue.async(group: group) {
+                    audioRecorder.record()
+                    group.leave()
+                }
+                
+                group.notify(queue: .main) {
+                    TimerHolder().start()
+                }
+                
             } else {
                 audioRecorder.recordStop()
             }
