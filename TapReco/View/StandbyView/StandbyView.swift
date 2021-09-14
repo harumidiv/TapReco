@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AVFoundation
 
 struct StandbyView: View {
     @Binding var isRecording: Bool
@@ -16,6 +17,11 @@ struct StandbyView: View {
                    height: UIScreen.main.bounds.height)
             .foregroundColor(Color("tp_gray"))
             .onTapGesture {
+                if !isMicrophoneAuthorizationApproved() {
+                    // TODO ダイアログなどを表示してユーザに提示する必要がある、設定に飛ばすのが良い？
+                    print("ダイアログを出す")
+                    return
+                }
                 isRecording = true
             }
         VStack {
@@ -27,6 +33,17 @@ struct StandbyView: View {
                 .allowsHitTesting(false)
             Text("画面をタップで録音開始")
                 .font(.body)
+        }
+    }
+    
+    private func isMicrophoneAuthorizationApproved() -> Bool {
+        let status = AVCaptureDevice.authorizationStatus(for: .audio)
+        
+        switch status {
+        case .authorized:
+            return true
+        default:
+            return false
         }
     }
 }
