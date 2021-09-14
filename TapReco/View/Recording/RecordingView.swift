@@ -19,8 +19,6 @@ struct RecordingView: View {
             .onTapGesture {}
             .allowsTightening(false)
         VStack {
-            Text("Voice memo")
-                .font(.largeTitle)
             MicrophoneVolumeView()
                 .frame(width: 300, height: 200, alignment: .center)
             Text(timerHolder.timerText)

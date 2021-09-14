@@ -25,8 +25,6 @@ struct StandbyView: View {
                 isRecording = true
             }
         VStack {
-            Text("Voice memo")
-                .font(.largeTitle)
             LottieAnimationView(name: "microphone", loopMode: .loop)
                 .frame(width: 300, height: 300)
                 .onTapGesture {}
