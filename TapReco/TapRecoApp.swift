@@ -6,12 +6,26 @@
 //
 
 import SwiftUI
+import AVFoundation
 
 @main
 struct TapRecoApp: App {
+    @Environment(\.scenePhase) private var scenePhase
+    
     var body: some Scene {
         WindowGroup {
             HomeView()
+        }.onChange(of: scenePhase) { scene in
+            switch scene {
+            case .active:
+                // アプリ起動時のマイク使用許可のダイアログ表示
+                AVCaptureDevice.requestAccess(for: AVMediaType.audio, completionHandler: {(granted: Bool) in})
+            case .inactive:
+                print("scenePhase: inactive")
+            case .background:
+                print("scenePhase: background")
+            @unknown default: break
+            }
         }
     }
 }
