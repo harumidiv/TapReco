@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		491DE9DE2758B8640084985B /* RecordListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491DE9DD2758B8640084985B /* RecordListView.swift */; };
 		4925089B26DCF7D3005169AE /* TapRecoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4925089A26DCF7D3005169AE /* TapRecoApp.swift */; };
 		4925089D26DCF7D3005169AE /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4925089C26DCF7D3005169AE /* HomeView.swift */; };
 		4925089F26DCF7D4005169AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4925089E26DCF7D4005169AE /* Assets.xcassets */; };
@@ -46,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		491DE9DD2758B8640084985B /* RecordListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordListView.swift; sourceTree = "<group>"; };
 		4925089726DCF7D3005169AE /* TapReco.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TapReco.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4925089A26DCF7D3005169AE /* TapRecoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapRecoApp.swift; sourceTree = "<group>"; };
 		4925089C26DCF7D3005169AE /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -98,6 +100,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		491DE9DB2758B8460084985B /* RecordList */ = {
+			isa = PBXGroup;
+			children = (
+				491DE9DD2758B8640084985B /* RecordListView.swift */,
+			);
+			path = RecordList;
+			sourceTree = "<group>";
+		};
 		4925088E26DCF7D3005169AE = {
 			isa = PBXGroup;
 			children = (
@@ -172,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				4925089C26DCF7D3005169AE /* HomeView.swift */,
+				491DE9DB2758B8460084985B /* RecordList */,
 				49C0D13326EA331E00B3666E /* StandbyView */,
 				49C0D13426EA332C00B3666E /* Recording */,
 			);
@@ -393,6 +404,7 @@
 				4925089B26DCF7D3005169AE /* TapRecoApp.swift in Sources */,
 				49856F8926E6E76D0015C12E /* MicrophoneVolumeView.swift in Sources */,
 				49856ECE26E474B80015C12E /* AudioPlayer.swift in Sources */,
+				491DE9DE2758B8640084985B /* RecordListView.swift in Sources */,
 				49C0D13026EA317500B3666E /* RecordingView.swift in Sources */,
 				49C0D12C26E9033900B3666E /* SlideToStopActionView.swift in Sources */,
 				49C0D12526E8DE6E00B3666E /* WaveView.swift in Sources */,
