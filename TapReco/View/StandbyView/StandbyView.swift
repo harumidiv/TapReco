@@ -10,6 +10,7 @@ import AVFoundation
 
 struct StandbyView: View {
     @Binding var isRecording: Bool
+    @State var isPresentedRecordListView = false
     
     var body: some View {
         Rectangle()
@@ -25,14 +26,22 @@ struct StandbyView: View {
                 isRecording = true
             }
         VStack {
-            Text("Voice memo")
-                .font(.largeTitle)
             LottieAnimationView(name: "microphone", loopMode: .loop)
                 .frame(width: 300, height: 300)
                 .onTapGesture {}
                 .allowsHitTesting(false)
             Text("画面をタップで録音開始")
                 .font(.body)
+            Button(action: {
+                
+                // TODO SlideToUnlockが解除されたタイミングでフラグを切り替える
+                self.isPresentedRecordListView.toggle()
+            }) {
+                Text("TODO スライドボタンに置き換える")
+            }
+            .sheet(isPresented: $isPresentedRecordListView) {
+                RecordListView()
+            }
         }
     }
     

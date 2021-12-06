@@ -8,20 +8,24 @@
 import AVFoundation
 
 protocol AudioRecoder: AVAudioRecorderDelegate, ObservableObject {
-    func record()
+    func recordStart()
     func recordStop()
 }
  
 final class AudioRecorderImpl: NSObject {
     private var audioRecorder: AVAudioRecorder!
     
-    private func getURL() -> URL{
-        return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("sound.m4a")
+    private func createURL() -> URL{
+        let documentPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        let recordTitle: String = Date().toString(format: .tapRecorYear) + ".m4a"
+        let filePath = documentPath.appendingPathComponent(recordTitle)
+
+        return filePath
     }
 }
 
 extension AudioRecorderImpl: AudioRecoder {
-    func record() {
+    func recordStart() {
         let session = AVAudioSession.sharedInstance()
         try! session.setCategory(AVAudioSession.Category.playAndRecord, options: [.defaultToSpeaker])
         try! session.setActive(true)
@@ -34,7 +38,7 @@ extension AudioRecorderImpl: AudioRecoder {
             AVSampleRateKey: 44100.0
         ]
         
-        audioRecorder = try! AVAudioRecorder(url: getURL(), settings: settings)
+        audioRecorder = try! AVAudioRecorder(url: createURL(), settings: settings)
         audioRecorder.prepareToRecord()
         audioRecorder.record()
     }
