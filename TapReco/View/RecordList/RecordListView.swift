@@ -15,10 +15,11 @@ struct RecordListView: View {
     }
     
     private func recordListCount() -> Int {
-        let documentPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].absoluteString
+        let documentPath = NSHomeDirectory() + "/Documents"
         guard let fileNames = try? FileManager.default.contentsOfDirectory(atPath: documentPath) else {
             return 0
         }
+        
         return fileNames.count
     }
 }
