@@ -9,7 +9,17 @@ import SwiftUI
 
 struct RecordListView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ForEach(0..<recordListCount()) {_ in
+            Text("Hello, World!")
+        }
+    }
+    
+    private func recordListCount() -> Int {
+        let documentPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].absoluteString
+        guard let fileNames = try? FileManager.default.contentsOfDirectory(atPath: documentPath) else {
+            return 0
+        }
+        return fileNames.count
     }
 }
 

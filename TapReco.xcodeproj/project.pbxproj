@@ -15,7 +15,7 @@
 		492508AD26DCF7D4005169AE /* TapRecoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492508AC26DCF7D4005169AE /* TapRecoTests.swift */; };
 		492508B826DCF7D4005169AE /* TapRecoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492508B726DCF7D4005169AE /* TapRecoUITests.swift */; };
 		49409CC0275DDDCA003933BA /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49409CBF275DDDCA003933BA /* Date+Extension.swift */; };
-		49856ECB26E474030015C12E /* AudioRecorderImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49856ECA26E474030015C12E /* AudioRecorderImpl.swift */; };
+		49856ECB26E474030015C12E /* AudioRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49856ECA26E474030015C12E /* AudioRecorder.swift */; };
 		49856ECE26E474B80015C12E /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49856ECD26E474B80015C12E /* AudioPlayer.swift */; };
 		49856F4E26E633080015C12E /* MicrophoneLebelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49856F4D26E633080015C12E /* MicrophoneLebelManager.swift */; };
 		49856F8926E6E76D0015C12E /* MicrophoneVolumeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49856F8826E6E76D0015C12E /* MicrophoneVolumeView.swift */; };
@@ -62,7 +62,7 @@
 		492508B726DCF7D4005169AE /* TapRecoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapRecoUITests.swift; sourceTree = "<group>"; };
 		492508B926DCF7D4005169AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49409CBF275DDDCA003933BA /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
-		49856ECA26E474030015C12E /* AudioRecorderImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorderImpl.swift; sourceTree = "<group>"; };
+		49856ECA26E474030015C12E /* AudioRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorder.swift; sourceTree = "<group>"; };
 		49856ECD26E474B80015C12E /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 		49856F4D26E633080015C12E /* MicrophoneLebelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicrophoneLebelManager.swift; sourceTree = "<group>"; };
 		49856F8826E6E76D0015C12E /* MicrophoneVolumeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicrophoneVolumeView.swift; sourceTree = "<group>"; };
@@ -182,7 +182,7 @@
 			children = (
 				49409CBE275DDDBC003933BA /* Extension */,
 				49856ECD26E474B80015C12E /* AudioPlayer.swift */,
-				49856ECA26E474030015C12E /* AudioRecorderImpl.swift */,
+				49856ECA26E474030015C12E /* AudioRecorder.swift */,
 				49856F4D26E633080015C12E /* MicrophoneLebelManager.swift */,
 				49BEE51E26EDDF460002C43B /* TimerHolder.swift */,
 			);
@@ -406,7 +406,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49856ECB26E474030015C12E /* AudioRecorderImpl.swift in Sources */,
+				49856ECB26E474030015C12E /* AudioRecorder.swift in Sources */,
 				4925089D26DCF7D3005169AE /* HomeView.swift in Sources */,
 				4994CC3626E78CB4003A34ED /* LottieAnimationView.swift in Sources */,
 				49856F4E26E633080015C12E /* MicrophoneLebelManager.swift in Sources */,

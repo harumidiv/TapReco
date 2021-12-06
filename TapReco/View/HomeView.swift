@@ -45,7 +45,7 @@ struct HomeView: View {
         group.enter()
         
         dispatchQueue.async(group: group) {
-            audioRecorder.record()
+            audioRecorder.recordStart()
             group.leave()
         }
         
