@@ -21,6 +21,7 @@ final class AudioRecorderImpl: NSObject {
 }
 
 extension AudioRecorderImpl: AudioRecoder {
+    // TODO 再生するurlを引数でもらってくる必要がある
     func record() {
         let session = AVAudioSession.sharedInstance()
         try! session.setCategory(AVAudioSession.Category.playAndRecord, options: [.defaultToSpeaker])
