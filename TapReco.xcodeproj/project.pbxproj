@@ -28,6 +28,7 @@
 		49C0D12E26E904AA00B3666E /* SlideToActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C0D12D26E904AA00B3666E /* SlideToActionView.swift */; };
 		49C0D13026EA317500B3666E /* RecordingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C0D12F26EA317500B3666E /* RecordingView.swift */; };
 		49C0D13226EA31C900B3666E /* StandbyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C0D13126EA31C900B3666E /* StandbyView.swift */; };
+		49C53B272760D10E0062E6B3 /* RecordListSectionHeadaerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C53B262760D10E0062E6B3 /* RecordListSectionHeadaerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,7 @@
 		49C0D12D26E904AA00B3666E /* SlideToActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideToActionView.swift; sourceTree = "<group>"; };
 		49C0D12F26EA317500B3666E /* RecordingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingView.swift; sourceTree = "<group>"; };
 		49C0D13126EA31C900B3666E /* StandbyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandbyView.swift; sourceTree = "<group>"; };
+		49C53B262760D10E0062E6B3 /* RecordListSectionHeadaerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordListSectionHeadaerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				491DE9DD2758B8640084985B /* RecordListView.swift */,
+				49C53B252760D0E80062E6B3 /* Component */,
 			);
 			path = RecordList;
 			sourceTree = "<group>";
@@ -270,6 +273,14 @@
 			path = Component;
 			sourceTree = "<group>";
 		};
+		49C53B252760D0E80062E6B3 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				49C53B262760D10E0062E6B3 /* RecordListSectionHeadaerView.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -416,6 +427,7 @@
 				4925089B26DCF7D3005169AE /* TapRecoApp.swift in Sources */,
 				49856F8926E6E76D0015C12E /* MicrophoneVolumeView.swift in Sources */,
 				49856ECE26E474B80015C12E /* AudioPlayer.swift in Sources */,
+				49C53B272760D10E0062E6B3 /* RecordListSectionHeadaerView.swift in Sources */,
 				491DE9DE2758B8640084985B /* RecordListView.swift in Sources */,
 				49C0D13026EA317500B3666E /* RecordingView.swift in Sources */,
 				49C0D12C26E9033900B3666E /* SlideToStopActionView.swift in Sources */,

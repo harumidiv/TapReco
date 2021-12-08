@@ -9,8 +9,12 @@ import SwiftUI
 
 struct RecordListView: View {
     var body: some View {
-        ForEach(0..<recordListCount()) {_ in
-            Text("Hello, World!")
+        List {
+            Section(header: RecordListSectionHeadaerView(), content: {
+                ForEach(0..<recordListCount()) {_ in
+                    Text("Hello, World!")
+                }
+            })
         }
     }
     
