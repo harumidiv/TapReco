@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct RecordListView: View {
+    @Binding var isPresentedRecordListView: Bool
     var body: some View {
         VStack {
-            RecordListHeaderView()
+            RecordListHeaderView(isPresentedRecordListView: $isPresentedRecordListView)
             List {
                 ForEach(0..<recordListCount()) {_ in
                     Text("Hello, World!")
@@ -31,6 +32,6 @@ struct RecordListView: View {
 
 struct RecordListView_Previews: PreviewProvider {
     static var previews: some View {
-        RecordListView()
+        RecordListView(isPresentedRecordListView: .constant(false))
     }
 }

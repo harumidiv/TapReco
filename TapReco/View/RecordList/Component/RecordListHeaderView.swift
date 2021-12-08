@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct RecordListHeaderView: View {
+    @Binding var isPresentedRecordListView: Bool
+    
     var body: some View {
         VStack {
             Spacer().frame(height: 30)
@@ -17,7 +19,7 @@ struct RecordListHeaderView: View {
                     .font(.largeTitle)
                 Spacer()
                 Button(action: {
-                    // 画面を閉じる
+                    isPresentedRecordListView = false
                 }){
                     // TODOボタンのレイアウトがうまくいっていないので後で修正が必要
                     Image("icon_section_header")
@@ -51,6 +53,6 @@ struct RecordListHeaderView: View {
 
 struct RecordListSectionHeadaerView_Previews: PreviewProvider {
     static var previews: some View {
-        RecordListHeaderView()
+        RecordListHeaderView(isPresentedRecordListView: .constant(false))
     }
 }

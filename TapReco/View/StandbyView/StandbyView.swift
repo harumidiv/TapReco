@@ -40,7 +40,7 @@ struct StandbyView: View {
                 Text("TODO スライドボタンに置き換える")
             }
             .fullScreenCover(isPresented: $isPresentedRecordListView) {
-                RecordListView()
+                RecordListView(isPresentedRecordListView: $isPresentedRecordListView)
             }
         }
     }
