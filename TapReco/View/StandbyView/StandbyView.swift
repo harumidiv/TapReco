@@ -27,6 +27,7 @@ struct StandbyView: View {
             }
             .ignoresSafeArea()
         VStack {
+            
             Image("home")
                 .resizable() //TODO指定の仕方がわかったら直す
                 .frame(width: UIScreen.main.bounds.width,

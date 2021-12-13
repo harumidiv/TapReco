@@ -196,8 +196,8 @@
 			isa = PBXGroup;
 			children = (
 				4925089C26DCF7D3005169AE /* HomeView.swift */,
-				491DE9DB2758B8460084985B /* RecordList */,
 				49C0D13326EA331E00B3666E /* StandbyView */,
+				491DE9DB2758B8460084985B /* RecordList */,
 				49C0D13426EA332C00B3666E /* Recording */,
 			);
 			path = View;

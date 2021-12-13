@@ -22,13 +22,6 @@ struct HomeView: View {
                 RecordingView(isRecording: $isRecording)
             }
             
-            GeometryReader { geometry in
-                Text("Voice memo")
-                    .frame(width: geometry.size.width, height: 300, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    .font(.largeTitle)
-                    
-            }
-            
         }.onChange(of: isRecording) { isRecording in
             if isRecording {
                 recordingProcess()
