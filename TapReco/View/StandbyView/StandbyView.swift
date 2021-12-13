@@ -28,7 +28,7 @@ struct StandbyView: View {
             .ignoresSafeArea()
         VStack {
             Image("home")
-                .resizable() //TODO指定の仕方がわかったら直す
+                .resizable()
                 .frame(width: UIScreen.main.bounds.width,
                        height: UIScreen.main.bounds.height * 0.8)
                 .onTapGesture {}
