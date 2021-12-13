@@ -21,14 +21,16 @@ struct RecordListHeaderView: View {
                 Button(action: {
                     isPresentedRecordListView = false
                 }){
-                    // TODOボタンのレイアウトがうまくいっていないので後で修正が必要
                     Image("icon_section_header")
+                        .cornerRadius(14)
                 }.background(Color.gray)
                     .frame(width: 28, height: 28)
                     .overlay(
                         RoundedRectangle(cornerRadius: 14)
-                            .stroke(Color.red, lineWidth: 1)
+                            .stroke(Color.white, lineWidth: 1)
                     )
+                    .background(Color.white)
+                    .cornerRadius(14)
                 
                 Spacer().frame(width: 30)
             }

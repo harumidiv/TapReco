@@ -25,13 +25,20 @@ struct StandbyView: View {
                 }
                 isRecording = true
             }
+            .ignoresSafeArea()
         VStack {
-            LottieAnimationView(name: "microphone", loopMode: .loop)
-                .frame(width: 300, height: 300)
+            Image("home")
+                .resizable() //TODO指定の仕方がわかったら直す
+                .frame(width: UIScreen.main.bounds.width,
+                       height: UIScreen.main.bounds.height * 0.8)
                 .onTapGesture {}
                 .allowsHitTesting(false)
-            Text("画面をタップで録音開始")
-                .font(.body)
+                .padding(EdgeInsets(
+                                top: 16,
+                                leading: 8,
+                                bottom: 16,
+                                trailing: 8
+                            ))
             Button(action: {
                 
                 // TODO SlideToUnlockが解除されたタイミングでフラグを切り替える
@@ -42,6 +49,8 @@ struct StandbyView: View {
             .fullScreenCover(isPresented: $isPresentedRecordListView) {
                 RecordListView(isPresentedRecordListView: $isPresentedRecordListView)
             }
+            .frame(width: 300, height: 50)
+            .border(Color.red, width: 10)
         }
     }
     
