@@ -19,6 +19,7 @@ struct StandbyView: View {
             .foregroundColor(Color("tp_gray"))
             .onTapGesture {
                 let impactHeavy = UIImpactFeedbackGenerator(style: .heavy)
+                impactHeavy.prepare()
                 impactHeavy.impactOccurred()
                 
                 if !isMicrophoneAuthorizationApproved() {
