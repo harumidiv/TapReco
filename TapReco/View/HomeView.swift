@@ -24,29 +24,14 @@ struct HomeView: View {
             
         }.onChange(of: isRecording) { isRecording in
             if isRecording {
-                recordingProcess()
+                audioRecorder.recordStart()
+                TimerHolder().start()
                 
             } else {
                 audioRecorder.recordStop()
             }
         }
     }
-    
-    private func recordingProcess() {
-        let group = DispatchGroup()
-        let dispatchQueue = DispatchQueue(label: "queue", attributes: .concurrent)
-        group.enter()
-        
-        dispatchQueue.async(group: group) {
-            audioRecorder.recordStart()
-            group.leave()
-        }
-        
-        group.notify(queue: .main) {
-            TimerHolder().start()
-        }
-    }
-    
 }
 
 
