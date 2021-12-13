@@ -18,6 +18,9 @@ struct StandbyView: View {
                    height: UIScreen.main.bounds.height)
             .foregroundColor(Color("tp_gray"))
             .onTapGesture {
+                let impactMed = UIImpactFeedbackGenerator(style: .heavy)
+                impactMed.impactOccurred()
+                
                 if !isMicrophoneAuthorizationApproved() {
                     // TODO ダイアログなどを表示してユーザに提示する必要がある、設定に飛ばすのが良い？
                     print("ダイアログを出す")
