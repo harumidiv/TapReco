@@ -65,8 +65,13 @@ class MicrophoneLebelManager: ObservableObject {
     func stopUpdatingVolume() {
         // Finish observation
         
-        self.recordingTimer.invalidate()
-        self.recordingTimer = nil
+        // 高速で録音開始->ストップを行うといかがnilでクラッシュしてしまうので弾く
+        // TODO ここで弾くとそれ移行HapticFeedBackが機能しなくなってしまうので調査
+        if recordingTimer == nil || queue == nil {
+            return
+        }
+        recordingTimer.invalidate()
+        recordingTimer = nil
         AudioQueueFlush(self.queue)
         AudioQueueStop(self.queue, false)
         AudioQueueDispose(self.queue, true)

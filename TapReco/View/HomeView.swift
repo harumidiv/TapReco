@@ -8,10 +8,7 @@
 import SwiftUI
 import Combine
 
-struct HomeView: View {
-    @StateObject private var audioRecorder = AudioRecorderImpl()
-    @StateObject private var audioPlayer = AudioPlayerImpl()
-    
+struct HomeView: View {    
     @State var isRecording:Bool = false
     
     var body: some View {
@@ -21,32 +18,8 @@ struct HomeView: View {
             } else {
                 RecordingView(isRecording: $isRecording)
             }
-            
-        }.onChange(of: isRecording) { isRecording in
-            if isRecording {
-                recordingProcess()
-                
-            } else {
-                audioRecorder.recordStop()
-            }
         }
     }
-    
-    private func recordingProcess() {
-        let group = DispatchGroup()
-        let dispatchQueue = DispatchQueue(label: "queue", attributes: .concurrent)
-        group.enter()
-        
-        dispatchQueue.async(group: group) {
-            audioRecorder.recordStart()
-            group.leave()
-        }
-        
-        group.notify(queue: .main) {
-            TimerHolder().start()
-        }
-    }
-    
 }
 
 

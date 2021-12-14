@@ -11,20 +11,25 @@ import AVFoundation
 struct StandbyView: View {
     @Binding var isRecording: Bool
     @State var isPresentedRecordListView = false
+    @StateObject private var audioRecorder = AudioRecorderImpl()
     
     var body: some View {
         Rectangle()
             .frame(width: UIScreen.main.bounds.width,
                    height: UIScreen.main.bounds.height)
             .foregroundColor(Color("tp_gray"))
-            .onTapGesture {
+            .gesture(LongPressGesture().onChanged { _ in
+                let impactHeavy = UIImpactFeedbackGenerator(style: .heavy)
+                impactHeavy.prepare()
+                impactHeavy.impactOccurred()
+                
                 if !isMicrophoneAuthorizationApproved() {
                     // TODO ダイアログなどを表示してユーザに提示する必要がある、設定に飛ばすのが良い？
                     print("ダイアログを出す")
                     return
                 }
                 isRecording = true
-            }
+            })
             .ignoresSafeArea()
         VStack {
             Image("home")
@@ -51,6 +56,18 @@ struct StandbyView: View {
             }
             .frame(width: 300, height: 50)
             .border(Color.red, width: 10)
+        }
+        .onChange(of: isRecording) { isRecording in
+            if isRecording {
+                let queue = DispatchQueue.global(qos: .userInitiated)
+                queue.async {
+                    audioRecorder.recordStart()
+                    TimerHolder().start()
+                }
+                
+            } else {
+                audioRecorder.recordStop()
+            }
         }
     }
     
