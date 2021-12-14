@@ -22,9 +22,10 @@ struct HomeView: View {
                 RecordingView(isRecording: $isRecording)
             }
             
-        }.onChange(of: isRecording) { isRecording in
+        }
+        .onChange(of: isRecording) { isRecording in
             if isRecording {
-                let queue = DispatchQueue.global(qos: .background)
+                let queue = DispatchQueue.global(qos: .userInitiated)
                 queue.async {
                     audioRecorder.recordStart()
                     TimerHolder().start()
