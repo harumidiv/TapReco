@@ -9,17 +9,19 @@ import SwiftUI
 
 struct DotLineView: View {
     var body: some View {
-        ZStack {
-            // TODO 画像を差し替える
-            Image("home")
-                .resizable()
-                .frame(width: .infinity, height: .infinity, alignment: .center)
-                .ignoresSafeArea()
-            VStack {
-                Image("sample")
+        GeometryReader { geometry in
+            ZStack {
+                // TODO 画像を差し替える
+                Image("home")
                     .resizable()
-                    .frame(width: 100, height: 100, alignment: .center)
-                Text("画面をタップして録音開始")
+                    .frame(width:  geometry.size.width, height:  geometry.size.height, alignment: .center)
+                    .ignoresSafeArea()
+                VStack {
+                    Image("sample")
+                        .resizable()
+                        .frame(width: 100, height: 100, alignment: .center)
+                    Text("画面をタップして録音開始")
+                }
             }
         }
     }
