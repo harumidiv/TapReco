@@ -13,7 +13,14 @@ struct StandbyView: View {
     @State var isPresentedRecordListView = false
     @StateObject private var audioRecorder = AudioRecorderImpl()
     
+    private let topMargin: CGFloat = 16
+    private let bottomMargin: CGFloat = 8
+    private let sideMargin: CGFloat = 8
+    
     var body: some View {
+        let dotLineWidth = UIScreen.main.bounds.width - sideMargin * 2
+        let dotLineHeight = UIScreen.main.bounds.height * 0.8 - (topMargin + bottomMargin)
+        
         Rectangle()
             .frame(width: UIScreen.main.bounds.width,
                    height: UIScreen.main.bounds.height)
@@ -31,31 +38,26 @@ struct StandbyView: View {
                 isRecording = true
             })
             .ignoresSafeArea()
-        VStack {
-            Image("home")
-                .resizable()
-                .frame(width: UIScreen.main.bounds.width,
-                       height: UIScreen.main.bounds.height * 0.8)
+        
+        VStack(spacing: 0) {
+            DotLineView()
+                .frame(width: dotLineWidth, height: dotLineHeight, alignment: .center)
+                .padding(EdgeInsets(top: topMargin, leading: sideMargin, bottom: bottomMargin, trailing: sideMargin))
                 .onTapGesture {}
                 .allowsHitTesting(false)
-                .padding(EdgeInsets(
-                                top: 16,
-                                leading: 8,
-                                bottom: 16,
-                                trailing: 8
-                            ))
+            //TODO ボタンを差し替える
             Button(action: {
-                
                 // TODO SlideToUnlockが解除されたタイミングでフラグを切り替える
                 self.isPresentedRecordListView.toggle()
-            }) {
+            }){
                 Text("TODO スライドボタンに置き換える")
+                    .frame(width: dotLineWidth, height: UIScreen.main.bounds.height * 0.19, alignment: .center)
+                    .border(Color.red, width: 1)
             }
+            
             .fullScreenCover(isPresented: $isPresentedRecordListView) {
                 RecordListView(isPresentedRecordListView: $isPresentedRecordListView)
             }
-            .frame(width: 300, height: 50)
-            .border(Color.red, width: 10)
         }
         .onChange(of: isRecording) { isRecording in
             if isRecording {
