@@ -11,6 +11,7 @@ import AVFoundation
 struct StandbyView: View {
     @Binding var isRecording: Bool
     @State var isPresentedRecordListView = false
+    @StateObject private var audioRecorder = AudioRecorderImpl()
     
     var body: some View {
         Rectangle()
@@ -55,6 +56,18 @@ struct StandbyView: View {
             }
             .frame(width: 300, height: 50)
             .border(Color.red, width: 10)
+        }
+        .onChange(of: isRecording) { isRecording in
+            if isRecording {
+                let queue = DispatchQueue.global(qos: .userInitiated)
+                queue.async {
+                    audioRecorder.recordStart()
+                    TimerHolder().start()
+                }
+                
+            } else {
+                audioRecorder.recordStop()
+            }
         }
     }
     

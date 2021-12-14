@@ -8,10 +8,7 @@
 import SwiftUI
 import Combine
 
-struct HomeView: View {
-    @StateObject private var audioRecorder = AudioRecorderImpl()
-    @StateObject private var audioPlayer = AudioPlayerImpl()
-    
+struct HomeView: View {    
     @State var isRecording:Bool = false
     
     var body: some View {
@@ -20,19 +17,6 @@ struct HomeView: View {
                 StandbyView(isRecording: $isRecording)
             } else {
                 RecordingView(isRecording: $isRecording)
-            }
-            
-        }
-        .onChange(of: isRecording) { isRecording in
-            if isRecording {
-                let queue = DispatchQueue.global(qos: .userInitiated)
-                queue.async {
-                    audioRecorder.recordStart()
-                    TimerHolder().start()
-                }
-                
-            } else {
-                audioRecorder.recordStop()
             }
         }
     }
