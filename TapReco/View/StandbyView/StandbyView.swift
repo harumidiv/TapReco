@@ -17,7 +17,7 @@ struct StandbyView: View {
             .frame(width: UIScreen.main.bounds.width,
                    height: UIScreen.main.bounds.height)
             .foregroundColor(Color("tp_gray"))
-            .onTapGesture {
+            .gesture(LongPressGesture().onChanged { _ in
                 let impactHeavy = UIImpactFeedbackGenerator(style: .heavy)
                 impactHeavy.prepare()
                 impactHeavy.impactOccurred()
@@ -28,7 +28,7 @@ struct StandbyView: View {
                     return
                 }
                 isRecording = true
-            }
+            })
             .ignoresSafeArea()
         VStack {
             Image("home")
