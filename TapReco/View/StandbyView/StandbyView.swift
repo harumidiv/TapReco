@@ -18,6 +18,8 @@ struct StandbyView: View {
     private let bottomMargin: CGFloat = 8
     private let sideMargin: CGFloat = 8
     
+    let presenter = StandbyPresenterImpl()
+    
     var body: some View {
         let dotLineWidth = UIScreen.main.bounds.width - sideMargin * 2
         let dotLineHeight = UIScreen.main.bounds.height * 0.8 - (topMargin + bottomMargin)
@@ -31,7 +33,7 @@ struct StandbyView: View {
                 impactHeavy.prepare()
                 impactHeavy.impactOccurred()
                 
-                if !isMicrophoneAuthorizationApproved() {
+                if !presenter.isMicrophoneAuthorizationApproved() {
                     isPresentedAlertDialog = true
                     return
                 }
@@ -81,17 +83,6 @@ struct StandbyView: View {
             } else {
                 audioRecorder.recordStop()
             }
-        }
-    }
-    
-    private func isMicrophoneAuthorizationApproved() -> Bool {
-        let status = AVCaptureDevice.authorizationStatus(for: .audio)
-        
-        switch status {
-        case .authorized:
-            return true
-        default:
-            return false
         }
     }
 }
