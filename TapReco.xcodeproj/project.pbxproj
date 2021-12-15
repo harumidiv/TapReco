@@ -22,7 +22,6 @@
 		49856F8926E6E76D0015C12E /* MicrophoneVolumeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49856F8826E6E76D0015C12E /* MicrophoneVolumeView.swift */; };
 		4994CC3326E78C39003A34ED /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 4994CC3226E78C39003A34ED /* Lottie */; };
 		4994CC3826E78D6A003A34ED /* microphone.json in Resources */ = {isa = PBXBuildFile; fileRef = 4994CC3726E78D6A003A34ED /* microphone.json */; };
-		49B7A63327686A7200A15DAC /* DotLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B7A63227686A7200A15DAC /* DotLineView.swift */; };
 		49BEE51F26EDDF460002C43B /* TimerHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BEE51E26EDDF460002C43B /* TimerHolder.swift */; };
 		49C0D12526E8DE6E00B3666E /* WaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C0D12426E8DE6E00B3666E /* WaveView.swift */; };
 		49C0D12C26E9033900B3666E /* SlideToStopActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C0D12B26E9033900B3666E /* SlideToStopActionView.swift */; };
@@ -70,7 +69,6 @@
 		49856F4D26E633080015C12E /* MicrophoneLebelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicrophoneLebelManager.swift; sourceTree = "<group>"; };
 		49856F8826E6E76D0015C12E /* MicrophoneVolumeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicrophoneVolumeView.swift; sourceTree = "<group>"; };
 		4994CC3726E78D6A003A34ED /* microphone.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = microphone.json; sourceTree = "<group>"; };
-		49B7A63227686A7200A15DAC /* DotLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotLineView.swift; sourceTree = "<group>"; };
 		49BEE51E26EDDF460002C43B /* TimerHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerHolder.swift; sourceTree = "<group>"; };
 		49C0D12426E8DE6E00B3666E /* WaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveView.swift; sourceTree = "<group>"; };
 		49C0D12B26E9033900B3666E /* SlideToStopActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideToStopActionView.swift; sourceTree = "<group>"; };
@@ -223,14 +221,6 @@
 			path = Recource;
 			sourceTree = "<group>";
 		};
-		49B7A63427686A8400A15DAC /* Component */ = {
-			isa = PBXGroup;
-			children = (
-				49B7A63227686A7200A15DAC /* DotLineView.swift */,
-			);
-			path = Component;
-			sourceTree = "<group>";
-		};
 		49C0D12926E902F500B3666E /* SlideToUnlock */ = {
 			isa = PBXGroup;
 			children = (
@@ -253,7 +243,6 @@
 			children = (
 				49C0D13126EA31C900B3666E /* StandbyView.swift */,
 				4941A1342768F6CE00A80335 /* StandbyPresenter.swift */,
-				49B7A63427686A8400A15DAC /* Component */,
 			);
 			path = StandbyView;
 			sourceTree = "<group>";
@@ -426,7 +415,6 @@
 				49BEE51F26EDDF460002C43B /* TimerHolder.swift in Sources */,
 				49409CC0275DDDCA003933BA /* Date+Extension.swift in Sources */,
 				49C0D13226EA31C900B3666E /* StandbyView.swift in Sources */,
-				49B7A63327686A7200A15DAC /* DotLineView.swift in Sources */,
 				4925089B26DCF7D3005169AE /* TapRecoApp.swift in Sources */,
 				49856F8926E6E76D0015C12E /* MicrophoneVolumeView.swift in Sources */,
 				49856ECE26E474B80015C12E /* AudioPlayer.swift in Sources */,

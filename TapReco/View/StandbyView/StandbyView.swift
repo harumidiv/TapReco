@@ -54,19 +54,28 @@ struct StandbyView: View {
             .onTapGesture {}
             .allowsHitTesting(false)
             
-            //TODO ボタンを差し替える
-            Button(action: {
-                // TODO SlideToUnlockが解除されたタイミングでフラグを切り替える
-                presenter.apply(inputs: .didTapRecordListButton)
-            }){
-                Text("TODO スライドボタンに置き換える")
-                    .frame(width: dotLineWidth,
-                           height: UIScreen.main.bounds.height * 0.19,
-                           alignment: .center)
-                    .border(Color.red, width: 1)
-            }
-            .fullScreenCover(isPresented: $presenter.isShowRecordList) {
-                RecordListView(isPresentedRecordListView: $presenter.isShowRecordList)
+            VStack {
+                // TODO こいつなしでレイアウト組む方法を見つける
+                Rectangle()
+                    .frame(width: UIScreen.main.bounds.width,
+                           height: UIScreen.main.bounds.height * 0.7)
+                    .foregroundColor(Color.clear)
+                    .onTapGesture {}
+                    .allowsHitTesting(false)
+                //TODO ボタンを差し替える
+                Button(action: {
+                    // TODO SlideToUnlockが解除されたタイミングでフラグを切り替える
+                    presenter.apply(inputs: .didTapRecordListButton)
+                }){
+                    Text("TODO スライドボタンに置き換える")
+                        .frame(width: dotLineWidth,
+                               height: 100,
+                               alignment: .center)
+                        .border(Color.red, width: 1)
+                }
+                .fullScreenCover(isPresented: $presenter.isShowRecordList) {
+                    RecordListView(isPresentedRecordListView: $presenter.isShowRecordList)
+                }
             }
         }
         .onChange(of: isRecording) { isRecording in
