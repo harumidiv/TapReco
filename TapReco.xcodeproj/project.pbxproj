@@ -9,19 +9,20 @@
 /* Begin PBXBuildFile section */
 		491DE9DE2758B8640084985B /* RecordListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491DE9DD2758B8640084985B /* RecordListView.swift */; };
 		4925089B26DCF7D3005169AE /* TapRecoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4925089A26DCF7D3005169AE /* TapRecoApp.swift */; };
-		4925089D26DCF7D3005169AE /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4925089C26DCF7D3005169AE /* HomeView.swift */; };
+		4925089D26DCF7D3005169AE /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4925089C26DCF7D3005169AE /* RootView.swift */; };
 		4925089F26DCF7D4005169AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4925089E26DCF7D4005169AE /* Assets.xcassets */; };
 		492508A226DCF7D4005169AE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 492508A126DCF7D4005169AE /* Preview Assets.xcassets */; };
 		492508AD26DCF7D4005169AE /* TapRecoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492508AC26DCF7D4005169AE /* TapRecoTests.swift */; };
 		492508B826DCF7D4005169AE /* TapRecoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492508B726DCF7D4005169AE /* TapRecoUITests.swift */; };
 		49409CC0275DDDCA003933BA /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49409CBF275DDDCA003933BA /* Date+Extension.swift */; };
+		4941A1352768F6CE00A80335 /* StandbyPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4941A1342768F6CE00A80335 /* StandbyPresenter.swift */; };
+		4941A1392769DB6E00A80335 /* RecordListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4941A1382769DB6E00A80335 /* RecordListPresenter.swift */; };
 		49856ECB26E474030015C12E /* AudioRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49856ECA26E474030015C12E /* AudioRecorder.swift */; };
 		49856ECE26E474B80015C12E /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49856ECD26E474B80015C12E /* AudioPlayer.swift */; };
 		49856F4E26E633080015C12E /* MicrophoneLebelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49856F4D26E633080015C12E /* MicrophoneLebelManager.swift */; };
 		49856F8926E6E76D0015C12E /* MicrophoneVolumeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49856F8826E6E76D0015C12E /* MicrophoneVolumeView.swift */; };
 		4994CC3326E78C39003A34ED /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 4994CC3226E78C39003A34ED /* Lottie */; };
 		4994CC3826E78D6A003A34ED /* microphone.json in Resources */ = {isa = PBXBuildFile; fileRef = 4994CC3726E78D6A003A34ED /* microphone.json */; };
-		49B7A63327686A7200A15DAC /* DotLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B7A63227686A7200A15DAC /* DotLineView.swift */; };
 		49BEE51F26EDDF460002C43B /* TimerHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BEE51E26EDDF460002C43B /* TimerHolder.swift */; };
 		49C0D12526E8DE6E00B3666E /* WaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C0D12426E8DE6E00B3666E /* WaveView.swift */; };
 		49C0D12C26E9033900B3666E /* SlideToStopActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C0D12B26E9033900B3666E /* SlideToStopActionView.swift */; };
@@ -52,7 +53,7 @@
 		491DE9DD2758B8640084985B /* RecordListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordListView.swift; sourceTree = "<group>"; };
 		4925089726DCF7D3005169AE /* TapReco.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TapReco.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4925089A26DCF7D3005169AE /* TapRecoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapRecoApp.swift; sourceTree = "<group>"; };
-		4925089C26DCF7D3005169AE /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		4925089C26DCF7D3005169AE /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		4925089E26DCF7D4005169AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		492508A126DCF7D4005169AE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		492508A326DCF7D4005169AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -63,12 +64,13 @@
 		492508B726DCF7D4005169AE /* TapRecoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapRecoUITests.swift; sourceTree = "<group>"; };
 		492508B926DCF7D4005169AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49409CBF275DDDCA003933BA /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		4941A1342768F6CE00A80335 /* StandbyPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandbyPresenter.swift; sourceTree = "<group>"; };
+		4941A1382769DB6E00A80335 /* RecordListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordListPresenter.swift; sourceTree = "<group>"; };
 		49856ECA26E474030015C12E /* AudioRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorder.swift; sourceTree = "<group>"; };
 		49856ECD26E474B80015C12E /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 		49856F4D26E633080015C12E /* MicrophoneLebelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicrophoneLebelManager.swift; sourceTree = "<group>"; };
 		49856F8826E6E76D0015C12E /* MicrophoneVolumeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicrophoneVolumeView.swift; sourceTree = "<group>"; };
 		4994CC3726E78D6A003A34ED /* microphone.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = microphone.json; sourceTree = "<group>"; };
-		49B7A63227686A7200A15DAC /* DotLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotLineView.swift; sourceTree = "<group>"; };
 		49BEE51E26EDDF460002C43B /* TimerHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerHolder.swift; sourceTree = "<group>"; };
 		49C0D12426E8DE6E00B3666E /* WaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveView.swift; sourceTree = "<group>"; };
 		49C0D12B26E9033900B3666E /* SlideToStopActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideToStopActionView.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				491DE9DD2758B8640084985B /* RecordListView.swift */,
+				4941A1382769DB6E00A80335 /* RecordListPresenter.swift */,
 				49C53B252760D0E80062E6B3 /* Component */,
 			);
 			path = RecordList;
@@ -180,6 +183,14 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		4941A13A2769EFFA00A80335 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				4925089C26DCF7D3005169AE /* RootView.swift */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
 		49856ECC26E474A40015C12E /* Utility */ = {
 			isa = PBXGroup;
 			children = (
@@ -195,8 +206,8 @@
 		49856F8626E6E7070015C12E /* View */ = {
 			isa = PBXGroup;
 			children = (
-				4925089C26DCF7D3005169AE /* HomeView.swift */,
-				49C0D13326EA331E00B3666E /* StandbyView */,
+				4941A13A2769EFFA00A80335 /* Root */,
+				49C0D13326EA331E00B3666E /* Standby */,
 				491DE9DB2758B8460084985B /* RecordList */,
 				49C0D13426EA332C00B3666E /* Recording */,
 			);
@@ -221,14 +232,6 @@
 			path = Recource;
 			sourceTree = "<group>";
 		};
-		49B7A63427686A8400A15DAC /* Component */ = {
-			isa = PBXGroup;
-			children = (
-				49B7A63227686A7200A15DAC /* DotLineView.swift */,
-			);
-			path = Component;
-			sourceTree = "<group>";
-		};
 		49C0D12926E902F500B3666E /* SlideToUnlock */ = {
 			isa = PBXGroup;
 			children = (
@@ -246,13 +249,13 @@
 			path = WaveView;
 			sourceTree = "<group>";
 		};
-		49C0D13326EA331E00B3666E /* StandbyView */ = {
+		49C0D13326EA331E00B3666E /* Standby */ = {
 			isa = PBXGroup;
 			children = (
 				49C0D13126EA31C900B3666E /* StandbyView.swift */,
-				49B7A63427686A8400A15DAC /* Component */,
+				4941A1342768F6CE00A80335 /* StandbyPresenter.swift */,
 			);
-			path = StandbyView;
+			path = Standby;
 			sourceTree = "<group>";
 		};
 		49C0D13426EA332C00B3666E /* Recording */ = {
@@ -418,12 +421,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				49856ECB26E474030015C12E /* AudioRecorder.swift in Sources */,
-				4925089D26DCF7D3005169AE /* HomeView.swift in Sources */,
+				4925089D26DCF7D3005169AE /* RootView.swift in Sources */,
 				49856F4E26E633080015C12E /* MicrophoneLebelManager.swift in Sources */,
+				4941A1392769DB6E00A80335 /* RecordListPresenter.swift in Sources */,
 				49BEE51F26EDDF460002C43B /* TimerHolder.swift in Sources */,
 				49409CC0275DDDCA003933BA /* Date+Extension.swift in Sources */,
 				49C0D13226EA31C900B3666E /* StandbyView.swift in Sources */,
-				49B7A63327686A7200A15DAC /* DotLineView.swift in Sources */,
 				4925089B26DCF7D3005169AE /* TapRecoApp.swift in Sources */,
 				49856F8926E6E76D0015C12E /* MicrophoneVolumeView.swift in Sources */,
 				49856ECE26E474B80015C12E /* AudioPlayer.swift in Sources */,
@@ -433,6 +436,7 @@
 				49C0D12C26E9033900B3666E /* SlideToStopActionView.swift in Sources */,
 				49C0D12526E8DE6E00B3666E /* WaveView.swift in Sources */,
 				49C0D12E26E904AA00B3666E /* SlideToActionView.swift in Sources */,
+				4941A1352768F6CE00A80335 /* StandbyPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

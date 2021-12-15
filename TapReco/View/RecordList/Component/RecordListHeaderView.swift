@@ -21,16 +21,16 @@ struct RecordListHeaderView: View {
                 Button(action: {
                     isPresentedRecordListView = false
                 }){
-                    Image("icon_section_header")
+                    Image("icon_close")
                         .cornerRadius(14)
-                }.background(Color.gray)
-                    .frame(width: 28, height: 28)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 14)
-                            .stroke(Color.white, lineWidth: 1)
-                    )
-                    .background(Color.white)
-                    .cornerRadius(14)
+                }
+                .frame(width: 28, height: 28)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 14)
+                        .stroke(Color.white, lineWidth: 1)
+                )
+                .background(Color.gray)
+                .cornerRadius(14)
                 
                 Spacer().frame(width: 30)
             }

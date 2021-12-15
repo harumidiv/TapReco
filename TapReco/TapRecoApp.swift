@@ -14,7 +14,7 @@ struct TapRecoApp: App {
     
     var body: some Scene {
         WindowGroup {
-            HomeView()
+            RootView()
         }.onChange(of: scenePhase) { scene in
             switch scene {
             case .active:

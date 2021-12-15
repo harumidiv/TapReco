@@ -8,21 +8,21 @@
 import AVFoundation
 
 protocol AudioPlayer: ObservableObject{
-    func playStart()
+    func playStart(fileName: String)
     func playStop()
 }
 
 class AudioPlayerImpl: NSObject {
     var audioPlayer: AVAudioPlayer!
         
-    private func getURL() -> URL{
-        return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("sound.m4a")
+    private func getURL(fileName: String) -> URL{
+        return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent(fileName)
     }
 }
 
 extension AudioPlayerImpl: AudioPlayer {
-    func playStart() {
-        audioPlayer = try! AVAudioPlayer(contentsOf: getURL())
+    func playStart(fileName: String) {
+        audioPlayer = try! AVAudioPlayer(contentsOf: getURL(fileName: fileName))
         audioPlayer.volume = 1.0
         audioPlayer.prepareToPlay()
         audioPlayer.play()
