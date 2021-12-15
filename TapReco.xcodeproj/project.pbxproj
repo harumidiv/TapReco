@@ -183,6 +183,14 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		4941A13A2769EFFA00A80335 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				4925089C26DCF7D3005169AE /* RootView.swift */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
 		49856ECC26E474A40015C12E /* Utility */ = {
 			isa = PBXGroup;
 			children = (
@@ -198,8 +206,8 @@
 		49856F8626E6E7070015C12E /* View */ = {
 			isa = PBXGroup;
 			children = (
-				4925089C26DCF7D3005169AE /* RootView.swift */,
-				49C0D13326EA331E00B3666E /* StandbyView */,
+				4941A13A2769EFFA00A80335 /* Root */,
+				49C0D13326EA331E00B3666E /* Standby */,
 				491DE9DB2758B8460084985B /* RecordList */,
 				49C0D13426EA332C00B3666E /* Recording */,
 			);
@@ -241,13 +249,13 @@
 			path = WaveView;
 			sourceTree = "<group>";
 		};
-		49C0D13326EA331E00B3666E /* StandbyView */ = {
+		49C0D13326EA331E00B3666E /* Standby */ = {
 			isa = PBXGroup;
 			children = (
 				49C0D13126EA31C900B3666E /* StandbyView.swift */,
 				4941A1342768F6CE00A80335 /* StandbyPresenter.swift */,
 			);
-			path = StandbyView;
+			path = Standby;
 			sourceTree = "<group>";
 		};
 		49C0D13426EA332C00B3666E /* Recording */ = {

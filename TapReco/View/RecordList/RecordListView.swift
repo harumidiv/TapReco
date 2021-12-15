@@ -8,25 +8,31 @@
 import SwiftUI
 
 struct RecordListView: View {
+    @StateObject private var audioRecorder = AudioRecorderImpl()
     @Binding var isPresentedRecordListView: Bool
     var body: some View {
         VStack {
             RecordListHeaderView(isPresentedRecordListView: $isPresentedRecordListView)
             List {
-                ForEach(0..<recordListCount()) {_ in
-                    Text("Hello, World!")
+                ForEach(0..<recordList().count) { index in
+                    Button(action: {
+                        print("call")
+                    }){
+                        Text(recordList()[index])
+                    }
                 }
             }
+            .listStyle(GroupedListStyle()) 
         }
     }
     
-    private func recordListCount() -> Int {
+    private func recordList() -> [String] {
         let documentPath = NSHomeDirectory() + "/Documents"
         guard let fileNames = try? FileManager.default.contentsOfDirectory(atPath: documentPath) else {
-            return 0
+            return []
         }
         
-        return fileNames.count
+        return fileNames
     }
 }
 

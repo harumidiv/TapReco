@@ -47,7 +47,7 @@ struct StandbyView: View {
                     .frame(width: dotLineWidth, height: dotLineHeight, alignment: .center)
                     .padding(EdgeInsets(top: topMargin, leading: sideMargin, bottom: bottomMargin, trailing: sideMargin))
                 VStack {
-                    Image("icon-microphone")
+                    Image("icon_microphone")
                     Text("画面をタップして録音開始")
                 }
             }

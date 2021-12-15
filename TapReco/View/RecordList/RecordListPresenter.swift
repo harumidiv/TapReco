@@ -8,5 +8,14 @@
 import Foundation
 
 final class RecordListPresenter: ObservableObject {
-    
+    enum Inputs {
+        case didTapRecording
+    }
+
+    func apply(inputs: Inputs) {
+        switch inputs {
+        case .didTapRecording:
+            break
+        }
+    }
 }
