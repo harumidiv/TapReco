@@ -10,54 +10,61 @@ import AVFoundation
 
 struct StandbyView: View {
     @Binding var isRecording: Bool
-    
     @StateObject private var audioRecorder = AudioRecorderImpl()
-    
-    private let topMargin: CGFloat = 16
-    private let bottomMargin: CGFloat = 8
-    private let sideMargin: CGFloat = 8
-    
     @ObservedObject var presenter = StandbyPresenterImpl()
+    
+    private let topMargin: CGFloat = 50
+    private let bottomMargin: CGFloat = 32
+    private let sideMargin: CGFloat = 28
     
     var body: some View {
         let dotLineWidth = UIScreen.main.bounds.width - sideMargin * 2
-        let dotLineHeight = UIScreen.main.bounds.height * 0.8 - (topMargin + bottomMargin)
+        let dotLineHeight = UIScreen.main.bounds.height - (topMargin + bottomMargin)
         
-        Rectangle()
-            .frame(width: UIScreen.main.bounds.width,
-                   height: UIScreen.main.bounds.height)
-            .foregroundColor(Color("tp_gray"))
-            .gesture(LongPressGesture().onChanged { _ in
-                let impactHeavy = UIImpactFeedbackGenerator(style: .heavy)
-                impactHeavy.prepare()
-                impactHeavy.impactOccurred()
-                
-                if !presenter.isAutholized {
-                    presenter.apply(inputs: .didTapRecording)
-                    return
+        ZStack {
+            Rectangle()
+                .frame(width: UIScreen.main.bounds.width,
+                       height: UIScreen.main.bounds.height)
+                .foregroundColor(Color("tp_gray"))
+                .gesture(LongPressGesture().onChanged { _ in
+                    let impactHeavy = UIImpactFeedbackGenerator(style: .heavy)
+                    impactHeavy.prepare()
+                    impactHeavy.impactOccurred()
+                    
+                    if !presenter.isAutholized {
+                        presenter.apply(inputs: .didTapRecording)
+                        return
+                    }
+                    
+                    isRecording = true
+                })
+                .ignoresSafeArea()
+                .alert(isPresented: $presenter.isShowAlertDialog, content: presenter.alertBuilder)
+            
+            ZStack {
+                Image("wakusen")
+                    .resizable()
+                    .frame(width: dotLineWidth, height: dotLineHeight, alignment: .center)
+                    .padding(EdgeInsets(top: topMargin, leading: sideMargin, bottom: bottomMargin, trailing: sideMargin))
+                VStack {
+                    Image("icon-microphone")
+                    Text("画面をタップして録音開始")
                 }
-
-                isRecording = true
-            })
-            .ignoresSafeArea()
-            .alert(isPresented: $presenter.isShowAlertDialog, content: presenter.alertBuilder)
-        
-        VStack(spacing: 0) {
-            DotLineView()
-                .frame(width: dotLineWidth, height: dotLineHeight, alignment: .center)
-                .padding(EdgeInsets(top: topMargin, leading: sideMargin, bottom: bottomMargin, trailing: sideMargin))
-                .onTapGesture {}
-                .allowsHitTesting(false)
+            }
+            .onTapGesture {}
+            .allowsHitTesting(false)
+            
             //TODO ボタンを差し替える
             Button(action: {
                 // TODO SlideToUnlockが解除されたタイミングでフラグを切り替える
                 presenter.apply(inputs: .didTapRecordListButton)
             }){
                 Text("TODO スライドボタンに置き換える")
-                    .frame(width: dotLineWidth, height: UIScreen.main.bounds.height * 0.19, alignment: .center)
+                    .frame(width: dotLineWidth,
+                           height: UIScreen.main.bounds.height * 0.19,
+                           alignment: .center)
                     .border(Color.red, width: 1)
             }
-            
             .fullScreenCover(isPresented: $presenter.isShowRecordList) {
                 RecordListView(isPresentedRecordListView: $presenter.isShowRecordList)
             }

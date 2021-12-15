@@ -12,7 +12,7 @@ struct DotLineView: View {
         GeometryReader { geometry in
             ZStack {
                 // TODO 画像を差し替える
-                Image("home")
+                Image("wakusen")
                     .resizable()
                     .frame(width:  geometry.size.width, height:  geometry.size.height, alignment: .center)
                     .ignoresSafeArea()
