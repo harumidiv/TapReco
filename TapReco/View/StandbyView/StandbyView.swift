@@ -10,15 +10,14 @@ import AVFoundation
 
 struct StandbyView: View {
     @Binding var isRecording: Bool
-    @State var isPresentedRecordListView = false
-    @State var isPresentedAlertDialog = false
+    
     @StateObject private var audioRecorder = AudioRecorderImpl()
     
     private let topMargin: CGFloat = 16
     private let bottomMargin: CGFloat = 8
     private let sideMargin: CGFloat = 8
     
-    let presenter = StandbyPresenterImpl()
+    @ObservedObject var presenter = StandbyPresenterImpl()
     
     var body: some View {
         let dotLineWidth = UIScreen.main.bounds.width - sideMargin * 2
@@ -33,24 +32,15 @@ struct StandbyView: View {
                 impactHeavy.prepare()
                 impactHeavy.impactOccurred()
                 
-                if !presenter.isMicrophoneAuthorizationApproved() {
-                    isPresentedAlertDialog = true
+                if !presenter.isAutholized {
+                    presenter.apply(inputs: .didTapRecording)
                     return
                 }
+
                 isRecording = true
             })
             .ignoresSafeArea()
-            .alert(isPresented: $isPresentedAlertDialog) {
-                Alert(
-                    title: Text("マイクへのアクセス許可がありません"),
-                    message: Text("[設定]に移動して、権限を許可してください"),
-                    primaryButton: .cancel(Text("キャンセル")),
-                    secondaryButton: .default(Text("設定"), action: {
-                        if let url = URL(string: UIApplication.openSettingsURLString), UIApplication.shared.canOpenURL(url) {
-                            UIApplication.shared.open(url, options: [:], completionHandler: nil)
-                        }
-                    }))
-            }
+            .alert(isPresented: $presenter.isShowAlertDialog, content: presenter.alertBuilder)
         
         VStack(spacing: 0) {
             DotLineView()
@@ -61,15 +51,15 @@ struct StandbyView: View {
             //TODO ボタンを差し替える
             Button(action: {
                 // TODO SlideToUnlockが解除されたタイミングでフラグを切り替える
-                self.isPresentedRecordListView.toggle()
+                presenter.apply(inputs: .didTapRecordListButton)
             }){
                 Text("TODO スライドボタンに置き換える")
                     .frame(width: dotLineWidth, height: UIScreen.main.bounds.height * 0.19, alignment: .center)
                     .border(Color.red, width: 1)
             }
             
-            .fullScreenCover(isPresented: $isPresentedRecordListView) {
-                RecordListView(isPresentedRecordListView: $isPresentedRecordListView)
+            .fullScreenCover(isPresented: $presenter.isShowRecordList) {
+                RecordListView(isPresentedRecordListView: $presenter.isShowRecordList)
             }
         }
         .onChange(of: isRecording) { isRecording in
