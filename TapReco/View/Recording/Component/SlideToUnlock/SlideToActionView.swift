@@ -30,6 +30,14 @@ final class SlideToActionView: UIView {
         return view
     }()
     
+    let endCircleView: UIImageView = {
+        let view = UIImageView(image: UIImage(named: "icon_stop"))
+        view.backgroundColor = UIColor.gray
+        view.contentMode = .center
+        
+        return view
+    }()
+    
     private var leadingThumbnailViewConstraint: NSLayoutConstraint?
     private var isFinished: Bool = false
     
@@ -44,9 +52,9 @@ final class SlideToActionView: UIView {
         super.init(frame: frame)
         setupView()
     }
-
+    
     init() {
-      super.init(frame: .zero)
+        super.init(frame: .zero)
         setupView()
     }
     
@@ -57,6 +65,7 @@ final class SlideToActionView: UIView {
         backgroundView.layer.cornerRadius = radius
         dragAreaView.layer.cornerRadius = radius
         thumnailImageView.layer.cornerRadius = radius
+        endCircleView.layer.cornerRadius = radius
     }
     
     @objc private func handlePanGesture(_ sender: UIPanGestureRecognizer) {
@@ -106,6 +115,7 @@ extension SlideToActionView {
         self.addSubview(backgroundView)
         self.addSubview(dragAreaView)
         self.addSubview(thumnailImageView)
+        self.addSubview(endCircleView)
         
         setupConstraint()
         
@@ -133,5 +143,11 @@ extension SlideToActionView {
         thumnailImageView.heightAnchor.constraint(equalTo: thumnailImageView.widthAnchor).isActive = true
         leadingThumbnailViewConstraint = thumnailImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor)
         leadingThumbnailViewConstraint?.isActive = true
+        
+        endCircleView.translatesAutoresizingMaskIntoConstraints = false
+        endCircleView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        endCircleView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+        endCircleView.heightAnchor.constraint(equalTo: endCircleView.widthAnchor).isActive = true
+        endCircleView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
     }
 }
