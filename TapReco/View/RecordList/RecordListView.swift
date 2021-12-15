@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RecordListView: View {
-    @StateObject private var audioRecorder = AudioRecorderImpl()
+    @StateObject private var audioPlayer = AudioPlayerImpl()
     @Binding var isPresentedRecordListView: Bool
     var body: some View {
         VStack {
@@ -17,12 +17,13 @@ struct RecordListView: View {
                 ForEach(0..<recordList().count) { index in
                     Button(action: {
                         print("call")
+                        audioPlayer.playStart(fileName: recordList()[index])
                     }){
                         Text(recordList()[index])
                     }
                 }
             }
-            .listStyle(GroupedListStyle()) 
+            .listStyle(GroupedListStyle())
         }
     }
     
