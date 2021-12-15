@@ -11,19 +11,21 @@ struct RecordListView: View {
     @StateObject private var audioPlayer = AudioPlayerImpl()
     @Binding var isPresentedRecordListView: Bool
     var body: some View {
-        VStack {
-            RecordListHeaderView(isPresentedRecordListView: $isPresentedRecordListView)
-            List {
-                ForEach(0..<recordList().count) { index in
-                    Button(action: {
-                        print("call")
-                        audioPlayer.playStart(fileName: recordList()[index])
-                    }){
-                        Text(recordList()[index])
+        ZStack {
+            Color.yellow.ignoresSafeArea()
+            VStack(spacing: 0) {
+                RecordListHeaderView(isPresentedRecordListView: $isPresentedRecordListView)
+                List {
+                    ForEach(0..<recordList().count) { index in
+                        Button(action: {
+                            audioPlayer.playStart(fileName: recordList()[index])
+                        }){
+                            RecordListCellView(viewModel: .init(title: recordList()[index]))
+                        }
                     }
                 }
+                .listStyle(PlainListStyle())
             }
-            .listStyle(GroupedListStyle())
         }
     }
     
