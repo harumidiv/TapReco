@@ -14,14 +14,6 @@ final class SlideToActionView: UIView {
         return view
     }()
     
-    let textLabel: UILabel = {
-        let label = UILabel.init()
-        label.text = "   スライドで録音停止"
-        label.textColor = .white
-        label.textAlignment = .center
-        return label
-    }()
-    
     let thumnailImageView: UIImageView = {
         let view = UIImageView(image: .init(systemName: "star"))
         view.backgroundColor = .white
@@ -113,7 +105,6 @@ extension SlideToActionView {
         
         self.addSubview(backgroundView)
         self.addSubview(dragAreaView)
-        backgroundView.addSubview(textLabel)
         self.addSubview(thumnailImageView)
         
         setupConstraint()
@@ -129,12 +120,6 @@ extension SlideToActionView {
         backgroundView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
         backgroundView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
         backgroundView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-        
-        textLabel.translatesAutoresizingMaskIntoConstraints = false
-        textLabel.centerYAnchor.constraint(equalTo: backgroundView.centerYAnchor).isActive = true
-        textLabel.centerXAnchor.constraint(equalTo: backgroundView.centerXAnchor).isActive = true
-        textLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
-        textLabel.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor).isActive = true
         
         dragAreaView.translatesAutoresizingMaskIntoConstraints = false
         dragAreaView.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor).isActive = true

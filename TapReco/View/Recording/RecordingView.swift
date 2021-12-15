@@ -25,8 +25,10 @@ struct RecordingView: View {
                 .font(.custom("Avenir", size: 50))
             SlideToStopActionView(isRecording: $isRecording,
                                   timerHolder: timerHolder)
-                .frame(width: 250, height: 50)
+                .frame(width: 276, height: 85)
                 .padding(10)
+            Text("スライドで録音停止")
+                .font(.headline)
         }
         .onAppear{
             timerHolder.start()
