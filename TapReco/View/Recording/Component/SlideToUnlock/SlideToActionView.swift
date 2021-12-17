@@ -14,14 +14,6 @@ final class SlideToActionView: UIView {
         return view
     }()
     
-    let textLabel: UILabel = {
-        let label = UILabel.init()
-        label.text = "   スライドで録音停止"
-        label.textColor = .white
-        label.textAlignment = .center
-        return label
-    }()
-    
     let thumnailImageView: UIImageView = {
         let view = UIImageView(image: .init(systemName: "star"))
         view.backgroundColor = .white
@@ -35,6 +27,14 @@ final class SlideToActionView: UIView {
         view.backgroundColor = UIColor(named: "tp_gray")
         view.clipsToBounds = true
         view.layer.masksToBounds = true
+        return view
+    }()
+    
+    let endCircleView: UIImageView = {
+        let view = UIImageView(image: UIImage(named: "icon_stop"))
+        view.backgroundColor = UIColor.gray
+        view.contentMode = .center
+        
         return view
     }()
     
@@ -52,9 +52,9 @@ final class SlideToActionView: UIView {
         super.init(frame: frame)
         setupView()
     }
-
+    
     init() {
-      super.init(frame: .zero)
+        super.init(frame: .zero)
         setupView()
     }
     
@@ -65,6 +65,7 @@ final class SlideToActionView: UIView {
         backgroundView.layer.cornerRadius = radius
         dragAreaView.layer.cornerRadius = radius
         thumnailImageView.layer.cornerRadius = radius
+        endCircleView.layer.cornerRadius = radius
     }
     
     @objc private func handlePanGesture(_ sender: UIPanGestureRecognizer) {
@@ -113,8 +114,8 @@ extension SlideToActionView {
         
         self.addSubview(backgroundView)
         self.addSubview(dragAreaView)
-        backgroundView.addSubview(textLabel)
         self.addSubview(thumnailImageView)
+        self.addSubview(endCircleView)
         
         setupConstraint()
         
@@ -130,12 +131,6 @@ extension SlideToActionView {
         backgroundView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
         backgroundView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         
-        textLabel.translatesAutoresizingMaskIntoConstraints = false
-        textLabel.centerYAnchor.constraint(equalTo: backgroundView.centerYAnchor).isActive = true
-        textLabel.centerXAnchor.constraint(equalTo: backgroundView.centerXAnchor).isActive = true
-        textLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
-        textLabel.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor).isActive = true
-        
         dragAreaView.translatesAutoresizingMaskIntoConstraints = false
         dragAreaView.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor).isActive = true
         dragAreaView.topAnchor.constraint(equalTo: backgroundView.topAnchor).isActive = true
@@ -148,5 +143,11 @@ extension SlideToActionView {
         thumnailImageView.heightAnchor.constraint(equalTo: thumnailImageView.widthAnchor).isActive = true
         leadingThumbnailViewConstraint = thumnailImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor)
         leadingThumbnailViewConstraint?.isActive = true
+        
+        endCircleView.translatesAutoresizingMaskIntoConstraints = false
+        endCircleView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        endCircleView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+        endCircleView.heightAnchor.constraint(equalTo: endCircleView.widthAnchor).isActive = true
+        endCircleView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
     }
 }

@@ -10,7 +10,6 @@ import AVFoundation
 
 struct StandbyView: View {
     @Binding var isRecording: Bool
-    @StateObject private var audioRecorder = AudioRecorderImpl()
     @ObservedObject var presenter = StandbyPresenterImpl()
     
     private let topMargin: CGFloat = 50
@@ -46,9 +45,11 @@ struct StandbyView: View {
                     .resizable()
                     .frame(width: dotLineWidth, height: dotLineHeight, alignment: .center)
                     .padding(EdgeInsets(top: topMargin, leading: sideMargin, bottom: bottomMargin, trailing: sideMargin))
-                VStack {
+                VStack(spacing: 38) {
                     Image("icon_microphone")
                     Text("画面をタップして録音開始")
+                        .font(.headline)
+                        .foregroundColor(.gray)
                 }
             }
             .onTapGesture {}
@@ -74,18 +75,6 @@ struct StandbyView: View {
                     RecordListView(isPresentedRecordListView: $presenter.isShowRecordList)
                 }
                 
-            }
-        }
-        .onChange(of: isRecording) { isRecording in
-            if isRecording {
-                let queue = DispatchQueue.global(qos: .userInitiated)
-                queue.async {
-                    audioRecorder.recordStart()
-                    TimerHolder().start()
-                }
-                
-            } else {
-                audioRecorder.recordStop()
             }
         }
     }

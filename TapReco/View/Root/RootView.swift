@@ -10,6 +10,7 @@ import Combine
 
 struct RootView: View {    
     @State var isRecording:Bool = false
+    @StateObject private var audioRecorder = AudioRecorderImpl()
     
     var body: some View {
         ZStack {
@@ -17,6 +18,18 @@ struct RootView: View {
                 StandbyView(isRecording: $isRecording)
             } else {
                 RecordingView(isRecording: $isRecording)
+            }
+        }
+        .onChange(of: isRecording) { isRecording in
+            if isRecording {
+                let queue = DispatchQueue.global(qos: .userInitiated)
+                queue.async {
+                    audioRecorder.recordStart()
+                    TimerHolder().start()
+                }
+                
+            } else {
+                audioRecorder.recordStop()
             }
         }
     }
