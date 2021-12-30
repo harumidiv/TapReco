@@ -1,26 +1,22 @@
 //
-//  SlideToStopActionView.swift
+//  SlideUPActionView.swift
 //  TapReco
 //
-//  Created by 佐川 晴海 on 2021/09/08.
+//  Created by 佐川 晴海 on 2021/12/30.
 //
 
 import UIKit
 import SwiftUI
 
-struct SlideToStopActionView: UIViewRepresentable {
-    @Binding var isRecording: Bool
-    @ObservedObject var timerHolder: TimerHolder
-    
-    func makeUIView(context: UIViewRepresentableContext<SlideToStopActionView>) -> UIView {
+struct SlideUPActionView: UIViewRepresentable {
+    @Binding var isPresentedRecordListView: Bool
+    func makeUIView(context: UIViewRepresentableContext<SlideUPActionView>) -> UIView {
         let view = UIView(frame: .zero)
         
-        let slideToActionView = SlideToActionView()
+        let slideToActionView = SlideToUPUnlockView()
         slideToActionView.slideDidComplete = {
-            timerHolder.stop()
-            isRecording = false
+
         }
-        
         
         slideToActionView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(slideToActionView)
