@@ -17,15 +17,15 @@ final class SlideToUPUnlockView: UIView {
     
     let slideButtonView: UIView = {
         let baseView = UIView()
-        baseView.backgroundColor = .red
+        baseView.backgroundColor = UIColor(named: "tp_dark_gray")
         baseView.isUserInteractionEnabled = true
         
         let imageView = UIImageView(image: UIImage(named: "icon_up_allow"))
-        imageView.backgroundColor = .white
         imageView.isUserInteractionEnabled = true
         imageView.contentMode = .center
         
         let label = UILabel()
+        label.textColor = .white
         label.text = "PLAYLIST"
         
         let stackView = UIStackView()
