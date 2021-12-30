@@ -23,7 +23,7 @@ struct RecordingView: View {
                 .frame(width: 300, height: 200, alignment: .center)
             Text(timerHolder.timerText)
                 .font(.custom("Avenir", size: 50))
-            SlideToStopActionView(isRecording: $isRecording,
+            SlideSideActionView(isRecording: $isRecording,
                                   timerHolder: timerHolder)
                 .frame(width: 276, height: 85)
                 .padding(10)
