@@ -72,6 +72,15 @@ final class SlideToUPUnlockView: UIView {
         setupView()
     }
     
+    func resetDragPoint() {
+        let animationVelocity: Double = 1
+        UIView.animate(withDuration: animationVelocity) {
+            self.isFinished = false
+            self.bottomThumbnailViewConstraint?.constant = -self.bottomMargin
+            self.layoutIfNeeded()
+        }
+    }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         

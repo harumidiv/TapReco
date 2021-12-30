@@ -59,22 +59,13 @@ struct StandbyView: View {
                 let buttonHeight: CGFloat = 86
                 let buttonWidth: CGFloat = 205
                 let bottomMargin: CGFloat = 74
-                Button(action: {
-                    // TODO SlideToUnlockが解除されたタイミングでフラグを切り替える
-                    presenter.apply(inputs: .didTapRecordListButton)
-                }){
-                    Text("TODO スライドボタンに置き換える")
-                        .frame(width: buttonWidth,
-                               height: buttonHeight,
-                               alignment: .center)
-                        .border(Color.red, width: 3)
-                }
-                .position(x: geometry.size.width / 2,
-                          y: geometry.size.height - (bottomMargin + buttonHeight / 2))
-                .fullScreenCover(isPresented: $presenter.isShowRecordList) {
-                    RecordListView(isPresentedRecordListView: $presenter.isShowRecordList)
-                }
-                
+                SlideUPActionView(isPresentedRecordListView: $presenter.isShowRecordList)
+                    .frame(width: 204, height: 84)
+                    .position(x: geometry.size.width / 2,
+                              y: geometry.size.height - (bottomMargin + buttonHeight / 2))
+                    .fullScreenCover(isPresented: $presenter.isShowRecordList) {
+                        RecordListView(isPresentedRecordListView: $presenter.isShowRecordList)
+                    }
             }
         }
     }

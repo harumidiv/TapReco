@@ -15,7 +15,8 @@ struct SlideUPActionView: UIViewRepresentable {
         
         let slideToActionView = SlideToUPUnlockView()
         slideToActionView.slideDidComplete = {
-
+            isPresentedRecordListView = true
+            slideToActionView.resetDragPoint()
         }
         
         slideToActionView.translatesAutoresizingMaskIntoConstraints = false
@@ -29,5 +30,6 @@ struct SlideUPActionView: UIViewRepresentable {
         return view
     }
     
-    func updateUIView(_ uiView: UIView, context: Context) {}
+    func updateUIView(_ uiView: UIView, context: Context) {
+    }
 }
