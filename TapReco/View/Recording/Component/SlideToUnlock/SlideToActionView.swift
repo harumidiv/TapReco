@@ -14,17 +14,28 @@ final class SlideToActionView: UIView {
         return view
     }()
     
-    let thumnailImageView: UIImageView = {
-        let view = UIImageView(image: .init(systemName: "star"))
-        view.backgroundColor = .white
+    let thumnailImageView: UIView = {
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+        view.backgroundColor = .cyan
         view.isUserInteractionEnabled = true
         view.contentMode = .center
+        
+        let childView = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
+        childView.backgroundColor = .red
+        childView.isUserInteractionEnabled = true
+        childView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(childView)
+        
+        childView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        childView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        childView.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        
         return view
     }()
     
     let dragAreaView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor(named: "tp_gray")
+        view.backgroundColor = .clear
         view.clipsToBounds = true
         view.layer.masksToBounds = true
         return view
@@ -40,6 +51,8 @@ final class SlideToActionView: UIView {
     
     private var leadingThumbnailViewConstraint: NSLayoutConstraint?
     private var isFinished: Bool = false
+    
+    private let sideMargin: CGFloat = 6
     
     var slideDidComplete: (()->Void)?
     
@@ -64,15 +77,15 @@ final class SlideToActionView: UIView {
         let radius = self.frame.height / 2
         backgroundView.layer.cornerRadius = radius
         dragAreaView.layer.cornerRadius = radius
-        thumnailImageView.layer.cornerRadius = radius
-        endCircleView.layer.cornerRadius = radius
+        thumnailImageView.layer.cornerRadius = 25
+        endCircleView.layer.cornerRadius = 25
     }
     
     @objc private func handlePanGesture(_ sender: UIPanGestureRecognizer) {
         if isFinished {
             return
         }
-        let xEndingPoint = (self.bounds.width - thumnailImageView.bounds.width)
+        let xEndingPoint = (self.bounds.width - thumnailImageView.bounds.width - sideMargin)
         let translatedPoint = sender.translation(in: self).x
         switch sender.state {
         case .changed:
@@ -95,7 +108,7 @@ final class SlideToActionView: UIView {
             
             let animationVelocity: Double = 0.5
             UIView.animate(withDuration: animationVelocity) {
-                self.leadingThumbnailViewConstraint?.constant = 0
+                self.leadingThumbnailViewConstraint?.constant = self.sideMargin
                 self.layoutIfNeeded()
             }
         default:
@@ -132,22 +145,23 @@ extension SlideToActionView {
         backgroundView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         
         dragAreaView.translatesAutoresizingMaskIntoConstraints = false
-        dragAreaView.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor).isActive = true
-        dragAreaView.topAnchor.constraint(equalTo: backgroundView.topAnchor).isActive = true
+        dragAreaView.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: sideMargin).isActive = true
+        dragAreaView.topAnchor.constraint(equalTo: backgroundView.topAnchor, constant: sideMargin).isActive = true
         dragAreaView.centerYAnchor.constraint(equalTo: backgroundView.centerYAnchor).isActive = true
         dragAreaView.trailingAnchor.constraint(equalTo: thumnailImageView.trailingAnchor).isActive = true
         
         thumnailImageView.translatesAutoresizingMaskIntoConstraints = false
-        thumnailImageView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        thumnailImageView.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        thumnailImageView.heightAnchor.constraint(equalToConstant: 50).isActive = true
         thumnailImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
-        thumnailImageView.heightAnchor.constraint(equalTo: thumnailImageView.widthAnchor).isActive = true
-        leadingThumbnailViewConstraint = thumnailImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor)
+        leadingThumbnailViewConstraint = thumnailImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: sideMargin)
         leadingThumbnailViewConstraint?.isActive = true
         
         endCircleView.translatesAutoresizingMaskIntoConstraints = false
-        endCircleView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        endCircleView.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        endCircleView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        endCircleView.topAnchor.constraint(equalTo: self.topAnchor, constant: sideMargin).isActive = true
         endCircleView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
-        endCircleView.heightAnchor.constraint(equalTo: endCircleView.widthAnchor).isActive = true
-        endCircleView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+        endCircleView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -sideMargin).isActive = true
     }
 }

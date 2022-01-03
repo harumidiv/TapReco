@@ -26,7 +26,7 @@ struct RecordingView: View {
                 .font(.custom("Avenir", size: 50))
             SlideSideActionView(isRecording: $isRecording,
                                   timerHolder: timerHolder)
-                .frame(width: 276, height: 85)
+                .frame(width: 240, height: 62)
                 .padding(10)
             Text("スライドで録音停止")
                 .font(.headline)
