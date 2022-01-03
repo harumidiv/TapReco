@@ -25,7 +25,7 @@ struct StandbyView: View {
                 .frame(width: UIScreen.main.bounds.width,
                        height: UIScreen.main.bounds.height)
                 .foregroundColor(Color("tp_gray"))
-                .gesture(LongPressGesture().onChanged { _ in
+                .onTapGesture {
                     let impactHeavy = UIImpactFeedbackGenerator(style: .heavy)
                     impactHeavy.prepare()
                     impactHeavy.impactOccurred()
@@ -36,7 +36,7 @@ struct StandbyView: View {
                     }
                     
                     isRecording = true
-                })
+                }
                 .ignoresSafeArea()
                 .alert(isPresented: $presenter.isShowAlertDialog, content: presenter.alertBuilder)
             
