@@ -23,12 +23,13 @@ struct RecordingView: View {
             MicrophoneVolumeView()
                 .frame(width: 300, height: 200, alignment: .center)
             Text(timerHolder.timerText)
-                .font(.custom("Avenir", size: 50))
+                .font(.custom("Avenir", size: 40))
             SlideSideActionView(isRecording: $isRecording,
                                   timerHolder: timerHolder)
                 .frame(width: 240, height: 62)
-                .padding(10)
+                .padding(20)
             Text("スライドで録音停止")
+                .foregroundColor(.white)
                 .font(.headline)
         }
         .onAppear{
