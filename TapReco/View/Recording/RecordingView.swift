@@ -16,6 +16,7 @@ struct RecordingView: View {
             .frame(width: UIScreen.main.bounds.width,
                    height: UIScreen.main.bounds.height)
             .foregroundColor(Color("tp_gray"))
+            .ignoresSafeArea()
             .onTapGesture {}
             .allowsTightening(false)
         VStack {
