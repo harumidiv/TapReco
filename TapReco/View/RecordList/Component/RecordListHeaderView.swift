@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RecordListHeaderView: View {
     @Binding var isPresentedRecordListView: Bool
-    
+    @State var searchText: String = ""
     var body: some View {
         VStack {
             Spacer().frame(height: 30)
@@ -40,7 +40,9 @@ struct RecordListHeaderView: View {
                 }
                 Spacer().frame(width: 30)
             }
-            Text("TODO: SearchBarを表示させる")
+            TextField("🔍検索", text: $searchText)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .padding(.init(top: 0, leading: 24, bottom: 20, trailing: 24))
         }
     }
 }
