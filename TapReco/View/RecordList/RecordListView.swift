@@ -12,7 +12,6 @@ struct RecordListView: View {
     @Binding var isPresentedRecordListView: Bool
     var body: some View {
         ZStack {
-            Color.yellow.ignoresSafeArea()
             VStack(spacing: 0) {
                 RecordListHeaderView(isPresentedRecordListView: $isPresentedRecordListView)
                 List {

@@ -73,12 +73,9 @@ final class SlideToUPUnlockView: UIView {
     }
     
     func resetDragPoint() {
-        let animationVelocity: Double = 1
-        UIView.animate(withDuration: animationVelocity) {
-            self.isFinished = false
-            self.bottomThumbnailViewConstraint?.constant = -self.bottomMargin
-            self.layoutIfNeeded()
-        }
+        self.isFinished = false
+        self.bottomThumbnailViewConstraint?.constant = -self.bottomMargin
+        self.layoutIfNeeded()
     }
     
     override func layoutSubviews() {
@@ -94,7 +91,7 @@ final class SlideToUPUnlockView: UIView {
         if isFinished {
             return
         }
-        let xEndingPoint = -(self.bounds.height - (slideButtonView.bounds.height))
+        let xEndingPoint = -(self.bounds.height - (slideButtonView.bounds.height + bottomMargin))
         let translatedPoint = sender.translation(in: self).y
         switch sender.state {
         case .changed:
