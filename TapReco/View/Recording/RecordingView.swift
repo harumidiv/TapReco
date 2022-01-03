@@ -19,7 +19,7 @@ struct RecordingView: View {
             .ignoresSafeArea()
             .onTapGesture {}
             .allowsTightening(false)
-        VStack {
+        VStack(spacing: 0) {
             MicrophoneVolumeView()
                 .frame(width: 300, height: 200, alignment: .center)
             Text(timerHolder.timerText)
@@ -27,7 +27,7 @@ struct RecordingView: View {
             SlideSideActionView(isRecording: $isRecording,
                                   timerHolder: timerHolder)
                 .frame(width: 240, height: 62)
-                .padding(20)
+                .padding(.init(top: 62, leading: 0, bottom: 20, trailing: 0))
             Text("スライドで録音停止")
                 .foregroundColor(.white)
                 .font(.headline)
