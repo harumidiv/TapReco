@@ -12,7 +12,7 @@ struct StandbyView: View {
     @Binding var isRecording: Bool
     @ObservedObject var presenter = StandbyPresenterImpl()
     
-    private let topMargin: CGFloat = 50
+    private let topMargin: CGFloat = 55
     private let bottomMargin: CGFloat = 32
     private let sideMargin: CGFloat = 28
     
@@ -25,7 +25,7 @@ struct StandbyView: View {
                 .frame(width: UIScreen.main.bounds.width,
                        height: UIScreen.main.bounds.height)
                 .foregroundColor(Color("tp_gray"))
-                .gesture(LongPressGesture().onChanged { _ in
+                .onTapGesture {
                     let impactHeavy = UIImpactFeedbackGenerator(style: .heavy)
                     impactHeavy.prepare()
                     impactHeavy.impactOccurred()
@@ -36,20 +36,24 @@ struct StandbyView: View {
                     }
                     
                     isRecording = true
-                })
+                }
                 .ignoresSafeArea()
                 .alert(isPresented: $presenter.isShowAlertDialog, content: presenter.alertBuilder)
             
             ZStack {
+                // TODO 画像を差し替える
                 Image("wakusen")
                     .resizable()
-                    .frame(width: dotLineWidth, height: dotLineHeight, alignment: .center)
-                    .padding(EdgeInsets(top: topMargin, leading: sideMargin, bottom: bottomMargin, trailing: sideMargin))
-                VStack(spacing: 38) {
+                    .scaledToFill()
+                    .frame(width: dotLineWidth,
+                           height: dotLineHeight,
+                           alignment: .center)
+                VStack(spacing: 18) {
                     Image("icon_microphone")
-                    Text("画面をタップして録音開始")
-                        .font(.headline)
-                        .foregroundColor(.gray)
+                    Text("タップして録音開始")
+                        .font(.title)
+                        .fontWeight(.bold)
+                        .foregroundColor(.white)
                 }
             }
             .onTapGesture {}
@@ -60,7 +64,7 @@ struct StandbyView: View {
                 let buttonWidth: CGFloat = 205
                 let bottomMargin: CGFloat = 74
                 SlideUPActionView(isPresentedRecordListView: $presenter.isShowRecordList)
-                    .frame(width: 204, height: 84)
+                    .frame(width: buttonWidth, height: buttonHeight)
                     .position(x: geometry.size.width / 2,
                               y: geometry.size.height - (bottomMargin + buttonHeight / 2))
                     .fullScreenCover(isPresented: $presenter.isShowRecordList) {
