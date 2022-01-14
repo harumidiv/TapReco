@@ -16,18 +16,20 @@ struct RecordingView: View {
             .frame(width: UIScreen.main.bounds.width,
                    height: UIScreen.main.bounds.height)
             .foregroundColor(Color("tp_gray"))
+            .ignoresSafeArea()
             .onTapGesture {}
             .allowsTightening(false)
-        VStack {
+        VStack(spacing: 0) {
             MicrophoneVolumeView()
                 .frame(width: 300, height: 200, alignment: .center)
             Text(timerHolder.timerText)
-                .font(.custom("Avenir", size: 50))
+                .font(.custom("Avenir", size: 40))
             SlideSideActionView(isRecording: $isRecording,
                                   timerHolder: timerHolder)
-                .frame(width: 276, height: 85)
-                .padding(10)
+                .frame(width: 240, height: 62)
+                .padding(.init(top: 62, leading: 0, bottom: 20, trailing: 0))
             Text("スライドで録音停止")
+                .foregroundColor(.white)
                 .font(.headline)
         }
         .onAppear{
