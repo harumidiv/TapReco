@@ -1,3 +1,3 @@
 # TapReco
 
-[Home画面](Document/Home.md)
+[Home画面](Document/Top.md)
