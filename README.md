@@ -1,3 +1,5 @@
 # TapReco
 
-[Home画面](Document/Top.md)
+[Top画面](Document/Top.md)
+
+[Recording画面](Document/Recording.md)
