@@ -8,17 +8,27 @@
 import SwiftUI
 
 struct RecordListPlayCell: View {
+    struct ViewModel {
+        let title: String
+        let recordDate: String
+        let fileLength: String
+        let fileSize: String
+        let fileName: String
+        
+    }
+    
+    let viewModel: ViewModel
+    
     @State private var currentValue: Double = 0.3
+    @StateObject private var audioPlayer = AudioPlayerImpl()
     
     var body: some View {
         ZStack {
-//            Color.yellow
-//                .ignoresSafeArea()
             VStack {
-                RecordListCellView(viewModel: .init(title: "title",
-                                                    recordDate: "recordData",
-                                                    fileLength: "fileLength",
-                                                    fileSize: "fileSize"))
+                RecordListCellView(viewModel: .init(title: viewModel.title,
+                                                    recordDate: viewModel.recordDate,
+                                                    fileLength: viewModel.fileLength,
+                                                    fileSize: viewModel.fileSize))
                 Slider(value: $currentValue,
                        in: 0...1)
                 HStack{
@@ -28,7 +38,8 @@ struct RecordListPlayCell: View {
                         }
                     Image("play_icon")
                         .onTapGesture {
-                            print("再生停止処理")
+                            print("再生停止処理: \(viewModel.fileName)")
+                            audioPlayer.playStart(fileName: viewModel.fileName)
                         }
                     Image("after_fifteen")
                         .onTapGesture {
@@ -42,6 +53,10 @@ struct RecordListPlayCell: View {
 
 struct RecordListPlayCell_Previews: PreviewProvider {
     static var previews: some View {
-        RecordListPlayCell()
+        RecordListPlayCell(viewModel: .init(title: "title",
+                                            recordDate: "date",
+                                            fileLength: "length",
+                                            fileSize: "size",
+                                            fileName: "fileName"))
     }
 }

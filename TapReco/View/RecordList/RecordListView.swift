@@ -21,8 +21,6 @@ struct RecordListView: View {
     }
     
     @State private var viewModel: ViewModel?
-    
-    @StateObject private var audioPlayer = AudioPlayerImpl()
     @Binding var isPresentedRecordListView: Bool
     
     var body: some View {
@@ -35,7 +33,12 @@ struct RecordListView: View {
                         
                         ForEach(0..<viewModel.recordList.count) { index in
                             if viewModel.recordList[index].isSelected {
-                                RecordListPlayCell()
+                                let record = viewModel.recordList[index]
+                                RecordListPlayCell(viewModel: .init(title: record.title,
+                                                                    recordDate: record.recordDate,
+                                                                    fileLength: record.fileLength,
+                                                                    fileSize: record.fileSize,
+                                                                    fileName: record.fileName))
                                     .listRowBackground(Color.yellow)
                                 
                                 // TODO再生できるようにする
