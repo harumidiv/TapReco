@@ -46,7 +46,11 @@ struct RecordListView: View {
                                     viewModel.recordList.indices.forEach { self.viewModel?.recordList[$0].isSelected = false }
                                     self.viewModel?.recordList[index].isSelected = true
                                 }){
-                                    RecordListCellView(viewModel: .init(title: viewModel.recordList[index].title))
+                                    let vm = viewModel.recordList[index]
+                                    RecordListCellView(viewModel: .init(title: vm.title,
+                                                                        recordDate: vm.recordDate,
+                                                                        fileLength: vm.fileLength,
+                                                                        fileSize: vm.fileSize))
                                 }
                             }
                         }
@@ -74,7 +78,7 @@ struct RecordListView: View {
         
         let recordList: [RecordData] = fileNames.compactMap{
             return RecordData(title: $0,
-                              recordDate: $0,
+                              recordDate: "2月3日 23:57",
                               fileName: $0,
                               fileSize: "3.5MB",
                               fileLength: "03:05")

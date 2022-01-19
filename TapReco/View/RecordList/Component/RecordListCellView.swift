@@ -7,9 +7,13 @@
 
 import SwiftUI
 
+
 struct RecordListCellView: View {
     struct ViewModel {
         var title: String
+        var recordDate: String
+        var fileLength: String
+        let fileSize: String
     }
     
     let viewModel: ViewModel
@@ -18,15 +22,21 @@ struct RecordListCellView: View {
         HStack(spacing: 10) {
             VStack(alignment: .leading, spacing: 0){
                 Text(viewModel.title)
-                Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+                Text(viewModel.recordDate)
             }
             Spacer()
             VStack{
-                Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-                Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+                Text(viewModel.fileLength)
+                Text(viewModel.fileSize)
             }
 
+            
             Image("icon_dot")
+                .frame(width: 16, height: 16)
+                .onTapGesture {
+                    // TODO 編集画面を開く
+                    print("タップされたよ")
+                }
         }
         
     }
@@ -34,6 +44,9 @@ struct RecordListCellView: View {
 
 struct RecordListCellView_Previews: PreviewProvider {
     static var previews: some View {
-        RecordListCellView(viewModel: .init(title: "hogehoge"))
+        RecordListCellView(viewModel: .init(title: "hogehoge",
+                                            recordDate: "2月3日 23:12",
+                                            fileLength: "03:50",
+                                            fileSize: "3.5MB"))
     }
 }
