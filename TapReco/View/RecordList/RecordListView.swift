@@ -24,21 +24,22 @@ struct RecordListView: View {
     
     @StateObject private var audioPlayer = AudioPlayerImpl()
     @Binding var isPresentedRecordListView: Bool
+    
     var body: some View {
         ZStack {
             if let viewModel = viewModel {
                 VStack(spacing: 0) {
                     RecordListHeaderView(isPresentedRecordListView: $isPresentedRecordListView)
+                        .background(Color.yellow)
                     List {
                         
                         ForEach(0..<viewModel.recordList.count) { index in
                             if viewModel.recordList[index].isSelected {
-                                Button(action: {
-                                    print("record on Play")
-                                    audioPlayer.playStart(fileName: viewModel.recordList[index].fileName)
-                                }){
-                                    Text("選択されてる状態")
-                                }
+                                RecordListPlayCell()
+                                    .listRowBackground(Color.yellow)
+                                
+                                // TODO再生できるようにする
+//                                audioPlayer.playStart(fileName: viewModel.recordList[index].fileName)
                                 
                             } else {
                                 Button(action: {
@@ -52,9 +53,11 @@ struct RecordListView: View {
                                                                         fileLength: vm.fileLength,
                                                                         fileSize: vm.fileSize))
                                 }
+                                .listRowBackground(Color.yellow)
                             }
                         }
                     }
+                    
                     .listStyle(PlainListStyle())
                 }
             } else {
