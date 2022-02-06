@@ -44,12 +44,10 @@ struct StandbyView: View {
                     }
                     .alert(isPresented: $presenter.isShowAlertDialog, content: presenter.alertBuilder)
                 ZStack {
+                    // TODO ここを上下のSafeArea以外の箇所までMaxで表示できるようにする
                     Image("wakusen")
                         .resizable()
-                        .scaledToFill()
-                        .frame(width: dotLineWidth,
-                               height: dotLineHeight,
-                               alignment: .center)
+                        .aspectRatio(contentMode: .fill)
                     VStack(spacing: 18) {
                         Image("icon_microphone")
                         Text("タップして録音開始")
