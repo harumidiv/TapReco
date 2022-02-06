@@ -15,8 +15,8 @@ final class SlideToActionView: UIView {
     }()
     
     let thumnailImageView: UIView = {
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
-        view.backgroundColor = .cyan
+        let view = UIImageView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+        view.image = UIImage(named: "icon_slidebar_start")
         view.isUserInteractionEnabled = true
         view.contentMode = .center
         
@@ -42,7 +42,7 @@ final class SlideToActionView: UIView {
     }()
     
     let endCircleView: UIImageView = {
-        let view = UIImageView(image: UIImage(named: "icon_stop"))
+        let view = UIImageView(image: UIImage(named: "icon_slidebar_stop"))
         view.backgroundColor = UIColor.gray
         view.contentMode = .center
         
@@ -126,9 +126,10 @@ extension SlideToActionView {
     private func setupView() {
         
         self.addSubview(backgroundView)
+        self.addSubview(endCircleView)
         self.addSubview(dragAreaView)
         self.addSubview(thumnailImageView)
-        self.addSubview(endCircleView)
+        
         
         setupConstraint()
         
