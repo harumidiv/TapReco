@@ -17,9 +17,6 @@ struct StandbyView: View {
     private let sideMargin: CGFloat = 28
     
     var body: some View {
-        let dotLineWidth = UIScreen.main.bounds.width - sideMargin * 2
-        let dotLineHeight = UIScreen.main.bounds.height - (topMargin + bottomMargin)
-        
         ZStack {
             // 背景色用のView
             Rectangle()
@@ -47,7 +44,7 @@ struct StandbyView: View {
                     // TODO ここを上下のSafeArea以外の箇所までMaxで表示できるようにする
                     Image("wakusen")
                         .resizable()
-                        .aspectRatio(contentMode: .fill)
+                        .scaledToFill()
                     VStack(spacing: 18) {
                         Image("icon_microphone")
                         Text("タップして録音開始")
