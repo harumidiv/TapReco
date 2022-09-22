@@ -39,11 +39,6 @@ struct RecordListView: View {
                                                                     fileLength: record.fileLength,
                                                                     fileSize: record.fileSize,
                                                                     fileName: record.fileName))
-                                    .listRowBackground(Color.yellow)
-                                
-                                // TODO再生できるようにする
-//                                audioPlayer.playStart(fileName: viewModel.recordList[index].fileName)
-                                
                             } else {
                                 Button(action: {
                                     // すでに選択済みのセルを元の状態に戻す
@@ -56,7 +51,7 @@ struct RecordListView: View {
                                                                         fileLength: vm.fileLength,
                                                                         fileSize: vm.fileSize))
                                 }
-                                .listRowBackground(Color.yellow)
+                                .listRowBackground(Color.green)
                             }
                         }
                     }
