@@ -39,6 +39,7 @@ struct RecordListView: View {
                                                                     fileLength: record.fileLength,
                                                                     fileSize: record.fileSize,
                                                                     fileName: record.fileName))
+                                .listRowBackground(Color.red)
                             } else {
                                 Button(action: {
                                     // すでに選択済みのセルを元の状態に戻す
