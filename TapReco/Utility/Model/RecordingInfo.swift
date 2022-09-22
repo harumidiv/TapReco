@@ -18,6 +18,6 @@ class RecordingInfo: Object {
     // ファイルサイズ
     @objc dynamic var fileSize: String = ""
     
-    // ファイルのパス
-    @objc dynamic var filePath: String = ""
+    // ファイルの名(再生時にこの名前でファイルを引っ掛ける)
+    @objc dynamic var fileName: String = ""
 }

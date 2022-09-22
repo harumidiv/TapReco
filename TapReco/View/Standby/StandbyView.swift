@@ -39,7 +39,8 @@ struct StandbyView: View {
                         
                         isRecording = true
                     }
-                    .alert(isPresented: $presenter.isShowAlertDialog, content: presenter.alertBuilder)
+                    .alert(isPresented: $presenter.isShowAlertDialog,
+                           content: presenter.alertBuilder)
                 ZStack {
                     // TODO ここを上下のSafeArea以外の箇所までMaxで表示できるようにする
                     Image("wakusen")

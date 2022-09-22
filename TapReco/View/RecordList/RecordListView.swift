@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct RecordListView: View {
     struct ViewModel {
@@ -30,7 +31,6 @@ struct RecordListView: View {
                     RecordListHeaderView(isPresentedRecordListView: $isPresentedRecordListView)
                         .background(Color.yellow)
                     List {
-                        
                         ForEach(0..<viewModel.recordList.count) { index in
                             if viewModel.recordList[index].isSelected {
                                 let record = viewModel.recordList[index]
@@ -69,25 +69,21 @@ struct RecordListView: View {
             }
         }
         .onAppear{
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                fetchRecordList()
-            }
-            print("onAppear")
+            fetchRecordList()
         }
     }
     
     private func fetchRecordList() {
-        let documentPath = NSHomeDirectory() + "/Documents"
-        guard let fileNames = try? FileManager.default.contentsOfDirectory(atPath: documentPath) else {
-            return
-        }
         
-        let recordList: [RecordData] = fileNames.compactMap{
-            return RecordData(title: $0,
-                              recordDate: "2月3日 23:57",
-                              fileName: $0,
-                              fileSize: "3.5MB",
-                              fileLength: "03:05")
+        let realm = try! Realm()
+        let results = realm.objects(RecordingInfo.self)
+        print(results)
+        let recordList: [RecordData] = results.compactMap{
+            return RecordData(title: $0.title,
+                              recordDate: $0.dateText,
+                              fileName: $0.fileName,
+                              fileSize: $0.fileSize,
+                              fileLength: $0.playTime)
         }
         
         self.viewModel = .init(recordList: recordList)

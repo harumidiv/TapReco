@@ -63,16 +63,14 @@ private extension AudioRecorderImpl {
         let fileSize: String = getFileSize(filePath: filePath)
         let playbackTime: String = getPlaybackTime(filePath: filePath)
         let recordingDate: String = currentRecordingTitle!.components(separatedBy: "+").first!
-        let title: String = "TODOデフォルトのタイトルをどうするか考える"
-        
-        print("date: \(recordingDate), fileSize: \(fileSize), playbackTime: \(playbackTime)")
+        let title: String = "My録音"
         
         let recordingInfo = RecordingInfo()
         recordingInfo.title = title
         recordingInfo.dateText = recordingDate
         recordingInfo.playTime = playbackTime
         recordingInfo.fileSize = fileSize
-        recordingInfo.filePath = filePath
+        recordingInfo.fileName = currentRecordingTitle ?? ""
         
         let realm = try! Realm()
         try! realm.write {
