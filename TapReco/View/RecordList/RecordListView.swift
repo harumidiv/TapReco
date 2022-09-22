@@ -31,7 +31,7 @@ struct RecordListView: View {
                     RecordListHeaderView(isPresentedRecordListView: $isPresentedRecordListView)
                         .background(Color.yellow)
                     List {
-                        ForEach(0..<viewModel.recordList.count) { index in
+                        ForEach(0..<viewModel.recordList.count, id: \.self) { index in
                             if viewModel.recordList[index].isSelected {
                                 let record = viewModel.recordList[index]
                                 RecordListPlayCell(viewModel: .init(title: record.title,
