@@ -9,7 +9,7 @@ import Foundation
 
 enum TapRecoDateFormat: String {
     case yyyyMMddHHmmssSlash = "yyyy/MM/dd HH:mm:ss"
-    case tapRecorYear = "yyyy-MM-dd_HH:mm:ss"
+    case tapRecorYear = "yyyy.MM.dd_HH:mm+ss"
     case yyyyMMddHHmmPeriod = "yyyy.MM.dd HH:mm"
     case yyyyMdHHmmPeriod = "yyyy.M.d HH:mm"
     case yyyyMdPeriod = "yyyy.M.d"
