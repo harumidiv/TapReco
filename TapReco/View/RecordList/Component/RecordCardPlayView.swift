@@ -11,7 +11,7 @@ struct RecordCardPlayView: View {
     @Binding var record: RecordData
     
     @State private var currentValue: Double = 0.3
-    @StateObject private var audioPlayer = AudioPlayerImpl()
+    private let audioPlayer = AudioPlayerImpl()
     
     var body: some View {
         ZStack {

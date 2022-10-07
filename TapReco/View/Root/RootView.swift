@@ -13,10 +13,7 @@ struct RootView: View {
     let saveAction: ()->Void
     
     @State var isRecording:Bool = false
-
-    // TODO StateObjectにする必要がない気がするので後で確認する
-    @StateObject private var audioRecorder = AudioRecorderImpl()
-
+    private let audioRecorder = AudioRecorderImpl()
     
     var body: some View {
         ZStack {

@@ -7,7 +7,7 @@
 
 import AVFoundation
 
-protocol AudioRecoder: AVAudioRecorderDelegate, ObservableObject {
+protocol AudioRecoder: AVAudioRecorderDelegate {
     func recordStart()
     func recordStop() -> RecordData
 }
