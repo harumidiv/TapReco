@@ -24,7 +24,15 @@ struct TapRecoApp: App {
                     }
                 }
             }
-        }.onChange(of: scenePhase) { scene in
+            .task {
+                do {
+                    store.records = try await RecordStore.load()
+                } catch {
+                    fatalError("TODO Error対応")
+                }
+            }
+        }
+        .onChange(of: scenePhase) { scene in
             switch scene {
             case .active:
                 // アプリ起動時のマイク使用許可のダイアログ表示
