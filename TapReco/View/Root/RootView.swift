@@ -18,10 +18,10 @@ struct RootView: View {
     
     var body: some View {
         ZStack {
-            if !isRecording {
-                StandbyView(records: $records, isRecording: $isRecording)
-            } else {
+            if isRecording {
                 RecordingView(isRecording: $isRecording)
+            } else {
+                StandbyView(records: $records, isRecording: $isRecording)
             }
         }
         .onChange(of: isRecording) { isRecording in
