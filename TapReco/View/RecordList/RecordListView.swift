@@ -12,14 +12,6 @@ struct RecordListView: View {
     struct ViewModel {
         var recordList: [RecordData]
     }
-    struct RecordData {
-        let title: String
-        let recordDate: String
-        let fileName:String
-        let fileSize: String
-        let fileLength: String
-        var isSelected: Bool = false
-    }
     
     @State private var viewModel: ViewModel?
     @Binding var isPresentedRecordListView: Bool

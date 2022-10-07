@@ -11,6 +11,7 @@ import AVFoundation
 @main
 struct TapRecoApp: App {
     @Environment(\.scenePhase) private var scenePhase
+    @StateObject private var store = RecordStore()
     
     var body: some Scene {
         WindowGroup {
