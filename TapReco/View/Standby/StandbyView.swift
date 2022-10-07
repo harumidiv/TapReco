@@ -9,6 +9,7 @@ import SwiftUI
 import AVFoundation
 
 struct StandbyView: View {
+    @Binding var records: [RecordData]
     @Binding var isRecording: Bool
     @State var isShowRecordList = false
     @State var isShowAlertDialog = false
@@ -69,7 +70,7 @@ extension StandbyView {
 
 struct StandbyView_Previews: PreviewProvider {
     static var previews: some View {
-        StandbyView(isRecording: .constant(false))
+        StandbyView(records: .constant(RecordData.sampleData), isRecording: .constant(false))
     }
 }
 

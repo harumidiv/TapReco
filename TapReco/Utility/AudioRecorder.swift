@@ -10,9 +10,9 @@ import RealmSwift
 
 protocol AudioRecoder: AVAudioRecorderDelegate, ObservableObject {
     func recordStart()
-    func recordStop()
+    func recordStop() -> RecordData
 }
- 
+
 final class AudioRecorderImpl: NSObject {
     private var audioRecorder: AVAudioRecorder!
     private var currentRecordingTitle: String?
@@ -45,39 +45,26 @@ extension AudioRecorderImpl: AudioRecoder {
         audioRecorder.record()
     }
     
-    func recordStop()  {
+    func recordStop() -> RecordData {
         audioRecorder.stop()
-        
-        saveRelamDatabase()
-    }
-        
-}
 
-// MARK: - Private Method
-private extension AudioRecorderImpl {
-    
-    // Realmに必要なデータを保存する
-    func saveRelamDatabase() {
         let filePath = NSHomeDirectory() + "/Documents/" + currentRecordingTitle!
-        
+
         let fileSize: String = getFileSize(filePath: filePath)
         let playbackTime: String = getPlaybackTime(filePath: filePath)
         let recordingDate: String = currentRecordingTitle!.components(separatedBy: "+").first!
         let title: String = "My録音"
-        
-        let recordingInfo = RecordingInfo()
-        recordingInfo.title = title
-        recordingInfo.dateText = recordingDate
-        recordingInfo.playTime = playbackTime
-        recordingInfo.fileSize = fileSize
-        recordingInfo.fileName = currentRecordingTitle ?? ""
-        
-        let realm = try! Realm()
-        try! realm.write {
-            realm.add(recordingInfo)
-        }
+        return RecordData(title: title,
+                          recordDate: recordingDate,
+                          fileName: currentRecordingTitle ?? "",
+                          fileSize: fileSize,
+                          fileLength: playbackTime)
     }
-    
+
+}
+
+// MARK: - Private Method
+private extension AudioRecorderImpl {
     func getFileSize(filePath: String) -> String {
         let fileAttributes = try! FileManager.default.attributesOfItem(atPath: filePath)
 

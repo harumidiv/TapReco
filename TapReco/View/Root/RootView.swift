@@ -8,14 +8,18 @@
 import SwiftUI
 import Combine
 
-struct RootView: View {    
+struct RootView: View {
+    @Binding var records: [RecordData]
+    let saveAction: ()->Void
+    
     @State var isRecording:Bool = false
     @StateObject private var audioRecorder = AudioRecorderImpl()
+
     
     var body: some View {
         ZStack {
             if !isRecording {
-                StandbyView(isRecording: $isRecording)
+                StandbyView(records: $records, isRecording: $isRecording)
             } else {
                 RecordingView(isRecording: $isRecording)
             }
@@ -29,7 +33,9 @@ struct RootView: View {
                 }
                 
             } else {
-                audioRecorder.recordStop()
+                let newRecord = audioRecorder.recordStop()
+                records.append(newRecord)
+                saveAction()
             }
         }
     }
@@ -38,6 +44,6 @@ struct RootView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        RootView()
+        RootView(records: .constant(RecordData.sampleData), saveAction: {})
     }
 }

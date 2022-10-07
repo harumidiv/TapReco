@@ -8,7 +8,7 @@
 import Foundation
 
 final class RecordStore: ObservableObject {
-    @Published var recordingData: [RecordData] = []
+    @Published var records: [RecordData] = []
 
     /// 端末内部に保存している録音データを取得する
     /// - Returns: 録音データ一覧

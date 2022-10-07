@@ -320,8 +320,8 @@
 			isa = PBXGroup;
 			children = (
 				49C5513E28DC3BDE00133B7D /* RecordingInfo.swift */,
-				49488CEF28EECDF10015CDFC /* RecordStore.swift */,
 				49488CF128EECF3E0015CDFC /* RecordingData.swift */,
+				49488CEF28EECDF10015CDFC /* RecordStore.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";

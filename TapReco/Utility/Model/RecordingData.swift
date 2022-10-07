@@ -26,3 +26,13 @@ struct RecordData: Identifiable, Codable {
         self.isSelected = false
     }
 }
+
+// MARK: - Preview用サンプルデータ
+extension RecordData {
+    static let sampleData: [RecordData] =
+    [
+    RecordData(title: "My録音", recordDate:  "2022/10/7", fileName: "マイ録音", fileSize: "3.5MB", fileLength: "3:15"),
+    RecordData(title: "My録音", recordDate:  "2022/10/8", fileName: "マイ録音", fileSize: "3.5MB", fileLength: "3:15"),
+    RecordData(title: "My録音", recordDate:  "2022/10/8", fileName: "マイ録音", fileSize: "3.5MB", fileLength: "3:15")
+    ]
+}

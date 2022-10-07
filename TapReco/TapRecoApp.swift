@@ -15,7 +15,15 @@ struct TapRecoApp: App {
     
     var body: some Scene {
         WindowGroup {
-            RootView()
+            RootView(records: $store.records) {
+                Task {
+                    do {
+                        try await RecordStore.save(records: store.records)
+                    } catch {
+                        fatalError("TODO Error対応")
+                    }
+                }
+            }
         }.onChange(of: scenePhase) { scene in
             switch scene {
             case .active:
