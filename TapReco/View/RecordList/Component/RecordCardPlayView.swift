@@ -42,5 +42,7 @@ struct RecordCardPlayView: View {
 struct RecordListPlayCell_Previews: PreviewProvider {
     static var previews: some View {
         RecordCardPlayView(record: .constant(RecordData.sampleData[0]))
+            .background(.red)
+            .fixedSize(horizontal: false, vertical: true)
     }
 }

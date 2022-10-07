@@ -15,12 +15,16 @@ struct RecordCardView: View {
         HStack(spacing: 10) {
             VStack(alignment: .leading, spacing: 0){
                 Text(record.title)
+                    .font(.title2)
                 Text(record.recordDate)
+                    .font(.caption)
             }
             Spacer()
             VStack{
                 Text(record.fileLength)
+                    .font(.body)
                 Text(record.fileSize)
+                    .font(.caption)
             }
 
             
@@ -38,5 +42,6 @@ struct RecordCardView: View {
 struct RecordCardView_Previews: PreviewProvider {
     static var previews: some View {
         RecordCardView(record: .constant(RecordData.sampleData[0]))
+            .fixedSize()
     }
 }
