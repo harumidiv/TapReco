@@ -10,35 +10,60 @@ import AVFoundation
 
 struct StandbyView: View {
     @Binding var isRecording: Bool
-    @ObservedObject var presenter = StandbyPresenterImpl()
+    @State var isShowRecordList = false
+    @State var isShowAlertDialog = false
+
+    // TODO 音声を制御するクラスが持っておいた方が良さそう
+    var isAutholized: Bool {
+        let status = AVCaptureDevice.authorizationStatus(for: .audio)
+
+        switch status {
+        case .authorized:
+            return true
+        default:
+            return false
+        }
+    }
 
     var body: some View {
         ZStack {
             StandbyBackgroundView()
-            StandbyTapableView{
-                if !presenter.isAutholized {
-                    presenter.apply(inputs: .didTapRecording)
-                    return
+            StandbyTapableView {
+                if isAutholized {
+                    isRecording = true
+                } else {
+                    isShowAlertDialog = true
                 }
-
-                isRecording = true
             }
-            .alert(isPresented: $presenter.isShowAlertDialog,
-                   content: presenter.alertBuilder)
+            .alert(isPresented: $isShowAlertDialog, content: alertBuilder)
 
             GeometryReader { geometry in
                 let buttonHeight: CGFloat = 86
                 let buttonWidth: CGFloat = 205
                 let bottomMargin: CGFloat = 74
-                SlideUPActionView(isPresentedRecordListView: $presenter.isShowRecordList)
+                SlideUPActionView(isPresentedRecordListView: $isShowRecordList)
                     .frame(width: buttonWidth, height: buttonHeight)
                     .position(x: geometry.size.width / 2,
                               y: geometry.size.height - (bottomMargin + buttonHeight / 2))
-                    .fullScreenCover(isPresented: $presenter.isShowRecordList) {
-                        RecordListView(isPresentedRecordListView: $presenter.isShowRecordList)
+                    .fullScreenCover(isPresented: $isShowRecordList) {
+                        RecordListView(isPresentedRecordListView: $isShowRecordList)
                     }
             }
         }
+    }
+}
+
+extension StandbyView {
+    func alertBuilder() -> Alert {
+        return Alert(
+            title: Text("マイクへのアクセス許可がありません"),
+            message: Text("[設定]に移動して、権限を許可してください"),
+            primaryButton: .cancel(Text("キャンセル")),
+            secondaryButton: .default(Text("設定"), action: {
+                if let url = URL(string: UIApplication.openSettingsURLString), UIApplication.shared.canOpenURL(url) {
+                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                }
+            }))
     }
 }
 

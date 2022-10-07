@@ -15,7 +15,6 @@
 		492508AD26DCF7D4005169AE /* TapRecoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492508AC26DCF7D4005169AE /* TapRecoTests.swift */; };
 		492508B826DCF7D4005169AE /* TapRecoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492508B726DCF7D4005169AE /* TapRecoUITests.swift */; };
 		49409CC0275DDDCA003933BA /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49409CBF275DDDCA003933BA /* Date+Extension.swift */; };
-		4941A1352768F6CE00A80335 /* StandbyPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4941A1342768F6CE00A80335 /* StandbyPresenter.swift */; };
 		4941A1392769DB6E00A80335 /* RecordListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4941A1382769DB6E00A80335 /* RecordListPresenter.swift */; };
 		4941A172276A1A1F00A80335 /* RecordListCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4941A171276A1A1F00A80335 /* RecordListCellView.swift */; };
 		495B95F0277DA6A4009A393C /* SlideToUPUnlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495B95EF277DA6A4009A393C /* SlideToUPUnlockView.swift */; };
@@ -72,7 +71,6 @@
 		492508B726DCF7D4005169AE /* TapRecoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapRecoUITests.swift; sourceTree = "<group>"; };
 		492508B926DCF7D4005169AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49409CBF275DDDCA003933BA /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
-		4941A1342768F6CE00A80335 /* StandbyPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandbyPresenter.swift; sourceTree = "<group>"; };
 		4941A1382769DB6E00A80335 /* RecordListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordListPresenter.swift; sourceTree = "<group>"; };
 		4941A171276A1A1F00A80335 /* RecordListCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordListCellView.swift; sourceTree = "<group>"; };
 		495B95EF277DA6A4009A393C /* SlideToUPUnlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideToUPUnlockView.swift; sourceTree = "<group>"; };
@@ -281,7 +279,6 @@
 			isa = PBXGroup;
 			children = (
 				49C0D13126EA31C900B3666E /* StandbyView.swift */,
-				4941A1342768F6CE00A80335 /* StandbyPresenter.swift */,
 				49940DD828EFF1A100A5E66D /* Component */,
 			);
 			path = Standby;
@@ -484,7 +481,6 @@
 				49C0D12526E8DE6E00B3666E /* WaveView.swift in Sources */,
 				49C0D12E26E904AA00B3666E /* SlideToActionView.swift in Sources */,
 				4968676927981095002D269E /* RecordListPlayCell.swift in Sources */,
-				4941A1352768F6CE00A80335 /* StandbyPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
