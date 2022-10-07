@@ -47,7 +47,7 @@ struct StandbyView: View {
                     .position(x: geometry.size.width / 2,
                               y: geometry.size.height - (bottomMargin + buttonHeight / 2))
                     .fullScreenCover(isPresented: $isShowRecordList) {
-                        RecordListView(isPresentedRecordListView: $isShowRecordList)
+                        RecordListView(isShowRecordList: $isShowRecordList, records: $records)
                     }
             }
         }
@@ -70,7 +70,8 @@ extension StandbyView {
 
 struct StandbyView_Previews: PreviewProvider {
     static var previews: some View {
-        StandbyView(records: .constant(RecordData.sampleData), isRecording: .constant(false))
+        StandbyView(records: .constant(RecordData.sampleData),
+                    isRecording: .constant(false))
     }
 }
 

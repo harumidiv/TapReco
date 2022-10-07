@@ -9,77 +9,68 @@ import SwiftUI
 import RealmSwift
 
 struct RecordListView: View {
-    struct ViewModel {
-        var recordList: [RecordData]
-    }
-    
-    @State private var viewModel: ViewModel?
-    @Binding var isPresentedRecordListView: Bool
+    @Binding var isShowRecordList: Bool
+    @Binding var records: [RecordData]
     
     var body: some View {
         ZStack {
-            if let viewModel = viewModel {
-                VStack(spacing: 0) {
-                    RecordListHeaderView(isPresentedRecordListView: $isPresentedRecordListView)
-                        .background(Color.yellow)
-                    List {
-                        ForEach(0..<viewModel.recordList.count, id: \.self) { index in
-                            if viewModel.recordList[index].isSelected {
-                                let record = viewModel.recordList[index]
-                                RecordListPlayCell(viewModel: .init(title: record.title,
+            VStack(spacing: 0) {
+                RecordListHeaderView(isPresentedRecordListView: $isShowRecordList)
+                    .background(Color.yellow)
+                List {
+                    ForEach(records) { record in
+                        if record.isSelected {
+                            RecordListPlayCell(viewModel: .init(title: record.title,
+                                                                recordDate: record.recordDate,
+                                                                fileLength: record.fileLength,
+                                                                fileSize: record.fileSize,
+                                                                fileName: record.fileName))
+                            .listRowBackground(Color.red)
+                        } else {
+                            
+                            Button(action: {
+                                setSelectedState(record: record)
+                            }){
+                                RecordListCellView(viewModel: .init(title: record.title,
                                                                     recordDate: record.recordDate,
                                                                     fileLength: record.fileLength,
-                                                                    fileSize: record.fileSize,
-                                                                    fileName: record.fileName))
-                                .listRowBackground(Color.red)
-                            } else {
-                                Button(action: {
-                                    // すでに選択済みのセルを元の状態に戻す
-                                    viewModel.recordList.indices.forEach { self.viewModel?.recordList[$0].isSelected = false }
-                                    self.viewModel?.recordList[index].isSelected = true
-                                }){
-                                    let vm = viewModel.recordList[index]
-                                    RecordListCellView(viewModel: .init(title: vm.title,
-                                                                        recordDate: vm.recordDate,
-                                                                        fileLength: vm.fileLength,
-                                                                        fileSize: vm.fileSize))
-                                }
-                                .listRowBackground(Color.green)
+                                                                    fileSize: record.fileSize))
                             }
+                            .listRowBackground(Color.green)
                         }
                     }
-                    
-                    .listStyle(PlainListStyle())
                 }
-            } else {
-                // TODO インジケータと読み込み中の形のレイアウトを作成する
-                Text("loading中")
+                .listStyle(PlainListStyle())
             }
         }
-        .onAppear{
-            fetchRecordList()
-        }
     }
-    
-    private func fetchRecordList() {
-        
-        let realm = try! Realm()
-        let results = realm.objects(RecordingInfo.self)
-        print(results)
-        let recordList: [RecordData] = results.compactMap{
-            return RecordData(title: $0.title,
-                              recordDate: $0.dateText,
-                              fileName: $0.fileName,
-                              fileSize: $0.fileSize,
-                              fileLength: $0.playTime)
+}
+
+private extension RecordListView {
+    // 対象のセルを選択状態にする
+    func setSelectedState(record: RecordData) {
+        self.records = records.compactMap{
+            if $0.id == record.id {
+                return RecordData(title: $0.title,
+                                  recordDate: $0.recordDate,
+                                  fileName: $0.fileName,
+                                  fileSize: $0.fileSize,
+                                  fileLength: $0.fileLength,
+                                  isSelected: true)
+            } else {
+                return RecordData(title: $0.title,
+                                  recordDate: $0.recordDate,
+                                  fileName: $0.fileName,
+                                  fileSize: $0.fileSize,
+                                  fileLength: $0.fileLength,
+                                  isSelected: false)
+            }
         }
-        
-        self.viewModel = .init(recordList: recordList)
     }
 }
 
 struct RecordListView_Previews: PreviewProvider {
     static var previews: some View {
-        RecordListView(isPresentedRecordListView: .constant(false))
+        RecordListView(isShowRecordList: .constant(false), records: .constant(RecordData.sampleData))
     }
 }

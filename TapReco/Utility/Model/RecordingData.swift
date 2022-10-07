@@ -16,14 +16,14 @@ struct RecordData: Identifiable, Codable {
     let fileLength: String
     var isSelected: Bool
 
-    init(title: String, recordDate: String, fileName: String, fileSize: String, fileLength: String) {
+    init(title: String, recordDate: String, fileName: String, fileSize: String, fileLength: String, isSelected: Bool = false) {
         id = UUID()
         self.title = title
         self.recordDate = recordDate
         self.fileName = fileName
         self.fileSize = fileSize
         self.fileLength = fileLength
-        self.isSelected = false
+        self.isSelected = isSelected
     }
 }
 
