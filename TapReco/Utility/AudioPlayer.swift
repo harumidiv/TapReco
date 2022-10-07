@@ -7,12 +7,12 @@
 
 import AVFoundation
 
-protocol AudioPlayer: ObservableObject{
+protocol AudioPlayer {
     func playStart(fileName: String)
     func playStop()
 }
 
-class AudioPlayerImpl: NSObject {
+final class AudioPlayerImpl: NSObject {
     var audioPlayer: AVAudioPlayer!
         
     private func getURL(fileName: String) -> URL{

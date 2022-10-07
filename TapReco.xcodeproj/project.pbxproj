@@ -16,11 +16,12 @@
 		492508B826DCF7D4005169AE /* TapRecoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492508B726DCF7D4005169AE /* TapRecoUITests.swift */; };
 		49409CC0275DDDCA003933BA /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49409CBF275DDDCA003933BA /* Date+Extension.swift */; };
 		4941A1392769DB6E00A80335 /* RecordListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4941A1382769DB6E00A80335 /* RecordListPresenter.swift */; };
-		4941A172276A1A1F00A80335 /* RecordListCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4941A171276A1A1F00A80335 /* RecordListCellView.swift */; };
+		4941A172276A1A1F00A80335 /* RecordCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4941A171276A1A1F00A80335 /* RecordCardView.swift */; };
+		49488CF028EECDF10015CDFC /* RecordStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49488CEF28EECDF10015CDFC /* RecordStore.swift */; };
+		49488CF228EECF3E0015CDFC /* RecordingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49488CF128EECF3E0015CDFC /* RecordingData.swift */; };
 		495B95F0277DA6A4009A393C /* SlideToUPUnlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495B95EF277DA6A4009A393C /* SlideToUPUnlockView.swift */; };
 		495B95F2277DA6E6009A393C /* SlideUPActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495B95F1277DA6E6009A393C /* SlideUPActionView.swift */; };
-		4968676927981095002D269E /* RecordListPlayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4968676827981095002D269E /* RecordListPlayCell.swift */; };
-		496BC85928913243002DBEF1 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 496BC85828913243002DBEF1 /* RealmSwift */; };
+		4968676927981095002D269E /* RecordCardPlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4968676827981095002D269E /* RecordCardPlayView.swift */; };
 		49856ECB26E474030015C12E /* AudioRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49856ECA26E474030015C12E /* AudioRecorder.swift */; };
 		49856ECE26E474B80015C12E /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49856ECD26E474B80015C12E /* AudioPlayer.swift */; };
 		49856F4E26E633080015C12E /* MicrophoneLebelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49856F4D26E633080015C12E /* MicrophoneLebelManager.swift */; };
@@ -36,7 +37,6 @@
 		49C0D13026EA317500B3666E /* RecordingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C0D12F26EA317500B3666E /* RecordingView.swift */; };
 		49C0D13226EA31C900B3666E /* StandbyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C0D13126EA31C900B3666E /* StandbyView.swift */; };
 		49C53B272760D10E0062E6B3 /* RecordListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C53B262760D10E0062E6B3 /* RecordListHeaderView.swift */; };
-		49C5513F28DC3BDE00133B7D /* RecordingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C5513E28DC3BDE00133B7D /* RecordingInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,10 +72,12 @@
 		492508B926DCF7D4005169AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49409CBF275DDDCA003933BA /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		4941A1382769DB6E00A80335 /* RecordListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordListPresenter.swift; sourceTree = "<group>"; };
-		4941A171276A1A1F00A80335 /* RecordListCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordListCellView.swift; sourceTree = "<group>"; };
+		4941A171276A1A1F00A80335 /* RecordCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordCardView.swift; sourceTree = "<group>"; };
+		49488CEF28EECDF10015CDFC /* RecordStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordStore.swift; sourceTree = "<group>"; };
+		49488CF128EECF3E0015CDFC /* RecordingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingData.swift; sourceTree = "<group>"; };
 		495B95EF277DA6A4009A393C /* SlideToUPUnlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideToUPUnlockView.swift; sourceTree = "<group>"; };
 		495B95F1277DA6E6009A393C /* SlideUPActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideUPActionView.swift; sourceTree = "<group>"; };
-		4968676827981095002D269E /* RecordListPlayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordListPlayCell.swift; sourceTree = "<group>"; };
+		4968676827981095002D269E /* RecordCardPlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordCardPlayView.swift; sourceTree = "<group>"; };
 		49856ECA26E474030015C12E /* AudioRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorder.swift; sourceTree = "<group>"; };
 		49856ECD26E474B80015C12E /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 		49856F4D26E633080015C12E /* MicrophoneLebelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicrophoneLebelManager.swift; sourceTree = "<group>"; };
@@ -90,7 +92,6 @@
 		49C0D12F26EA317500B3666E /* RecordingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingView.swift; sourceTree = "<group>"; };
 		49C0D13126EA31C900B3666E /* StandbyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandbyView.swift; sourceTree = "<group>"; };
 		49C53B262760D10E0062E6B3 /* RecordListHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordListHeaderView.swift; sourceTree = "<group>"; };
-		49C5513E28DC3BDE00133B7D /* RecordingInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +99,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				496BC85928913243002DBEF1 /* RealmSwift in Frameworks */,
 				4994CC3326E78C39003A34ED /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -306,8 +306,8 @@
 			isa = PBXGroup;
 			children = (
 				49C53B262760D10E0062E6B3 /* RecordListHeaderView.swift */,
-				4941A171276A1A1F00A80335 /* RecordListCellView.swift */,
-				4968676827981095002D269E /* RecordListPlayCell.swift */,
+				4941A171276A1A1F00A80335 /* RecordCardView.swift */,
+				4968676827981095002D269E /* RecordCardPlayView.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -315,7 +315,8 @@
 		49C5513D28DC3BC700133B7D /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				49C5513E28DC3BDE00133B7D /* RecordingInfo.swift */,
+				49488CF128EECF3E0015CDFC /* RecordingData.swift */,
+				49488CEF28EECDF10015CDFC /* RecordStore.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -338,7 +339,6 @@
 			name = TapReco;
 			packageProductDependencies = (
 				4994CC3226E78C39003A34ED /* Lottie */,
-				496BC85828913243002DBEF1 /* RealmSwift */,
 			);
 			productName = TapReco;
 			productReference = 4925089726DCF7D3005169AE /* TapReco.app */;
@@ -459,10 +459,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				49856ECB26E474030015C12E /* AudioRecorder.swift in Sources */,
-				49C5513F28DC3BDE00133B7D /* RecordingInfo.swift in Sources */,
 				4925089D26DCF7D3005169AE /* RootView.swift in Sources */,
 				49856F4E26E633080015C12E /* MicrophoneLebelManager.swift in Sources */,
-				4941A172276A1A1F00A80335 /* RecordListCellView.swift in Sources */,
+				4941A172276A1A1F00A80335 /* RecordCardView.swift in Sources */,
 				4941A1392769DB6E00A80335 /* RecordListPresenter.swift in Sources */,
 				49BEE51F26EDDF460002C43B /* TimerHolder.swift in Sources */,
 				495B95F2277DA6E6009A393C /* SlideUPActionView.swift in Sources */,
@@ -473,6 +472,7 @@
 				49940DD728EFF0C200A5E66D /* StandbyTapableView.swift in Sources */,
 				49940DD528EFEA9500A5E66D /* StandbyBackgroundView.swift in Sources */,
 				49856ECE26E474B80015C12E /* AudioPlayer.swift in Sources */,
+				49488CF228EECF3E0015CDFC /* RecordingData.swift in Sources */,
 				49C53B272760D10E0062E6B3 /* RecordListHeaderView.swift in Sources */,
 				491DE9DE2758B8640084985B /* RecordListView.swift in Sources */,
 				49C0D13026EA317500B3666E /* RecordingView.swift in Sources */,
@@ -480,7 +480,8 @@
 				495B95F0277DA6A4009A393C /* SlideToUPUnlockView.swift in Sources */,
 				49C0D12526E8DE6E00B3666E /* WaveView.swift in Sources */,
 				49C0D12E26E904AA00B3666E /* SlideToActionView.swift in Sources */,
-				4968676927981095002D269E /* RecordListPlayCell.swift in Sources */,
+				49488CF028EECDF10015CDFC /* RecordStore.swift in Sources */,
+				4968676927981095002D269E /* RecordCardPlayView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -642,7 +643,7 @@
 				DEVELOPMENT_TEAM = 24BSY9Z4H5;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = TapReco/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -664,7 +665,7 @@
 				DEVELOPMENT_TEAM = 24BSY9Z4H5;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = TapReco/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -821,11 +822,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		496BC85828913243002DBEF1 /* RealmSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 496BC85728913243002DBEF1 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
-			productName = RealmSwift;
-		};
 		4994CC3226E78C39003A34ED /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 4994CC3126E78C39003A34ED /* XCRemoteSwiftPackageReference "lottie-ios" */;

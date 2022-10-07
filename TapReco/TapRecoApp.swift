@@ -11,11 +11,28 @@ import AVFoundation
 @main
 struct TapRecoApp: App {
     @Environment(\.scenePhase) private var scenePhase
+    @StateObject private var store = RecordStore()
     
     var body: some Scene {
         WindowGroup {
-            RootView()
-        }.onChange(of: scenePhase) { scene in
+            RootView(records: $store.records) {
+                Task {
+                    do {
+                        try await RecordStore.save(records: store.records)
+                    } catch {
+                        fatalError("TODO Error対応")
+                    }
+                }
+            }
+            .task {
+                do {
+                    store.records = try await RecordStore.load()
+                } catch {
+                    fatalError("TODO Error対応")
+                }
+            }
+        }
+        .onChange(of: scenePhase) { scene in
             switch scene {
             case .active:
                 // アプリ起動時のマイク使用許可のダイアログ表示

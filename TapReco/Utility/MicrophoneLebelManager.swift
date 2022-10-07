@@ -14,7 +14,7 @@ func AudioQueueInputCallback(inUserData: UnsafeMutableRawPointer?, inAQ: AudioQu
     // NOP
 }
 
-class MicrophoneLebelManager: ObservableObject {
+final class MicrophoneLebelManager: ObservableObject {
     @Published var volume: CGFloat = 0
 
     var queue: AudioQueueRef!
