@@ -8,7 +8,7 @@
 import SwiftUI
 import Combine
 
-class TimerHolder : ObservableObject {
+final class TimerHolder : ObservableObject {
     @Published var timer : Timer!
     @Published var timerText: String = "00:00:00"
     private var elapsedTime: CGFloat = 0
