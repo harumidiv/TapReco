@@ -19,38 +19,26 @@ struct StandbyView: View {
     var body: some View {
         ZStack {
             StandbyBackgroundView()
-            
 
-            ZStack {
-                // タップ領域用のView
-                Rectangle()
-                    .foregroundColor(.clear)
-                    .onTapGesture {
-                        let impactHeavy = UIImpactFeedbackGenerator(style: .heavy)
-                        impactHeavy.prepare()
-                        impactHeavy.impactOccurred()
-                        
-                        if !presenter.isAutholized {
-                            presenter.apply(inputs: .didTapRecording)
-                            return
-                        }
-                        
-                        isRecording = true
+            // タップ領域用のView
+            Rectangle()
+                .foregroundColor(.clear)
+                //foregroundColorをclearに設定するとtapが効かなくなるのでcontentShapeを入れる
+                .contentShape(Rectangle())
+                .onTapGesture {
+                    let impactHeavy = UIImpactFeedbackGenerator(style: .heavy)
+                    impactHeavy.prepare()
+                    impactHeavy.impactOccurred()
+
+                    if !presenter.isAutholized {
+                        presenter.apply(inputs: .didTapRecording)
+                        return
                     }
-                    .alert(isPresented: $presenter.isShowAlertDialog,
-                           content: presenter.alertBuilder)
-                ZStack {
-                    VStack(spacing: 18) {
-                        Image("icon_microphone")
-                        Text("タップして録音開始")
-                            .font(.title)
-                            .fontWeight(.bold)
-                            .foregroundColor(.white)
-                    }
+
+                    isRecording = true
                 }
-                .onTapGesture {}
-                .allowsHitTesting(false)
-                
+                .alert(isPresented: $presenter.isShowAlertDialog,
+                       content: presenter.alertBuilder)
                 GeometryReader { geometry in
                     let buttonHeight: CGFloat = 86
                     let buttonWidth: CGFloat = 205
@@ -63,7 +51,6 @@ struct StandbyView: View {
                             RecordListView(isPresentedRecordListView: $presenter.isShowRecordList)
                         }
                 }
-            }
         }
     }
 }
