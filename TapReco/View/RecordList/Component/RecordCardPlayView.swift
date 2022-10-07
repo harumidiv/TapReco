@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct RecordListPlayCell: View {
+struct RecordCardPlayView: View {
     struct ViewModel {
         let title: String
         let recordDate: String
@@ -25,7 +25,7 @@ struct RecordListPlayCell: View {
     var body: some View {
         ZStack {
             VStack {
-                RecordListCellView(viewModel: .init(title: viewModel.title,
+                RecordCardView(viewModel: .init(title: viewModel.title,
                                                     recordDate: viewModel.recordDate,
                                                     fileLength: viewModel.fileLength,
                                                     fileSize: viewModel.fileSize))
@@ -53,7 +53,7 @@ struct RecordListPlayCell: View {
 
 struct RecordListPlayCell_Previews: PreviewProvider {
     static var previews: some View {
-        RecordListPlayCell(viewModel: .init(title: "title",
+        RecordCardPlayView(viewModel: .init(title: "title",
                                             recordDate: "date",
                                             fileLength: "length",
                                             fileSize: "size",

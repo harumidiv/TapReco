@@ -50,5 +50,7 @@ struct RecordListHeaderView: View {
 struct RecordListSectionHeadaerView_Previews: PreviewProvider {
     static var previews: some View {
         RecordListHeaderView(isPresentedRecordListView: .constant(false))
+            .background(.orange)
+            .fixedSize(horizontal: false, vertical: true)
     }
 }

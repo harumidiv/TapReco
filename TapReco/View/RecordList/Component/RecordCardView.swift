@@ -1,5 +1,5 @@
 //
-//  RecordListCellView.swift
+//  RecordCardViewx.swift
 //  TapReco
 //
 //  Created by 佐川 晴海 on 2021/12/15.
@@ -8,7 +8,7 @@
 import SwiftUI
 
 
-struct RecordListCellView: View {
+struct RecordCardView: View {
     struct ViewModel {
         var title: String
         var recordDate: String
@@ -42,9 +42,9 @@ struct RecordListCellView: View {
     }
 }
 
-struct RecordListCellView_Previews: PreviewProvider {
+struct RecordCardView_Previews: PreviewProvider {
     static var previews: some View {
-        RecordListCellView(viewModel: .init(title: "hogehoge",
+        RecordCardView(viewModel: .init(title: "hogehoge",
                                             recordDate: "2月3日 23:12",
                                             fileLength: "03:50",
                                             fileSize: "3.5MB"))

@@ -19,7 +19,7 @@ struct RecordListView: View {
                 List {
                     ForEach(records) { record in
                         if record.isSelected {
-                            RecordListPlayCell(viewModel: .init(title: record.title,
+                            RecordCardPlayView(viewModel: .init(title: record.title,
                                                                 recordDate: record.recordDate,
                                                                 fileLength: record.fileLength,
                                                                 fileSize: record.fileSize,
@@ -30,7 +30,7 @@ struct RecordListView: View {
                             Button(action: {
                                 setSelectedState(record: record)
                             }){
-                                RecordListCellView(viewModel: .init(title: record.title,
+                                RecordCardView(viewModel: .init(title: record.title,
                                                                     recordDate: record.recordDate,
                                                                     fileLength: record.fileLength,
                                                                     fileSize: record.fileSize))

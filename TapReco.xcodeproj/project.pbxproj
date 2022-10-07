@@ -16,12 +16,12 @@
 		492508B826DCF7D4005169AE /* TapRecoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492508B726DCF7D4005169AE /* TapRecoUITests.swift */; };
 		49409CC0275DDDCA003933BA /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49409CBF275DDDCA003933BA /* Date+Extension.swift */; };
 		4941A1392769DB6E00A80335 /* RecordListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4941A1382769DB6E00A80335 /* RecordListPresenter.swift */; };
-		4941A172276A1A1F00A80335 /* RecordListCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4941A171276A1A1F00A80335 /* RecordListCellView.swift */; };
+		4941A172276A1A1F00A80335 /* RecordCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4941A171276A1A1F00A80335 /* RecordCardView.swift */; };
 		49488CF028EECDF10015CDFC /* RecordStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49488CEF28EECDF10015CDFC /* RecordStore.swift */; };
 		49488CF228EECF3E0015CDFC /* RecordingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49488CF128EECF3E0015CDFC /* RecordingData.swift */; };
 		495B95F0277DA6A4009A393C /* SlideToUPUnlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495B95EF277DA6A4009A393C /* SlideToUPUnlockView.swift */; };
 		495B95F2277DA6E6009A393C /* SlideUPActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495B95F1277DA6E6009A393C /* SlideUPActionView.swift */; };
-		4968676927981095002D269E /* RecordListPlayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4968676827981095002D269E /* RecordListPlayCell.swift */; };
+		4968676927981095002D269E /* RecordCardPlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4968676827981095002D269E /* RecordCardPlayView.swift */; };
 		49856ECB26E474030015C12E /* AudioRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49856ECA26E474030015C12E /* AudioRecorder.swift */; };
 		49856ECE26E474B80015C12E /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49856ECD26E474B80015C12E /* AudioPlayer.swift */; };
 		49856F4E26E633080015C12E /* MicrophoneLebelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49856F4D26E633080015C12E /* MicrophoneLebelManager.swift */; };
@@ -72,12 +72,12 @@
 		492508B926DCF7D4005169AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49409CBF275DDDCA003933BA /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		4941A1382769DB6E00A80335 /* RecordListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordListPresenter.swift; sourceTree = "<group>"; };
-		4941A171276A1A1F00A80335 /* RecordListCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordListCellView.swift; sourceTree = "<group>"; };
+		4941A171276A1A1F00A80335 /* RecordCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordCardView.swift; sourceTree = "<group>"; };
 		49488CEF28EECDF10015CDFC /* RecordStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordStore.swift; sourceTree = "<group>"; };
 		49488CF128EECF3E0015CDFC /* RecordingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingData.swift; sourceTree = "<group>"; };
 		495B95EF277DA6A4009A393C /* SlideToUPUnlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideToUPUnlockView.swift; sourceTree = "<group>"; };
 		495B95F1277DA6E6009A393C /* SlideUPActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideUPActionView.swift; sourceTree = "<group>"; };
-		4968676827981095002D269E /* RecordListPlayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordListPlayCell.swift; sourceTree = "<group>"; };
+		4968676827981095002D269E /* RecordCardPlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordCardPlayView.swift; sourceTree = "<group>"; };
 		49856ECA26E474030015C12E /* AudioRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorder.swift; sourceTree = "<group>"; };
 		49856ECD26E474B80015C12E /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 		49856F4D26E633080015C12E /* MicrophoneLebelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicrophoneLebelManager.swift; sourceTree = "<group>"; };
@@ -306,8 +306,8 @@
 			isa = PBXGroup;
 			children = (
 				49C53B262760D10E0062E6B3 /* RecordListHeaderView.swift */,
-				4941A171276A1A1F00A80335 /* RecordListCellView.swift */,
-				4968676827981095002D269E /* RecordListPlayCell.swift */,
+				4941A171276A1A1F00A80335 /* RecordCardView.swift */,
+				4968676827981095002D269E /* RecordCardPlayView.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -461,7 +461,7 @@
 				49856ECB26E474030015C12E /* AudioRecorder.swift in Sources */,
 				4925089D26DCF7D3005169AE /* RootView.swift in Sources */,
 				49856F4E26E633080015C12E /* MicrophoneLebelManager.swift in Sources */,
-				4941A172276A1A1F00A80335 /* RecordListCellView.swift in Sources */,
+				4941A172276A1A1F00A80335 /* RecordCardView.swift in Sources */,
 				4941A1392769DB6E00A80335 /* RecordListPresenter.swift in Sources */,
 				49BEE51F26EDDF460002C43B /* TimerHolder.swift in Sources */,
 				495B95F2277DA6E6009A393C /* SlideUPActionView.swift in Sources */,
@@ -481,7 +481,7 @@
 				49C0D12526E8DE6E00B3666E /* WaveView.swift in Sources */,
 				49C0D12E26E904AA00B3666E /* SlideToActionView.swift in Sources */,
 				49488CF028EECDF10015CDFC /* RecordStore.swift in Sources */,
-				4968676927981095002D269E /* RecordListPlayCell.swift in Sources */,
+				4968676927981095002D269E /* RecordCardPlayView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
