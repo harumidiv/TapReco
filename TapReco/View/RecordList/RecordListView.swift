@@ -17,23 +17,16 @@ struct RecordListView: View {
                 RecordListHeaderView(isPresentedRecordListView: $isShowRecordList)
                     .background(Color.yellow)
                 List {
-                    ForEach(records) { record in
+                    ForEach($records) { $record in
                         if record.isSelected {
-                            RecordCardPlayView(viewModel: .init(title: record.title,
-                                                                recordDate: record.recordDate,
-                                                                fileLength: record.fileLength,
-                                                                fileSize: record.fileSize,
-                                                                fileName: record.fileName))
+                            RecordCardPlayView(record: $record)
                             .listRowBackground(Color.red)
                         } else {
                             
                             Button(action: {
                                 setSelectedState(record: record)
                             }){
-                                RecordCardView(viewModel: .init(title: record.title,
-                                                                    recordDate: record.recordDate,
-                                                                    fileLength: record.fileLength,
-                                                                    fileSize: record.fileSize))
+                                RecordCardView(record: $record)
                             }
                             .listRowBackground(Color.green)
                         }
