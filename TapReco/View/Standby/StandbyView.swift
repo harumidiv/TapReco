@@ -18,15 +18,13 @@ struct StandbyView: View {
     
     var body: some View {
         ZStack {
-            // 背景色用のView
-            Rectangle()
-                .foregroundColor(Color("tp_gray"))
-                .ignoresSafeArea()
+            StandbyBackgroundView()
             
+
             ZStack {
                 // タップ領域用のView
                 Rectangle()
-                    .foregroundColor(Color("tp_gray"))
+                    .foregroundColor(.clear)
                     .onTapGesture {
                         let impactHeavy = UIImpactFeedbackGenerator(style: .heavy)
                         impactHeavy.prepare()
@@ -42,10 +40,6 @@ struct StandbyView: View {
                     .alert(isPresented: $presenter.isShowAlertDialog,
                            content: presenter.alertBuilder)
                 ZStack {
-                    // TODO ここを上下のSafeArea以外の箇所までMaxで表示できるようにする
-                    Image("wakusen")
-                        .resizable()
-                        .scaledToFill()
                     VStack(spacing: 18) {
                         Image("icon_microphone")
                         Text("タップして録音開始")
