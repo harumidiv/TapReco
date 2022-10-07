@@ -6,7 +6,6 @@
 //
 
 import AVFoundation
-import RealmSwift
 
 protocol AudioRecoder: AVAudioRecorderDelegate, ObservableObject {
     func recordStart()

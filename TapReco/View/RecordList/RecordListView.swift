@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import RealmSwift
 
 struct RecordListView: View {
     @Binding var isShowRecordList: Bool
