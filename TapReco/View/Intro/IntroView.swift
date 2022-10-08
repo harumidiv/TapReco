@@ -11,11 +11,19 @@ struct IntroView: View {
     var body: some View {
         VStack {
             TabView {
-                Text("タイトル１").foregroundColor(.white)
-                Text("タイトル２").foregroundColor(.white)
+                IntroDetailView(title: "Taprecoでできること",
+                                image: "",
+                                subTitle: "ワンタッチですぐ録音",
+                                description: "録音ボタンが大きいからポケットの中でも感覚的に録音を始められます。停止ボタンはスライド式だから、操作ミスはありません。あなたの使い方次第で、防犯や音声メモ、可能性は無限大 !",
+                                needDisplayButton: false)
+                IntroDetailView(title: "Taprecoでできること",
+                                image: "",
+                                subTitle: "ワンタッチですぐ録音",
+                                description: "",
+                                needDisplayButton: true)
             }
             .tabViewStyle(PageTabViewStyle.init(indexDisplayMode: .always))
-            .background(Color.black)
+            .background(Color.green)
             .edgesIgnoringSafeArea(.all)
         }
         .cornerRadius(16)
