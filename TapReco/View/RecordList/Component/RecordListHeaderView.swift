@@ -31,8 +31,7 @@ struct RecordListHeaderView: View {
                 Button(action: {
                     // 何の処理が走る？
                 }){
-                    Text("🐙")
-                        .font(.largeTitle)
+                    Image("pull_down")
                 }
             }
             .padding(.horizontal, 30)
