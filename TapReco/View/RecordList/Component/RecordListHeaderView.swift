@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RecordListHeaderView: View {
     @Binding var isPresentedRecordListView: Bool
-//    @Binding var records: [RecordData]
+    @Binding var records: [RecordData]
 
     @State var searchText: String = ""
     var body: some View {
@@ -26,9 +26,7 @@ struct RecordListHeaderView: View {
             }
             .padding(.horizontal, 30)
             HStack {
-
-                Text("録音ファイル数")
-                Text("12")
+                Text("録音ファイル数 \(records.count)")
                 Spacer()
                 Button(action: {
                     // 何の処理が走る？
@@ -48,7 +46,7 @@ struct RecordListHeaderView: View {
 
 struct RecordListSectionHeadaerView_Previews: PreviewProvider {
     static var previews: some View {
-        RecordListHeaderView(isPresentedRecordListView: .constant(false))
+        RecordListHeaderView(isPresentedRecordListView: .constant(false), records: .constant(RecordData.sampleData))
             .background(.orange)
             .fixedSize(horizontal: false, vertical: true)
     }

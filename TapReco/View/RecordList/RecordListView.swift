@@ -13,7 +13,8 @@ struct RecordListView: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            RecordListHeaderView(isPresentedRecordListView: $isShowRecordList)
+            RecordListHeaderView(isPresentedRecordListView: $isShowRecordList,
+                                 records: $records)
                 .background(Color.yellow)
             List {
                 ForEach($records) { $record in
