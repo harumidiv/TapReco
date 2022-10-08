@@ -18,6 +18,7 @@
 		4941A172276A1A1F00A80335 /* RecordListCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4941A171276A1A1F00A80335 /* RecordListCardView.swift */; };
 		49488CF028EECDF10015CDFC /* RecordStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49488CEF28EECDF10015CDFC /* RecordStore.swift */; };
 		49488CF228EECF3E0015CDFC /* RecordingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49488CF128EECF3E0015CDFC /* RecordingData.swift */; };
+		494F57F728F1BC9700B2C79E /* IntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494F57F628F1BC9700B2C79E /* IntroView.swift */; };
 		495B95F0277DA6A4009A393C /* SlideToUPUnlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495B95EF277DA6A4009A393C /* SlideToUPUnlockView.swift */; };
 		495B95F2277DA6E6009A393C /* SlideUPActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495B95F1277DA6E6009A393C /* SlideUPActionView.swift */; };
 		4968676927981095002D269E /* RecordCardPlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4968676827981095002D269E /* RecordCardPlayView.swift */; };
@@ -73,6 +74,7 @@
 		4941A171276A1A1F00A80335 /* RecordListCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordListCardView.swift; sourceTree = "<group>"; };
 		49488CEF28EECDF10015CDFC /* RecordStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordStore.swift; sourceTree = "<group>"; };
 		49488CF128EECF3E0015CDFC /* RecordingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingData.swift; sourceTree = "<group>"; };
+		494F57F628F1BC9700B2C79E /* IntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroView.swift; sourceTree = "<group>"; };
 		495B95EF277DA6A4009A393C /* SlideToUPUnlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideToUPUnlockView.swift; sourceTree = "<group>"; };
 		495B95F1277DA6E6009A393C /* SlideUPActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideUPActionView.swift; sourceTree = "<group>"; };
 		4968676827981095002D269E /* RecordCardPlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordCardPlayView.swift; sourceTree = "<group>"; };
@@ -194,12 +196,20 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
-		4941A13A2769EFFA00A80335 /* Root */ = {
+		494F57F528F1BC8300B2C79E /* Intro */ = {
 			isa = PBXGroup;
 			children = (
-				4925089C26DCF7D3005169AE /* RootView.swift */,
+				494F57F628F1BC9700B2C79E /* IntroView.swift */,
+				494F57F828F1BF0900B2C79E /* Component */,
 			);
-			path = Root;
+			path = Intro;
+			sourceTree = "<group>";
+		};
+		494F57F828F1BF0900B2C79E /* Component */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Component;
 			sourceTree = "<group>";
 		};
 		49856ECC26E474A40015C12E /* Utility */ = {
@@ -218,7 +228,8 @@
 		49856F8626E6E7070015C12E /* View */ = {
 			isa = PBXGroup;
 			children = (
-				4941A13A2769EFFA00A80335 /* Root */,
+				4925089C26DCF7D3005169AE /* RootView.swift */,
+				494F57F528F1BC8300B2C79E /* Intro */,
 				49C0D13326EA331E00B3666E /* Standby */,
 				491DE9DB2758B8460084985B /* RecordList */,
 				49C0D13426EA332C00B3666E /* Recording */,
@@ -472,6 +483,7 @@
 				49C53B272760D10E0062E6B3 /* RecordListHeaderView.swift in Sources */,
 				491DE9DE2758B8640084985B /* RecordListView.swift in Sources */,
 				49C0D13026EA317500B3666E /* RecordingView.swift in Sources */,
+				494F57F728F1BC9700B2C79E /* IntroView.swift in Sources */,
 				49C0D12C26E9033900B3666E /* SlideSideActionView.swift in Sources */,
 				495B95F0277DA6A4009A393C /* SlideToUPUnlockView.swift in Sources */,
 				49C0D12526E8DE6E00B3666E /* WaveView.swift in Sources */,
