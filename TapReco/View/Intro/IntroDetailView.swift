@@ -14,6 +14,8 @@ struct IntroDetailView: View {
     let description: String
     let needDisplayButton: Bool
 
+    @Binding var isShowIntoView: Bool
+
     var body: some View {
         VStack {
             Text(title)
@@ -34,8 +36,10 @@ struct IntroDetailView: View {
             .padding(.horizontal)
 
             if needDisplayButton {
-                Button("Taprecoをはじめる", action: {})
-                    .padding()
+                Button("Taprecoをはじめる", action: {
+                    isShowIntoView = false
+                })
+                .padding()
             }
         }
     }
@@ -44,8 +48,17 @@ struct IntroDetailView: View {
 struct IntroDetailView_Previews: PreviewProvider {
     static var previews: some View {
         // ボタン表示あり
-        IntroDetailView(title: "Taprecoでできること", image: "", subTitle: "ワンタッチですぐ録音", description: "録音ボタンが大きいからポケットの中でも感覚的に録音を始められます。停止ボタンはスライド式だから、操作ミスはありません。あなたの使い方次第で、防犯や音声メモ、可能性は無限大 !", needDisplayButton: true)
+        IntroDetailView(title: "Taprecoでできること",
+                        image: "",
+                        subTitle: "ワンタッチですぐ録音",
+                        description: "録音ボタンが大きいからポケットの中でも感覚的に録音を始められます。停止ボタンはスライド式だから、操作ミスはありません。あなたの使い方次第で、防犯や音声メモ、可能性は無限大 !",
+                        needDisplayButton: true,
+                        isShowIntoView: .constant(true))
         // ボタン表示なし
-        IntroDetailView(title: "Taprecoでできること", image: "", subTitle: "ワンタッチですぐ録音", description: "録音ボタンが大きいからポケットの中でも感覚的に録音を始められます。停止ボタンはスライド式だから、操作ミスはありません。あなたの使い方次第で、防犯や音声メモ、可能性は無限大 !", needDisplayButton: false)
+        IntroDetailView(title: "Taprecoでできること",
+                        image: "",
+                        subTitle: "ワンタッチですぐ録音",
+                        description: "録音ボタンが大きいからポケットの中でも感覚的に録音を始められます。停止ボタンはスライド式だから、操作ミスはありません。あなたの使い方次第で、防犯や音声メモ、可能性は無限大 !", needDisplayButton: false,
+                        isShowIntoView: .constant(true))
     }
 }

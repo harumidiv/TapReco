@@ -12,7 +12,10 @@ struct RootView: View {
     @Binding var records: [RecordData]
     let saveAction: ()->Void
     
-    @State var isRecording:Bool = false
+    @State private var isRecording: Bool = false
+    // UserDefaultの値を参照して出すかのフラグの値が入るようにする
+    @State private var isShowIntoView: Bool = true
+
     private let audioRecorder = AudioRecorderImpl()
     
     var body: some View {
@@ -21,7 +24,9 @@ struct RootView: View {
                 RecordingView(isRecording: $isRecording)
             } else {
                 StandbyView(records: $records, isRecording: $isRecording)
-                IntroView()
+                if isShowIntoView {
+                    IntroView(isShowIntoView: $isShowIntoView)
+                }
             }
         }
         .onChange(of: isRecording) { isRecording in
