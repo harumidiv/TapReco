@@ -15,7 +15,6 @@
 		492508AD26DCF7D4005169AE /* TapRecoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492508AC26DCF7D4005169AE /* TapRecoTests.swift */; };
 		492508B826DCF7D4005169AE /* TapRecoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492508B726DCF7D4005169AE /* TapRecoUITests.swift */; };
 		49409CC0275DDDCA003933BA /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49409CBF275DDDCA003933BA /* Date+Extension.swift */; };
-		4941A1392769DB6E00A80335 /* RecordListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4941A1382769DB6E00A80335 /* RecordListPresenter.swift */; };
 		4941A172276A1A1F00A80335 /* RecordCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4941A171276A1A1F00A80335 /* RecordCardView.swift */; };
 		49488CF028EECDF10015CDFC /* RecordStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49488CEF28EECDF10015CDFC /* RecordStore.swift */; };
 		49488CF228EECF3E0015CDFC /* RecordingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49488CF128EECF3E0015CDFC /* RecordingData.swift */; };
@@ -71,7 +70,6 @@
 		492508B726DCF7D4005169AE /* TapRecoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapRecoUITests.swift; sourceTree = "<group>"; };
 		492508B926DCF7D4005169AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49409CBF275DDDCA003933BA /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
-		4941A1382769DB6E00A80335 /* RecordListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordListPresenter.swift; sourceTree = "<group>"; };
 		4941A171276A1A1F00A80335 /* RecordCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordCardView.swift; sourceTree = "<group>"; };
 		49488CEF28EECDF10015CDFC /* RecordStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordStore.swift; sourceTree = "<group>"; };
 		49488CF128EECF3E0015CDFC /* RecordingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingData.swift; sourceTree = "<group>"; };
@@ -124,7 +122,6 @@
 			isa = PBXGroup;
 			children = (
 				491DE9DD2758B8640084985B /* RecordListView.swift */,
-				4941A1382769DB6E00A80335 /* RecordListPresenter.swift */,
 				49C53B252760D0E80062E6B3 /* Component */,
 			);
 			path = RecordList;
@@ -462,7 +459,6 @@
 				4925089D26DCF7D3005169AE /* RootView.swift in Sources */,
 				49856F4E26E633080015C12E /* MicrophoneLebelManager.swift in Sources */,
 				4941A172276A1A1F00A80335 /* RecordCardView.swift in Sources */,
-				4941A1392769DB6E00A80335 /* RecordListPresenter.swift in Sources */,
 				49BEE51F26EDDF460002C43B /* TimerHolder.swift in Sources */,
 				495B95F2277DA6E6009A393C /* SlideUPActionView.swift in Sources */,
 				49409CC0275DDDCA003933BA /* Date+Extension.swift in Sources */,
