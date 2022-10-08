@@ -14,14 +14,14 @@ struct RecordCardView: View {
     var body: some View {
         HStack(spacing: 10) {
             HStack {
-                VStack(alignment: .leading, spacing: 0){
+                VStack(alignment: .leading){
                     Text(record.title)
                         .font(.title2)
                     Text(record.recordDate)
                         .font(.caption)
                 }
                 Spacer()
-                VStack{
+                VStack(alignment: .trailing){
                     Text(record.fileLength)
                         .font(.body)
                     Text(record.fileSize)
