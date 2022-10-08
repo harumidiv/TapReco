@@ -31,7 +31,6 @@ struct RecordListView: View {
                 .listRowSeparator(.hidden)
             }
             .listStyle(PlainListStyle())
-
         }
     }
 }

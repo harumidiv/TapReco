@@ -32,8 +32,6 @@ struct RecordCardView: View {
             .background(.red)
             .cornerRadius(8)
         }
-        .padding(.horizontal, 16)
-        .padding(.vertical, 5)
     }
 }
 
