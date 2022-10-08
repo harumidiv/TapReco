@@ -13,35 +13,34 @@ struct RecordCardView: View {
     
     var body: some View {
         HStack(spacing: 10) {
-            VStack(alignment: .leading, spacing: 0){
-                Text(record.title)
-                    .font(.title2)
-                Text(record.recordDate)
-                    .font(.caption)
-            }
-            Spacer()
-            VStack{
-                Text(record.fileLength)
-                    .font(.body)
-                Text(record.fileSize)
-                    .font(.caption)
-            }
-
-            
-            Image("icon_dot")
-                .frame(width: 16, height: 16)
-                .onTapGesture {
-                    // TODO 編集画面を開く
-                    print("タップされたよ")
+            HStack {
+                VStack(alignment: .leading, spacing: 0){
+                    Text(record.title)
+                        .font(.title2)
+                    Text(record.recordDate)
+                        .font(.caption)
                 }
+                Spacer()
+                VStack{
+                    Text(record.fileLength)
+                        .font(.body)
+                    Text(record.fileSize)
+                        .font(.caption)
+                }
+            }
+            .padding()
+            .background(.red)
+            .cornerRadius(8)
         }
-        
+        .padding(.horizontal, 16)
+        .padding(.vertical, 5)
     }
 }
 
 struct RecordCardView_Previews: PreviewProvider {
     static var previews: some View {
         RecordCardView(record: .constant(RecordData.sampleData[0]))
-            .fixedSize()
+            .fixedSize(horizontal: false, vertical: true)
+            .background(.orange)
     }
 }
