@@ -14,7 +14,7 @@ struct RootView: View {
     
     @State private var isRecording: Bool = false
     // UserDefaultの値を参照して出すかのフラグの値が入るようにする
-    @State private var isShowIntoView: Bool = true
+    @State private var isShowIntoView: Bool = UserStrage.isNeedDisplayIntro
 
     private let audioRecorder = AudioRecorderImpl()
     

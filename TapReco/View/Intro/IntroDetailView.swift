@@ -37,6 +37,7 @@ struct IntroDetailView: View {
 
             if needDisplayButton {
                 Button("Taprecoをはじめる", action: {
+                    UserStrage.isNeedDisplayIntro = false
                     isShowIntoView = false
                 })
                 .padding()
