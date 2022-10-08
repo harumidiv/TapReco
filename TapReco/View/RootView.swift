@@ -21,6 +21,7 @@ struct RootView: View {
                 RecordingView(isRecording: $isRecording)
             } else {
                 StandbyView(records: $records, isRecording: $isRecording)
+                IntroView()
             }
         }
         .onChange(of: isRecording) { isRecording in
