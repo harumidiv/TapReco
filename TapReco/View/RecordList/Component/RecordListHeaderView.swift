@@ -9,13 +9,13 @@ import SwiftUI
 
 struct RecordListHeaderView: View {
     @Binding var isPresentedRecordListView: Bool
+//    @Binding var records: [RecordData]
+
     @State var searchText: String = ""
     var body: some View {
-        VStack {
-            Spacer().frame(height: 30)
+        VStack(spacing: 14) {
             HStack {
-                Spacer().frame(width: 30)
-                Text("Library")
+                Text("録音履歴")
                     .font(.largeTitle)
                 Spacer()
                 Button(action: {
@@ -23,12 +23,10 @@ struct RecordListHeaderView: View {
                 }){
                     Image("icon_close")
                 }
-                .frame(width: 28, height: 28)
-                Spacer().frame(width: 30)
             }
-            Spacer().frame(height: 30)
+            .padding(.horizontal, 30)
             HStack {
-                Spacer().frame(width: 30)
+
                 Text("録音ファイル数")
                 Text("12")
                 Spacer()
@@ -38,9 +36,10 @@ struct RecordListHeaderView: View {
                     Text("🐙")
                         .font(.largeTitle)
                 }
-                Spacer().frame(width: 30)
             }
-            TextField("🔍検索", text: $searchText)
+            .padding(.horizontal, 30)
+
+            TextField("検索", text: $searchText)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding(.init(top: 0, leading: 24, bottom: 20, trailing: 24))
         }
