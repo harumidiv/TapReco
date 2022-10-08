@@ -1,5 +1,5 @@
 //
-//  RecordCardViewx.swift
+//  RecordListCardView.swift
 //  TapReco
 //
 //  Created by 佐川 晴海 on 2021/12/15.
@@ -8,7 +8,7 @@
 import SwiftUI
 
 
-struct RecordCardView: View {
+struct RecordListCardView: View {
     @Binding var record: RecordData
     
     var body: some View {
@@ -35,9 +35,9 @@ struct RecordCardView: View {
     }
 }
 
-struct RecordCardView_Previews: PreviewProvider {
+struct RecordListCardView_Previews: PreviewProvider {
     static var previews: some View {
-        RecordCardView(record: .constant(RecordData.sampleData[0]))
+        RecordListCardView(record: .constant(RecordData.sampleData[0]))
             .fixedSize(horizontal: false, vertical: true)
             .background(.orange)
     }

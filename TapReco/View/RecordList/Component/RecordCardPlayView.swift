@@ -16,7 +16,7 @@ struct RecordCardPlayView: View {
     var body: some View {
         ZStack {
             VStack {
-                RecordCardView(record: $record)
+                RecordListCardView(record: $record)
                 Slider(value: $currentValue,
                        in: 0...1)
                 HStack{

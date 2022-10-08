@@ -24,7 +24,7 @@ struct RecordListView: View {
                         Button(action: {
                             setSelectedState(record: record)
                         }){
-                            RecordCardView(record: $record)
+                            RecordListCardView(record: $record)
                         }
                         .listRowBackground(Color.green)
                     }
