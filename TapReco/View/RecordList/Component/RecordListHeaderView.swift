@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RecordListHeaderView: View {
-    @Binding var isPresentedRecordListView: Bool
+    @Binding var isShowRecordList: Bool
     @Binding var records: [RecordData]
 
     @State var searchText: String = ""
@@ -19,7 +19,8 @@ struct RecordListHeaderView: View {
                     .font(.largeTitle)
                 Spacer()
                 Button(action: {
-                    isPresentedRecordListView = false
+                    records = records.compactMap{ .init(record: $0, isSelected: false)}
+                    isShowRecordList = false
                 }){
                     Image("icon_close")
                 }
@@ -45,7 +46,7 @@ struct RecordListHeaderView: View {
 
 struct RecordListSectionHeadaerView_Previews: PreviewProvider {
     static var previews: some View {
-        RecordListHeaderView(isPresentedRecordListView: .constant(false), records: .constant(RecordData.sampleData))
+        RecordListHeaderView(isShowRecordList: .constant(false), records: .constant(RecordData.sampleData))
             .background(.orange)
             .fixedSize(horizontal: false, vertical: true)
     }

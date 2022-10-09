@@ -18,6 +18,7 @@ struct TapRecoApp: App {
             RootView(records: $store.records) {
                 Task {
                     do {
+                        print("保存されたよ")
                         try await RecordStore.save(records: store.records)
                     } catch {
                         fatalError("TODO Error対応")
@@ -37,12 +38,12 @@ struct TapRecoApp: App {
             case .active:
                 // アプリ起動時のマイク使用許可のダイアログ表示
                 AVCaptureDevice.requestAccess(for: AVMediaType.audio, completionHandler: {(granted: Bool) in})
-            case .inactive:
-                print("scenePhase: inactive")
-            case .background:
-                print("scenePhase: background")
+            case .inactive, .background:
+                store.records = store.records.compactMap{ .init(record: $0, isSelected: false)}
+
             @unknown default: break
             }
         }
     }
 }
+

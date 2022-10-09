@@ -8,30 +8,41 @@
 import SwiftUI
 
 struct RecordListView: View {
+    let saveAction: ()->Void
     @Binding var isShowRecordList: Bool
     @Binding var records: [RecordData]
     
     var body: some View {
-        VStack(spacing: 0) {
-            RecordListHeaderView(isPresentedRecordListView: $isShowRecordList,
-                                 records: $records)
+        ZStack {
+            VStack(spacing: 0) {
+                RecordListHeaderView(isShowRecordList: $isShowRecordList,
+                                     records: $records)
                 .background(Color.yellow)
-            List {
-                ForEach($records) { $record in
-                    if record.isSelected {
-                        RecordCardPlayView(record: $record)
-                    } else {
-                        Button(action: {
-                            setSelectedState(record: record)
-                        }){
-                            RecordListCardView(record: $record)
+                List {
+                    ForEach($records) { $record in
+                        if record.isSelected {
+                            RecordListCardView(record: $record,backgroundColor: .purple)
+                        } else {
+                            Button(action: {
+                                setSelectedState(record: record)
+                            }){
+                                RecordListCardView(record: $record, backgroundColor: .pink)
+                            }
+                            .listRowBackground(Color.green)
                         }
-                        .listRowBackground(Color.green)
                     }
+                    .listRowSeparator(.hidden)
                 }
-                .listRowSeparator(.hidden)
+                .listStyle(PlainListStyle())
             }
-            .listStyle(PlainListStyle())
+
+            if records.contains(where: { $0.isSelected == true }) {
+                VStack(spacing: 0) {
+                    Spacer()
+                    RecordListPlayerView(saveAction: saveAction, records: $records)
+                }
+                .ignoresSafeArea(edges: [.top])
+            }
         }
     }
 }
@@ -61,6 +72,6 @@ private extension RecordListView {
 
 struct RecordListView_Previews: PreviewProvider {
     static var previews: some View {
-        RecordListView(isShowRecordList: .constant(false), records: .constant(RecordData.sampleData))
+        RecordListView(saveAction: {}, isShowRecordList: .constant(false), records: .constant(RecordData.sampleData))
     }
 }
