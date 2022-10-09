@@ -8,11 +8,21 @@
 import SwiftUI
 
 struct RecordListPlayerView: View {
-    @Binding var record: RecordData
+    let saveAction: ()->Void
+    @Binding var records: [RecordData]
     @State private var currentValue: Double = 0.3
     @State private var isShowActivityView: Bool = false
 
     private let audioPlayer = AudioPlayerImpl()
+
+
+    private var selectedIndex: Int {
+        records.firstIndex(where: { $0.isSelected })!
+    }
+
+    private var playRecord: RecordData {
+        records[selectedIndex]
+    }
 
     var body: some View {
         VStack {
@@ -46,8 +56,8 @@ struct RecordListPlayerView: View {
                     }
                 Image("play_icon")
                     .onTapGesture {
-                        print("再生停止処理: \(record.fileName)")
-                        audioPlayer.playStart(fileName: record.fileName)
+                        print("再生ボタンタップ")
+                        audioPlayer.playStart(fileName: records[0].fileName)
                     }
                 Image("after_fifteen")
                     .onTapGesture {
@@ -56,7 +66,8 @@ struct RecordListPlayerView: View {
                 Spacer()
                 Image(systemName: "trash")
                     .onTapGesture {
-                        print("データの削除")
+                        records.remove(at: selectedIndex)
+                        saveAction()
                     }
             }
             .padding(.horizontal, 30)
@@ -67,8 +78,6 @@ struct RecordListPlayerView: View {
 
 struct RecordListPlayerView_Previews: PreviewProvider {
     static var previews: some View {
-        RecordListPlayerView(record: .constant(RecordData.sampleData[0]))
-            .background(.green)
-            .fixedSize(horizontal: false, vertical: true)
+        RecordListPlayerView(saveAction: {}, records: .constant(RecordData.sampleData))
     }
 }

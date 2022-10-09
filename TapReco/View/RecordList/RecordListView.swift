@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct RecordListView: View {
+    let saveAction: ()->Void
     @Binding var isShowRecordList: Bool
     @Binding var records: [RecordData]
     
@@ -36,11 +37,11 @@ struct RecordListView: View {
             }
 
             if records.contains(where: { $0.isSelected == true }) {
-                VStack {
+                VStack(spacing: 0) {
                     Spacer()
-                    // TODO どう渡すか考える
-                    RecordListPlayerView(record: $records[0])
+                    RecordListPlayerView(saveAction: saveAction, records: $records)
                 }
+                .ignoresSafeArea(edges: [.top])
             }
         }
     }
@@ -71,6 +72,6 @@ private extension RecordListView {
 
 struct RecordListView_Previews: PreviewProvider {
     static var previews: some View {
-        RecordListView(isShowRecordList: .constant(false), records: .constant(RecordData.sampleData))
+        RecordListView(saveAction: {}, isShowRecordList: .constant(false), records: .constant(RecordData.sampleData))
     }
 }

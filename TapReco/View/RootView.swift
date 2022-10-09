@@ -23,7 +23,9 @@ struct RootView: View {
             if isRecording {
                 RecordingView(isRecording: $isRecording)
             } else {
-                StandbyView(records: $records, isRecording: $isRecording)
+                StandbyView(saveAction: saveAction,
+                            records: $records,
+                            isRecording: $isRecording)
                 if isShowIntoView {
                     IntroView(isShowIntoView: $isShowIntoView)
                 }

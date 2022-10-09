@@ -18,6 +18,7 @@ struct TapRecoApp: App {
             RootView(records: $store.records) {
                 Task {
                     do {
+                        print("保存されたよ")
                         try await RecordStore.save(records: store.records)
                     } catch {
                         fatalError("TODO Error対応")

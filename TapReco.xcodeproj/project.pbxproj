@@ -160,7 +160,6 @@
 			children = (
 				49856ECC26E474A40015C12E /* Utility */,
 				49856F8626E6E7070015C12E /* View */,
-				4925089A26DCF7D3005169AE /* TapRecoApp.swift */,
 				4994CC3926E78D6E003A34ED /* Recource */,
 				492508A326DCF7D4005169AE /* Info.plist */,
 				492508A026DCF7D4005169AE /* Preview Content */,
@@ -236,6 +235,7 @@
 		49856F8626E6E7070015C12E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4925089A26DCF7D3005169AE /* TapRecoApp.swift */,
 				4925089C26DCF7D3005169AE /* RootView.swift */,
 				494F57F528F1BC8300B2C79E /* Intro */,
 				49C0D13326EA331E00B3666E /* Standby */,

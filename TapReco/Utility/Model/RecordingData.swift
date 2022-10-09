@@ -25,6 +25,21 @@ struct RecordData: Identifiable, Codable {
         self.fileLength = fileLength
         self.isSelected = isSelected
     }
+
+
+    /// 選択状態を切り替えるためのInitializer
+    /// - Parameters:
+    ///   - record: 既存のRecord
+    ///   - isSelected: 選択状態
+    init(record: RecordData, isSelected: Bool) {
+        id = record.id
+        title = record.title
+        recordDate = record.recordDate
+        fileName = record.fileName
+        fileSize = record.fileSize
+        fileLength = record.fileLength
+        self.isSelected = isSelected
+    }
 }
 
 // MARK: - Preview用サンプルデータ
