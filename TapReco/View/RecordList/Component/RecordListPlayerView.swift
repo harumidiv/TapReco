@@ -64,29 +64,7 @@ struct RecordListPlayerView: View {
                         audioPlayer.rewindFifteenSeconds()
                         print("15秒前に戻る処理")
                     }
-                ZStack {
-                    // 再生停止が切り替わると画像サイズが違いでがたつくので固定している
-                    Rectangle()
-                        .fill(.clear)
-                        .frame(width:60, height: 60)
-                    if isPlaying {
-                        Image(systemName: "stop.fill")
-                            .font(.system(size: 50, weight: .light))
-                            .onTapGesture {
-                                print("停止ボタンタップ")
-                                isPlaying.toggle()
-                                audioPlayer.playStop()
-                            }
-                    } else {
-                        Image(systemName: "play.fill")
-                            .font(.system(size: 50, weight: .light))
-                            .onTapGesture {
-                                print("再生ボタンタップ")
-                                isPlaying.toggle()
-                                audioPlayer.reStart(fileName: playRecord.fileName)
-                            }
-                    }
-                }
+                StartStopView(isPlaying: $isPlaying, audioPlayer: audioPlayer)
                 Image("after_fifteen")
                     .onTapGesture {
                         print("15秒先に進む処理")
@@ -106,7 +84,7 @@ struct RecordListPlayerView: View {
         .background(.green)
         .onAppear {
             print("Viewが描画された")
-            audioPlayer.playStart(fileName: playRecord.fileName)
+            audioPlayer.playStart()
         }
     }
 

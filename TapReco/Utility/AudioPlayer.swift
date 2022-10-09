@@ -41,19 +41,17 @@ extension AudioPlayerImpl {
     }
 
     /// - Parameter fileName: 再生するファイルのパス
-    func playStart(fileName: String) {
-        audioPlayer = try? AVAudioPlayer(contentsOf: getURL(fileName: fileName))
-        audioPlayer.volume = 1.0
+    func playStart() {
         audioPlayer.prepareToPlay()
         audioPlayer.play()
     }
 
     /// 再生途中から再度再生に切り替えを行う
     /// - Parameter fileName: 再生するファイルのパス
-    func reStart(fileName: String) {
+    func reStart() {
         let currentTime = audioPlayer.currentTime
         if currentTime == audioPlayer.duration || currentTime == 0 {
-            playStart(fileName: fileName)
+            playStart()
         } else {
             audioPlayer.play()
         }
