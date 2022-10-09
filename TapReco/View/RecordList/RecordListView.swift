@@ -20,12 +20,12 @@ struct RecordListView: View {
                 List {
                     ForEach($records) { $record in
                         if record.isSelected {
-                            RecordCardPlayView(record: $record)
+                            RecordListCardView(record: $record,backgroundColor: .purple)
                         } else {
                             Button(action: {
                                 setSelectedState(record: record)
                             }){
-                                RecordListCardView(record: $record)
+                                RecordListCardView(record: $record, backgroundColor: .pink)
                             }
                             .listRowBackground(Color.green)
                         }

@@ -10,6 +10,7 @@ import SwiftUI
 
 struct RecordListCardView: View {
     @Binding var record: RecordData
+    let backgroundColor: Color
     
     var body: some View {
         HStack(spacing: 10) {
@@ -29,16 +30,16 @@ struct RecordListCardView: View {
                 }
             }
             .padding()
-            .background(.red)
+            .background(backgroundColor)
             .cornerRadius(8)
         }
+
     }
 }
 
 struct RecordListCardView_Previews: PreviewProvider {
     static var previews: some View {
-        RecordListCardView(record: .constant(RecordData.sampleData[0]))
+        RecordListCardView(record: .constant(RecordData.sampleData[0]), backgroundColor: .purple)
             .fixedSize(horizontal: false, vertical: true)
-            .background(.orange)
     }
 }
