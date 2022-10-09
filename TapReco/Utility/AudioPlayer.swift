@@ -28,22 +28,34 @@ extension AudioPlayerImpl: AudioPlayer {
         audioPlayer.play()
     }
 
-    func reStart() {
-        audioPlayer.play()
+    func reStart(fileName: String) {
+        let currentTime = audioPlayer.currentTime
+        if currentTime == audioPlayer.duration || currentTime == 0 {
+            playStart(fileName: fileName)
+        } else {
+            audioPlayer.play()
+        }
     }
     
     func playStop() {
         audioPlayer.stop()
     }
 
-    func skipFifteenSeconds() {
+
+    /// 15秒再生時間をスキップさせる
+    /// - Returns: 再生が末尾まで到達しているか
+    func skipFifteenSeconds() -> Bool {
         let currentTime = audioPlayer.currentTime
         let timeDiff = audioPlayer.duration - currentTime
         audioPlayer.stop()
-        if timeDiff > 15 {
+        let isAbleToSkip = timeDiff > 15
+        if isAbleToSkip {
             audioPlayer.currentTime += 15
+            audioPlayer.play()
+        } else {
+            audioPlayer.currentTime = audioPlayer.duration
         }
-        audioPlayer.play()
+        return !isAbleToSkip
 
     }
 

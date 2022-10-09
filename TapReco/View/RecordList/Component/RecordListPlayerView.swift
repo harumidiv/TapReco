@@ -15,7 +15,7 @@ struct RecordListPlayerView: View {
     // MARK: - Property
     @State private var currentValue: Double = 0.3
     @State private var isShowActivityView: Bool = false
-    @State private var isPlaying: Bool = false
+    @State private var isPlaying: Bool = true
 
     @Environment(\.scenePhase) private var scenePhase
     private let audioPlayer = AudioPlayerImpl()
@@ -79,14 +79,16 @@ struct RecordListPlayerView: View {
                             .onTapGesture {
                                 print("再生ボタンタップ")
                                 isPlaying.toggle()
-                                audioPlayer.reStart()
+                                audioPlayer.reStart(fileName: playRecord.fileName)
                             }
                     }
                 }
                 Image("after_fifteen")
                     .onTapGesture {
                         print("15秒先に進む処理")
-                        audioPlayer.skipFifteenSeconds()
+                        if audioPlayer.skipFifteenSeconds() {
+                            isPlaying = false
+                        }
                     }
                 Spacer()
                 Image(systemName: "trash")
@@ -100,7 +102,6 @@ struct RecordListPlayerView: View {
         .background(.green)
         .onAppear {
             print("Viewが描画された")
-            isPlaying = true
             audioPlayer.playStart(fileName: playRecord.fileName)
         }
     }
