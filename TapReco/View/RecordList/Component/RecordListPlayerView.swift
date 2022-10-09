@@ -12,6 +12,7 @@ struct RecordListPlayerView: View {
     @Binding var records: [RecordData]
     @State private var currentValue: Double = 0.3
     @State private var isShowActivityView: Bool = false
+    @State private var isPlaying: Bool = false
 
     private let audioPlayer = AudioPlayerImpl()
 
@@ -54,11 +55,29 @@ struct RecordListPlayerView: View {
                     .onTapGesture {
                         print("15秒前に戻る処理")
                     }
-                Image("play_icon")
-                    .onTapGesture {
-                        print("再生ボタンタップ")
-                        audioPlayer.playStart(fileName: playRecord.fileName)
+                ZStack {
+                    // 再生停止が切り替わるとサイズが違うのでかくついてしまうためRectangleで固定している
+                    Rectangle()
+                        .fill(.clear)
+                        .frame(width:60, height: 60)
+                    if isPlaying {
+                        Image(systemName: "stop.fill")
+                            .font(.system(size: 50, weight: .light))
+                            .onTapGesture {
+                                print("停止ボタンタップ")
+                                isPlaying.toggle()
+                                audioPlayer.playStop()
+                            }
+                    } else {
+                        Image(systemName: "play.fill")
+                            .font(.system(size: 50, weight: .light))
+                            .onTapGesture {
+                                print("再生ボタンタップ")
+                                isPlaying.toggle()
+                                audioPlayer.playStart(fileName: playRecord.fileName)
+                            }
                     }
+                }
                 Image("after_fifteen")
                     .onTapGesture {
                         print("15秒先に進む処理")
