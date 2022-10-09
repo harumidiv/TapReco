@@ -26,6 +26,8 @@ protocol AudioPlayer {
 
     /// 再生時間を15秒巻き戻す
     func rewindFifteenSeconds()
+
+    var duration: Double { get }
 }
 
 final class AudioPlayerImpl: NSObject {
@@ -37,6 +39,10 @@ final class AudioPlayerImpl: NSObject {
 }
 
 extension AudioPlayerImpl: AudioPlayer {
+    var duration: Double {
+        Double(audioPlayer.duration)
+    }
+
     func playStart(fileName: String) {
         audioPlayer = try? AVAudioPlayer(contentsOf: getURL(fileName: fileName))
         audioPlayer.volume = 1.0

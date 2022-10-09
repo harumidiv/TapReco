@@ -11,6 +11,7 @@ struct RecordListPlayerView: View {
     // MARK: - Argument
     let saveAction: ()->Void
     @Binding var records: [RecordData]
+    let audioPlayer: AudioPlayer
 
     // MARK: - Property
     @State private var currentValue: Double = 0.3
@@ -18,8 +19,6 @@ struct RecordListPlayerView: View {
     @State private var isPlaying: Bool = true
 
     @Environment(\.scenePhase) private var scenePhase
-    private let audioPlayer = AudioPlayerImpl()
-
 
     private var selectedIndex: Int {
         records.firstIndex(where: { $0.isSelected })!
@@ -35,7 +34,7 @@ struct RecordListPlayerView: View {
                 .foregroundColor(.white)
                 .frame(height: 1)
             Slider(value: $currentValue,
-                   in: 0...1)
+                   in: 0...audioPlayer.duration)
             HStack {
                 Text("01:00")
                     .font(.caption)
@@ -109,6 +108,8 @@ struct RecordListPlayerView: View {
 
 struct RecordListPlayerView_Previews: PreviewProvider {
     static var previews: some View {
-        RecordListPlayerView(saveAction: {}, records: .constant(RecordData.sampleData))
+        RecordListPlayerView(saveAction: {},
+                             records: .constant(RecordData.sampleData),
+                             audioPlayer: AudioPlayerImpl())
     }
 }

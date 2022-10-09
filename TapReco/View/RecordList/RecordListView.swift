@@ -39,7 +39,7 @@ struct RecordListView: View {
             if records.contains(where: { $0.isSelected == true }) {
                 VStack(spacing: 0) {
                     Spacer()
-                    RecordListPlayerView(saveAction: saveAction, records: $records)
+                    RecordListPlayerView(saveAction: saveAction, records: $records, audioPlayer: AudioPlayerImpl())
                 }
                 .ignoresSafeArea(edges: [.top])
             }
