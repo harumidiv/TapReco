@@ -12,26 +12,34 @@ struct RecordListView: View {
     @Binding var records: [RecordData]
     
     var body: some View {
-        VStack(spacing: 0) {
-            RecordListHeaderView(isPresentedRecordListView: $isShowRecordList,
-                                 records: $records)
+        ZStack {
+            VStack(spacing: 0) {
+                RecordListHeaderView(isPresentedRecordListView: $isShowRecordList,
+                                     records: $records)
                 .background(Color.yellow)
-            List {
-                ForEach($records) { $record in
-                    if record.isSelected {
-                        RecordCardPlayView(record: $record)
-                    } else {
-                        Button(action: {
-                            setSelectedState(record: record)
-                        }){
-                            RecordListCardView(record: $record)
+                List {
+                    ForEach($records) { $record in
+                        if record.isSelected {
+                            RecordCardPlayView(record: $record)
+                        } else {
+                            Button(action: {
+                                setSelectedState(record: record)
+                            }){
+                                RecordListCardView(record: $record)
+                            }
+                            .listRowBackground(Color.green)
                         }
-                        .listRowBackground(Color.green)
                     }
+                    .listRowSeparator(.hidden)
                 }
-                .listRowSeparator(.hidden)
+                .listStyle(PlainListStyle())
             }
-            .listStyle(PlainListStyle())
+
+            VStack {
+                Spacer()
+                // TODO どう渡すか考える
+                RecordListPlayerView(record: $records[0])
+            }
         }
     }
 }
