@@ -22,7 +22,7 @@ final class AudioPlayerImpl: NSObject {
 
 extension AudioPlayerImpl: AudioPlayer {
     func playStart(fileName: String) {
-        audioPlayer = try! AVAudioPlayer(contentsOf: getURL(fileName: fileName))
+        audioPlayer = try? AVAudioPlayer(contentsOf: getURL(fileName: fileName))
         audioPlayer.volume = 1.0
         audioPlayer.prepareToPlay()
         audioPlayer.play()
@@ -34,5 +34,27 @@ extension AudioPlayerImpl: AudioPlayer {
     
     func playStop() {
         audioPlayer.stop()
+    }
+
+    func skipFifteenSeconds() {
+        let currentTime = audioPlayer.currentTime
+        let timeDiff = audioPlayer.duration - currentTime
+        audioPlayer.stop()
+        if timeDiff > 15 {
+            audioPlayer.currentTime += 15
+        }
+        audioPlayer.play()
+
+    }
+
+    func rewindFifteenSeconds() {
+        let currentTime = audioPlayer.currentTime
+        audioPlayer.stop()
+        if currentTime > 15 {
+            audioPlayer.currentTime -= 15
+        } else {
+            audioPlayer.currentTime = 0
+        }
+        audioPlayer.play()
     }
 }

@@ -57,6 +57,7 @@ struct RecordListPlayerView: View {
                 Spacer()
                 Image("prev_fifteen")
                     .onTapGesture {
+                        audioPlayer.rewindFifteenSeconds()
                         print("15秒前に戻る処理")
                     }
                 ZStack {
@@ -85,6 +86,7 @@ struct RecordListPlayerView: View {
                 Image("after_fifteen")
                     .onTapGesture {
                         print("15秒先に進む処理")
+                        audioPlayer.skipFifteenSeconds()
                     }
                 Spacer()
                 Image(systemName: "trash")
