@@ -35,10 +35,12 @@ struct RecordListView: View {
                 .listStyle(PlainListStyle())
             }
 
-            VStack {
-                Spacer()
-                // TODO どう渡すか考える
-                RecordListPlayerView(record: $records[0])
+            if records.contains(where: { $0.isSelected == true }) {
+                VStack {
+                    Spacer()
+                    // TODO どう渡すか考える
+                    RecordListPlayerView(record: $records[0])
+                }
             }
         }
     }
