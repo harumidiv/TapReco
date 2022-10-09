@@ -11,12 +11,13 @@ struct RecordListPlayerView: View {
     // MARK: - Argument
     let saveAction: ()->Void
     @Binding var records: [RecordData]
-    let audioPlayer: AudioPlayer
+    @StateObject var audioPlayer: AudioPlayerImpl
 
     // MARK: - Property
-    @State private var currentValue: Double = 0.3
+    @State private var currentValue: Double = 0
     @State private var isShowActivityView: Bool = false
     @State private var isPlaying: Bool = true
+
 
     @Environment(\.scenePhase) private var scenePhase
 
@@ -36,14 +37,13 @@ struct RecordListPlayerView: View {
             Slider(value: $currentValue,
                    in: 0.0...audioPlayer.duration)
             HStack {
-                Text("01:00")
+                Text(Int(audioPlayer.currentTime).description)
                     .font(.caption)
                 Spacer()
-                Text(("36:44"))
+                Text(Int(audioPlayer.duration - audioPlayer.currentTime).description)
                     .font(.caption)
             }
             .padding(.horizontal, 30)
-
 
             HStack{
                 Image(systemName: "square.and.arrow.up")

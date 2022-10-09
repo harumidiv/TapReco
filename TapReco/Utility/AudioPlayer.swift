@@ -7,7 +7,7 @@
 
 import AVFoundation
 
-protocol AudioPlayer {
+protocol AudioPlayer: ObservableObject {
     /// 初期化
     /// - Parameter filePath: 再生するファイルのpath
     init(fileName: String)
@@ -29,15 +29,20 @@ protocol AudioPlayer {
     /// 再生時間を15秒巻き戻す
     func rewindFifteenSeconds()
 
+    /// ファイルのそう再生時間
     var duration: Double { get }
+
+    /// ファイルの現在の再生時間
+    var currentTime: Double { get }
 }
 
 final class AudioPlayerImpl: NSObject {
-    var audioPlayer: AVAudioPlayer!
+    private var audioPlayer: AVAudioPlayer!
         
     private func getURL(fileName: String) -> URL{
         return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent(fileName)
     }
+
 }
 
 extension AudioPlayerImpl: AudioPlayer {
@@ -49,6 +54,10 @@ extension AudioPlayerImpl: AudioPlayer {
 
     var duration: Double {
         Double(audioPlayer.duration)
+    }
+
+    var currentTime: Double {
+        Double(audioPlayer.currentTime)
     }
 
     func playStart(fileName: String) {
