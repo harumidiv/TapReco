@@ -9,6 +9,7 @@ import AVFoundation
 
 final class AudioPlayerImpl: ObservableObject {
     @Published var displayTime: Double = .zero
+    var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     private var audioPlayer: AVAudioPlayer!
 
     private func getURL(fileName: String) -> URL{

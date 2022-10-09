@@ -36,6 +36,9 @@ struct RecordListPlayerView: View {
                 .frame(height: 1)
             Slider(value: $audioPlayer.displayTime,
                    in: 0.0...audioPlayer.duration)
+            .onReceive(audioPlayer.timer) { _ in
+                audioPlayer.displayTime = audioPlayer.currentTime
+            }
             HStack {
                 Text(Int(audioPlayer.currentTime).description)
                     .font(.caption)
