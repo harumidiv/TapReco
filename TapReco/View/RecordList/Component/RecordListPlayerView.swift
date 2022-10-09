@@ -38,12 +38,15 @@ struct RecordListPlayerView: View {
                    in: 0.0...audioPlayer.duration)
             .onReceive(audioPlayer.timer) { _ in
                 audioPlayer.displayTime = audioPlayer.currentTime
+                audioPlayer.displayCurrentTime = convertTimeToDisplayString(time: audioPlayer.currentTime)
+                let timeLeft = audioPlayer.duration - audioPlayer.currentTime
+                audioPlayer.displaytimeLeft = convertTimeToDisplayString(time: timeLeft)
             }
             HStack {
-                Text(Int(audioPlayer.currentTime).description)
+                Text(audioPlayer.displayCurrentTime)
                     .font(.caption)
                 Spacer()
-                Text(Int(audioPlayer.duration - audioPlayer.currentTime).description)
+                Text(audioPlayer.displaytimeLeft)
                     .font(.caption)
             }
             .padding(.horizontal, 30)
@@ -106,6 +109,14 @@ struct RecordListPlayerView: View {
             print("Viewが描画された")
             audioPlayer.playStart(fileName: playRecord.fileName)
         }
+    }
+
+    private func convertTimeToDisplayString(time: Double) -> String {
+        let time = Int(time)
+        let minute = time / 60
+        let seconds = time % 60
+
+        return "\(String(format: "%02d", minute)):\(String(format: "%02d", seconds))"
     }
 }
 

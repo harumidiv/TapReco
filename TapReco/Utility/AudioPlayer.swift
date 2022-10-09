@@ -9,6 +9,8 @@ import AVFoundation
 
 final class AudioPlayerImpl: ObservableObject {
     @Published var displayTime: Double = .zero
+    @Published var displayCurrentTime: String = ""
+    @Published var displaytimeLeft: String = ""
     var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     private var audioPlayer: AVAudioPlayer!
 
