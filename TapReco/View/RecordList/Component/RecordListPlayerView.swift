@@ -34,7 +34,7 @@ struct RecordListPlayerView: View {
             Rectangle()
                 .foregroundColor(.white)
                 .frame(height: 1)
-            Slider(value: $currentValue,
+            Slider(value: $audioPlayer.displayTime,
                    in: 0.0...audioPlayer.duration)
             HStack {
                 Text(Int(audioPlayer.currentTime).description)

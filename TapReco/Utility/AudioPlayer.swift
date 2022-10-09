@@ -7,59 +7,38 @@
 
 import AVFoundation
 
-protocol AudioPlayer: ObservableObject {
-    /// 初期化
-    /// - Parameter filePath: 再生するファイルのpath
-    init(fileName: String)
-
-    /// - Parameter fileName: 再生するファイルのパス
-    func playStart(fileName: String)
-
-    /// 再生途中から再度再生に切り替えを行う
-    /// - Parameter fileName: 再生するファイルのパス
-    func reStart(fileName: String)
-
-    /// 再生を停止する
-    func playStop()
-
-    /// 再生時間を15秒先にスキップする
-    /// - Returns: 再生時間が末尾まで到達しているか否か
-    func skipFifteenSeconds() -> Bool
-
-    /// 再生時間を15秒巻き戻す
-    func rewindFifteenSeconds()
-
-    /// ファイルのそう再生時間
-    var duration: Double { get }
-
-    /// ファイルの現在の再生時間
-    var currentTime: Double { get }
-}
-
-final class AudioPlayerImpl: NSObject {
+final class AudioPlayerImpl: ObservableObject {
+    @Published var displayTime: Double = .zero
     private var audioPlayer: AVAudioPlayer!
-        
+
     private func getURL(fileName: String) -> URL{
         return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent(fileName)
     }
 
 }
 
-extension AudioPlayerImpl: AudioPlayer {
+//extension AudioPlayerImpl: AudioPlayer {
+extension AudioPlayerImpl {
+
+    /// 初期化
+    /// - Parameter filePath: 再生するファイルのpath
     convenience init(fileName: String) {
         self.init()
         self.audioPlayer = try! AVAudioPlayer(contentsOf: getURL(fileName: fileName))
         self.audioPlayer.volume = 1.0
     }
 
+    /// ファイルの総再生時間
     var duration: Double {
         Double(audioPlayer.duration)
     }
 
+    /// ファイルの現在の再生時間
     var currentTime: Double {
         Double(audioPlayer.currentTime)
     }
 
+    /// - Parameter fileName: 再生するファイルのパス
     func playStart(fileName: String) {
         audioPlayer = try? AVAudioPlayer(contentsOf: getURL(fileName: fileName))
         audioPlayer.volume = 1.0
@@ -67,6 +46,8 @@ extension AudioPlayerImpl: AudioPlayer {
         audioPlayer.play()
     }
 
+    /// 再生途中から再度再生に切り替えを行う
+    /// - Parameter fileName: 再生するファイルのパス
     func reStart(fileName: String) {
         let currentTime = audioPlayer.currentTime
         if currentTime == audioPlayer.duration || currentTime == 0 {
@@ -75,11 +56,14 @@ extension AudioPlayerImpl: AudioPlayer {
             audioPlayer.play()
         }
     }
-    
+
+    /// 再生を停止する
     func playStop() {
         audioPlayer.stop()
     }
 
+    /// 再生時間を15秒先にスキップする
+    /// - Returns: 再生時間が末尾まで到達しているか否か
     func skipFifteenSeconds() -> Bool {
         let currentTime = audioPlayer.currentTime
         let timeDiff = audioPlayer.duration - currentTime
@@ -94,6 +78,7 @@ extension AudioPlayerImpl: AudioPlayer {
         return !isAbleToSkip
     }
 
+    /// 再生時間を15秒巻き戻す
     func rewindFifteenSeconds() {
         let currentTime = audioPlayer.currentTime
         audioPlayer.stop()
