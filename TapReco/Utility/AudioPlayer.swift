@@ -8,8 +8,24 @@
 import AVFoundation
 
 protocol AudioPlayer {
+
+    /// 初期化を含む再生
+    /// - Parameter fileName: 再生するファイルのパス
     func playStart(fileName: String)
+
+    /// 再生途中から再度再生に切り替えを行う
+    /// - Parameter fileName: 再生するファイルのパス
+    func reStart(fileName: String)
+
+    /// 再生を停止する
     func playStop()
+
+    /// 再生時間を15秒先にスキップする
+    /// - Returns: 再生時間が末尾まで到達しているか否か
+    func skipFifteenSeconds() -> Bool
+
+    /// 再生時間を15秒巻き戻す
+    func rewindFifteenSeconds()
 }
 
 final class AudioPlayerImpl: NSObject {
@@ -41,9 +57,6 @@ extension AudioPlayerImpl: AudioPlayer {
         audioPlayer.stop()
     }
 
-
-    /// 15秒再生時間をスキップさせる
-    /// - Returns: 再生が末尾まで到達しているか
     func skipFifteenSeconds() -> Bool {
         let currentTime = audioPlayer.currentTime
         let timeDiff = audioPlayer.duration - currentTime
@@ -56,7 +69,6 @@ extension AudioPlayerImpl: AudioPlayer {
             audioPlayer.currentTime = audioPlayer.duration
         }
         return !isAbleToSkip
-
     }
 
     func rewindFifteenSeconds() {
