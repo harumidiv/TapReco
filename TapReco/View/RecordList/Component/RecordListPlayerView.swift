@@ -10,6 +10,7 @@ import SwiftUI
 struct RecordListPlayerView: View {
     @Binding var record: RecordData
     @State private var currentValue: Double = 0.3
+    @State private var isShowActivityView: Bool = false
 
     private let audioPlayer = AudioPlayerImpl()
 
@@ -33,7 +34,10 @@ struct RecordListPlayerView: View {
             HStack{
                 Image(systemName: "square.and.arrow.up")
                     .onTapGesture {
-                        print("共有")
+                        isShowActivityView = true
+                    }
+                    .sheet(isPresented: $isShowActivityView) {
+                        ActivityViewController(activityItems: [])
                     }
                 Spacer()
                 Image("prev_fifteen")
@@ -57,6 +61,7 @@ struct RecordListPlayerView: View {
             }
             .padding(.horizontal, 30)
         }
+        .background(.green)
     }
 }
 
