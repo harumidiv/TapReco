@@ -8,12 +8,16 @@
 import SwiftUI
 
 struct RecordListPlayerView: View {
+    // MARK: - Argument
     let saveAction: ()->Void
     @Binding var records: [RecordData]
+
+    // MARK: - Property
     @State private var currentValue: Double = 0.3
     @State private var isShowActivityView: Bool = false
     @State private var isPlaying: Bool = false
 
+    @Environment(\.scenePhase) private var scenePhase
     private let audioPlayer = AudioPlayerImpl()
 
 
@@ -56,7 +60,7 @@ struct RecordListPlayerView: View {
                         print("15秒前に戻る処理")
                     }
                 ZStack {
-                    // 再生停止が切り替わるとサイズが違うのでかくついてしまうためRectangleで固定している
+                    // 再生停止が切り替わると画像サイズが違いでがたつくので固定している
                     Rectangle()
                         .fill(.clear)
                         .frame(width:60, height: 60)

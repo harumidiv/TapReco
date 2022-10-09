@@ -15,7 +15,7 @@ struct RecordListView: View {
     var body: some View {
         ZStack {
             VStack(spacing: 0) {
-                RecordListHeaderView(isPresentedRecordListView: $isShowRecordList,
+                RecordListHeaderView(isShowRecordList: $isShowRecordList,
                                      records: $records)
                 .background(Color.yellow)
                 List {
