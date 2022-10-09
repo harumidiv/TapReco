@@ -57,7 +57,7 @@ struct RecordListPlayerView: View {
                 Image("play_icon")
                     .onTapGesture {
                         print("再生ボタンタップ")
-                        audioPlayer.playStart(fileName: records[0].fileName)
+                        audioPlayer.playStart(fileName: playRecord.fileName)
                     }
                 Image("after_fifteen")
                     .onTapGesture {
