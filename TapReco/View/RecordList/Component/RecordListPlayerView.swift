@@ -74,7 +74,7 @@ struct RecordListPlayerView: View {
                             .onTapGesture {
                                 print("再生ボタンタップ")
                                 isPlaying.toggle()
-                                audioPlayer.playStart(fileName: playRecord.fileName)
+                                audioPlayer.reStart()
                             }
                     }
                 }
@@ -92,6 +92,11 @@ struct RecordListPlayerView: View {
             .padding(.horizontal, 30)
         }
         .background(.green)
+        .onAppear {
+            print("Viewが描画された")
+            isPlaying = true
+            audioPlayer.playStart(fileName: playRecord.fileName)
+        }
     }
 }
 

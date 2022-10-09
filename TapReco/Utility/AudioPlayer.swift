@@ -27,6 +27,10 @@ extension AudioPlayerImpl: AudioPlayer {
         audioPlayer.prepareToPlay()
         audioPlayer.play()
     }
+
+    func reStart() {
+        audioPlayer.play()
+    }
     
     func playStop() {
         audioPlayer.stop()
