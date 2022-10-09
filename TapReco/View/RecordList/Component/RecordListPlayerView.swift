@@ -18,7 +18,6 @@ struct RecordListPlayerView: View {
     @State private var isShowActivityView: Bool = false
     @State private var isPlaying: Bool = true
 
-
     @Environment(\.scenePhase) private var scenePhase
 
     private var selectedIndex: Int {
