@@ -43,36 +43,46 @@ struct StandbyView: View {
                 let buttonHeight: CGFloat = 86
                 let buttonWidth: CGFloat = 205
                 let bottomMargin: CGFloat = 74
-                SlideUPActionView(isPresentedRecordListView: $isShowRecordList)
-                    .frame(width: buttonWidth, height: buttonHeight)
-                    .position(x: geometry.size.width / 2,
-                              y: geometry.size.height - (bottomMargin + buttonHeight / 2))
-                    .fullScreenCover(isPresented: $isShowRecordList) {
-                        RecordListView(saveAction: saveAction, isShowRecordList: $isShowRecordList, records: $records)
-                    }
+                if records.count > 0 {
+
+                    SlideUPActionView(isPresentedRecordListView: $isShowRecordList)
+                        .frame(width: buttonWidth, height: buttonHeight)
+                        .position(x: geometry.size.width / 2,
+                                  y: geometry.size.height - (bottomMargin + buttonHeight / 2))
+                        .fullScreenCover(isPresented: $isShowRecordList) {
+                            RecordListView(saveAction: saveAction, isShowRecordList: $isShowRecordList, records: $records)
+                        }
+                } else {
+                    SlideUPActionView(isPresentedRecordListView: $isShowRecordList)
+                        .frame(width: buttonWidth, height: buttonHeight)
+                        .position(x: geometry.size.width / 2,
+                                  y: geometry.size.height - (bottomMargin + buttonHeight / 2))
+                        .opacity(0.5)
+                        .disabled(true)
+                }
             }
         }
     }
 }
 
-extension StandbyView {
-    func alertBuilder() -> Alert {
-        return Alert(
-            title: Text("マイクへのアクセス許可がありません"),
-            message: Text("[設定]に移動して、権限を許可してください"),
-            primaryButton: .cancel(Text("キャンセル")),
-            secondaryButton: .default(Text("設定"), action: {
-                if let url = URL(string: UIApplication.openSettingsURLString), UIApplication.shared.canOpenURL(url) {
-                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
-                }
-            }))
+    extension StandbyView {
+        func alertBuilder() -> Alert {
+            return Alert(
+                title: Text("マイクへのアクセス許可がありません"),
+                message: Text("[設定]に移動して、権限を許可してください"),
+                primaryButton: .cancel(Text("キャンセル")),
+                secondaryButton: .default(Text("設定"), action: {
+                    if let url = URL(string: UIApplication.openSettingsURLString), UIApplication.shared.canOpenURL(url) {
+                        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                    }
+                }))
+        }
     }
-}
 
-struct StandbyView_Previews: PreviewProvider {
-    static var previews: some View {
-        StandbyView(saveAction: {}, records: .constant(RecordData.sampleData),
-                    isRecording: .constant(false))
+    struct StandbyView_Previews: PreviewProvider {
+        static var previews: some View {
+            StandbyView(saveAction: {}, records: .constant(RecordData.sampleData),
+                        isRecording: .constant(false))
+        }
     }
-}
 
