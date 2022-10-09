@@ -11,6 +11,14 @@ struct RecordListView: View {
     let saveAction: ()->Void
     @Binding var isShowRecordList: Bool
     @Binding var records: [RecordData]
+
+    private var selectedIndex: Int {
+        records.firstIndex(where: { $0.isSelected })!
+    }
+
+    private var playRecord: RecordData {
+        records[selectedIndex]
+    }
     
     var body: some View {
         ZStack {
@@ -39,7 +47,9 @@ struct RecordListView: View {
             if records.contains(where: { $0.isSelected == true }) {
                 VStack(spacing: 0) {
                     Spacer()
-                    RecordListPlayerView(saveAction: saveAction, records: $records, audioPlayer: AudioPlayerImpl())
+                    RecordListPlayerView(saveAction: saveAction,
+                                         records: $records,
+                                         audioPlayer: AudioPlayerImpl(fileName: playRecord.fileName))
                 }
                 .ignoresSafeArea(edges: [.top])
             }

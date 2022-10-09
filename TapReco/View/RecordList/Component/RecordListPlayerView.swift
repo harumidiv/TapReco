@@ -34,7 +34,7 @@ struct RecordListPlayerView: View {
                 .foregroundColor(.white)
                 .frame(height: 1)
             Slider(value: $currentValue,
-                   in: 0...audioPlayer.duration)
+                   in: 0.0...audioPlayer.duration)
             HStack {
                 Text("01:00")
                     .font(.caption)

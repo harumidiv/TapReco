@@ -8,8 +8,10 @@
 import AVFoundation
 
 protocol AudioPlayer {
+    /// 初期化
+    /// - Parameter filePath: 再生するファイルのpath
+    init(fileName: String)
 
-    /// 初期化を含む再生
     /// - Parameter fileName: 再生するファイルのパス
     func playStart(fileName: String)
 
@@ -39,6 +41,12 @@ final class AudioPlayerImpl: NSObject {
 }
 
 extension AudioPlayerImpl: AudioPlayer {
+    convenience init(fileName: String) {
+        self.init()
+        self.audioPlayer = try! AVAudioPlayer(contentsOf: getURL(fileName: fileName))
+        self.audioPlayer.volume = 1.0
+    }
+
     var duration: Double {
         Double(audioPlayer.duration)
     }
