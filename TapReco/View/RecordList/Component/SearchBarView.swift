@@ -48,5 +48,13 @@ struct SearchBarView_Previews: PreviewProvider {
             SearchBarView(text: .constant("hogehoge"))
         }
         .background(.orange)
+        .preferredColorScheme(.light)
+
+        VStack {
+            SearchBarView(text: .constant(""))
+            SearchBarView(text: .constant("hogehoge"))
+        }
+        .background(.orange)
+        .preferredColorScheme(.dark)
     }
 }

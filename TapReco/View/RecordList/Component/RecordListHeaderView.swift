@@ -51,15 +51,15 @@ struct RecordListHeaderView: View {
 
 struct RecordListSectionHeadaerView_Previews: PreviewProvider {
     static var previews: some View {
-        VStack {
             RecordListHeaderView(isShowRecordList: .constant(false),
                                  records: .constant(RecordData.sampleData),
                                  searchText: .constant(""))
                 .fixedSize(horizontal: false, vertical: true)
+                .preferredColorScheme(.light)
             RecordListHeaderView(isShowRecordList: .constant(false),
                                  records: .constant(RecordData.sampleData),
                                  searchText: .constant("hogehoge"))
                 .fixedSize(horizontal: false, vertical: true)
-        }
+                .preferredColorScheme(.dark)
     }
 }

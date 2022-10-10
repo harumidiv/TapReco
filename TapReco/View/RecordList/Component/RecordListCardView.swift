@@ -52,5 +52,17 @@ struct RecordListCardView_Previews: PreviewProvider {
             .fixedSize(horizontal: false, vertical: true)
         }
         .padding()
+        .preferredColorScheme(.light)
+
+        VStack {
+            RecordListCardView(record: RecordData.sampleData[0],
+                               backgroundColor: AppColor.boxGray)
+            .fixedSize(horizontal: false, vertical: true)
+            RecordListCardView(record: RecordData.sampleData[0],
+                               backgroundColor: AppColor.boxBlack)
+            .fixedSize(horizontal: false, vertical: true)
+        }
+        .padding()
+        .preferredColorScheme(.dark)
     }
 }

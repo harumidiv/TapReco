@@ -30,5 +30,8 @@ struct StandbyBackgroundView: View {
 struct StandbyBackgroundView_Previews: PreviewProvider {
     static var previews: some View {
         StandbyBackgroundView()
+            .preferredColorScheme(.light)
+        StandbyBackgroundView()
+            .preferredColorScheme(.dark)
     }
 }
