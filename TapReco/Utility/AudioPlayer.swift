@@ -14,7 +14,6 @@ final class AudioPlayer: NSObject, ObservableObject {
     var timer = Timer.publish(every: 0.01, on: .main, in: .common).autoconnect()
     private var audioPlayer: AVAudioPlayer!
     var playComplete: (()->Void)?
-
     /// ファイルの総再生時間
     var duration: Double {
         Double(audioPlayer.duration)
@@ -77,6 +76,15 @@ final class AudioPlayer: NSObject, ObservableObject {
             audioPlayer.currentTime = 0
         }
         audioPlayer.play()
+    }
+
+    func changeSliderValue() {
+        playStop()
+    }
+
+    func stopSliderValue() {
+        audioPlayer?.currentTime = displayTime
+        reStart()
     }
 }
 

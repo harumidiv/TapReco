@@ -17,6 +17,7 @@ struct RecordListPlayerView: View {
     @State private var currentValue: Double = 0
     @State private var isShowActivityView: Bool = false
     @State private var isPlaying: Bool = true
+    @State var isSliderChanged: Bool = false
 
     @Environment(\.scenePhase) private var scenePhase
 
@@ -34,12 +35,19 @@ struct RecordListPlayerView: View {
                 .foregroundColor(AppColor.iconGray)
                 .frame(height: 1)
             Slider(value: $audioPlayer.displayTime,
-                   in: 0.0...audioPlayer.duration)
+                   in: 0.0...audioPlayer.duration, onEditingChanged: {isChanging in
+                self.isSliderChanged = isChanging
+                isChanging ? audioPlayer.changeSliderValue() : audioPlayer.stopSliderValue()
+                isPlaying = !isChanging
+            })
+            .padding(.horizontal)
             .onReceive(audioPlayer.timer) { _ in
-                audioPlayer.displayTime = audioPlayer.currentTime
-                audioPlayer.displayCurrentTime = convertTimeToDisplayString(time: audioPlayer.currentTime)
-                let timeLeft = audioPlayer.duration - audioPlayer.currentTime
-                audioPlayer.displaytimeLeft = convertTimeToDisplayString(time: timeLeft)
+                if !isSliderChanged {
+                    audioPlayer.displayTime = audioPlayer.currentTime
+                }
+                    audioPlayer.displayCurrentTime = convertTimeToDisplayString(time: audioPlayer.currentTime)
+                    let timeLeft = audioPlayer.duration - audioPlayer.currentTime
+                    audioPlayer.displaytimeLeft = convertTimeToDisplayString(time: timeLeft)
             }
             HStack {
                 Text(audioPlayer.displayCurrentTime)
