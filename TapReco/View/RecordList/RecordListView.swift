@@ -84,5 +84,10 @@ struct RecordListView_Previews: PreviewProvider {
         RecordListView(saveAction: {},
                        isShowRecordList: .constant(false),
                        records: .constant(RecordData.sampleData))
+            .preferredColorScheme(.light)
+        RecordListView(saveAction: {},
+                       isShowRecordList: .constant(false),
+                       records: .constant(RecordData.sampleData))
+            .preferredColorScheme(.dark)
     }
 }

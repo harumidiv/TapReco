@@ -188,7 +188,6 @@ struct MicrophoneVolumeView: View {
 struct MicrophoneVolumeView_Previews: PreviewProvider {
     static var previews: some View {
         MicrophoneVolumeView()
-            .background(AppColor.background)
-            .fixedSize()
+            .preferredColorScheme(.dark)
     }
 }

@@ -83,6 +83,11 @@ struct StandbyView: View {
         static var previews: some View {
             StandbyView(saveAction: {}, records: .constant(RecordData.sampleData),
                         isRecording: .constant(false))
+            .preferredColorScheme(.light)
+
+            StandbyView(saveAction: {}, records: .constant(RecordData.sampleData),
+                        isRecording: .constant(false))
+            .preferredColorScheme(.dark)
         }
     }
 
