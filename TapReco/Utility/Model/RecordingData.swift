@@ -46,8 +46,8 @@ struct RecordData: Identifiable, Codable {
 extension RecordData {
     static let sampleData: [RecordData] =
     [
-    RecordData(title: "My録音1", recordDate:  "2022.10.07_14:54", fileName: "マイ録音", fileSize: "3.5MB", fileLength: "3:15"),
-    RecordData(title: "My録音2", recordDate:  "2022.10.07_14:54", fileName: "マイ録音", fileSize: "3.5MB", fileLength: "3:15"),
-    RecordData(title: "My録音3", recordDate:  "2022.10.07_14:54", fileName: "マイ録音", fileSize: "3.5MB", fileLength: "3:15")
+    RecordData(title: "新規録音", recordDate:  "2022.10.07_14:54", fileName: "マイ録音", fileSize: "3.5MB", fileLength: "3:15"),
+    RecordData(title: "新規録音", recordDate:  "2022.10.07_14:54", fileName: "マイ録音", fileSize: "3.5MB", fileLength: "3:15"),
+    RecordData(title: "新規録音", recordDate:  "2022.10.07_14:54", fileName: "マイ録音", fileSize: "3.5MB", fileLength: "3:15")
     ]
 }
