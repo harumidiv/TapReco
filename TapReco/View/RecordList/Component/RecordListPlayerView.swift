@@ -62,14 +62,16 @@ struct RecordListPlayerView: View {
                         ActivityViewController(activityItems: [])
                     }
                 Spacer()
-                Image("prev_fifteen")
+                Image(systemName: "gobackward.15")
+                    .font(Font.system(size: 24, weight: .regular))
                     .foregroundColor(AppColor.iconLightGray)
                     .onTapGesture {
                         audioPlayer.rewindFifteenSeconds()
                         print("15秒前に戻る処理")
                     }
                 StartStopView(isPlaying: $isPlaying, audioPlayer: audioPlayer)
-                Image("after_fifteen")
+                Image(systemName: "goforward.15")
+                    .font(Font.system(size: 24, weight: .regular))
                     .foregroundColor(AppColor.iconLightGray)
                     .onTapGesture {
                         print("15秒先に進む処理")
