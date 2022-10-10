@@ -37,7 +37,9 @@ struct RecordListHeaderView: View {
                 Button(action: {
                     // 何の処理が走る？
                 }){
-                    Image("pull_down")
+                    Image(systemName: "slider.horizontal.3")
+                        .font(Font.system(size: 24, weight: .regular))
+                        .foregroundColor(AppColor.iconGray)
                 }
             }
             .padding(.horizontal, 30)
