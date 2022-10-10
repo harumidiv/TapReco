@@ -10,9 +10,12 @@ import UIKit
 final class SlideToUPUnlockView: UIView {
     let backgroundView: UIView = {
         let view = UIView()
-        
         view.backgroundColor = UIColor(named: "background")
         return view
+    }()
+
+    let upImageView: UIImageView = {
+        return UIImageView(image: UIImage(named: "icon_up_allow"))
     }()
     
     let slideButtonView: UIView = {
@@ -132,6 +135,7 @@ extension SlideToUPUnlockView {
     private func setupView() {
         
         self.addSubview(backgroundView)
+        self.addSubview(upImageView)
         self.addSubview(dragAreaView)
         self.addSubview(slideButtonView)
         
@@ -148,11 +152,17 @@ extension SlideToUPUnlockView {
         backgroundView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
         backgroundView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
         backgroundView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+
+        upImageView.translatesAutoresizingMaskIntoConstraints = false
+        upImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        upImageView.topAnchor.constraint(equalTo: backgroundView.topAnchor, constant: 20).isActive = true
+        upImageView.widthAnchor.constraint(equalToConstant: 12).isActive = true
+        upImageView.heightAnchor.constraint(equalToConstant: 14).isActive = true
         
         dragAreaView.translatesAutoresizingMaskIntoConstraints = false
         dragAreaView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 8).isActive = true
         dragAreaView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -8).isActive = true
-        dragAreaView.heightAnchor.constraint(equalToConstant: 36).isActive = true
+        dragAreaView.heightAnchor.constraint(equalToConstant: 44).isActive = true
         dragAreaView.bottomAnchor.constraint(equalTo: slideButtonView.bottomAnchor).isActive = true
         
         slideButtonView.translatesAutoresizingMaskIntoConstraints = false

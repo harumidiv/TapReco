@@ -40,8 +40,8 @@ struct StandbyView: View {
             .alert(isPresented: $isShowAlertDialog, content: alertBuilder)
 
             GeometryReader { geometry in
-                let buttonHeight: CGFloat = 86
-                let buttonWidth: CGFloat = 205
+                let buttonHeight: CGFloat = 100
+                let buttonWidth: CGFloat = 240
                 let bottomMargin: CGFloat = 74
                 if records.count > 0 {
 
