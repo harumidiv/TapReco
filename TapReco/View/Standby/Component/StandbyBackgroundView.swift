@@ -18,6 +18,7 @@ struct StandbyBackgroundView: View {
                 .scaledToFill()
                 .cornerRadius(16)
                 .padding()
+                .opacity(0.4)
             VStack(spacing: 18) {
                 Image("icon_microphone")
                 Image("description")
