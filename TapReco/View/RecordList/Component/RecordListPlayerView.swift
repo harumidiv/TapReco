@@ -31,7 +31,7 @@ struct RecordListPlayerView: View {
     var body: some View {
         VStack {
             Rectangle()
-                .foregroundColor(.white)
+                .foregroundColor(AppColor.iconGray)
                 .frame(height: 1)
             Slider(value: $audioPlayer.displayTime,
                    in: 0.0...audioPlayer.duration)
@@ -43,15 +43,18 @@ struct RecordListPlayerView: View {
             }
             HStack {
                 Text(audioPlayer.displayCurrentTime)
+                    .foregroundColor(AppColor.textLightGray)
                     .font(.caption)
                 Spacer()
                 Text(audioPlayer.displaytimeLeft)
+                    .foregroundColor(AppColor.textLightGray)
                     .font(.caption)
             }
             .padding(.horizontal, 30)
 
             HStack{
                 Image(systemName: "square.and.arrow.up")
+                    .foregroundColor(AppColor.iconLightGray)
                     .onTapGesture {
                         isShowActivityView = true
                     }
@@ -60,12 +63,14 @@ struct RecordListPlayerView: View {
                     }
                 Spacer()
                 Image("prev_fifteen")
+                    .foregroundColor(AppColor.iconLightGray)
                     .onTapGesture {
                         audioPlayer.rewindFifteenSeconds()
                         print("15秒前に戻る処理")
                     }
                 StartStopView(isPlaying: $isPlaying, audioPlayer: audioPlayer)
                 Image("after_fifteen")
+                    .foregroundColor(AppColor.iconLightGray)
                     .onTapGesture {
                         print("15秒先に進む処理")
                         if audioPlayer.skipFifteenSeconds() {
@@ -74,6 +79,7 @@ struct RecordListPlayerView: View {
                     }
                 Spacer()
                 Image(systemName: "trash")
+                    .foregroundColor(AppColor.iconLightGray)
                     .onTapGesture {
                         records.remove(at: selectedIndex)
                         saveAction()
@@ -81,11 +87,12 @@ struct RecordListPlayerView: View {
             }
             .padding(.horizontal, 30)
         }
-        .background(.green)
+        .background(AppColor.background)
         .onAppear {
             print("Viewが描画された")
             audioPlayer.playStart()
         }
+
     }
 
     private func convertTimeToDisplayString(time: Double) -> String {

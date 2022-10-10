@@ -20,6 +20,7 @@ struct StartStopView: View {
             if isPlaying {
                 Image(systemName: "stop.fill")
                     .font(.system(size: 50, weight: .light))
+                    .foregroundColor(AppColor.iconLightGray)
                     .onTapGesture {
                         print("停止ボタンタップ")
                         isPlaying.toggle()
@@ -28,6 +29,7 @@ struct StartStopView: View {
             } else {
                 Image(systemName: "play.fill")
                     .font(.system(size: 50, weight: .light))
+                    .foregroundColor(AppColor.iconLightGray)
                     .onTapGesture {
                         print("再生ボタンタップ")
                         isPlaying.toggle()
