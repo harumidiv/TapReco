@@ -11,12 +11,13 @@ struct RecordListPlayerView: View {
     // MARK: - Argument
     let saveAction: ()->Void
     @Binding var records: [RecordData]
-    @StateObject var audioPlayer: AudioPlayerImpl
+    @ObservedObject var audioPlayer: AudioPlayer
 
     // MARK: - Property
     @State private var currentValue: Double = 0
     @State private var isShowActivityView: Bool = false
     @State private var isPlaying: Bool = true
+    @State var isSliderChanged: Bool = false
 
     @Environment(\.scenePhase) private var scenePhase
 
@@ -34,9 +35,18 @@ struct RecordListPlayerView: View {
                 .foregroundColor(AppColor.iconGray)
                 .frame(height: 1)
             Slider(value: $audioPlayer.displayTime,
-                   in: 0.0...audioPlayer.duration)
+                   in: 0.0...audioPlayer.duration, onEditingChanged: {isChanging in
+                self.isSliderChanged = isChanging
+                isChanging ? audioPlayer.changeSliderValue() : audioPlayer.stopSliderValue()
+                isPlaying = !isChanging
+            })
+            .padding(.horizontal)
             .onReceive(audioPlayer.timer) { _ in
-                audioPlayer.displayTime = audioPlayer.currentTime
+                if !isSliderChanged {
+                    audioPlayer.displayTime = audioPlayer.currentTime
+                } else {
+                    audioPlayer.setCurrentTime(time: audioPlayer.displayTime)
+                }
                 audioPlayer.displayCurrentTime = convertTimeToDisplayString(time: audioPlayer.currentTime)
                 let timeLeft = audioPlayer.duration - audioPlayer.currentTime
                 audioPlayer.displaytimeLeft = convertTimeToDisplayString(time: timeLeft)
@@ -66,23 +76,26 @@ struct RecordListPlayerView: View {
                     .font(Font.system(size: 24, weight: .regular))
                     .foregroundColor(AppColor.iconLightGray)
                     .onTapGesture {
+                        isPlaying = true
                         audioPlayer.rewindFifteenSeconds()
-                        print("15秒前に戻る処理")
                     }
                 StartStopView(isPlaying: $isPlaying, audioPlayer: audioPlayer)
                 Image(systemName: "goforward.15")
                     .font(Font.system(size: 24, weight: .regular))
                     .foregroundColor(AppColor.iconLightGray)
                     .onTapGesture {
-                        print("15秒先に進む処理")
+                        isPlaying = true
                         if audioPlayer.skipFifteenSeconds() {
+                            // 末尾まできていたらストップする
                             isPlaying = false
+                            audioPlayer.setCurrentTime(time: 0)
                         }
                     }
                 Spacer()
                 Image(systemName: "trash")
                     .foregroundColor(AppColor.iconLightGray)
                     .onTapGesture {
+                        audioPlayer.playStop()
                         records.remove(at: selectedIndex)
                         saveAction()
                     }
@@ -91,10 +104,10 @@ struct RecordListPlayerView: View {
         }
         .background(AppColor.background)
         .onAppear {
-            print("Viewが描画された")
-            audioPlayer.playStart()
+            audioPlayer.playComplete = {
+                isPlaying.toggle()
+            }
         }
-
     }
 
     private func convertTimeToDisplayString(time: Double) -> String {
@@ -110,6 +123,6 @@ struct RecordListPlayerView_Previews: PreviewProvider {
     static var previews: some View {
         RecordListPlayerView(saveAction: {},
                              records: .constant(RecordData.sampleData),
-                             audioPlayer: AudioPlayerImpl())
+                             audioPlayer: AudioPlayer())
     }
 }

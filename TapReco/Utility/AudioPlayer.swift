@@ -7,29 +7,13 @@
 
 import AVFoundation
 
-final class AudioPlayerImpl: ObservableObject {
+final class AudioPlayer: NSObject, ObservableObject {
     @Published var displayTime: Double = .zero
     @Published var displayCurrentTime: String = ""
     @Published var displaytimeLeft: String = ""
     var timer = Timer.publish(every: 0.01, on: .main, in: .common).autoconnect()
     private var audioPlayer: AVAudioPlayer!
-
-    private func getURL(fileName: String) -> URL{
-        return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent(fileName)
-    }
-}
-
-//extension AudioPlayerImpl: AudioPlayer {
-extension AudioPlayerImpl {
-
-    /// 初期化
-    /// - Parameter filePath: 再生するファイルのpath
-    convenience init(fileName: String) {
-        self.init()
-        self.audioPlayer = try! AVAudioPlayer(contentsOf: getURL(fileName: fileName))
-        self.audioPlayer.volume = 1.0
-    }
-
+    var playComplete: (()->Void)?
     /// ファイルの総再生時間
     var duration: Double {
         Double(audioPlayer.duration)
@@ -40,10 +24,14 @@ extension AudioPlayerImpl {
         Double(audioPlayer.currentTime)
     }
 
-    /// - Parameter fileName: 再生するファイルのパス
-    func playStart() {
-        audioPlayer.prepareToPlay()
-        audioPlayer.play()
+    /// 初期化
+    func setup(fileName: String) {
+        self.audioPlayer = nil
+        self.audioPlayer = try! AVAudioPlayer(contentsOf: getURL(fileName: fileName))
+        self.audioPlayer.volume = 1.0
+        self.audioPlayer.delegate = self
+
+        playStart()
     }
 
     /// 再生途中から再度再生に切り替えを行う
@@ -89,4 +77,144 @@ extension AudioPlayerImpl {
         }
         audioPlayer.play()
     }
+
+    func setCurrentTime(time: Double) {
+        audioPlayer.currentTime = TimeInterval(time)
+    }
+
+    /// スライダーに変更が開始された
+    func changeSliderValue() {
+        playStop()
+    }
+
+    /// スライダーの変更が停止された
+    func stopSliderValue() {
+        audioPlayer?.currentTime = displayTime
+        reStart()
+    }
 }
+
+// MARK: - PrivateMethod
+extension AudioPlayer {
+    private func getURL(fileName: String) -> URL{
+        return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent(fileName)
+    }
+
+    /// 0秒からの再生
+    private func playStart() {
+        audioPlayer.prepareToPlay()
+        audioPlayer.play()
+    }
+}
+
+extension AudioPlayer: AVAudioPlayerDelegate {
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        playComplete?()
+        print("再生完了")
+    }
+}
+
+
+
+
+
+// ----------------------------------------------------------------
+
+//class audioSettings: ObservableObject {
+//
+//    var audioPlayer: AVAudioPlayer?
+//    var playing = false
+//    @Published var playValue: TimeInterval = 0.0
+//    var playerDuration: TimeInterval = 146
+//    var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+//
+//
+//    func playSound(sound: String, type: String) {
+//        if let path = Bundle.main.path(forResource: sound, ofType: type) {
+//            do {
+//                if playing == false {
+//                    if (audioPlayer == nil) {
+//
+//
+//                        audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path))
+//                        audioPlayer?.prepareToPlay()
+//
+//                        audioPlayer?.play()
+//                        playing = true
+//                    }
+//
+//                }
+//                if playing == false {
+//
+//                    audioPlayer?.play()
+//                    playing = true
+//                }
+//
+//
+//            } catch {
+//                print("Could not find and play the sound file.")
+//            }
+//        }
+//
+//    }
+//
+//    func stopSound() {
+//        //   if playing == true {
+//        audioPlayer?.stop()
+//        audioPlayer = nil
+//        playing = false
+//        playValue = 0.0
+//        //   }
+//    }
+//
+//    func pauseSound() {
+//        if playing == true {
+//            audioPlayer?.pause()
+//            playing = false
+//        }
+//    }
+//
+//    func changeSliderValue() {
+//        if playing == true {
+//            pauseSound()
+//            audioPlayer?.currentTime = playValue
+//
+//        }
+//
+//        if playing == false {
+//            audioPlayer?.play()
+//            playing = true
+//        }
+//    }
+//}
+//
+//struct myExperienceFearChunk: View {
+//    @ObservedObject var audiosettings = audioSettings()
+//    @State private var playButton: Image = Image(systemName: "play.circle")
+//
+//    var body: some View {
+//
+//        VStack {
+//            Slider(value: $audiosettings.playValue, in: TimeInterval(0.0)...audiosettings.playerDuration, onEditingChanged: { _ in
+//                self.audiosettings.changeSliderValue()
+//            })
+//            .onReceive(audiosettings.timer) { _ in
+//
+//                if self.audiosettings.playing {
+//                    if let currentTime = self.audiosettings.audioPlayer?.currentTime {
+//                        self.audiosettings.playValue = currentTime
+//
+//                        if currentTime == TimeInterval(0.0) {
+//                            self.audiosettings.playing = false
+//                        }
+//                    }
+//
+//                }
+//                else {
+//                    self.audiosettings.playing = false
+//                    self.audiosettings.timer.upstream.connect().cancel()
+//                }
+//            }
+//        }
+//    }
+//}

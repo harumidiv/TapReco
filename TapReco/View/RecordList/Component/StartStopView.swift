@@ -9,7 +9,7 @@ import SwiftUI
 
 struct StartStopView: View {
     @Binding var isPlaying: Bool
-    @ObservedObject var audioPlayer: AudioPlayerImpl
+    @ObservedObject var audioPlayer: AudioPlayer
 
     var body: some View {
         ZStack {
@@ -42,6 +42,6 @@ struct StartStopView: View {
 
 struct StartStopView_Previews: PreviewProvider {
     static var previews: some View {
-        StartStopView(isPlaying: .constant(true), audioPlayer: AudioPlayerImpl())
+        StartStopView(isPlaying: .constant(true), audioPlayer: AudioPlayer())
     }
 }
