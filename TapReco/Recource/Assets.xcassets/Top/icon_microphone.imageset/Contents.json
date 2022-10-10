@@ -1,7 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "microphone.pdf",
+      "filename" : "microphone_light.pdf",
+      "idiom" : "universal"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "microphone_dark.pdf",
       "idiom" : "universal"
     }
   ],
