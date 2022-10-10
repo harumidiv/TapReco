@@ -10,7 +10,7 @@ import UIKit
 final class SlideToActionView: UIView {
     let backgroundView: UIView = {
         let view = UIView()
-        view.backgroundColor = .darkGray
+        view.backgroundColor = UIColor(named: "slider_box")
         return view
     }()
     
@@ -43,7 +43,6 @@ final class SlideToActionView: UIView {
     
     let endCircleView: UIImageView = {
         let view = UIImageView(image: UIImage(named: "icon_slidebar_stop"))
-        view.backgroundColor = UIColor.gray
         view.contentMode = .center
         
         return view
