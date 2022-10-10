@@ -76,17 +76,19 @@ struct RecordListPlayerView: View {
                     .font(Font.system(size: 24, weight: .regular))
                     .foregroundColor(AppColor.iconLightGray)
                     .onTapGesture {
+                        isPlaying = true
                         audioPlayer.rewindFifteenSeconds()
-                        print("15秒前に戻る処理")
                     }
                 StartStopView(isPlaying: $isPlaying, audioPlayer: audioPlayer)
                 Image(systemName: "goforward.15")
                     .font(Font.system(size: 24, weight: .regular))
                     .foregroundColor(AppColor.iconLightGray)
                     .onTapGesture {
-                        print("15秒先に進む処理")
+                        isPlaying = true
                         if audioPlayer.skipFifteenSeconds() {
+                            // 末尾まできていたらストップする
                             isPlaying = false
+                            audioPlayer.setCurrentTime(time: 0)
                         }
                     }
                 Spacer()
