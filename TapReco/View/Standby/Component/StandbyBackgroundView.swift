@@ -11,17 +11,19 @@ struct StandbyBackgroundView: View {
     var body: some View {
         ZStack {
             Rectangle()
-                .foregroundColor(Color("tp_gray"))
+                .foregroundColor(AppColor.background)
                 .ignoresSafeArea()
             Image("wakusen")
                 .resizable()
                 .scaledToFill()
+                .cornerRadius(16)
+                .padding()
             VStack(spacing: 18) {
                 Image("icon_microphone")
                 Text("タップして録音開始")
                     .font(.title)
                     .fontWeight(.bold)
-                    .foregroundColor(.white)
+                    .foregroundColor(AppColor.textLightGray)
             }
         }
     }

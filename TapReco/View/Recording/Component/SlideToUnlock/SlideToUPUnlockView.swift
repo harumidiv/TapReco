@@ -11,13 +11,13 @@ final class SlideToUPUnlockView: UIView {
     let backgroundView: UIView = {
         let view = UIView()
         
-        view.backgroundColor = .darkGray
+        view.backgroundColor = UIColor(named: "background")
         return view
     }()
     
     let slideButtonView: UIView = {
         let baseView = UIView()
-        baseView.backgroundColor = UIColor(named: "tp_dark_gray")
+        baseView.backgroundColor = UIColor(named: "box_gray")
         baseView.isUserInteractionEnabled = true
         
         let imageView = UIImageView(image: UIImage(named: "icon_up_allow"))
@@ -25,8 +25,8 @@ final class SlideToUPUnlockView: UIView {
         imageView.contentMode = .center
         
         let label = UILabel()
-        label.textColor = .white
-        label.text = "PLAYLIST"
+        label.textColor = UIColor(named: "text_light_gray")
+        label.text = "録音履歴を確認"
         
         let stackView = UIStackView()
         stackView.axis = .horizontal
@@ -45,7 +45,7 @@ final class SlideToUPUnlockView: UIView {
     
     let dragAreaView: UIView = {
         let view = UIView()
-        view.backgroundColor = .green
+        view.backgroundColor = UIColor(named: "box_gray")
         view.clipsToBounds = true
         view.layer.masksToBounds = true
         return view
