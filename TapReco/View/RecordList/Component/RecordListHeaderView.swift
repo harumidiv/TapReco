@@ -17,22 +17,29 @@ struct RecordListHeaderView: View {
             HStack {
                 Text("録音履歴")
                     .font(.largeTitle)
+                    .foregroundColor(AppColor.textLightGray)
                 Spacer()
                 Button(action: {
                     records = records.compactMap{ .init(record: $0, isSelected: false)}
                     isShowRecordList = false
                 }){
-                    Image("icon_close")
+                    Image(systemName: "xmark")
+                        .foregroundColor(AppColor.textLightGray)
                 }
             }
             .padding(.horizontal, 30)
             HStack {
-                Text("録音ファイル数 \(records.count)")
+                Image(systemName: "doc")
+                    .foregroundColor(AppColor.iconGray)
+                Text("\(records.count)")
+                    .foregroundColor(AppColor.textGray)
                 Spacer()
                 Button(action: {
                     // 何の処理が走る？
                 }){
-                    Image("pull_down")
+                    Image(systemName: "slider.horizontal.3")
+                        .font(Font.system(size: 24, weight: .regular))
+                        .foregroundColor(AppColor.iconGray)
                 }
             }
             .padding(.horizontal, 30)
@@ -47,7 +54,7 @@ struct RecordListHeaderView: View {
 struct RecordListSectionHeadaerView_Previews: PreviewProvider {
     static var previews: some View {
         RecordListHeaderView(isShowRecordList: .constant(false), records: .constant(RecordData.sampleData))
-            .background(.orange)
+            .background(AppColor.background)
             .fixedSize(horizontal: false, vertical: true)
     }
 }

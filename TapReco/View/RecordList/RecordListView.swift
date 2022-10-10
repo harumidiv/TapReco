@@ -25,18 +25,18 @@ struct RecordListView: View {
             VStack(spacing: 0) {
                 RecordListHeaderView(isShowRecordList: $isShowRecordList,
                                      records: $records)
-                .background(Color.yellow)
                 List {
                     ForEach($records) { $record in
                         if record.isSelected {
-                            RecordListCardView(record: $record,backgroundColor: .purple)
+                            RecordListCardView(record: $record,backgroundColor: AppColor.boxBlack)
+                                .listRowBackground(AppColor.background)
                         } else {
                             Button(action: {
                                 setSelectedState(record: record)
                             }){
-                                RecordListCardView(record: $record, backgroundColor: .pink)
+                                RecordListCardView(record: $record, backgroundColor: AppColor.boxGray)
                             }
-                            .listRowBackground(Color.green)
+                            .listRowBackground(AppColor.background)
                         }
                     }
                     .listRowSeparator(.hidden)
@@ -54,6 +54,7 @@ struct RecordListView: View {
                 .ignoresSafeArea(edges: [.top])
             }
         }
+        .background(AppColor.background)
     }
 }
 
@@ -82,6 +83,8 @@ private extension RecordListView {
 
 struct RecordListView_Previews: PreviewProvider {
     static var previews: some View {
-        RecordListView(saveAction: {}, isShowRecordList: .constant(false), records: .constant(RecordData.sampleData))
+        RecordListView(saveAction: {},
+                       isShowRecordList: .constant(false),
+                       records: .constant(RecordData.sampleData))
     }
 }
