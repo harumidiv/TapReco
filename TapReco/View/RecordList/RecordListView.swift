@@ -11,15 +11,17 @@ struct RecordListView: View {
     let saveAction: ()->Void
     @Binding var isShowRecordList: Bool
     @Binding var records: [RecordData]
+    @StateObject var audioPlayer: AudioPlayerImpl = AudioPlayerImpl()
 
     private var selectedIndex: Int {
         records.firstIndex(where: { $0.isSelected })!
     }
 
     private var playRecord: RecordData {
-        records[selectedIndex]
+        print("fileNems: \(records[selectedIndex].fileName)")
+        return records[selectedIndex]
     }
-    
+
     var body: some View {
         ZStack {
             VStack(spacing: 0) {
@@ -32,7 +34,8 @@ struct RecordListView: View {
                                 .listRowBackground(AppColor.background)
                         } else {
                             Button(action: {
-                                setSelectedState(record: record)
+                                setSelectedState(selectRecord: record)
+                                audioPlayer.setup(fileName: playRecord.fileName)
                             }){
                                 RecordListCardView(record: $record, backgroundColor: AppColor.boxGray)
                             }
@@ -49,7 +52,7 @@ struct RecordListView: View {
                     Spacer()
                     RecordListPlayerView(saveAction: saveAction,
                                          records: $records,
-                                         audioPlayer: AudioPlayerImpl(fileName: playRecord.fileName))
+                                         audioPlayer: audioPlayer)
                 }
                 .ignoresSafeArea(edges: [.top])
             }
@@ -60,23 +63,10 @@ struct RecordListView: View {
 
 private extension RecordListView {
     // 対象のセルを選択状態にする
-    func setSelectedState(record: RecordData) {
+    func setSelectedState(selectRecord: RecordData) {
         self.records = records.compactMap{
-            if $0.id == record.id {
-                return RecordData(title: $0.title,
-                                  recordDate: $0.recordDate,
-                                  fileName: $0.fileName,
-                                  fileSize: $0.fileSize,
-                                  fileLength: $0.fileLength,
-                                  isSelected: true)
-            } else {
-                return RecordData(title: $0.title,
-                                  recordDate: $0.recordDate,
-                                  fileName: $0.fileName,
-                                  fileSize: $0.fileSize,
-                                  fileLength: $0.fileLength,
-                                  isSelected: false)
-            }
+            let isSelected = $0.id == selectRecord.id
+            return RecordData(record: $0, isSelected: isSelected)
         }
     }
 }

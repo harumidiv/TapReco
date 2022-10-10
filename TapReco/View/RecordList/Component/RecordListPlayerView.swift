@@ -11,7 +11,7 @@ struct RecordListPlayerView: View {
     // MARK: - Argument
     let saveAction: ()->Void
     @Binding var records: [RecordData]
-    @StateObject var audioPlayer: AudioPlayerImpl
+    @ObservedObject var audioPlayer: AudioPlayerImpl
 
     // MARK: - Property
     @State private var currentValue: Double = 0
@@ -90,11 +90,6 @@ struct RecordListPlayerView: View {
             .padding(.horizontal, 30)
         }
         .background(AppColor.background)
-        .onAppear {
-            print("Viewが描画された")
-            audioPlayer.playStart()
-        }
-
     }
 
     private func convertTimeToDisplayString(time: Double) -> String {

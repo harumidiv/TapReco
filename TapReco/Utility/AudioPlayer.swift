@@ -21,15 +21,6 @@ final class AudioPlayerImpl: ObservableObject {
 
 //extension AudioPlayerImpl: AudioPlayer {
 extension AudioPlayerImpl {
-
-    /// 初期化
-    /// - Parameter filePath: 再生するファイルのpath
-    convenience init(fileName: String) {
-        self.init()
-        self.audioPlayer = try! AVAudioPlayer(contentsOf: getURL(fileName: fileName))
-        self.audioPlayer.volume = 1.0
-    }
-
     /// ファイルの総再生時間
     var duration: Double {
         Double(audioPlayer.duration)
@@ -40,8 +31,17 @@ extension AudioPlayerImpl {
         Double(audioPlayer.currentTime)
     }
 
-    /// - Parameter fileName: 再生するファイルのパス
-    func playStart() {
+    /// 初期化
+    func setup(fileName: String) {
+        self.audioPlayer = nil
+        self.audioPlayer = try! AVAudioPlayer(contentsOf: getURL(fileName: fileName))
+        self.audioPlayer.volume = 1.0
+
+        playStart()
+    }
+
+    /// 初回再生
+    private func playStart() {
         audioPlayer.prepareToPlay()
         audioPlayer.play()
     }
