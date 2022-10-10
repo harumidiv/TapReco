@@ -160,14 +160,14 @@ extension SlideToUPUnlockView {
         upImageView.heightAnchor.constraint(equalToConstant: 14).isActive = true
         
         dragAreaView.translatesAutoresizingMaskIntoConstraints = false
-        dragAreaView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 8).isActive = true
-        dragAreaView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -8).isActive = true
+        dragAreaView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: bottomMargin).isActive = true
+        dragAreaView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -bottomMargin).isActive = true
         dragAreaView.heightAnchor.constraint(equalToConstant: 44).isActive = true
         dragAreaView.bottomAnchor.constraint(equalTo: slideButtonView.bottomAnchor).isActive = true
         
         slideButtonView.translatesAutoresizingMaskIntoConstraints = false
-        slideButtonView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 8).isActive = true
-        slideButtonView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -8).isActive = true
+        slideButtonView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: bottomMargin).isActive = true
+        slideButtonView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -bottomMargin).isActive = true
         slideButtonView.heightAnchor.constraint(equalToConstant: 36).isActive = true
         
         bottomThumbnailViewConstraint = slideButtonView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -bottomMargin)

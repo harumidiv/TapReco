@@ -22,7 +22,6 @@ final class SlideToActionView: UIView {
         return label
     }()
 
-    
     let thumnailImageView: UIView = {
         let view = UIImageView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
         view.image = UIImage(named: "icon_slidebar_start")
@@ -132,15 +131,12 @@ extension SlideToActionView {
     }
     
     private func setupView() {
-        
         self.addSubview(backgroundView)
         self.addSubview(descriptionLabel)
         self.addSubview(endCircleView)
         self.addSubview(dragAreaView)
         self.addSubview(thumnailImageView)
 
-        
-        
         setupConstraint()
         
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(self.handlePanGesture(_:)))
