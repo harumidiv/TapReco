@@ -42,6 +42,7 @@
 		49C0D13026EA317500B3666E /* RecordingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C0D12F26EA317500B3666E /* RecordingView.swift */; };
 		49C0D13226EA31C900B3666E /* StandbyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C0D13126EA31C900B3666E /* StandbyView.swift */; };
 		49C53B272760D10E0062E6B3 /* RecordListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C53B262760D10E0062E6B3 /* RecordListHeaderView.swift */; };
+		49D270EE28F433BC00AE503C /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D270ED28F433BC00AE503C /* SearchBarView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +103,7 @@
 		49C0D12F26EA317500B3666E /* RecordingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingView.swift; sourceTree = "<group>"; };
 		49C0D13126EA31C900B3666E /* StandbyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandbyView.swift; sourceTree = "<group>"; };
 		49C53B262760D10E0062E6B3 /* RecordListHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordListHeaderView.swift; sourceTree = "<group>"; };
+		49D270ED28F433BC00AE503C /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -331,6 +333,7 @@
 				494F57FF28F25ECA00B2C79E /* ActivityViewController.swift */,
 				494F57FD28F20BCC00B2C79E /* RecordListPlayerView.swift */,
 				4962568628F2D5ED0044A6CD /* StartStopView.swift */,
+				49D270ED28F433BC00AE503C /* SearchBarView.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -491,6 +494,7 @@
 				49409CC0275DDDCA003933BA /* Date+Extension.swift in Sources */,
 				49C0D13226EA31C900B3666E /* StandbyView.swift in Sources */,
 				4925089B26DCF7D3005169AE /* TapRecoApp.swift in Sources */,
+				49D270EE28F433BC00AE503C /* SearchBarView.swift in Sources */,
 				49856F8926E6E76D0015C12E /* MicrophoneVolumeView.swift in Sources */,
 				49940DD728EFF0C200A5E66D /* StandbyTapableView.swift in Sources */,
 				494F580028F25ECA00B2C79E /* ActivityViewController.swift in Sources */,
