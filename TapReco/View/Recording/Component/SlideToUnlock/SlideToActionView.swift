@@ -13,7 +13,15 @@ final class SlideToActionView: UIView {
         view.backgroundColor = UIColor(named: "slider_box")
         return view
     }()
-    
+
+    let descriptionLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 13, weight: .bold)
+        label.text = "スライドして録音停止"
+        label.textColor = UIColor(named: "modal_background")
+        return label
+    }()
+
     let thumnailImageView: UIView = {
         let view = UIImageView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
         view.image = UIImage(named: "icon_slidebar_start")
@@ -35,7 +43,7 @@ final class SlideToActionView: UIView {
     
     let dragAreaView: UIView = {
         let view = UIView()
-        view.backgroundColor = .clear
+        view.backgroundColor = UIColor(named: "slider_box")
         view.clipsToBounds = true
         view.layer.masksToBounds = true
         return view
@@ -123,13 +131,12 @@ extension SlideToActionView {
     }
     
     private func setupView() {
-        
         self.addSubview(backgroundView)
+        self.addSubview(descriptionLabel)
         self.addSubview(endCircleView)
         self.addSubview(dragAreaView)
         self.addSubview(thumnailImageView)
-        
-        
+
         setupConstraint()
         
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(self.handlePanGesture(_:)))
@@ -143,6 +150,10 @@ extension SlideToActionView {
         backgroundView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
         backgroundView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
         backgroundView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+
+        descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
+        descriptionLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+        descriptionLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         
         dragAreaView.translatesAutoresizingMaskIntoConstraints = false
         dragAreaView.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: sideMargin).isActive = true

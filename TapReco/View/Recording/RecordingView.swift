@@ -29,7 +29,7 @@ struct RecordingView: View {
                 .foregroundColor(AppColor.textLightGray)
             SlideSideActionView(isRecording: $isRecording,
                                   timerHolder: timerHolder)
-                .frame(width: 240, height: 62)
+                .frame(width: 260, height: 58)
                 .padding(.init(top: 62, leading: 0, bottom: 20, trailing: 0))
         }
         .onAppear{

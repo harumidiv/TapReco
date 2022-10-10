@@ -10,42 +10,36 @@ import UIKit
 final class SlideToUPUnlockView: UIView {
     let backgroundView: UIView = {
         let view = UIView()
-        
         view.backgroundColor = UIColor(named: "background")
         return view
+    }()
+
+    let upImageView: UIImageView = {
+        return UIImageView(image: UIImage(named: "icon_up_allow"))
     }()
     
     let slideButtonView: UIView = {
         let baseView = UIView()
         baseView.backgroundColor = UIColor(named: "box_gray")
         baseView.isUserInteractionEnabled = true
-        
-        let imageView = UIImageView(image: UIImage(named: "icon_up_allow"))
-        imageView.isUserInteractionEnabled = true
-        imageView.contentMode = .center
-        
+
         let label = UILabel()
         label.textColor = UIColor(named: "text_light_gray")
+        label.font = UIFont.systemFont(ofSize: 13, weight: .bold)
         label.text = "録音履歴を確認"
-        
-        let stackView = UIStackView()
-        stackView.axis = .horizontal
-        stackView.spacing = 8
-        stackView.addArrangedSubview(imageView)
-        stackView.addArrangedSubview(label)
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        
-        baseView.addSubview(stackView)
-        
-        stackView.centerYAnchor.constraint(equalTo: baseView.centerYAnchor).isActive = true
-        stackView.centerXAnchor.constraint(equalTo: baseView.centerXAnchor).isActive = true
+
+        baseView.addSubview(label)
+
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.centerYAnchor.constraint(equalTo: baseView.centerYAnchor).isActive = true
+        label.centerXAnchor.constraint(equalTo: baseView.centerXAnchor).isActive = true
         
         return baseView
     }()
     
     let dragAreaView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor(named: "box_gray")
+        view.backgroundColor = .clear
         view.clipsToBounds = true
         view.layer.masksToBounds = true
         return view
@@ -132,6 +126,7 @@ extension SlideToUPUnlockView {
     private func setupView() {
         
         self.addSubview(backgroundView)
+        self.addSubview(upImageView)
         self.addSubview(dragAreaView)
         self.addSubview(slideButtonView)
         
@@ -148,17 +143,23 @@ extension SlideToUPUnlockView {
         backgroundView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
         backgroundView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
         backgroundView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+
+        upImageView.translatesAutoresizingMaskIntoConstraints = false
+        upImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        upImageView.topAnchor.constraint(equalTo: backgroundView.topAnchor, constant: 20).isActive = true
+        upImageView.widthAnchor.constraint(equalToConstant: 12).isActive = true
+        upImageView.heightAnchor.constraint(equalToConstant: 14).isActive = true
         
         dragAreaView.translatesAutoresizingMaskIntoConstraints = false
-        dragAreaView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 8).isActive = true
-        dragAreaView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -8).isActive = true
-        dragAreaView.heightAnchor.constraint(equalToConstant: 36).isActive = true
+        dragAreaView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: bottomMargin).isActive = true
+        dragAreaView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -bottomMargin).isActive = true
+        dragAreaView.heightAnchor.constraint(equalToConstant: 44 + bottomMargin).isActive = true
         dragAreaView.bottomAnchor.constraint(equalTo: slideButtonView.bottomAnchor).isActive = true
         
         slideButtonView.translatesAutoresizingMaskIntoConstraints = false
-        slideButtonView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 8).isActive = true
-        slideButtonView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -8).isActive = true
-        slideButtonView.heightAnchor.constraint(equalToConstant: 36).isActive = true
+        slideButtonView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: bottomMargin).isActive = true
+        slideButtonView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -bottomMargin).isActive = true
+        slideButtonView.heightAnchor.constraint(equalToConstant: 44).isActive = true
         
         bottomThumbnailViewConstraint = slideButtonView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -bottomMargin)
         bottomThumbnailViewConstraint?.isActive = true
