@@ -9,7 +9,7 @@ import SwiftUI
 
 
 struct RecordListCardView: View {
-    @Binding var record: RecordData
+    var record: RecordData
     let backgroundColor: Color
     
     var body: some View {
@@ -44,10 +44,10 @@ struct RecordListCardView: View {
 struct RecordListCardView_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
-            RecordListCardView(record: .constant(RecordData.sampleData[0]),
+            RecordListCardView(record: RecordData.sampleData[0],
                                backgroundColor: AppColor.boxGray)
             .fixedSize(horizontal: false, vertical: true)
-            RecordListCardView(record: .constant(RecordData.sampleData[0]),
+            RecordListCardView(record: RecordData.sampleData[0],
                                backgroundColor: AppColor.boxBlack)
             .fixedSize(horizontal: false, vertical: true)
         }

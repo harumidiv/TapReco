@@ -7,33 +7,22 @@
 
 import SwiftUI
 
-import SwiftUI
-
 struct SearchBarView: View {
-
     @Binding var text: String
 
     var body: some View {
         VStack {
-
             ZStack {
-                // 背景
                 RoundedRectangle(cornerRadius: 8)
-                    .fill(Color(red: 239 / 255,
-                                green: 239 / 255,
-                                blue: 241 / 255))
+                    .fill(AppColor.searchBackground)
                     .frame(height: 36)
-
                 HStack(spacing: 6) {
                     Spacer()
                         .frame(width: 0)
-
-                    // 虫眼鏡
                     Image(systemName: "magnifyingglass")
                         .foregroundColor(.gray)
-
-                    // テキストフィールド
-                    TextField("Search", text: $text)
+                    TextField("検索", text: $text)
+                        .foregroundColor(AppColor.textLightGray)
 
                     // 検索文字が空ではない場合は、クリアボタンを表示
                     if !text.isEmpty {
@@ -47,8 +36,8 @@ struct SearchBarView: View {
                     }
                 }
             }
-            .padding(.horizontal)
         }
+        .padding()
     }
 }
 
@@ -58,5 +47,6 @@ struct SearchBarView_Previews: PreviewProvider {
             SearchBarView(text: .constant(""))
             SearchBarView(text: .constant("hogehoge"))
         }
+        .background(.orange)
     }
 }

@@ -13,6 +13,13 @@ struct RecordListView: View {
     @Binding var records: [RecordData]
     @StateObject var audioPlayer: AudioPlayer = AudioPlayer()
 
+    @State private var searchText: String = ""
+
+    private var displyList: [RecordData] {
+        if searchText.isEmpty { return records }
+        return records.filter{ $0.title.contains(searchText)}
+    }
+
     private var selectedIndex: Int {
         records.firstIndex(where: { $0.isSelected })!
     }
@@ -26,18 +33,19 @@ struct RecordListView: View {
         ZStack {
             VStack(spacing: 0) {
                 RecordListHeaderView(isShowRecordList: $isShowRecordList,
-                                     records: $records)
+                                     records: $records,
+                                     searchText: $searchText)
                 List {
-                    ForEach($records) { $record in
+                    ForEach(displyList) { record in
                         if record.isSelected {
-                            RecordListCardView(record: $record,backgroundColor: AppColor.boxBlack)
+                            RecordListCardView(record: record,backgroundColor: AppColor.boxBlack)
                                 .listRowBackground(AppColor.background)
                         } else {
                             Button(action: {
                                 setSelectedState(selectRecord: record)
                                 audioPlayer.setup(fileName: playRecord.fileName)
                             }){
-                                RecordListCardView(record: $record, backgroundColor: AppColor.boxGray)
+                                RecordListCardView(record: record, backgroundColor: AppColor.boxGray)
                             }
                             .listRowBackground(AppColor.background)
                         }
