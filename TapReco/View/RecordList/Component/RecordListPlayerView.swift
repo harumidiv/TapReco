@@ -11,7 +11,7 @@ struct RecordListPlayerView: View {
     // MARK: - Argument
     let saveAction: ()->Void
     @Binding var records: [RecordData]
-    @ObservedObject var audioPlayer: AudioPlayerImpl
+    @ObservedObject var audioPlayer: AudioPlayer
 
     // MARK: - Property
     @State private var currentValue: Double = 0
@@ -105,6 +105,6 @@ struct RecordListPlayerView_Previews: PreviewProvider {
     static var previews: some View {
         RecordListPlayerView(saveAction: {},
                              records: .constant(RecordData.sampleData),
-                             audioPlayer: AudioPlayerImpl())
+                             audioPlayer: AudioPlayer())
     }
 }

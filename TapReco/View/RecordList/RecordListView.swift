@@ -11,7 +11,7 @@ struct RecordListView: View {
     let saveAction: ()->Void
     @Binding var isShowRecordList: Bool
     @Binding var records: [RecordData]
-    @StateObject var audioPlayer: AudioPlayerImpl = AudioPlayerImpl()
+    @StateObject var audioPlayer: AudioPlayer = AudioPlayer()
 
     private var selectedIndex: Int {
         records.firstIndex(where: { $0.isSelected })!

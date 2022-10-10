@@ -7,20 +7,13 @@
 
 import AVFoundation
 
-final class AudioPlayerImpl: ObservableObject {
+final class AudioPlayer: ObservableObject {
     @Published var displayTime: Double = .zero
     @Published var displayCurrentTime: String = ""
     @Published var displaytimeLeft: String = ""
     var timer = Timer.publish(every: 0.01, on: .main, in: .common).autoconnect()
     private var audioPlayer: AVAudioPlayer!
 
-    private func getURL(fileName: String) -> URL{
-        return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent(fileName)
-    }
-}
-
-//extension AudioPlayerImpl: AudioPlayer {
-extension AudioPlayerImpl {
     /// ファイルの総再生時間
     var duration: Double {
         Double(audioPlayer.duration)
@@ -38,12 +31,6 @@ extension AudioPlayerImpl {
         self.audioPlayer.volume = 1.0
 
         playStart()
-    }
-
-    /// 初回再生
-    private func playStart() {
-        audioPlayer.prepareToPlay()
-        audioPlayer.play()
     }
 
     /// 再生途中から再度再生に切り替えを行う
@@ -87,6 +74,19 @@ extension AudioPlayerImpl {
         } else {
             audioPlayer.currentTime = 0
         }
+        audioPlayer.play()
+    }
+}
+
+// MARK: - PrivateMethod
+extension AudioPlayer {
+    private func getURL(fileName: String) -> URL{
+        return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent(fileName)
+    }
+
+    /// 0秒からの再生
+    private func playStart() {
+        audioPlayer.prepareToPlay()
         audioPlayer.play()
     }
 }
