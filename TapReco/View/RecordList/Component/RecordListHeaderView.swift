@@ -11,7 +11,7 @@ struct RecordListHeaderView: View {
     @Binding var isShowRecordList: Bool
     @Binding var records: [RecordData]
 
-    @State var searchText: String = ""
+    @Binding var searchText: String
     var body: some View {
         VStack(spacing: 14) {
             HStack {
@@ -44,18 +44,22 @@ struct RecordListHeaderView: View {
                 }
             }
             .padding(.horizontal, 30)
-
-            TextField("検索", text: $searchText)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .padding(.init(top: 0, leading: 24, bottom: 20, trailing: 24))
+            SearchBarView(text: $searchText)
         }
     }
 }
 
 struct RecordListSectionHeadaerView_Previews: PreviewProvider {
     static var previews: some View {
-        RecordListHeaderView(isShowRecordList: .constant(false), records: .constant(RecordData.sampleData))
-            .background(AppColor.background)
-            .fixedSize(horizontal: false, vertical: true)
+        VStack {
+            RecordListHeaderView(isShowRecordList: .constant(false),
+                                 records: .constant(RecordData.sampleData),
+                                 searchText: .constant(""))
+                .fixedSize(horizontal: false, vertical: true)
+            RecordListHeaderView(isShowRecordList: .constant(false),
+                                 records: .constant(RecordData.sampleData),
+                                 searchText: .constant("hogehoge"))
+                .fixedSize(horizontal: false, vertical: true)
+        }
     }
 }
