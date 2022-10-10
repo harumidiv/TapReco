@@ -44,10 +44,12 @@ struct RecordListPlayerView: View {
             .onReceive(audioPlayer.timer) { _ in
                 if !isSliderChanged {
                     audioPlayer.displayTime = audioPlayer.currentTime
+                } else {
+                    audioPlayer.setCurrentTime(time: audioPlayer.displayTime)
                 }
-                    audioPlayer.displayCurrentTime = convertTimeToDisplayString(time: audioPlayer.currentTime)
-                    let timeLeft = audioPlayer.duration - audioPlayer.currentTime
-                    audioPlayer.displaytimeLeft = convertTimeToDisplayString(time: timeLeft)
+                audioPlayer.displayCurrentTime = convertTimeToDisplayString(time: audioPlayer.currentTime)
+                let timeLeft = audioPlayer.duration - audioPlayer.currentTime
+                audioPlayer.displaytimeLeft = convertTimeToDisplayString(time: timeLeft)
             }
             HStack {
                 Text(audioPlayer.displayCurrentTime)
