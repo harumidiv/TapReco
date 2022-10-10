@@ -1,7 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "icon_slidebar_start.pdf",
+      "filename" : "dark_slider_start 2.pdf",
+      "idiom" : "universal"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "light_slider_start 1.pdf",
       "idiom" : "universal"
     }
   ],
