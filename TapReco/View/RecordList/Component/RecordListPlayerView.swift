@@ -95,6 +95,7 @@ struct RecordListPlayerView: View {
                 Image(systemName: "trash")
                     .foregroundColor(AppColor.iconLightGray)
                     .onTapGesture {
+                        audioPlayer.playStop()
                         records.remove(at: selectedIndex)
                         saveAction()
                     }
