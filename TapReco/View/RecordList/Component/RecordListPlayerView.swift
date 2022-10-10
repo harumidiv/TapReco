@@ -90,6 +90,11 @@ struct RecordListPlayerView: View {
             .padding(.horizontal, 30)
         }
         .background(AppColor.background)
+        .onAppear {
+            audioPlayer.playComplete = {
+                isPlaying.toggle()
+            }
+        }
     }
 
     private func convertTimeToDisplayString(time: Double) -> String {

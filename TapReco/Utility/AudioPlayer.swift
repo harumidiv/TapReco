@@ -7,12 +7,13 @@
 
 import AVFoundation
 
-final class AudioPlayer: ObservableObject {
+final class AudioPlayer: NSObject, ObservableObject {
     @Published var displayTime: Double = .zero
     @Published var displayCurrentTime: String = ""
     @Published var displaytimeLeft: String = ""
     var timer = Timer.publish(every: 0.01, on: .main, in: .common).autoconnect()
     private var audioPlayer: AVAudioPlayer!
+    var playComplete: (()->Void)?
 
     /// ファイルの総再生時間
     var duration: Double {
@@ -29,6 +30,7 @@ final class AudioPlayer: ObservableObject {
         self.audioPlayer = nil
         self.audioPlayer = try! AVAudioPlayer(contentsOf: getURL(fileName: fileName))
         self.audioPlayer.volume = 1.0
+        self.audioPlayer.delegate = self
 
         playStart()
     }
@@ -88,5 +90,12 @@ extension AudioPlayer {
     private func playStart() {
         audioPlayer.prepareToPlay()
         audioPlayer.play()
+    }
+}
+
+extension AudioPlayer: AVAudioPlayerDelegate {
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        playComplete?()
+        print("再生完了")
     }
 }
