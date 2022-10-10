@@ -15,7 +15,7 @@ struct RecordingView: View {
         Rectangle()
             .frame(width: UIScreen.main.bounds.width,
                    height: UIScreen.main.bounds.height)
-            .foregroundColor(Color("tp_gray"))
+            .foregroundColor(AppColor.background)
             .ignoresSafeArea()
             .onTapGesture {}
             .allowsTightening(false)
