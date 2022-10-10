@@ -52,7 +52,7 @@ extension AudioRecorderImpl: AudioRecoder {
         let fileSize: String = getFileSize(filePath: filePath)
         let playbackTime: String = getPlaybackTime(filePath: filePath)
         let recordingDate: String = currentRecordingTitle!.components(separatedBy: "+").first!
-        let title: String = "My録音"
+        let title: String = "新規録音"
         return RecordData(title: title,
                           recordDate: recordingDate,
                           fileName: currentRecordingTitle ?? "",

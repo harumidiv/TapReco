@@ -24,6 +24,7 @@ struct RecordListHeaderView: View {
                     isShowRecordList = false
                 }){
                     Image(systemName: "xmark")
+                        .font(Font.system(size: 24, weight: .bold))
                         .foregroundColor(AppColor.textLightGray)
                 }
             }
@@ -35,7 +36,7 @@ struct RecordListHeaderView: View {
                     .foregroundColor(AppColor.textGray)
                 Spacer()
                 Button(action: {
-                    // 何の処理が走る？
+                    // sortの処理
                 }){
                     Image(systemName: "slider.horizontal.3")
                         .font(Font.system(size: 24, weight: .regular))
