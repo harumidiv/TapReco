@@ -13,16 +13,16 @@ struct RecordData: Identifiable, Codable {
     let recordDate: String
     let fileName:String
     let fileSize: String
-    let fileLength: String
+    let recordTime: String
     var isSelected: Bool
 
-    init(title: String, recordDate: String, fileName: String, fileSize: String, fileLength: String, isSelected: Bool = false) {
+    init(title: String, recordDate: String, fileName: String, fileSize: String, recordTime: String, isSelected: Bool = false) {
         id = UUID()
         self.title = title
         self.recordDate = recordDate
         self.fileName = fileName
         self.fileSize = fileSize
-        self.fileLength = fileLength
+        self.recordTime = recordTime
         self.isSelected = isSelected
     }
 
@@ -37,7 +37,7 @@ struct RecordData: Identifiable, Codable {
         recordDate = record.recordDate
         fileName = record.fileName
         fileSize = record.fileSize
-        fileLength = record.fileLength
+        recordTime = record.recordTime
         self.isSelected = isSelected
     }
 }
@@ -46,8 +46,8 @@ struct RecordData: Identifiable, Codable {
 extension RecordData {
     static let sampleData: [RecordData] =
     [
-    RecordData(title: "新規録音", recordDate:  "2022.10.07_14:54", fileName: "マイ録音", fileSize: "3.5MB", fileLength: "3:15"),
-    RecordData(title: "新規録音", recordDate:  "2022.10.07_14:54", fileName: "マイ録音", fileSize: "3.5MB", fileLength: "3:15"),
-    RecordData(title: "新規録音", recordDate:  "2022.10.07_14:54", fileName: "マイ録音", fileSize: "3.5MB", fileLength: "3:15")
+    RecordData(title: "新規録音", recordDate:  "2022.10.07_14:54", fileName: "マイ録音", fileSize: "3.5MB", recordTime: "3:15"),
+    RecordData(title: "新規録音", recordDate:  "2022.10.07_14:54", fileName: "マイ録音", fileSize: "3.5MB", recordTime: "3:15"),
+    RecordData(title: "新規録音", recordDate:  "2022.10.07_14:54", fileName: "マイ録音", fileSize: "3.5MB", recordTime: "3:15")
     ]
 }

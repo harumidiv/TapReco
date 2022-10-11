@@ -8,16 +8,55 @@
 import SwiftUI
 
 struct RecordListView: View {
+    // MARK: Augument
     let saveAction: ()->Void
     @Binding var isShowRecordList: Bool
     @Binding var records: [RecordData]
-    @StateObject var audioPlayer: AudioPlayer = AudioPlayer()
 
+    // MARK: - Property
+    @StateObject var audioPlayer: AudioPlayer = AudioPlayer()
     @State private var searchText: String = ""
+    @State private var sortType: SortType = .dateNew
+    @State private var isShowSortView: Bool = false
 
     private var displyList: [RecordData] {
-        if searchText.isEmpty { return records }
-        return records.filter{ $0.title.contains(searchText)}
+        func stringToInt(text: String) -> Int64 {
+            let splitNumber = (text.components(separatedBy: NSCharacterSet.decimalDigits.inverted))
+            return Int64(splitNumber.joined())!
+        }
+
+        let sortRrcord: [RecordData]
+        switch sortType {
+        case .dateNew:
+            sortRrcord = records.sorted(by: { lRecord, rRecord -> Bool in
+                return stringToInt(text: lRecord.recordDate) > stringToInt(text: rRecord.recordDate)
+            })
+        case .dateOld:
+            sortRrcord = records.sorted(by: { lRecord, rRecord -> Bool in
+                return stringToInt(text: lRecord.recordDate) < stringToInt(text: rRecord.recordDate)
+            })
+        case .recordTimeLong:
+            sortRrcord = records.sorted(by: { lRecord, rRecord -> Bool in
+                return stringToInt(text: lRecord.recordTime) > stringToInt(text: rRecord.recordTime)
+            })
+        case .recordTimeShort:
+            sortRrcord = records.sorted(by: { lRecord, rRecord -> Bool in
+                return stringToInt(text: lRecord.recordTime) < stringToInt(text: rRecord.recordTime)
+            })
+
+        case .fileSizeLarge:
+            sortRrcord = records.sorted(by: { lRecord, rRecord -> Bool in
+                return stringToInt(text: lRecord.fileSize) > stringToInt(text: rRecord.fileSize)
+            })
+
+        case .fileSizeSmall:
+            sortRrcord = records.sorted(by: { lRecord, rRecord -> Bool in
+                return stringToInt(text: lRecord.fileSize) < stringToInt(text: rRecord.fileSize)
+            })
+        }
+
+        if searchText.isEmpty { return sortRrcord }
+        return sortRrcord.filter{ $0.title.contains(searchText)}
     }
 
     private var selectedIndex: Int {
@@ -33,6 +72,7 @@ struct RecordListView: View {
         ZStack {
             VStack(spacing: 0) {
                 RecordListHeaderView(isShowRecordList: $isShowRecordList,
+                                     isShowSortView: $isShowSortView,
                                      records: $records,
                                      searchText: $searchText)
                 List {
@@ -63,6 +103,10 @@ struct RecordListView: View {
                                          audioPlayer: audioPlayer)
                 }
                 .ignoresSafeArea(edges: [.top])
+            }
+
+            if isShowSortView {
+                SortView(isShowSortView: $isShowSortView, sortType: $sortType)
             }
         }
         .background(AppColor.background)

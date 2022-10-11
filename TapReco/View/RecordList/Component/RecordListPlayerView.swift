@@ -66,10 +66,13 @@ struct RecordListPlayerView: View {
                 Image(systemName: "square.and.arrow.up")
                     .foregroundColor(AppColor.iconLightGray)
                     .onTapGesture {
+                        audioPlayer.playStop()
                         isShowActivityView = true
+                        isPlaying = false
                     }
                     .sheet(isPresented: $isShowActivityView) {
-                        ActivityViewController(activityItems: [])
+                        let recordFileURL: URL = audioPlayer.getURL(fileName: playRecord.fileName)
+                        ActivityViewController(activityItems: [recordFileURL])
                     }
                 Spacer()
                 Image(systemName: "gobackward.15")

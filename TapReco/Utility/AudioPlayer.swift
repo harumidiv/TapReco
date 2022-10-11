@@ -96,7 +96,7 @@ final class AudioPlayer: NSObject, ObservableObject {
 
 // MARK: - PrivateMethod
 extension AudioPlayer {
-    private func getURL(fileName: String) -> URL{
+    func getURL(fileName: String) -> URL{
         return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent(fileName)
     }
 
