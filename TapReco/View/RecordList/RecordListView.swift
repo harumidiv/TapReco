@@ -20,8 +20,43 @@ struct RecordListView: View {
     @State private var isShowSortView: Bool = false
 
     private var displyList: [RecordData] {
-        if searchText.isEmpty { return records }
-        return records.filter{ $0.title.contains(searchText)}
+        func stringToInt(text: String) -> Int64 {
+            let splitNumber = (text.components(separatedBy: NSCharacterSet.decimalDigits.inverted))
+            return Int64(splitNumber.joined())!
+        }
+
+        let sortRrcord: [RecordData]
+        switch sortType {
+        case .dateNew:
+            sortRrcord = records.sorted(by: { lRecord, rRecord -> Bool in
+                return stringToInt(text: lRecord.recordDate) < stringToInt(text: rRecord.recordDate)
+            })
+        case .dateOld:
+            sortRrcord = records.sorted(by: { lRecord, rRecord -> Bool in
+                return stringToInt(text: lRecord.recordDate) > stringToInt(text: rRecord.recordDate)
+            })
+        case .recordTimeLong:
+            sortRrcord = records.sorted(by: { lRecord, rRecord -> Bool in
+                return stringToInt(text: lRecord.fileLength) < stringToInt(text: rRecord.fileLength)
+            })
+        case .recordTimeShort:
+            sortRrcord = records.sorted(by: { lRecord, rRecord -> Bool in
+                return stringToInt(text: lRecord.fileLength) > stringToInt(text: rRecord.fileLength)
+            })
+
+        case .fileSizeLarge:
+            sortRrcord = records.sorted(by: { lRecord, rRecord -> Bool in
+                return stringToInt(text: lRecord.fileSize) < stringToInt(text: rRecord.fileSize)
+            })
+
+        case .fileSizeSmall:
+            sortRrcord = records.sorted(by: { lRecord, rRecord -> Bool in
+                return stringToInt(text: lRecord.fileSize) > stringToInt(text: rRecord.fileSize)
+            })
+        }
+
+        if searchText.isEmpty { return sortRrcord }
+        return sortRrcord.filter{ $0.title.contains(searchText)}
     }
 
     private var selectedIndex: Int {

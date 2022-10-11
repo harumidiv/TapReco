@@ -11,7 +11,7 @@ enum SortType {
     case dateNew
     case dateOld
     case recordTimeLong
-    case recordTimeShrt
+    case recordTimeShort
     case fileSizeLarge
     case fileSizeSmall
 }
@@ -24,7 +24,7 @@ struct SortView: View {
         switch sortType {
         case .dateNew, .dateOld:
             return .date
-        case .recordTimeLong, .recordTimeShrt:
+        case .recordTimeLong, .recordTimeShort:
             return .recordTime
         case .fileSizeLarge, .fileSizeSmall:
             return .fileSize
@@ -33,7 +33,7 @@ struct SortView: View {
 
     private var isLeftSelected: Bool {
         switch sortType {
-        case .dateOld, .recordTimeShrt, .fileSizeSmall:
+        case .dateOld, .recordTimeShort, .fileSizeSmall:
             return true
         case .dateNew, .recordTimeLong, .fileSizeLarge:
             return false
@@ -66,9 +66,9 @@ struct SortView: View {
                            selectType: .date){
                     sortType = isLeftSelected ? .dateOld : .dateNew
                 }
-                SelectView(isSelected: (sortType == .recordTimeLong || sortType == .recordTimeShrt),
+                SelectView(isSelected: (sortType == .recordTimeLong || sortType == .recordTimeShort),
                            selectType: .recordTime){
-                    sortType = isLeftSelected ? .recordTimeShrt : .recordTimeLong
+                    sortType = isLeftSelected ? .recordTimeShort : .recordTimeLong
                 }
                 SelectView(isSelected: (sortType == .fileSizeLarge || sortType == .fileSizeSmall),
                            selectType: .fileSize){
@@ -106,7 +106,7 @@ extension SortView {
             sortType = isLeftButton ? .dateOld : .dateNew
 
         case .recordTime:
-            sortType = isLeftButton ? .recordTimeShrt : .recordTimeLong
+            sortType = isLeftButton ? .recordTimeShort : .recordTimeLong
 
         case .fileSize:
             sortType = isLeftButton ? .fileSizeSmall : .fileSizeLarge
