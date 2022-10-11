@@ -67,6 +67,7 @@ struct RecordListPlayerView: View {
             HStack{
                 Image(systemName: "square.and.arrow.up")
                     .foregroundColor(AppColor.iconLightGray)
+                    .font(Font.system(size: 24, weight: .regular))
                     .onTapGesture {
                         audioPlayer.playStop()
                         isShowActivityView = true
@@ -98,6 +99,7 @@ struct RecordListPlayerView: View {
                     }
                 Spacer()
                 Image(systemName: "trash")
+                    .font(Font.system(size: 24, weight: .regular))
                     .foregroundColor(AppColor.iconLightGray)
                     .onTapGesture {
                         audioPlayer.playStop()
@@ -106,6 +108,7 @@ struct RecordListPlayerView: View {
                     }
             }
             .padding(.horizontal, 30)
+            .padding(.bottom, 38)
         }
         .background(AppColor.background)
         .onAppear {
