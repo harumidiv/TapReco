@@ -7,14 +7,52 @@
 
 import SwiftUI
 
+enum SelectType: String {
+    case date = "日付"
+    case recordTime = "録音時間"
+    case fileSize = "ファイルサイズ"
+}
+
 struct SelectView: View {
+    let isSelected: Bool
+    let selectType: SelectType
+    let selectHandler: ()->Void
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Button(action: {
+
+        }) {
+            if isSelected {
+                Label(selectType.rawValue, image: "radio_on")
+            } else {
+                Label(selectType.rawValue, image: "radio_off")
+            }
+        }
+        .padding(.horizontal)
     }
 }
 
 struct SelectView_Previews: PreviewProvider {
     static var previews: some View {
-        SelectView()
+        VStack(alignment: .leading) {
+            SelectView(isSelected: true,
+                       selectType: .date,
+                       selectHandler: {})
+            SelectView(isSelected: false,
+                       selectType: .recordTime,
+                       selectHandler: {})
+        }
+        .background(.red)
+        .preferredColorScheme(.light)
+
+        VStack {
+            SelectView(isSelected: true,
+                       selectType: .date,
+                       selectHandler: {})
+            SelectView(isSelected: false,
+                       selectType: .recordTime,
+                       selectHandler: {})
+        }
+        .preferredColorScheme(.dark)
     }
 }

@@ -8,12 +8,15 @@
 import SwiftUI
 
 struct RecordListView: View {
+    // MARK: Augument
     let saveAction: ()->Void
     @Binding var isShowRecordList: Bool
     @Binding var records: [RecordData]
-    @StateObject var audioPlayer: AudioPlayer = AudioPlayer()
 
+    // MARK: - Property
+    @StateObject var audioPlayer: AudioPlayer = AudioPlayer()
     @State private var searchText: String = ""
+    @State private var sortType: SortType = .dateNew
 
     private var displyList: [RecordData] {
         if searchText.isEmpty { return records }
@@ -64,6 +67,7 @@ struct RecordListView: View {
                 }
                 .ignoresSafeArea(edges: [.top])
             }
+            SortView(sortType: $sortType)
         }
         .background(AppColor.background)
     }
