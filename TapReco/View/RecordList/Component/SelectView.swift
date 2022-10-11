@@ -42,7 +42,6 @@ struct SelectView_Previews: PreviewProvider {
                        selectType: .recordTime,
                        selectHandler: {})
         }
-        .background(.red)
         .preferredColorScheme(.light)
 
         VStack {

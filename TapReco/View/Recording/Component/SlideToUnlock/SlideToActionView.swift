@@ -27,9 +27,8 @@ final class SlideToActionView: UIView {
         view.image = UIImage(named: "icon_slidebar_start")
         view.isUserInteractionEnabled = true
         view.contentMode = .center
-        
+
         let childView = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
-        childView.backgroundColor = .red
         childView.isUserInteractionEnabled = true
         childView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(childView)
