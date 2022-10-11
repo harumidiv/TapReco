@@ -25,4 +25,5 @@ final class AppColor {
     static let modalText: Color = Color("modal_text")
     static let modalBackground: Color = Color("modal_background")
     static let searchBackground: Color = Color("search_background")
+    static let intro: Color = Color("intro")
 }

@@ -3,6 +3,16 @@
     {
       "filename" : "intro_01.pdf",
       "idiom" : "universal"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "img00.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {
