@@ -11,6 +11,13 @@ final class SlideToUPUnlockView: UIView {
     let backgroundView: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor(named: "background")
+
+        let image = UIImageView(image: .init(named: "up_slide_background"))
+        view.addSubview(image)
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        image.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        image.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         return view
     }()
 
