@@ -14,22 +14,7 @@ struct RecordListHeaderView: View {
 
     @Binding var searchText: String
     var body: some View {
-        VStack(spacing: 14) {
-            HStack {
-                Text("録音履歴")
-                    .font(.largeTitle)
-                    .foregroundColor(AppColor.textLightGray)
-                Spacer()
-                Button(action: {
-                    records = records.compactMap{ .init(record: $0, isSelected: false)}
-                    isShowRecordList = false
-                }){
-                    Image(systemName: "xmark")
-                        .font(Font.system(size: 24, weight: .bold))
-                        .foregroundColor(AppColor.textLightGray)
-                }
-            }
-            .padding(.horizontal, 30)
+        VStack(spacing: 0) {
             HStack {
                 Image(systemName: "doc")
                     .foregroundColor(AppColor.iconGray)
@@ -45,8 +30,12 @@ struct RecordListHeaderView: View {
                 }
             }
             .padding(.horizontal, 30)
+
             SearchBarView(text: $searchText)
+                .cornerRadius(16)
+                .padding()
         }
+        .padding(.top, 14)
     }
 }
 

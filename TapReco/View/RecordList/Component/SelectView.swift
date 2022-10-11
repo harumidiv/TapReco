@@ -30,6 +30,7 @@ struct SelectView: View {
                     .foregroundColor(AppColor.textLightGray)
             }
         }
+        .buttonStyle(.plain)
         .padding(.horizontal)
     }
 }
