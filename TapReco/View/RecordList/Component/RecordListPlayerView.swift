@@ -34,6 +34,7 @@ struct RecordListPlayerView: View {
             Rectangle()
                 .foregroundColor(AppColor.iconGray)
                 .frame(height: 1)
+                .padding(.bottom)
             Slider(value: $audioPlayer.displayTime,
                    in: 0.0...audioPlayer.duration, onEditingChanged: {isChanging in
                 self.isSliderChanged = isChanging
