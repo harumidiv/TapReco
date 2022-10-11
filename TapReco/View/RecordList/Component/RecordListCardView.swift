@@ -32,7 +32,7 @@ struct RecordListCardView: View {
                     .foregroundColor(AppColor.textGray)
             }
             Button(action: {
-
+                // TODO 編集用のダイアログを開けるようにする
             }) {
                 Image(systemName: "ellipsis")
                     .rotationEffect(.degrees(90))
