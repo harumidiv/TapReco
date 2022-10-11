@@ -40,16 +40,16 @@ struct StandbyView: View {
             }
             .alert(isPresented: $isShowAlertDialog, content: alertBuilder)
 
-            GeometryReader { geometry in
+            VStack {
+                Spacer()
                 let buttonHeight: CGFloat = 100
                 let buttonWidth: CGFloat = 240
-                let bottomMargin: CGFloat = 74
+                let bottomMargin: CGFloat = 148
                 if records.count > 0 {
 
                     SlideUPActionView(isPresentedRecordListView: $isShowRecordList)
                         .frame(width: buttonWidth, height: buttonHeight)
-                        .position(x: geometry.size.width / 2,
-                                  y: geometry.size.height - (bottomMargin + buttonHeight / 2))
+                        .padding(.bottom, bottomMargin)
                         .fullScreenCover(isPresented: $isShowRecordList) {
                             NavigationView {
                                 RecordListView(saveAction: saveAction, isShowRecordList: $isShowRecordList, records: $records)
@@ -66,7 +66,6 @@ struct StandbyView: View {
                                         ToolbarItem(placement: .confirmationAction) {
                                             Button(action: {
                                                 isShowEditView = true
-                                                // TODO 編集画面に遷移できるようにする
                                             }, label: {
                                                 Text("Edit")
                                                     .foregroundColor(AppColor.textLightGray)
@@ -93,8 +92,7 @@ struct StandbyView: View {
                 } else {
                     SlideUPActionView(isPresentedRecordListView: $isShowRecordList)
                         .frame(width: buttonWidth, height: buttonHeight)
-                        .position(x: geometry.size.width / 2,
-                                  y: geometry.size.height - (bottomMargin + buttonHeight / 2))
+                        .padding(.bottom, bottomMargin)
                         .opacity(0.5)
                         .disabled(true)
                 }
