@@ -64,7 +64,7 @@ struct RecordListPlayerView: View {
             }
             .padding(.horizontal, 30)
 
-            HStack{
+            HStack(spacing: 0){
                 Image(systemName: "square.and.arrow.up")
                     .foregroundColor(AppColor.iconLightGray)
                     .font(Font.system(size: 24, weight: .regular))
@@ -86,6 +86,7 @@ struct RecordListPlayerView: View {
                         audioPlayer.rewindFifteenSeconds()
                     }
                 StartStopView(isPlaying: $isPlaying, audioPlayer: audioPlayer)
+                    .padding([.leading, .trailing], 24)
                 Image(systemName: "goforward.15")
                     .font(Font.system(size: 24, weight: .regular))
                     .foregroundColor(AppColor.iconLightGray)
