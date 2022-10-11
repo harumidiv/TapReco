@@ -48,7 +48,7 @@ struct RecordListHeaderView: View {
 
             SearchBarView(text: $searchText)
                 .cornerRadius(16)
-                .padding(12)
+                .padding()
         }
         .padding(.top, 14)
     }

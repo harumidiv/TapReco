@@ -13,30 +13,37 @@ struct RecordListCardView: View {
     let backgroundColor: Color
     
     var body: some View {
-        HStack(spacing: 10) {
-            HStack {
-                VStack(alignment: .leading){
-                    Text(record.title)
-                        .font(.title2)
-                        .foregroundColor(AppColor.textLightGray)
-                    Text(record.recordDate)
-                        .font(.caption)
-                        .foregroundColor(AppColor.textGray)
-                }
-                Spacer()
-                VStack(alignment: .trailing){
-                    Text(record.recordTime)
-                        .font(.body)
-                        .foregroundColor(AppColor.textLightGray)
-                    Text(record.fileSize)
-                        .font(.caption)
-                        .foregroundColor(AppColor.textGray)
-                }
+        HStack(spacing: 0) {
+            VStack(alignment: .leading){
+                Text(record.title)
+                    .font(.title2)
+                    .foregroundColor(AppColor.textLightGray)
+                Text(record.recordDate)
+                    .font(.caption)
+                    .foregroundColor(AppColor.textGray)
             }
-            .padding()
-            .background(backgroundColor)
-            .cornerRadius(8)
+            Spacer()
+            VStack(alignment: .trailing){
+                Text(record.recordTime)
+                    .font(.body)
+                    .foregroundColor(AppColor.textLightGray)
+                Text(record.fileSize)
+                    .font(.caption)
+                    .foregroundColor(AppColor.textGray)
+            }
+            Button(action: {
+
+            }) {
+                Image(systemName: "ellipsis")
+                    .rotationEffect(.degrees(90))
+                    .font(Font.system(size: 24, weight: .bold))
+                    .frame(width: 35, height: 35)
+                    .foregroundColor(AppColor.textGray)
+            }
         }
+        .padding()
+        .background(backgroundColor)
+        .cornerRadius(8)
 
     }
 }
