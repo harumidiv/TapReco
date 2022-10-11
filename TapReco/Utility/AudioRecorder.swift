@@ -9,11 +9,11 @@ import AVFoundation
 
 protocol AudioRecoder: AVAudioRecorderDelegate {
     func recordStart()
-    func recordStop() -> RecordData
+    func recordStop() -> RecordData?
 }
 
 final class AudioRecorderImpl: NSObject {
-    private var audioRecorder: AVAudioRecorder!
+    private var audioRecorder: AVAudioRecorder?
     private var currentRecordingTitle: String?
 
     private func createURL(title: String) -> URL{
@@ -40,11 +40,14 @@ extension AudioRecorderImpl: AudioRecoder {
         
         currentRecordingTitle = Date().toString(format: .tapRecorYear) + ".m4a"
         audioRecorder = try! AVAudioRecorder(url: createURL(title: currentRecordingTitle!), settings: settings)
-        audioRecorder.prepareToRecord()
-        audioRecorder.record()
+        audioRecorder?.prepareToRecord()
+        audioRecorder?.record()
     }
     
-    func recordStop() -> RecordData {
+    func recordStop() -> RecordData? {
+        guard let audioRecorder = audioRecorder else {
+            return nil
+        }
         audioRecorder.stop()
 
         let filePath = NSHomeDirectory() + "/Documents/" + currentRecordingTitle!

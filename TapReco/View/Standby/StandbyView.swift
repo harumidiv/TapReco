@@ -9,9 +9,12 @@ import SwiftUI
 import AVFoundation
 
 struct StandbyView: View {
+    // MARK: - Augumenet
     let saveAction: ()->Void
     @Binding var records: [RecordData]
     @Binding var isRecording: Bool
+
+    // Property
     @State var isShowRecordList = false
     @State var isShowAlertDialog = false
     @State var isShowEditView = false
