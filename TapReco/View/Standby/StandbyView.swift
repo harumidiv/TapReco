@@ -14,6 +14,7 @@ struct StandbyView: View {
     @Binding var isRecording: Bool
     @State var isShowRecordList = false
     @State var isShowAlertDialog = false
+    @State var isShowEditView = false
 
     // TODO 音声を制御するクラスが持っておいた方が良さそう
     var isAutholized: Bool {
@@ -64,11 +65,27 @@ struct StandbyView: View {
                                         }
                                         ToolbarItem(placement: .confirmationAction) {
                                             Button(action: {
+                                                isShowEditView = true
                                                 // TODO 編集画面に遷移できるようにする
                                             }, label: {
                                                 Text("Edit")
                                                     .foregroundColor(AppColor.textLightGray)
                                             })
+                                            .sheet(isPresented: $isShowEditView) {
+                                                NavigationView {
+                                                    EditView()
+                                                        .toolbar {
+                                                            ToolbarItem(placement: .navigationBarTrailing) {
+                                                                Button(action: {
+                                                                    isShowEditView = false
+                                                                }, label: {
+                                                                    Image(systemName: "xmark")
+                                                                        .foregroundColor(AppColor.textLightGray)
+                                                                })
+                                                            }
+                                                        }
+                                                }
+                                            }
                                         }
                                     }
                             }
