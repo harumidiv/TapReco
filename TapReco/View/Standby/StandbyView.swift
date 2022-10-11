@@ -49,48 +49,11 @@ struct StandbyView: View {
                 let buttonWidth: CGFloat = 240
                 let bottomMargin: CGFloat = 100
                 if records.count > 0 {
-
                     SlideUPActionView(isPresentedRecordListView: $isShowRecordList)
                         .frame(width: buttonWidth, height: buttonHeight)
                         .padding(.bottom, bottomMargin)
                         .fullScreenCover(isPresented: $isShowRecordList) {
-                            NavigationView {
-                                RecordListView(saveAction: saveAction, isShowRecordList: $isShowRecordList, records: $records)
-                                    .navigationTitle("録音履歴")
-                                    .toolbar {
-                                        ToolbarItem(placement: .cancellationAction) {
-                                            Button(action: {
-                                                isShowRecordList = false
-                                            }, label: {
-                                                Image(systemName: "xmark")
-                                                    .foregroundColor(AppColor.textLightGray)
-                                            })
-                                        }
-                                        ToolbarItem(placement: .confirmationAction) {
-                                            Button(action: {
-                                                isShowEditView = true
-                                            }, label: {
-                                                Text("Edit")
-                                                    .foregroundColor(AppColor.textLightGray)
-                                            })
-                                            .sheet(isPresented: $isShowEditView) {
-                                                NavigationView {
-                                                    EditView()
-                                                        .toolbar {
-                                                            ToolbarItem(placement: .navigationBarTrailing) {
-                                                                Button(action: {
-                                                                    isShowEditView = false
-                                                                }, label: {
-                                                                    Image(systemName: "xmark")
-                                                                        .foregroundColor(AppColor.textLightGray)
-                                                                })
-                                                            }
-                                                        }
-                                                }
-                                            }
-                                        }
-                                    }
-                            }
+                            RecordListView(saveAction: saveAction, isShowRecordList: $isShowRecordList, records: $records)
                         }
                 } else {
                     SlideUPActionView(isPresentedRecordListView: $isShowRecordList)
