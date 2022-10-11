@@ -13,30 +13,37 @@ struct RecordListCardView: View {
     let backgroundColor: Color
     
     var body: some View {
-        HStack(spacing: 10) {
-            HStack {
-                VStack(alignment: .leading){
-                    Text(record.title)
-                        .font(.title2)
-                        .foregroundColor(AppColor.textLightGray)
-                    Text(record.recordDate)
-                        .font(.caption)
-                        .foregroundColor(AppColor.textGray)
-                }
-                Spacer()
-                VStack(alignment: .trailing){
-                    Text(record.recordTime)
-                        .font(.body)
-                        .foregroundColor(AppColor.textLightGray)
-                    Text(record.fileSize)
-                        .font(.caption)
-                        .foregroundColor(AppColor.textGray)
-                }
+        HStack(spacing: 0) {
+            VStack(alignment: .leading){
+                Text(record.title)
+                    .font(Font.system(size: 16, weight: .semibold))
+                    .foregroundColor(AppColor.textLightGray)
+                Text(record.recordDate)
+                    .font(Font.system(size: 13, weight: .semibold))
+                    .foregroundColor(AppColor.textGray)
             }
-            .padding()
-            .background(backgroundColor)
-            .cornerRadius(8)
+            Spacer()
+            VStack(alignment: .trailing){
+                Text(record.recordTime)
+                    .font(Font.system(size: 15, weight: .medium))
+                    .foregroundColor(AppColor.textLightGray)
+                Text(record.fileSize)
+                    .font(Font.system(size: 13, weight: .regular))
+                    .foregroundColor(AppColor.textGray)
+            }
+            Button(action: {
+                // TODO 編集用のダイアログを開けるようにする共通のやつを使う　https://qiita.com/motokiohkubo/items/26a6cd23a301c61b1138
+            }) {
+                Image(systemName: "ellipsis")
+                    .rotationEffect(.degrees(90))
+                    .font(Font.system(size: 24, weight: .bold))
+                    .frame(width: 28, height: 28)
+                    .foregroundColor(AppColor.textGray)
+            }
         }
+        .padding()
+        .background(backgroundColor)
+        .cornerRadius(8)
 
     }
 }

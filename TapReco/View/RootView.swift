@@ -9,14 +9,16 @@ import SwiftUI
 import Combine
 
 struct RootView: View {
+    // MARK: - Augument
     @Binding var records: [RecordData]
     let saveAction: ()->Void
-    
+
+    // MARK: - Property
     @State private var isRecording: Bool = false
     // UserDefaultの値を参照して出すかのフラグの値が入るようにする
     @State private var isShowIntoView: Bool = UserStrage.isNeedDisplayIntro
-
     private let audioRecorder = AudioRecorderImpl()
+    @Environment(\.scenePhase) private var scenePhase
     
     var body: some View {
         ZStack {
@@ -40,9 +42,17 @@ struct RootView: View {
                 }
                 
             } else {
-                let newRecord = audioRecorder.recordStop()
+                guard let newRecord = audioRecorder.recordStop() else {
+                    //レコードの保存に失敗
+                    return
+                }
                 records.append(newRecord)
                 saveAction()
+            }
+        }
+        .onChange(of: scenePhase) {  scene in
+            if scene == .inactive || scene == .background {
+                isRecording = false
             }
         }
     }

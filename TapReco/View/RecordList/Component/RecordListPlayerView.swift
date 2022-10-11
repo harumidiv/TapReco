@@ -34,12 +34,14 @@ struct RecordListPlayerView: View {
             Rectangle()
                 .foregroundColor(AppColor.iconGray)
                 .frame(height: 1)
+                .padding(.bottom)
             Slider(value: $audioPlayer.displayTime,
                    in: 0.0...audioPlayer.duration, onEditingChanged: {isChanging in
                 self.isSliderChanged = isChanging
                 isChanging ? audioPlayer.changeSliderValue() : audioPlayer.stopSliderValue()
                 isPlaying = !isChanging
             })
+            .accentColor(AppColor.iconLightGray)
             .padding(.horizontal)
             .onReceive(audioPlayer.timer) { _ in
                 if !isSliderChanged {
@@ -62,9 +64,10 @@ struct RecordListPlayerView: View {
             }
             .padding(.horizontal, 30)
 
-            HStack{
+            HStack(spacing: 0){
                 Image(systemName: "square.and.arrow.up")
                     .foregroundColor(AppColor.iconLightGray)
+                    .font(Font.system(size: 24, weight: .regular))
                     .onTapGesture {
                         audioPlayer.playStop()
                         isShowActivityView = true
@@ -83,6 +86,7 @@ struct RecordListPlayerView: View {
                         audioPlayer.rewindFifteenSeconds()
                     }
                 StartStopView(isPlaying: $isPlaying, audioPlayer: audioPlayer)
+                    .padding([.leading, .trailing], 24)
                 Image(systemName: "goforward.15")
                     .font(Font.system(size: 24, weight: .regular))
                     .foregroundColor(AppColor.iconLightGray)
@@ -96,6 +100,7 @@ struct RecordListPlayerView: View {
                     }
                 Spacer()
                 Image(systemName: "trash")
+                    .font(Font.system(size: 24, weight: .regular))
                     .foregroundColor(AppColor.iconLightGray)
                     .onTapGesture {
                         audioPlayer.playStop()
@@ -104,6 +109,7 @@ struct RecordListPlayerView: View {
                     }
             }
             .padding(.horizontal, 30)
+            .padding(.bottom, 38)
         }
         .background(AppColor.background)
         .onAppear {

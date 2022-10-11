@@ -16,7 +16,7 @@ final class SlideToActionView: UIView {
 
     let descriptionLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 13, weight: .bold)
+        label.font = UIFont.systemFont(ofSize: 16, weight: .bold)
         label.text = "スライドして録音停止"
         label.textColor = UIColor(named: "modal_background")
         return label

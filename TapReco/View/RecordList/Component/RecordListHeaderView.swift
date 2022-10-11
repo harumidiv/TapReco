@@ -16,6 +16,21 @@ struct RecordListHeaderView: View {
     var body: some View {
         VStack(spacing: 0) {
             HStack {
+                Text("録音履歴")
+                    .font(Font.system(size: 22, weight: .bold))
+                Spacer()
+                Button(action: {
+                    isShowRecordList = false
+                }){
+                    Image(systemName:"xmark")
+                        .font(Font.system(size: 24, weight: .regular))
+                        .foregroundColor(AppColor.iconGray)
+                }
+            }
+            .padding(.horizontal, 24)
+            .padding(.vertical, 12)
+
+            HStack {
                 Image(systemName: "doc")
                     .foregroundColor(AppColor.iconGray)
                 Text("\(records.count)")
@@ -29,7 +44,7 @@ struct RecordListHeaderView: View {
                         .foregroundColor(AppColor.iconGray)
                 }
             }
-            .padding(.horizontal, 30)
+            .padding(.horizontal, 24)
 
             SearchBarView(text: $searchText)
                 .cornerRadius(16)
@@ -47,6 +62,7 @@ struct RecordListSectionHeadaerView_Previews: PreviewProvider {
                                  searchText: .constant(""))
                 .fixedSize(horizontal: false, vertical: true)
                 .preferredColorScheme(.light)
+                .background(.purple)
         RecordListHeaderView(isShowRecordList: .constant(false),
                              isShowSortView: .constant(false),
                                  records: .constant(RecordData.sampleData),

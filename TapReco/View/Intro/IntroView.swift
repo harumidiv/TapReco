@@ -10,6 +10,12 @@ import SwiftUI
 struct IntroView: View {
     @Binding var isShowIntoView: Bool
 
+    init(isShowIntoView: Binding<Bool>) {
+        self._isShowIntoView = isShowIntoView
+        UIPageControl.appearance().currentPageIndicatorTintColor = UIColor(named: "intro_black")
+        UIPageControl.appearance().pageIndicatorTintColor = UIColor(named: "intro_light_gray")
+    }
+
     var body: some View {
         ZStack {
             Rectangle()
@@ -18,24 +24,27 @@ struct IntroView: View {
                 // 背景にあるViewをタップできなくする
                 .contentShape(Rectangle())
                 
-            VStack {
+            VStack(spacing: 0) {
                 TabView {
-                    IntroDetailView(title: "Taprecoでできること",
-                                    image: "",
-                                    subTitle: "ワンタッチですぐ録音",
-                                    description: "録音ボタンが大きいからポケットの中でも感覚的に録音を始められます。停止ボタンはスライド式だから、操作ミスはありません。あなたの使い方次第で、防犯や音声メモ、可能性は無限大 !",
+                    IntroDetailView(title: "ワンタッチですぐ録音!",
+                                    image: "intro_01",
+                                    description: "画面全体が録音開始ボタンです",
                                     needDisplayButton: false,
                                     isShowIntoView: $isShowIntoView)
-                    IntroDetailView(title: "Taprecoでできること",
-                                    image: "",
-                                    subTitle: "ワンタッチですぐ録音",
+                    IntroDetailView(title: "ミスのない録音停止ボタン",
+                                    image: "intro_02",
+                                    description: "ミスタッチがないように、\n録音停止ボタンはスライド式!",
+                                    needDisplayButton: false,
+                                    isShowIntoView: $isShowIntoView)
+                    IntroDetailView(title: "",
+                                    image: "intro_03",
                                     description: "",
                                     needDisplayButton: true,
                                     isShowIntoView: $isShowIntoView)
                 }
+                .frame(height: 570)
                 .tabViewStyle(PageTabViewStyle.init(indexDisplayMode: .always))
-                .background(Color.green)
-                .edgesIgnoringSafeArea(.all)
+                .background(AppColor.introWhite)
             }
             .cornerRadius(16)
             .padding()

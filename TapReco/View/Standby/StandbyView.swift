@@ -9,9 +9,12 @@ import SwiftUI
 import AVFoundation
 
 struct StandbyView: View {
+    // MARK: - Augumenet
     let saveAction: ()->Void
     @Binding var records: [RecordData]
     @Binding var isRecording: Bool
+
+    // Property
     @State var isShowRecordList = false
     @State var isShowAlertDialog = false
     @State var isShowEditView = false
@@ -40,61 +43,22 @@ struct StandbyView: View {
             }
             .alert(isPresented: $isShowAlertDialog, content: alertBuilder)
 
-            GeometryReader { geometry in
+            VStack {
+                Spacer()
                 let buttonHeight: CGFloat = 100
                 let buttonWidth: CGFloat = 240
-                let bottomMargin: CGFloat = 74
+                let bottomMargin: CGFloat = 100
                 if records.count > 0 {
-
                     SlideUPActionView(isPresentedRecordListView: $isShowRecordList)
                         .frame(width: buttonWidth, height: buttonHeight)
-                        .position(x: geometry.size.width / 2,
-                                  y: geometry.size.height - (bottomMargin + buttonHeight / 2))
+                        .padding(.bottom, bottomMargin)
                         .fullScreenCover(isPresented: $isShowRecordList) {
-                            NavigationView {
-                                RecordListView(saveAction: saveAction, isShowRecordList: $isShowRecordList, records: $records)
-                                    .navigationTitle("録音履歴")
-                                    .toolbar {
-                                        ToolbarItem(placement: .cancellationAction) {
-                                            Button(action: {
-                                                isShowRecordList = false
-                                            }, label: {
-                                                Image(systemName: "xmark")
-                                                    .foregroundColor(AppColor.textLightGray)
-                                            })
-                                        }
-                                        ToolbarItem(placement: .confirmationAction) {
-                                            Button(action: {
-                                                isShowEditView = true
-                                                // TODO 編集画面に遷移できるようにする
-                                            }, label: {
-                                                Text("Edit")
-                                                    .foregroundColor(AppColor.textLightGray)
-                                            })
-                                            .sheet(isPresented: $isShowEditView) {
-                                                NavigationView {
-                                                    EditView()
-                                                        .toolbar {
-                                                            ToolbarItem(placement: .navigationBarTrailing) {
-                                                                Button(action: {
-                                                                    isShowEditView = false
-                                                                }, label: {
-                                                                    Image(systemName: "xmark")
-                                                                        .foregroundColor(AppColor.textLightGray)
-                                                                })
-                                                            }
-                                                        }
-                                                }
-                                            }
-                                        }
-                                    }
-                            }
+                            RecordListView(saveAction: saveAction, isShowRecordList: $isShowRecordList, records: $records)
                         }
                 } else {
                     SlideUPActionView(isPresentedRecordListView: $isShowRecordList)
                         .frame(width: buttonWidth, height: buttonHeight)
-                        .position(x: geometry.size.width / 2,
-                                  y: geometry.size.height - (bottomMargin + buttonHeight / 2))
+                        .padding(.bottom, bottomMargin)
                         .opacity(0.5)
                         .disabled(true)
                 }
