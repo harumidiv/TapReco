@@ -40,6 +40,7 @@ struct RecordListPlayerView: View {
                 isChanging ? audioPlayer.changeSliderValue() : audioPlayer.stopSliderValue()
                 isPlaying = !isChanging
             })
+            .accentColor(AppColor.iconLightGray)
             .padding(.horizontal)
             .onReceive(audioPlayer.timer) { _ in
                 if !isSliderChanged {
