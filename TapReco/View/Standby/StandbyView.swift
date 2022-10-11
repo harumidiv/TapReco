@@ -47,7 +47,7 @@ struct StandbyView: View {
                 Spacer()
                 let buttonHeight: CGFloat = 100
                 let buttonWidth: CGFloat = 240
-                let bottomMargin: CGFloat = 148
+                let bottomMargin: CGFloat = 100
                 if records.count > 0 {
 
                     SlideUPActionView(isPresentedRecordListView: $isShowRecordList)

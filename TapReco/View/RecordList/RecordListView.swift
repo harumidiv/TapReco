@@ -94,6 +94,8 @@ struct RecordListView: View {
                 }
                 .listStyle(PlainListStyle())
             }
+            //TODO ダイアログが表示されている際にブラー表示を行う
+//            .blur(radius: 3)
 
             if records.contains(where: { $0.isSelected == true }) {
                 VStack(spacing: 0) {
