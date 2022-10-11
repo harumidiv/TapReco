@@ -101,16 +101,28 @@ extension SortView {
     }
 
     func createOrderText(isLeftButton: Bool) -> Text {
+        let text: Text
         switch selectType {
         case .date:
-            return isLeftButton ? Text("古い順") : Text("新しい順")
+            text = isLeftButton ? Text("古い順") : Text("新しい順")
 
         case .recordTime:
-            return isLeftButton ? Text("短い順") : Text("長い順")
+            text = isLeftButton ? Text("短い順") : Text("長い順")
 
         case .fileSize:
-            return isLeftButton ? Text("小さい順") : Text("大きい順")
+            text = isLeftButton ? Text("小さい順") : Text("大きい順")
         }
+
+        let color: Color
+
+        if isLeftSelected {
+            color = isLeftButton ? .green : .blue
+
+        } else {
+            color = !isLeftButton ? .green : .blue
+        }
+
+        return text.foregroundColor(color)
     }
 }
 
