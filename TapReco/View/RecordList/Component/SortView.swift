@@ -91,7 +91,7 @@ struct SortView: View {
                 .padding([.top, .trailing])
             }
             .padding()
-            .background(AppColor.statusText)
+            .background(AppColor.boxGray)
             .cornerRadius(16)
             .frame(width: 300)
         }
@@ -129,10 +129,10 @@ extension SortView {
         let color: Color
 
         if isLeftSelected {
-            color = isLeftButton ? .green : .blue
+            color = isLeftButton ? AppColor.boxBlack : AppColor.textGray
 
         } else {
-            color = !isLeftButton ? .green : .blue
+            color = !isLeftButton ? AppColor.boxBlack : AppColor.textGray
         }
 
         return text.foregroundColor(color)
@@ -142,5 +142,8 @@ extension SortView {
 struct SortView_Previews: PreviewProvider {
     static var previews: some View {
         SortView(isShowSortView: .constant(true), sortType: .constant(.dateNew))
+            .preferredColorScheme(.light)
+        SortView(isShowSortView: .constant(true), sortType: .constant(.dateNew))
+            .preferredColorScheme(.dark)
     }
 }

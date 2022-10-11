@@ -24,8 +24,10 @@ struct SelectView: View {
         }) {
             if isSelected {
                 Label(selectType.rawValue, image: "radio_on")
+                    .foregroundColor(AppColor.textLightGray)
             } else {
                 Label(selectType.rawValue, image: "radio_off")
+                    .foregroundColor(AppColor.textLightGray)
             }
         }
         .padding(.horizontal)
@@ -44,7 +46,7 @@ struct SelectView_Previews: PreviewProvider {
         }
         .preferredColorScheme(.light)
 
-        VStack {
+        VStack(alignment: .leading) {
             SelectView(isSelected: true,
                        selectType: .date,
                        selectHandler: {})
