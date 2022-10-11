@@ -9,6 +9,7 @@ import SwiftUI
 
 struct RecordListHeaderView: View {
     @Binding var isShowRecordList: Bool
+    @Binding var isShowSortView: Bool
     @Binding var records: [RecordData]
 
     @Binding var searchText: String
@@ -36,7 +37,7 @@ struct RecordListHeaderView: View {
                     .foregroundColor(AppColor.textGray)
                 Spacer()
                 Button(action: {
-                    // sortの処理
+                    isShowSortView = true
                 }){
                     Image(systemName: "slider.horizontal.3")
                         .font(Font.system(size: 24, weight: .regular))
@@ -51,12 +52,14 @@ struct RecordListHeaderView: View {
 
 struct RecordListSectionHeadaerView_Previews: PreviewProvider {
     static var previews: some View {
-            RecordListHeaderView(isShowRecordList: .constant(false),
+        RecordListHeaderView(isShowRecordList: .constant(false),
+                             isShowSortView: .constant(false),
                                  records: .constant(RecordData.sampleData),
                                  searchText: .constant(""))
                 .fixedSize(horizontal: false, vertical: true)
                 .preferredColorScheme(.light)
-            RecordListHeaderView(isShowRecordList: .constant(false),
+        RecordListHeaderView(isShowRecordList: .constant(false),
+                             isShowSortView: .constant(false),
                                  records: .constant(RecordData.sampleData),
                                  searchText: .constant("hogehoge"))
                 .fixedSize(horizontal: false, vertical: true)

@@ -17,6 +17,7 @@ struct RecordListView: View {
     @StateObject var audioPlayer: AudioPlayer = AudioPlayer()
     @State private var searchText: String = ""
     @State private var sortType: SortType = .dateNew
+    @State private var isShowSortView: Bool = false
 
     private var displyList: [RecordData] {
         if searchText.isEmpty { return records }
@@ -36,6 +37,7 @@ struct RecordListView: View {
         ZStack {
             VStack(spacing: 0) {
                 RecordListHeaderView(isShowRecordList: $isShowRecordList,
+                                     isShowSortView: $isShowSortView,
                                      records: $records,
                                      searchText: $searchText)
                 List {
@@ -67,7 +69,10 @@ struct RecordListView: View {
                 }
                 .ignoresSafeArea(edges: [.top])
             }
-            SortView(sortType: $sortType)
+
+            if isShowSortView {
+                SortView(isShowSortView: $isShowSortView, sortType: $sortType)
+            }
         }
         .background(AppColor.background)
     }

@@ -17,6 +17,7 @@ enum SortType {
 }
 
 struct SortView: View {
+    @Binding var isShowSortView: Bool
     @Binding var sortType: SortType
 
     private var selectType: SelectType {
@@ -40,48 +41,60 @@ struct SortView: View {
     }
 
     var body: some View {
-        VStack(alignment: .leading) {
-            HStack {
-                Text("並び替え")
-                Spacer()
-                Image(systemName: "xmark")
-                    .font(Font.system(size: 18, weight: .regular))
-                    .foregroundColor(AppColor.textLightGray)
+        ZStack {
+            Rectangle()
+                .foregroundColor(.black)
+                .ignoresSafeArea()
+                .opacity(0.2)
+                .onTapGesture {
+                    isShowSortView = false
+                }
+            VStack(alignment: .leading) {
+                HStack {
+                    Text("並び替え")
+                    Spacer()
+                    Button(action: {
+                        isShowSortView = false
+                    }) {
+                        Image(systemName: "xmark")
+                            .font(Font.system(size: 18, weight: .regular))
+                            .foregroundColor(AppColor.textLightGray)
+                    }
+                }
+                .padding()
+                SelectView(isSelected: (sortType == .dateNew || sortType == .dateOld),
+                           selectType: .date){
+                    sortType = isLeftSelected ? .dateOld : .dateNew
+                }
+                SelectView(isSelected: (sortType == .recordTimeLong || sortType == .recordTimeShrt),
+                           selectType: .recordTime){
+                    sortType = isLeftSelected ? .recordTimeShrt : .recordTimeLong
+                }
+                SelectView(isSelected: (sortType == .fileSizeLarge || sortType == .fileSizeSmall),
+                           selectType: .fileSize){
+                    sortType = isLeftSelected ? .fileSizeSmall : .fileSizeLarge
+                }
+
+                HStack() {
+                    Spacer()
+                    Button(action: {
+                        changeOrderType(isLeftButton: true)
+                    }) {
+                        createOrderText(isLeftButton: true)
+                    }
+                    Button(action: {
+                        changeOrderType(isLeftButton: false)
+                    }) {
+                        createOrderText(isLeftButton: false)
+                    }
+                }
+                .padding([.top, .trailing])
             }
             .padding()
-            SelectView(isSelected: (sortType == .dateNew || sortType == .dateOld),
-                       selectType: .date){
-                sortType = isLeftSelected ? .dateOld : .dateNew
-            }
-            SelectView(isSelected: (sortType == .recordTimeLong || sortType == .recordTimeShrt),
-                       selectType: .recordTime){
-                sortType = isLeftSelected ? .recordTimeShrt : .recordTimeLong
-            }
-            SelectView(isSelected: (sortType == .fileSizeLarge || sortType == .fileSizeSmall),
-                       selectType: .fileSize){
-                sortType = isLeftSelected ? .fileSizeSmall : .fileSizeLarge
-            }
-
-            HStack() {
-                Spacer()
-                Button(action: {
-                    changeOrderType(isLeftButton: true)
-                }) {
-                    createOrderText(isLeftButton: true)
-                }
-                Button(action: {
-                    changeOrderType(isLeftButton: false)
-                }) {
-                    createOrderText(isLeftButton: false)
-                }
-            }
-            .padding([.top, .trailing])
+            .background(.red)
+            .cornerRadius(16)
+            .frame(width: 300)
         }
-        .padding()
-        .background(.red)
-        .cornerRadius(16)
-        .frame(width: 300)
-
     }
 }
 
@@ -128,6 +141,6 @@ extension SortView {
 
 struct SortView_Previews: PreviewProvider {
     static var previews: some View {
-        SortView(sortType: .constant(.dateNew))
+        SortView(isShowSortView: .constant(true), sortType: .constant(.dateNew))
     }
 }
