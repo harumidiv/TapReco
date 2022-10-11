@@ -35,8 +35,6 @@
 		49856F8926E6E76D0015C12E /* MicrophoneVolumeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49856F8826E6E76D0015C12E /* MicrophoneVolumeView.swift */; };
 		49940DD528EFEA9500A5E66D /* StandbyBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49940DD428EFEA9500A5E66D /* StandbyBackgroundView.swift */; };
 		49940DD728EFF0C200A5E66D /* StandbyTapableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49940DD628EFF0C200A5E66D /* StandbyTapableView.swift */; };
-		4994CC3326E78C39003A34ED /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 4994CC3226E78C39003A34ED /* Lottie */; };
-		4994CC3826E78D6A003A34ED /* microphone.json in Resources */ = {isa = PBXBuildFile; fileRef = 4994CC3726E78D6A003A34ED /* microphone.json */; };
 		49BEE51F26EDDF460002C43B /* TimerHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BEE51E26EDDF460002C43B /* TimerHolder.swift */; };
 		49C0D12526E8DE6E00B3666E /* WaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C0D12426E8DE6E00B3666E /* WaveView.swift */; };
 		49C0D12C26E9033900B3666E /* SlideSideActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C0D12B26E9033900B3666E /* SlideSideActionView.swift */; };
@@ -99,7 +97,6 @@
 		49856F8826E6E76D0015C12E /* MicrophoneVolumeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicrophoneVolumeView.swift; sourceTree = "<group>"; };
 		49940DD428EFEA9500A5E66D /* StandbyBackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandbyBackgroundView.swift; sourceTree = "<group>"; };
 		49940DD628EFF0C200A5E66D /* StandbyTapableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandbyTapableView.swift; sourceTree = "<group>"; };
-		4994CC3726E78D6A003A34ED /* microphone.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = microphone.json; sourceTree = "<group>"; };
 		49BEE51E26EDDF460002C43B /* TimerHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerHolder.swift; sourceTree = "<group>"; };
 		49C0D12426E8DE6E00B3666E /* WaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveView.swift; sourceTree = "<group>"; };
 		49C0D12B26E9033900B3666E /* SlideSideActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideSideActionView.swift; sourceTree = "<group>"; };
@@ -115,7 +112,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4994CC3326E78C39003A34ED /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,7 +273,6 @@
 		4994CC3926E78D6E003A34ED /* Recource */ = {
 			isa = PBXGroup;
 			children = (
-				4994CC3726E78D6A003A34ED /* microphone.json */,
 				4925089E26DCF7D4005169AE /* Assets.xcassets */,
 			);
 			path = Recource;
@@ -370,7 +365,6 @@
 			);
 			name = TapReco;
 			packageProductDependencies = (
-				4994CC3226E78C39003A34ED /* Lottie */,
 			);
 			productName = TapReco;
 			productReference = 4925089726DCF7D3005169AE /* TapReco.app */;
@@ -465,7 +459,6 @@
 			files = (
 				492508A226DCF7D4005169AE /* Preview Assets.xcassets in Resources */,
 				4925089F26DCF7D4005169AE /* Assets.xcassets in Resources */,
-				4994CC3826E78D6A003A34ED /* microphone.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -860,14 +853,6 @@
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		4994CC3226E78C39003A34ED /* Lottie */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4994CC3126E78C39003A34ED /* XCRemoteSwiftPackageReference "lottie-ios" */;
-			productName = Lottie;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4925088F26DCF7D3005169AE /* Project object */;
 }
