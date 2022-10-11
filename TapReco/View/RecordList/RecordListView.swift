@@ -29,29 +29,29 @@ struct RecordListView: View {
         switch sortType {
         case .dateNew:
             sortRrcord = records.sorted(by: { lRecord, rRecord -> Bool in
-                return stringToInt(text: lRecord.recordDate) < stringToInt(text: rRecord.recordDate)
+                return stringToInt(text: lRecord.recordDate) > stringToInt(text: rRecord.recordDate)
             })
         case .dateOld:
             sortRrcord = records.sorted(by: { lRecord, rRecord -> Bool in
-                return stringToInt(text: lRecord.recordDate) > stringToInt(text: rRecord.recordDate)
+                return stringToInt(text: lRecord.recordDate) < stringToInt(text: rRecord.recordDate)
             })
         case .recordTimeLong:
             sortRrcord = records.sorted(by: { lRecord, rRecord -> Bool in
-                return stringToInt(text: lRecord.recordTime) < stringToInt(text: rRecord.recordTime)
+                return stringToInt(text: lRecord.recordTime) > stringToInt(text: rRecord.recordTime)
             })
         case .recordTimeShort:
             sortRrcord = records.sorted(by: { lRecord, rRecord -> Bool in
-                return stringToInt(text: lRecord.recordTime) > stringToInt(text: rRecord.recordTime)
+                return stringToInt(text: lRecord.recordTime) < stringToInt(text: rRecord.recordTime)
             })
 
         case .fileSizeLarge:
             sortRrcord = records.sorted(by: { lRecord, rRecord -> Bool in
-                return stringToInt(text: lRecord.fileSize) < stringToInt(text: rRecord.fileSize)
+                return stringToInt(text: lRecord.fileSize) > stringToInt(text: rRecord.fileSize)
             })
 
         case .fileSizeSmall:
             sortRrcord = records.sorted(by: { lRecord, rRecord -> Bool in
-                return stringToInt(text: lRecord.fileSize) > stringToInt(text: rRecord.fileSize)
+                return stringToInt(text: lRecord.fileSize) < stringToInt(text: rRecord.fileSize)
             })
         }
 

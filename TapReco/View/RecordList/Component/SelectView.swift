@@ -20,7 +20,7 @@ struct SelectView: View {
 
     var body: some View {
         Button(action: {
-
+            selectHandler()
         }) {
             if isSelected {
                 Label(selectType.rawValue, image: "radio_on")
