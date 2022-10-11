@@ -25,13 +25,14 @@ struct RecordingView: View {
                     .frame(width: 300, height: 200, alignment: .center)
                     .padding()
                 Text(timerHolder.timerText)
-                    .font(.custom("Avenir", size: 40))
+                    .font(.custom("Avenir", size:42))
                     .fontWeight(.bold)
                     .foregroundColor(AppColor.textLightGray)
+                    .padding(.top, 43)
                 SlideSideActionView(isRecording: $isRecording,
                                     timerHolder: timerHolder)
-                .frame(width: 260, height: 58)
-                .padding(.init(top: 62, leading: 0, bottom: 20, trailing: 0))
+                .frame(width: 300, height: 58)
+                .padding(.top, 137)
             }
         }
         .onAppear{
