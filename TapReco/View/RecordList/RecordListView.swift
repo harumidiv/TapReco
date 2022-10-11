@@ -37,11 +37,11 @@ struct RecordListView: View {
             })
         case .recordTimeLong:
             sortRrcord = records.sorted(by: { lRecord, rRecord -> Bool in
-                return stringToInt(text: lRecord.fileLength) < stringToInt(text: rRecord.fileLength)
+                return stringToInt(text: lRecord.recordTime) < stringToInt(text: rRecord.recordTime)
             })
         case .recordTimeShort:
             sortRrcord = records.sorted(by: { lRecord, rRecord -> Bool in
-                return stringToInt(text: lRecord.fileLength) > stringToInt(text: rRecord.fileLength)
+                return stringToInt(text: lRecord.recordTime) > stringToInt(text: rRecord.recordTime)
             })
 
         case .fileSizeLarge:

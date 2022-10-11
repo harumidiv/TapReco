@@ -25,7 +25,7 @@ struct RecordListCardView: View {
                 }
                 Spacer()
                 VStack(alignment: .trailing){
-                    Text(record.fileLength)
+                    Text(record.recordTime)
                         .font(.body)
                         .foregroundColor(AppColor.textLightGray)
                     Text(record.fileSize)

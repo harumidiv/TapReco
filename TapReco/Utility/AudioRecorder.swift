@@ -57,7 +57,7 @@ extension AudioRecorderImpl: AudioRecoder {
                           recordDate: recordingDate,
                           fileName: currentRecordingTitle ?? "",
                           fileSize: fileSize,
-                          fileLength: playbackTime)
+                          recordTime: playbackTime)
     }
 
 }
