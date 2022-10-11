@@ -10,6 +10,12 @@ import SwiftUI
 struct IntroView: View {
     @Binding var isShowIntoView: Bool
 
+    init(isShowIntoView: Binding<Bool>) {
+        self._isShowIntoView = isShowIntoView
+        UIPageControl.appearance().currentPageIndicatorTintColor = UIColor(named: "intro_black")
+        UIPageControl.appearance().pageIndicatorTintColor = UIColor(named: "intro_light_gray")
+    }
+
     var body: some View {
         ZStack {
             Rectangle()
@@ -38,7 +44,7 @@ struct IntroView: View {
                 }
                 .frame(height: 570)
                 .tabViewStyle(PageTabViewStyle.init(indexDisplayMode: .always))
-                .background(AppColor.intro)
+                .background(AppColor.introWhite)
             }
             .cornerRadius(16)
             .padding()
