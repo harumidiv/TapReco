@@ -50,7 +50,28 @@ struct StandbyView: View {
                         .position(x: geometry.size.width / 2,
                                   y: geometry.size.height - (bottomMargin + buttonHeight / 2))
                         .fullScreenCover(isPresented: $isShowRecordList) {
-                            RecordListView(saveAction: saveAction, isShowRecordList: $isShowRecordList, records: $records)
+                            NavigationView {
+                                RecordListView(saveAction: saveAction, isShowRecordList: $isShowRecordList, records: $records)
+                                    .navigationTitle("録音履歴")
+                                    .toolbar {
+                                        ToolbarItem(placement: .cancellationAction) {
+                                            Button(action: {
+                                                isShowRecordList = false
+                                            }, label: {
+                                                Image(systemName: "xmark")
+                                                    .foregroundColor(AppColor.textLightGray)
+                                            })
+                                        }
+                                        ToolbarItem(placement: .confirmationAction) {
+                                            Button(action: {
+                                                // TODO 編集画面に遷移できるようにする
+                                            }, label: {
+                                                Text("Edit")
+                                                    .foregroundColor(AppColor.textLightGray)
+                                            })
+                                        }
+                                    }
+                            }
                         }
                 } else {
                     SlideUPActionView(isPresentedRecordListView: $isShowRecordList)
