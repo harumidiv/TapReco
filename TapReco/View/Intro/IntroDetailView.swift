@@ -45,8 +45,10 @@ struct IntroDetailView: View {
                         .font(Font.system(size: 20, weight: .bold))
                         .foregroundColor(AppColor.introBlack)
                     Text(description)
+                        .multilineTextAlignment(.center)
                         .font(Font.system(size: 14, weight: .regular))
                         .foregroundColor(AppColor.introBlack)
+
                 }
                 .padding(.top, 40)
                 .padding(.horizontal)
@@ -61,7 +63,7 @@ struct IntroDetailView_Previews: PreviewProvider {
         // ボタン表示ありなし
         IntroDetailView(title: "ワンタッチですぐ録音",
                         image: "intro_01",
-                        description: "画面全体が録音開始ボタンです!",
+                        description: "画面全体が録音開始ボタンです!\n2行目テスト",
                         needDisplayButton: false,
                         isShowIntoView: .constant(true))
         // ボタン表示あり

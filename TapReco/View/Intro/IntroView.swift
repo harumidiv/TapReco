@@ -19,7 +19,7 @@ struct IntroView: View {
     var body: some View {
         ZStack {
             Rectangle()
-                .foregroundColor(.clear)
+                .foregroundColor(AppColor.background)
                 .ignoresSafeArea()
                 // 背景にあるViewをタップできなくする
                 .contentShape(Rectangle())

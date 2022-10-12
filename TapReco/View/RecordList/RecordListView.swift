@@ -59,15 +59,6 @@ struct RecordListView: View {
         return sortRrcord.filter{ $0.title.contains(searchText)}
     }
 
-    private var selectedIndex: Int {
-        records.firstIndex(where: { $0.isSelected })!
-    }
-
-    private var playRecord: RecordData {
-        print("fileNems: \(records[selectedIndex].fileName)")
-        return records[selectedIndex]
-    }
-
     var body: some View {
         ZStack {
             VStack(spacing: 0) {
@@ -93,7 +84,7 @@ struct RecordListView: View {
                         } else {
                             Button(action: {
                                 setSelectedState(selectRecord: record)
-                                audioPlayer.setup(fileName: playRecord.fileName)
+                                audioPlayer.setup(fileName: record.fileName)
                             }){
                                 RecordListCardView(record: record,
                                                    backgroundColor: AppColor.boxGray,
