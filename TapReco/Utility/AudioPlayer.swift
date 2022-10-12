@@ -52,7 +52,7 @@ final class AudioPlayer: NSObject, ObservableObject {
 
     /// 再生を停止する
     func playStop() {
-        cancellable?.cancel()
+        resetTimer()
         audioPlayer.stop()
     }
 
@@ -119,14 +119,18 @@ extension AudioPlayer {
             .autoconnect()
             .sink { _ in
                 self.updateValue += 1
-                print("updateV: \(self.updateValue)")
             }
+    }
+
+    private func resetTimer() {
+        updateValue = 0
+        cancellable?.cancel()
     }
 }
 
 extension AudioPlayer: AVAudioPlayerDelegate {
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        resetTimer()
         playComplete?()
-        print("再生完了")
     }
 }
