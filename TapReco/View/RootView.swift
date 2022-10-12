@@ -14,6 +14,8 @@ struct RootView: View {
     let saveAction: ()->Void
 
     // MARK: - Property
+    // バックグラウンドに移動しようとすると停止してエラーになるので次回アクティブになった時にエラーのスナックバーをダ表示する
+    @State private var isNeedDisplayErrorSnackBar: Bool = false
     @State private var isRecording: Bool = false
     @State private var isShowSuccessSnackBar = false
     @State private var isShowFailureSnackBar = false
@@ -52,14 +54,24 @@ struct RootView: View {
                 
             } else {
                 guard let newRecord = audioRecorder.recordStop() else {
-                    //レコードの保存に失敗
+                    isNeedDisplayErrorSnackBar = true
                     return
                 }
                 records.append(newRecord)
                 saveAction()
             }
         }
-        .onChange(of: scenePhase) {  scene in
+        .onChange(of: scenePhase) { scene in
+            if scene == .active && isNeedDisplayErrorSnackBar {
+                isNeedDisplayErrorSnackBar = false
+                isShowFailureSnackBar = true
+                Task {
+                    // 2秒後にスナックバーを消す
+                    try await Task.sleep(nanoseconds: 2_000_000_000)
+                    isShowFailureSnackBar = false
+                }
+            }
+
             if scene == .inactive || scene == .background {
                 withAnimation() {
                     isRecording = false
