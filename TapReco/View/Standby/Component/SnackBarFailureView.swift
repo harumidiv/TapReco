@@ -11,7 +11,7 @@ struct SnackBarFailureView: View {
     var body: some View {
         VStack {
             Spacer()
-                .frame(height: 30)
+                .frame(height: 60)
             HStack {
                 Image(systemName: "checkmark.circle.fill")
                     .font(Font.system(size: 29, weight: .regular))
