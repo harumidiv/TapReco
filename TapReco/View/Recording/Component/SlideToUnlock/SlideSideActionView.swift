@@ -10,7 +10,7 @@ import SwiftUI
 
 struct SlideSideActionView: UIViewRepresentable {
     @Binding var isRecording: Bool
-    @Binding var isShowSnackBar: Bool
+    @Binding var isShowSuccessSnackBar: Bool
     @ObservedObject var timerHolder: TimerHolder
     
     func makeUIView(context: UIViewRepresentableContext<SlideSideActionView>) -> UIView {
@@ -21,12 +21,12 @@ struct SlideSideActionView: UIViewRepresentable {
             timerHolder.stop()
             withAnimation() {
                 isRecording = false
-                isShowSnackBar = true
+                isShowSuccessSnackBar = true
             }
             Task {
                 // 2秒後にスナックバーを消す
                 try await Task.sleep(nanoseconds: 2_000_000_000)
-                isShowSnackBar = false
+                isShowSuccessSnackBar = false
             }
         }
         

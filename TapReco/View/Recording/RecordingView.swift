@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RecordingView: View {
     @Binding var isRecording: Bool
-    @Binding var isShowSnackBar: Bool
+    @Binding var isShowSuccessSnackBar: Bool
     @StateObject private var timerHolder = TimerHolder()
     
     var body: some View {
@@ -31,7 +31,7 @@ struct RecordingView: View {
                     .foregroundColor(AppColor.textLightGray)
                     .padding(.top, 43)
                 SlideSideActionView(isRecording: $isRecording,
-                                    isShowSnackBar: $isShowSnackBar,
+                                    isShowSuccessSnackBar: $isShowSuccessSnackBar,
                                     timerHolder: timerHolder)
                 .frame(width: 300, height: 58)
                 .padding(.top, 137)
@@ -46,10 +46,10 @@ struct RecordingView: View {
 struct RecordingView_Previews: PreviewProvider {
     static var previews: some View {
         RecordingView(isRecording: .constant(false),
-                      isShowSnackBar: .constant(false))
+                      isShowSuccessSnackBar: .constant(false))
             .preferredColorScheme(.light)
         RecordingView(isRecording: .constant(false),
-                      isShowSnackBar: .constant(false))
+                      isShowSuccessSnackBar: .constant(false))
             .preferredColorScheme(.dark)
     }
 }

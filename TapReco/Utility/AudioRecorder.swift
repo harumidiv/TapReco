@@ -46,6 +46,7 @@ extension AudioRecorderImpl: AudioRecoder {
     
     func recordStop() -> RecordData? {
         guard let audioRecorder = audioRecorder else {
+            print("呼ばれたよ")
             return nil
         }
         audioRecorder.stop()

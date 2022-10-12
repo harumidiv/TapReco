@@ -15,7 +15,8 @@ struct RootView: View {
 
     // MARK: - Property
     @State private var isRecording: Bool = false
-    @State private var isShowSnackBar = false
+    @State private var isShowSuccessSnackBar = false
+    @State private var isShowFailureSnackBar = false
     // UserDefaultの値を参照して出すかのフラグの値が入るようにする
     @State private var isShowIntoView: Bool = UserStrage.isNeedDisplayIntro
     private let audioRecorder = AudioRecorderImpl()
@@ -25,7 +26,7 @@ struct RootView: View {
         ZStack {
             if isRecording {
                 RecordingView(isRecording: $isRecording,
-                              isShowSnackBar: $isShowSnackBar)
+                              isShowSuccessSnackBar: $isShowSuccessSnackBar)
                 .defersSystemGestures(on: .bottom)
             } else {
                 StandbyView(saveAction: saveAction,
@@ -37,8 +38,10 @@ struct RootView: View {
                 }
             }
         }
-        .popup(isPresented: isShowSnackBar,
+        .popup(isPresented: isShowSuccessSnackBar,
                 content: SnackBarSuccessView.init)
+        .popup(isPresented: isShowFailureSnackBar,
+               content: SnackBarFailureView.init)
         .onChange(of: isRecording) { isRecording in
             if isRecording {
                 let queue = DispatchQueue.global(qos: .userInitiated)
@@ -65,7 +68,6 @@ struct RootView: View {
         }
     }
 }
-
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
