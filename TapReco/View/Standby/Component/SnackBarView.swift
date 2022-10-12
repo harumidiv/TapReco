@@ -8,6 +8,29 @@
 import SwiftUI
 
 struct SnackBarView: View {
+    let state: State
+
+    var body: some View {
+        HStack {
+            Image(systemName: state.imageName)
+                .font(Font.system(size: 29, weight: .regular))
+                .foregroundColor(AppColor.statusText)
+            Text(state.text)
+                .font(Font.system(size: 13, weight: .bold))
+                .foregroundColor(AppColor.statusText)
+                .padding(.trailing, 10)
+            Image(systemName:"xmark")
+                .font(Font.system(size: 20, weight: .regular))
+                .foregroundColor(AppColor.statusText)
+        }
+        .padding(.horizontal, 16)
+        .padding(.vertical, 10)
+        .background(state.backgroundColor)
+        .cornerRadius(8)
+    }
+}
+
+extension SnackBarView {
     enum State {
         case success
         case error
@@ -40,26 +63,6 @@ struct SnackBarView: View {
         }
     }
 
-    let state: State
-
-    var body: some View {
-        HStack {
-            Image(systemName: state.imageName)
-                .font(Font.system(size: 29, weight: .regular))
-                .foregroundColor(AppColor.statusText)
-            Text(state.text)
-                .font(Font.system(size: 13, weight: .bold))
-                .foregroundColor(AppColor.statusText)
-                .padding(.trailing, 10)
-            Image(systemName:"xmark")
-                .font(Font.system(size: 20, weight: .regular))
-                .foregroundColor(AppColor.statusText)
-        }
-        .padding(.horizontal, 16)
-        .padding(.vertical, 10)
-        .background(state.backgroundColor)
-        .cornerRadius(8)
-    }
 }
 
 struct SnackBarView_Previews: PreviewProvider {
@@ -69,5 +72,4 @@ struct SnackBarView_Previews: PreviewProvider {
             SnackBarView(state: .error)
         }
     }
-
 }

@@ -18,7 +18,9 @@ struct SlideSideActionView: UIViewRepresentable {
         let slideToActionView = SlideToActionView()
         slideToActionView.slideDidComplete = {
             timerHolder.stop()
-            isRecording = false
+            withAnimation() {
+                isRecording = false
+            }
         }
         
         

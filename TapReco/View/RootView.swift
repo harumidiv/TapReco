@@ -54,7 +54,9 @@ struct RootView: View {
         }
         .onChange(of: scenePhase) {  scene in
             if scene == .inactive || scene == .background {
-                isRecording = false
+                withAnimation() {
+                    isRecording = false
+                }
             }
         }
     }
