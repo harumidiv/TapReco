@@ -38,7 +38,7 @@ struct RootView: View {
             }
         }
         .popup(isPresented: isShowSnackBar,
-                content: SnackBarView.init)
+                content: SnackBarSuccessView.init)
         .onChange(of: isRecording) { isRecording in
             if isRecording {
                 let queue = DispatchQueue.global(qos: .userInitiated)
