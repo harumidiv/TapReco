@@ -76,11 +76,6 @@ private extension View {
         })
         .onPreferenceChange(FramePreferenceKey.self, perform: onChange)
     }
-
-    func print(_ varargs: Any...) -> Self {
-        Swift.print(varargs)
-        return self
-    }
 }
 
 private struct FramePreferenceKey: PreferenceKey {

@@ -64,7 +64,6 @@ struct RecordListView: View {
     }
 
     private var playRecord: RecordData {
-        print("fileNems: \(records[selectedIndex].fileName)")
         return records[selectedIndex]
     }
 

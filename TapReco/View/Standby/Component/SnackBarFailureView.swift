@@ -13,7 +13,7 @@ struct SnackBarFailureView: View {
             Spacer()
                 .frame(height: 60)
             HStack {
-                Image(systemName: "checkmark.circle.fill")
+                Image(systemName: "exclamationmark.octagon.fill")
                     .font(Font.system(size: 29, weight: .regular))
                     .foregroundColor(AppColor.statusText)
                 Text("録音に失敗しました")

@@ -22,7 +22,6 @@ struct StartStopView: View {
                     .font(.system(size: 50, weight: .light))
                     .foregroundColor(AppColor.iconLightGray)
                     .onTapGesture {
-                        print("停止ボタンタップ")
                         isPlaying.toggle()
                         audioPlayer.playStop()
                     }
@@ -31,7 +30,6 @@ struct StartStopView: View {
                     .font(.system(size: 50, weight: .light))
                     .foregroundColor(AppColor.iconLightGray)
                     .onTapGesture {
-                        print("再生ボタンタップ")
                         isPlaying.toggle()
                         audioPlayer.reStart()
                     }
