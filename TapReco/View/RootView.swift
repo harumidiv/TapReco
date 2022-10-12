@@ -24,6 +24,7 @@ struct RootView: View {
         ZStack {
             if isRecording {
                 RecordingView(isRecording: $isRecording)
+                    .defersSystemGestures(on: .bottom)
             } else {
                 StandbyView(saveAction: saveAction,
                             records: $records,
