@@ -10,7 +10,7 @@ import SwiftUI
 struct RecordListHeaderView: View {
     @Binding var isShowRecordList: Bool
     @Binding var isShowSortView: Bool
-    @Binding var records: [RecordData]
+    var displyRecords: [RecordData]
     @Binding var searchText: String
     var closeAction: ()->Void
 
@@ -34,7 +34,7 @@ struct RecordListHeaderView: View {
             HStack {
                 Image(systemName: "doc")
                     .foregroundColor(AppColor.iconGray)
-                Text("\(records.count)")
+                Text("\(displyRecords.count)")
                     .foregroundColor(AppColor.textGray)
                 Spacer()
                 Button(action: {
@@ -59,7 +59,7 @@ struct RecordListSectionHeadaerView_Previews: PreviewProvider {
     static var previews: some View {
         RecordListHeaderView(isShowRecordList: .constant(false),
                              isShowSortView: .constant(false),
-                             records: .constant(RecordData.sampleData),
+                             displyRecords: RecordData.sampleData,
                              searchText: .constant(""),
                              closeAction: {})
         .fixedSize(horizontal: false, vertical: true)
@@ -67,7 +67,7 @@ struct RecordListSectionHeadaerView_Previews: PreviewProvider {
         .background(.purple)
         RecordListHeaderView(isShowRecordList: .constant(false),
                              isShowSortView: .constant(false),
-                             records: .constant(RecordData.sampleData),
+                             displyRecords: RecordData.sampleData,
                              searchText: .constant("hogehoge"),
                              closeAction: {})
         .fixedSize(horizontal: false, vertical: true)

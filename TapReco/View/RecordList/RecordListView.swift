@@ -19,7 +19,7 @@ struct RecordListView: View {
     @State private var sortType: SortType = .dateNew
     @State private var isShowSortView: Bool = false
 
-    private var displyList: [RecordData] {
+    private var displyRecords: [RecordData] {
         func stringToInt(text: String) -> Int64 {
             let splitNumber = (text.components(separatedBy: NSCharacterSet.decimalDigits.inverted))
             return Int64(splitNumber.joined())!
@@ -73,23 +73,33 @@ struct RecordListView: View {
             VStack(spacing: 0) {
                 RecordListHeaderView(isShowRecordList: $isShowRecordList,
                                      isShowSortView: $isShowSortView,
-                                     records: $records,
+                                     displyRecords: displyRecords,
                                      searchText: $searchText) {
+                    if records.contains(where: { $0.isSelected == true }) {
                     resetSelectedState()
                     audioPlayer.playStop()
+                    }
                     isShowRecordList = false
                 }
                 List {
-                    ForEach(displyList) { record in
+                    ForEach(displyRecords) { record in
                         if record.isSelected {
-                            RecordListCardView(record: record,backgroundColor: AppColor.boxBlack)
+                            RecordListCardView(record: record,
+                                               backgroundColor: AppColor.boxBlack,
+                                               editComplete: {title,id in
+                                updateTitle(title: title, id: id)
+                            })
                                 .listRowBackground(AppColor.background)
                         } else {
                             Button(action: {
                                 setSelectedState(selectRecord: record)
                                 audioPlayer.setup(fileName: playRecord.fileName)
                             }){
-                                RecordListCardView(record: record, backgroundColor: AppColor.boxGray)
+                                RecordListCardView(record: record,
+                                                   backgroundColor: AppColor.boxGray,
+                                                   editComplete: {title,id in
+                                    updateTitle(title: title, id: id)
+                                })
                             }
                             .listRowBackground(AppColor.background)
                         }
@@ -120,6 +130,14 @@ struct RecordListView: View {
 }
 
 private extension RecordListView {
+    func updateTitle(title: String, id: UUID) {
+        self.records = records.compactMap{
+            if $0.id != id { return $0 }
+            return .init(record: $0, editTitle: title)
+        }
+        saveAction()
+    }
+
     // 対象のセルを選択状態にする
     func setSelectedState(selectRecord: RecordData) {
         self.records = records.compactMap{
