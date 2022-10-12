@@ -3,6 +3,16 @@
     {
       "filename" : "Radio.pdf",
       "idiom" : "universal"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "dark_radio.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {
