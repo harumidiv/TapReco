@@ -91,7 +91,7 @@ struct SortView: View {
                 .padding([.top, .trailing])
             }
             .padding()
-            .background(AppColor.boxGray)
+            .background(AppColor.sortBackground)
             .cornerRadius(16)
             .frame(width: 300)
         }
