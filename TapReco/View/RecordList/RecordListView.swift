@@ -98,7 +98,7 @@ struct RecordListView: View {
                 }
                 .listStyle(PlainListStyle())
             }
-            .blur(radius: isShowSortView ? 10.0 : 0.0)
+            .blur(radius: isShowSortView ? 2.0 : 0.0)
 
             if records.contains(where: { $0.isSelected == true }) {
                 VStack(spacing: 0) {
@@ -108,7 +108,7 @@ struct RecordListView: View {
                                          audioPlayer: audioPlayer)
                 }
                 .ignoresSafeArea(edges: [.top])
-                .blur(radius: isShowSortView ? 10.0 : 0.0)
+                .blur(radius: isShowSortView ? 2.0 : 0.0)
             }
 
             if isShowSortView {
