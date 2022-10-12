@@ -28,6 +28,7 @@
 		4954D3B028F68F5E00F4128F /* MicrophoneVolumeLeftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4954D3AF28F68F5E00F4128F /* MicrophoneVolumeLeftView.swift */; };
 		4954D3B228F6907600F4128F /* MicrophoneVolumeRightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4954D3B128F6907600F4128F /* MicrophoneVolumeRightView.swift */; };
 		4954D3B428F6987F00F4128F /* SnackBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4954D3B328F6987F00F4128F /* SnackBarView.swift */; };
+		4954D3D028F6ADC900F4128F /* Popup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4954D3CF28F6ADC900F4128F /* Popup.swift */; };
 		495B95F0277DA6A4009A393C /* SlideToUPUnlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495B95EF277DA6A4009A393C /* SlideToUPUnlockView.swift */; };
 		495B95F2277DA6E6009A393C /* SlideUPActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495B95F1277DA6E6009A393C /* SlideUPActionView.swift */; };
 		4962568728F2D5ED0044A6CD /* StartStopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4962568628F2D5ED0044A6CD /* StartStopView.swift */; };
@@ -94,6 +95,7 @@
 		4954D3AF28F68F5E00F4128F /* MicrophoneVolumeLeftView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicrophoneVolumeLeftView.swift; sourceTree = "<group>"; };
 		4954D3B128F6907600F4128F /* MicrophoneVolumeRightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicrophoneVolumeRightView.swift; sourceTree = "<group>"; };
 		4954D3B328F6987F00F4128F /* SnackBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackBarView.swift; sourceTree = "<group>"; };
+		4954D3CF28F6ADC900F4128F /* Popup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Popup.swift; sourceTree = "<group>"; };
 		495B95EF277DA6A4009A393C /* SlideToUPUnlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideToUPUnlockView.swift; sourceTree = "<group>"; };
 		495B95F1277DA6E6009A393C /* SlideUPActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideUPActionView.swift; sourceTree = "<group>"; };
 		4962568628F2D5ED0044A6CD /* StartStopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartStopView.swift; sourceTree = "<group>"; };
@@ -243,6 +245,7 @@
 				49BEE51E26EDDF460002C43B /* TimerHolder.swift */,
 				494F57FB28F2084C00B2C79E /* UserStrage.swift */,
 				4962568828F3B1E30044A6CD /* AppColor.swift */,
+				4954D3CF28F6ADC900F4128F /* Popup.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -499,6 +502,7 @@
 				4925089D26DCF7D3005169AE /* RootView.swift in Sources */,
 				4962568928F3B1E30044A6CD /* AppColor.swift in Sources */,
 				49856F4E26E633080015C12E /* MicrophoneLebelManager.swift in Sources */,
+				4954D3D028F6ADC900F4128F /* Popup.swift in Sources */,
 				4941A172276A1A1F00A80335 /* RecordListCardView.swift in Sources */,
 				4954D3B228F6907600F4128F /* MicrophoneVolumeRightView.swift in Sources */,
 				49BEE51F26EDDF460002C43B /* TimerHolder.swift in Sources */,
