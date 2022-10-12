@@ -74,7 +74,11 @@ struct RecordListView: View {
                 RecordListHeaderView(isShowRecordList: $isShowRecordList,
                                      isShowSortView: $isShowSortView,
                                      records: $records,
-                                     searchText: $searchText)
+                                     searchText: $searchText) {
+                    resetSelectedState()
+                    audioPlayer.playStop()
+                    isShowRecordList = false
+                }
                 List {
                     ForEach(displyList) { record in
                         if record.isSelected {
@@ -121,6 +125,12 @@ private extension RecordListView {
         self.records = records.compactMap{
             let isSelected = $0.id == selectRecord.id
             return RecordData(record: $0, isSelected: isSelected)
+        }
+    }
+
+    func resetSelectedState()  {
+        self.records = records.compactMap{
+            return RecordData(record: $0, isSelected: false)
         }
     }
 }

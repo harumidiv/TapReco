@@ -36,14 +36,15 @@ struct RecordListPlayerView: View {
                 .frame(height: 1)
                 .padding(.bottom)
             Slider(value: $audioPlayer.displayTime,
-                   in: 0.0...audioPlayer.duration, onEditingChanged: {isChanging in
+                   in: 0.0...audioPlayer.duration,
+                   onEditingChanged: {isChanging in
                 self.isSliderChanged = isChanging
                 isChanging ? audioPlayer.changeSliderValue() : audioPlayer.stopSliderValue()
                 isPlaying = !isChanging
             })
             .accentColor(AppColor.iconLightGray)
             .padding(.horizontal)
-            .onReceive(audioPlayer.timer) { _ in
+            .onChange(of: audioPlayer.updateValue) { newValue in
                 if !isSliderChanged {
                     audioPlayer.displayTime = audioPlayer.currentTime
                 } else {

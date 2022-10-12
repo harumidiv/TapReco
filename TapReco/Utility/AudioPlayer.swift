@@ -6,12 +6,16 @@
 //
 
 import AVFoundation
+import Combine
 
 final class AudioPlayer: NSObject, ObservableObject {
     @Published var displayTime: Double = .zero
     @Published var displayCurrentTime: String = ""
     @Published var displaytimeLeft: String = ""
-    var timer = Timer.publish(every: 0.01, on: .main, in: .common).autoconnect()
+    // スライダーの更新のために使用しているプロパティ
+    @Published var updateValue: Int = 0
+
+    var cancellable: AnyCancellable?
     private var audioPlayer: AVAudioPlayer!
     var playComplete: (()->Void)?
     /// ファイルの総再生時間
@@ -41,12 +45,14 @@ final class AudioPlayer: NSObject, ObservableObject {
         if currentTime == audioPlayer.duration || currentTime == 0 {
             playStart()
         } else {
+            setTimer()
             audioPlayer.play()
         }
     }
 
     /// 再生を停止する
     func playStop() {
+        cancellable?.cancel()
         audioPlayer.stop()
     }
 
@@ -102,8 +108,19 @@ extension AudioPlayer {
 
     /// 0秒からの再生
     private func playStart() {
+        setTimer()
+
         audioPlayer.prepareToPlay()
         audioPlayer.play()
+    }
+
+    private func setTimer() {
+        cancellable = Timer.publish(every: 0.01, on: .main, in: .common)
+            .autoconnect()
+            .sink { _ in
+                self.updateValue += 1
+                print("updateV: \(self.updateValue)")
+            }
     }
 }
 
