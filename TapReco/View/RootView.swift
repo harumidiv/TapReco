@@ -28,6 +28,7 @@ struct RootView: View {
                 StandbyView(saveAction: saveAction,
                             records: $records,
                             isRecording: $isRecording)
+                .blur(radius: isShowIntoView ? 2.0 : 0.0)
                 if isShowIntoView {
                     IntroView(isShowIntoView: $isShowIntoView)
                 }
