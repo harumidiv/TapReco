@@ -83,7 +83,13 @@ struct RecordListView: View {
                     ForEach(displyList) { record in
                         if record.isSelected {
                             RecordListCardView(record: record,
-                                               backgroundColor: AppColor.boxBlack)
+                                               backgroundColor: AppColor.boxBlack,
+                                               editComplete: {title,id in
+                                self.records = records.compactMap{
+                                    if $0.id != id { return $0 }
+                                    return .init(record: $0, editTitle: title)
+                                }
+                            })
                                 .listRowBackground(AppColor.background)
                         } else {
                             Button(action: {
@@ -91,7 +97,13 @@ struct RecordListView: View {
                                 audioPlayer.setup(fileName: playRecord.fileName)
                             }){
                                 RecordListCardView(record: record,
-                                                   backgroundColor: AppColor.boxGray)
+                                                   backgroundColor: AppColor.boxGray,
+                                                   editComplete: {title,id in
+                                    self.records = records.compactMap{
+                                        if $0.id != id { return $0 }
+                                        return .init(record: $0, editTitle: title)
+                                    }
+                                })
                             }
                             .listRowBackground(AppColor.background)
                         }

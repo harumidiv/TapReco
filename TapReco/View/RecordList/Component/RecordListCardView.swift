@@ -11,6 +11,8 @@ import SwiftUI
 struct RecordListCardView: View {
     var record: RecordData
     let backgroundColor: Color
+
+    let editComplete: (_ title: String, _ id: UUID)->Void
     @State private var isShowEditAlert: Bool = false
     
     var body: some View {
@@ -53,7 +55,7 @@ struct RecordListCardView: View {
                                 message: nil,
                                 placeholderText: record.title,
                                 updateAction: {text in
-                    print("\(text)")
+                    editComplete(text, record.id)
                 })
             }
         }
@@ -64,10 +66,12 @@ struct RecordListCardView_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
             RecordListCardView(record: RecordData.sampleData[0],
-                               backgroundColor: AppColor.boxGray)
+                               backgroundColor: AppColor.boxGray,
+                               editComplete: {title,id in })
             .fixedSize(horizontal: false, vertical: true)
             RecordListCardView(record: RecordData.sampleData[0],
-                               backgroundColor: AppColor.boxBlack)
+                               backgroundColor: AppColor.boxBlack,
+                               editComplete: {title,id in })
             .fixedSize(horizontal: false, vertical: true)
         }
         .padding()
@@ -75,10 +79,10 @@ struct RecordListCardView_Previews: PreviewProvider {
 
         VStack {
             RecordListCardView(record: RecordData.sampleData[0],
-                               backgroundColor: AppColor.boxGray)
+                               backgroundColor: AppColor.boxGray, editComplete: {title,id in })
             .fixedSize(horizontal: false, vertical: true)
             RecordListCardView(record: RecordData.sampleData[0],
-                               backgroundColor: AppColor.boxBlack)
+                               backgroundColor: AppColor.boxBlack, editComplete: {title,id in })
             .fixedSize(horizontal: false, vertical: true)
         }
         .padding()

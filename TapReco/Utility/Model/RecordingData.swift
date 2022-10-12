@@ -40,6 +40,21 @@ struct RecordData: Identifiable, Codable {
         recordTime = record.recordTime
         self.isSelected = isSelected
     }
+
+
+    ///  タイトルを編集するためのinitializer
+    /// - Parameters:
+    ///   - record: 既存のRecordData
+    ///   - editTitle: ユーザによって編集されたタイトル
+    init(record: RecordData, editTitle: String) {
+        id = record.id
+        title = editTitle
+        recordDate = record.recordDate
+        fileName = record.fileName
+        fileSize = record.fileSize
+        recordTime = record.recordTime
+        self.isSelected = record.isSelected
+    }
 }
 
 // MARK: - Preview用サンプルデータ
