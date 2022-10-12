@@ -75,8 +75,10 @@ struct RecordListView: View {
                                      isShowSortView: $isShowSortView,
                                      records: $records,
                                      searchText: $searchText) {
-                    resetSelectedState()
-                    audioPlayer.playStop()
+                    if records.contains(where: { $0.isSelected == true }) {
+                        resetSelectedState()
+                        audioPlayer.playStop()
+                    }
                     isShowRecordList = false
                 }
                 List {
@@ -90,7 +92,7 @@ struct RecordListView: View {
                                     return .init(record: $0, editTitle: title)
                                 }
                             })
-                                .listRowBackground(AppColor.background)
+                            .listRowBackground(AppColor.background)
                         } else {
                             Button(action: {
                                 setSelectedState(selectRecord: record)
@@ -154,10 +156,10 @@ struct RecordListView_Previews: PreviewProvider {
         RecordListView(saveAction: {},
                        isShowRecordList: .constant(false),
                        records: .constant(RecordData.sampleData))
-            .preferredColorScheme(.light)
+        .preferredColorScheme(.light)
         RecordListView(saveAction: {},
                        isShowRecordList: .constant(false),
                        records: .constant(RecordData.sampleData))
-            .preferredColorScheme(.dark)
+        .preferredColorScheme(.dark)
     }
 }
