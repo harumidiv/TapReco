@@ -17,7 +17,6 @@ struct StandbyView: View {
     // Property
     @State var isShowRecordList = false
     @State var isShowAlertDialog = false
-    @State var isShowEditView = false
     
     private var isAutholized: Bool {
         let status = AVCaptureDevice.authorizationStatus(for: .audio)
