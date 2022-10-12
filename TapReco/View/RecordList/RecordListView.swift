@@ -19,7 +19,7 @@ struct RecordListView: View {
     @State private var sortType: SortType = .dateNew
     @State private var isShowSortView: Bool = false
 
-    private var displyList: [RecordData] {
+    private var displyRecords: [RecordData] {
         func stringToInt(text: String) -> Int64 {
             let splitNumber = (text.components(separatedBy: NSCharacterSet.decimalDigits.inverted))
             return Int64(splitNumber.joined())!
@@ -73,7 +73,7 @@ struct RecordListView: View {
             VStack(spacing: 0) {
                 RecordListHeaderView(isShowRecordList: $isShowRecordList,
                                      isShowSortView: $isShowSortView,
-                                     records: $records,
+                                     displyRecords: displyRecords,
                                      searchText: $searchText) {
                     if records.contains(where: { $0.isSelected == true }) {
                     resetSelectedState()
@@ -82,7 +82,7 @@ struct RecordListView: View {
                     isShowRecordList = false
                 }
                 List {
-                    ForEach(displyList) { record in
+                    ForEach(displyRecords) { record in
                         if record.isSelected {
                             RecordListCardView(record: record,
                                                backgroundColor: AppColor.boxBlack,
