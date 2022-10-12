@@ -13,24 +13,17 @@ struct StandbyView: View {
     let saveAction: ()->Void
     @Binding var records: [RecordData]
     @Binding var isRecording: Bool
-
+    
     // Property
     @State var isShowRecordList = false
     @State var isShowAlertDialog = false
     @State var isShowEditView = false
-
-    // TODO 音声を制御するクラスが持っておいた方が良さそう
-    var isAutholized: Bool {
+    
+    private var isAutholized: Bool {
         let status = AVCaptureDevice.authorizationStatus(for: .audio)
-
-        switch status {
-        case .authorized:
-            return true
-        default:
-            return false
-        }
+        return status == .authorized
     }
-
+    
     var body: some View {
         ZStack {
             StandbyBackgroundView()
@@ -42,26 +35,20 @@ struct StandbyView: View {
                 }
             }
             .alert(isPresented: $isShowAlertDialog, content: alertBuilder)
-
+            
             VStack {
                 Spacer()
                 let buttonHeight: CGFloat = 100
                 let buttonWidth: CGFloat = 240
                 let bottomMargin: CGFloat = 100
-                if records.count > 0 {
-                    SlideUPActionView(isPresentedRecordListView: $isShowRecordList)
-                        .frame(width: buttonWidth, height: buttonHeight)
-                        .padding(.bottom, bottomMargin)
-                        .fullScreenCover(isPresented: $isShowRecordList) {
-                            RecordListView(saveAction: saveAction, isShowRecordList: $isShowRecordList, records: $records)
-                        }
-                } else {
-                    SlideUPActionView(isPresentedRecordListView: $isShowRecordList)
-                        .frame(width: buttonWidth, height: buttonHeight)
-                        .padding(.bottom, bottomMargin)
-                        .opacity(0.5)
-                        .disabled(true)
-                }
+                SlideUPActionView(isPresentedRecordListView: $isShowRecordList)
+                    .frame(width: buttonWidth, height: buttonHeight)
+                    .padding(.bottom, bottomMargin)
+                    .opacity(records.isEmpty ? 0.5 : 1.0)
+                    .disabled(records.isEmpty)
+                    .fullScreenCover(isPresented: $isShowRecordList) {
+                        RecordListView(saveAction: saveAction, isShowRecordList: $isShowRecordList, records: $records)
+                    }
             }
         }
     }
@@ -86,7 +73,7 @@ struct StandbyView_Previews: PreviewProvider {
         StandbyView(saveAction: {}, records: .constant(RecordData.sampleData),
                     isRecording: .constant(false))
         .preferredColorScheme(.light)
-
+        
         StandbyView(saveAction: {}, records: .constant(RecordData.sampleData),
                     isRecording: .constant(false))
         .preferredColorScheme(.dark)
