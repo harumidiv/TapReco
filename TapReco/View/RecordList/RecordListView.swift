@@ -76,8 +76,8 @@ struct RecordListView: View {
                                      records: $records,
                                      searchText: $searchText) {
                     if records.contains(where: { $0.isSelected == true }) {
-                        resetSelectedState()
-                        audioPlayer.playStop()
+                    resetSelectedState()
+                    audioPlayer.playStop()
                     }
                     isShowRecordList = false
                 }
@@ -87,12 +87,9 @@ struct RecordListView: View {
                             RecordListCardView(record: record,
                                                backgroundColor: AppColor.boxBlack,
                                                editComplete: {title,id in
-                                self.records = records.compactMap{
-                                    if $0.id != id { return $0 }
-                                    return .init(record: $0, editTitle: title)
-                                }
+                                updateTitle(title: title, id: id)
                             })
-                            .listRowBackground(AppColor.background)
+                                .listRowBackground(AppColor.background)
                         } else {
                             Button(action: {
                                 setSelectedState(selectRecord: record)
@@ -101,10 +98,7 @@ struct RecordListView: View {
                                 RecordListCardView(record: record,
                                                    backgroundColor: AppColor.boxGray,
                                                    editComplete: {title,id in
-                                    self.records = records.compactMap{
-                                        if $0.id != id { return $0 }
-                                        return .init(record: $0, editTitle: title)
-                                    }
+                                    updateTitle(title: title, id: id)
                                 })
                             }
                             .listRowBackground(AppColor.background)
@@ -136,6 +130,14 @@ struct RecordListView: View {
 }
 
 private extension RecordListView {
+    func updateTitle(title: String, id: UUID) {
+        self.records = records.compactMap{
+            if $0.id != id { return $0 }
+            return .init(record: $0, editTitle: title)
+        }
+        saveAction()
+    }
+
     // 対象のセルを選択状態にする
     func setSelectedState(selectRecord: RecordData) {
         self.records = records.compactMap{
@@ -156,10 +158,10 @@ struct RecordListView_Previews: PreviewProvider {
         RecordListView(saveAction: {},
                        isShowRecordList: .constant(false),
                        records: .constant(RecordData.sampleData))
-        .preferredColorScheme(.light)
+            .preferredColorScheme(.light)
         RecordListView(saveAction: {},
                        isShowRecordList: .constant(false),
                        records: .constant(RecordData.sampleData))
-        .preferredColorScheme(.dark)
+            .preferredColorScheme(.dark)
     }
 }
