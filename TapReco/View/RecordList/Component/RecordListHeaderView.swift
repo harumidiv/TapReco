@@ -11,8 +11,9 @@ struct RecordListHeaderView: View {
     @Binding var isShowRecordList: Bool
     @Binding var isShowSortView: Bool
     @Binding var records: [RecordData]
-
     @Binding var searchText: String
+    var closeAction: ()->Void
+
     var body: some View {
         VStack(spacing: 0) {
             HStack {
@@ -20,7 +21,7 @@ struct RecordListHeaderView: View {
                     .font(Font.system(size: 22, weight: .bold))
                 Spacer()
                 Button(action: {
-                    isShowRecordList = false
+                    closeAction()
                 }){
                     Image(systemName:"xmark")
                         .font(Font.system(size: 24, weight: .regular))
@@ -58,16 +59,18 @@ struct RecordListSectionHeadaerView_Previews: PreviewProvider {
     static var previews: some View {
         RecordListHeaderView(isShowRecordList: .constant(false),
                              isShowSortView: .constant(false),
-                                 records: .constant(RecordData.sampleData),
-                                 searchText: .constant(""))
-                .fixedSize(horizontal: false, vertical: true)
-                .preferredColorScheme(.light)
-                .background(.purple)
+                             records: .constant(RecordData.sampleData),
+                             searchText: .constant(""),
+                             closeAction: {})
+        .fixedSize(horizontal: false, vertical: true)
+        .preferredColorScheme(.light)
+        .background(.purple)
         RecordListHeaderView(isShowRecordList: .constant(false),
                              isShowSortView: .constant(false),
-                                 records: .constant(RecordData.sampleData),
-                                 searchText: .constant("hogehoge"))
-                .fixedSize(horizontal: false, vertical: true)
-                .preferredColorScheme(.dark)
+                             records: .constant(RecordData.sampleData),
+                             searchText: .constant("hogehoge"),
+                             closeAction: {})
+        .fixedSize(horizontal: false, vertical: true)
+        .preferredColorScheme(.dark)
     }
 }
