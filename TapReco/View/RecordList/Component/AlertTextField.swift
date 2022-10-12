@@ -8,14 +8,13 @@
 import UIKit
 import SwiftUI
 
-struct AlertControllerWithTextFieldContainer: UIViewControllerRepresentable {
-
-    @Binding var textFieldText: String
+struct AlertTextField: UIViewControllerRepresentable {
     @Binding var isPresented: Bool
 
     let title: String?
     let message: String?
     let placeholderText: String
+    let updateAction: (String)->Void
 
     func makeUIViewController(context: Context) -> UIViewController {
         return UIViewController()
@@ -36,7 +35,7 @@ struct AlertControllerWithTextFieldContainer: UIViewControllerRepresentable {
         let doneAction = UIAlertAction(title: "決定", style: .default) { _ in
             if let textField = alert.textFields?.first,
                let text = textField.text {
-                textFieldText = text
+                updateAction(text)
             }
         }
 

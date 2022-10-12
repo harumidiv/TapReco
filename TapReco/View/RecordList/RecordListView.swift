@@ -82,14 +82,16 @@ struct RecordListView: View {
                 List {
                     ForEach(displyList) { record in
                         if record.isSelected {
-                            RecordListCardView(record: record,backgroundColor: AppColor.boxBlack)
+                            RecordListCardView(record: record,
+                                               backgroundColor: AppColor.boxBlack)
                                 .listRowBackground(AppColor.background)
                         } else {
                             Button(action: {
                                 setSelectedState(selectRecord: record)
                                 audioPlayer.setup(fileName: playRecord.fileName)
                             }){
-                                RecordListCardView(record: record, backgroundColor: AppColor.boxGray)
+                                RecordListCardView(record: record,
+                                                   backgroundColor: AppColor.boxGray)
                             }
                             .listRowBackground(AppColor.background)
                         }
