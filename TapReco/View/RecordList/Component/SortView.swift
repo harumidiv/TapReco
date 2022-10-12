@@ -129,10 +129,10 @@ extension SortView {
         let color: Color
 
         if isLeftSelected {
-            color = isLeftButton ? AppColor.boxBlack : AppColor.textGray
+            color = isLeftButton ? AppColor.sortGray : AppColor.sortLightGray
 
         } else {
-            color = !isLeftButton ? AppColor.boxBlack : AppColor.textGray
+            color = !isLeftButton ? AppColor.sortGray : AppColor.sortLightGray
         }
 
         return text.foregroundColor(color)

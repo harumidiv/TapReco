@@ -29,4 +29,6 @@ final class AppColor {
     static let introBlack: Color = Color("intro_black")
     static let introLightGray: Color = Color("intro_light_gray")
     static let sortBackground: Color = Color("sort_background")
+    static let sortGray: Color = Color("sort_gray")
+    static let sortLightGray: Color = Color("sort_light_gray")
 }
