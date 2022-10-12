@@ -12,19 +12,20 @@ struct RecordListView: View {
     let saveAction: ()->Void
     @Binding var isShowRecordList: Bool
     @Binding var records: [RecordData]
-
+    
     // MARK: - Property
     @StateObject var audioPlayer: AudioPlayer = AudioPlayer()
+    @State private var isPlaying: Bool = false
     @State private var searchText: String = ""
     @State private var sortType: SortType = .dateNew
     @State private var isShowSortView: Bool = false
-
+    
     private var displyRecords: [RecordData] {
         func stringToInt(text: String) -> Int64 {
             let splitNumber = (text.components(separatedBy: NSCharacterSet.decimalDigits.inverted))
             return Int64(splitNumber.joined())!
         }
-
+        
         let sortRrcord: [RecordData]
         switch sortType {
         case .dateNew:
@@ -43,22 +44,22 @@ struct RecordListView: View {
             sortRrcord = records.sorted(by: { lRecord, rRecord -> Bool in
                 return stringToInt(text: lRecord.recordTime) < stringToInt(text: rRecord.recordTime)
             })
-
+            
         case .fileSizeLarge:
             sortRrcord = records.sorted(by: { lRecord, rRecord -> Bool in
                 return stringToInt(text: lRecord.fileSize) > stringToInt(text: rRecord.fileSize)
             })
-
+            
         case .fileSizeSmall:
             sortRrcord = records.sorted(by: { lRecord, rRecord -> Bool in
                 return stringToInt(text: lRecord.fileSize) < stringToInt(text: rRecord.fileSize)
             })
         }
-
+        
         if searchText.isEmpty { return sortRrcord }
         return sortRrcord.filter{ $0.title.contains(searchText)}
     }
-
+    
     var body: some View {
         ZStack {
             VStack(spacing: 0) {
@@ -67,8 +68,8 @@ struct RecordListView: View {
                                      displyRecords: displyRecords,
                                      searchText: $searchText) {
                     if records.contains(where: { $0.isSelected == true }) {
-                    resetSelectedState()
-                    audioPlayer.playStop()
+                        resetSelectedState()
+                        audioPlayer.playStop()
                     }
                     isShowRecordList = false
                 }
@@ -80,10 +81,11 @@ struct RecordListView: View {
                                                editComplete: {title,id in
                                 updateTitle(title: title, id: id)
                             })
-                                .listRowBackground(AppColor.background)
+                            .listRowBackground(AppColor.background)
                         } else {
                             Button(action: {
                                 setSelectedState(selectRecord: record)
+                                isPlaying = true
                                 audioPlayer.setup(fileName: record.fileName)
                             }){
                                 RecordListCardView(record: record,
@@ -101,18 +103,19 @@ struct RecordListView: View {
                 .listStyle(PlainListStyle())
             }
             .blur(radius: isShowSortView ? 2.0 : 0.0)
-
+            
             if records.contains(where: { $0.isSelected == true }) {
                 VStack(spacing: 0) {
                     Spacer()
                     RecordListPlayerView(saveAction: saveAction,
+                                         isPlaying: $isPlaying,
                                          records: $records,
                                          audioPlayer: audioPlayer)
                 }
                 .ignoresSafeArea(edges: [.top])
                 .blur(radius: isShowSortView ? 2.0 : 0.0)
             }
-
+            
             if isShowSortView {
                 SortView(isShowSortView: $isShowSortView, sortType: $sortType)
             }
@@ -129,7 +132,7 @@ private extension RecordListView {
         }
         saveAction()
     }
-
+    
     // 対象のセルを選択状態にする
     func setSelectedState(selectRecord: RecordData) {
         self.records = records.compactMap{
@@ -137,7 +140,7 @@ private extension RecordListView {
             return RecordData(record: $0, isSelected: isSelected)
         }
     }
-
+    
     func resetSelectedState()  {
         self.records = records.compactMap{
             return RecordData(record: $0, isSelected: false)
@@ -150,10 +153,10 @@ struct RecordListView_Previews: PreviewProvider {
         RecordListView(saveAction: {},
                        isShowRecordList: .constant(false),
                        records: .constant(RecordData.sampleData))
-            .preferredColorScheme(.light)
+        .preferredColorScheme(.light)
         RecordListView(saveAction: {},
                        isShowRecordList: .constant(false),
                        records: .constant(RecordData.sampleData))
-            .preferredColorScheme(.dark)
+        .preferredColorScheme(.dark)
     }
 }

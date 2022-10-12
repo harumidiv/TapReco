@@ -10,13 +10,14 @@ import SwiftUI
 struct RecordListPlayerView: View {
     // MARK: - Argument
     let saveAction: ()->Void
+    @Binding var isPlaying: Bool
     @Binding var records: [RecordData]
     @ObservedObject var audioPlayer: AudioPlayer
 
     // MARK: - Property
     @State private var currentValue: Double = 0
     @State private var isShowActivityView: Bool = false
-    @State private var isPlaying: Bool = true
+
     @State var isSliderChanged: Bool = false
 
     @Environment(\.scenePhase) private var scenePhase
@@ -132,6 +133,7 @@ struct RecordListPlayerView: View {
 struct RecordListPlayerView_Previews: PreviewProvider {
     static var previews: some View {
         RecordListPlayerView(saveAction: {},
+                             isPlaying: .constant(true),
                              records: .constant(RecordData.sampleData),
                              audioPlayer: AudioPlayer())
     }
