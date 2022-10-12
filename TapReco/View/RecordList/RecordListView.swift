@@ -97,6 +97,7 @@ struct RecordListView: View {
                     }
                     .listRowSeparator(.hidden)
                 }
+                .scrollContentBackground(.hidden)
                 .listStyle(PlainListStyle())
             }
             .blur(radius: isShowSortView ? 2.0 : 0.0)
