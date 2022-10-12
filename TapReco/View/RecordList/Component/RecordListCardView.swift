@@ -11,6 +11,8 @@ import SwiftUI
 struct RecordListCardView: View {
     var record: RecordData
     let backgroundColor: Color
+    @State private var isShowEditAlert: Bool = false
+    @State private var inputText: String = ""
     
     var body: some View {
         HStack(spacing: 0) {
@@ -32,7 +34,7 @@ struct RecordListCardView: View {
                     .foregroundColor(AppColor.textGray)
             }
             Button(action: {
-                // TODO 編集用のダイアログを開けるようにする共通のやつを使う　https://qiita.com/motokiohkubo/items/26a6cd23a301c61b1138
+                isShowEditAlert = true
             }) {
                 Image(systemName: "ellipsis")
                     .rotationEffect(.degrees(90))
@@ -44,7 +46,11 @@ struct RecordListCardView: View {
         .padding()
         .background(backgroundColor)
         .cornerRadius(8)
-
+        .alertWithTextField($inputText,
+                            isPresented: $isShowEditAlert,
+                            title: "タイトル編集",
+                            message: nil,
+                            placeholderText: record.title)
     }
 }
 
