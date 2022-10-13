@@ -2,6 +2,7 @@
 ## 概要
 録音したデータの再生および削除,編集を行う画面
 
+|項目名|画像|概要|
 |:--:|:--:|:--:|
 |ヘッダー|![header](https://user-images.githubusercontent.com/42649032/195525501-8d54cb39-2b72-40bf-966c-6f5332257cf8.png)|xボタンタップ時に[Stanby画面](Standby.md)に遷移する|
 |ファイル数|![file](https://user-images.githubusercontent.com/42649032/195525131-d64c2528-92a7-4bff-a841-6556ab5b6b09.png)|現在画面に表示されているファイル数を表示、検索で絞られている場合は絞られた数を表示|
