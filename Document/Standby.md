@@ -7,8 +7,6 @@
 |:--:|:--:|:--:|
 |![hasRecord](https://user-images.githubusercontent.com/42649032/195518077-658007a9-b505-469a-a913-eaa4a23cf1d2.png)|![noRecord](https://user-images.githubusercontent.com/42649032/195518087-0e0bb9ec-7522-4353-8f1e-bc0ff8110e35.png)|![snackbar](https://user-images.githubusercontent.com/42649032/195518090-1b16f5d6-32c0-49fa-aa82-8401718156cf.png)|
 
-
-
 ## 画面仕様
 表示要素
 
