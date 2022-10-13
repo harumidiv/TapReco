@@ -52,6 +52,7 @@ struct RecordListView: View {
                                 RecordListCardView(record: record,
                                                    backgroundColor: AppColor.boxGray,
                                                    editComplete: {title,id in
+                                    // TODO タイトルの更新が反映されない
                                     updateTitle(title: title, id: id)
                                 })
                             }
@@ -73,8 +74,13 @@ struct RecordListView: View {
                                          record: $displayRecords.filter{$0.isSelected.wrappedValue == true}.first!,
                                          audioPlayer: audioPlayer){record in
                         audioPlayer.playStop()
-                        let selectedIndex = records.firstIndex(where: { $0.id == record.id })!
+
+                        // 表示の更新を走らせるためにdisplayRecordsの値も書き換える必要がある
+                        let selectedDisplayIndex = displayRecords.firstIndex(where: { $0.id == record.id})!
+                        displayRecords.remove(at: selectedDisplayIndex)
+
                         // 大元のデータを削除してデータ更新をかける
+                        let selectedIndex = records.firstIndex(where: { $0.id == record.id })!
                         records.remove(at: selectedIndex)
                         saveAction()
                     }
