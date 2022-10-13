@@ -14,5 +14,5 @@
 
 |項目名|画像|概要|
 |:--:|:--:|:--:|
-|画面全体|![noRecord](https://user-images.githubusercontent.com/42649032/195518087-0e0bb9ec-7522-4353-8f1e-bc0ff8110e35.png)|画面タップ時に[Recording画面](Document/Recording.md)に遷移|
-|スライドボタン|![sliideUpButton](https://user-images.githubusercontent.com/42649032/195519568-cc644b81-22d0-4f34-8ea6-f519b73dc6f4.png)|スライドが末尾まで到達した状態で指を離した際に[RecordList画面](Document/RecordList.md)に遷移|
+|画面全体|![noRecord](https://user-images.githubusercontent.com/42649032/195518087-0e0bb9ec-7522-4353-8f1e-bc0ff8110e35.png)|画面タップ時に[Recording画面](Recording.md)に遷移|
+|スライドボタン|![sliideUpButton](https://user-images.githubusercontent.com/42649032/195519568-cc644b81-22d0-4f34-8ea6-f519b73dc6f4.png)|スライドが末尾まで到達した状態で指を離した際に[RecordList画面](RecordList.md)に遷移|
