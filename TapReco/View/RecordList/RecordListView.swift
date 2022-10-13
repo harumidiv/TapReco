@@ -34,35 +34,43 @@ struct RecordListView: View {
                     }
                     isShowRecordList = false
                 }
-                List {
-                    ForEach(displayRecords) { record in
-                        if record.isSelected {
-                            RecordListCardView(record: record,
-                                               backgroundColor: AppColor.boxBlack,
-                                               editComplete: {title,id in
-                                updateTitle(title: title, id: id)
-                            })
-                            .listRowBackground(AppColor.background)
-                        } else {
-                            Button(action: {
-                                setSelectedState(selectRecord: record)
-                                isPlaying = true
-                                audioPlayer.setup(fileName: record.fileName)
-                            }){
+                if records.isEmpty {
+                    Text("録音されたデータがありません")
+                        .font(.headline)
+                        .foregroundColor(AppColor.textGray)
+                        .padding()
+                    Spacer()
+                } else {
+                    List {
+                        ForEach(displayRecords) { record in
+                            if record.isSelected {
                                 RecordListCardView(record: record,
-                                                   backgroundColor: AppColor.boxGray,
+                                                   backgroundColor: AppColor.boxBlack,
                                                    editComplete: {title,id in
-                                    // TODO タイトルの更新が反映されない
                                     updateTitle(title: title, id: id)
                                 })
+                                .listRowBackground(AppColor.background)
+                            } else {
+                                Button(action: {
+                                    setSelectedState(selectRecord: record)
+                                    isPlaying = true
+                                    audioPlayer.setup(fileName: record.fileName)
+                                }){
+                                    RecordListCardView(record: record,
+                                                       backgroundColor: AppColor.boxGray,
+                                                       editComplete: {title,id in
+                                        // TODO タイトルの更新が反映されない
+                                        updateTitle(title: title, id: id)
+                                    })
+                                }
+                                .listRowBackground(AppColor.background)
                             }
-                            .listRowBackground(AppColor.background)
                         }
+                        .listRowSeparator(.hidden)
                     }
-                    .listRowSeparator(.hidden)
+                    .scrollContentBackground(.hidden)
+                    .listStyle(PlainListStyle())
                 }
-                .scrollContentBackground(.hidden)
-                .listStyle(PlainListStyle())
             }
             .blur(radius: isShowSortView ? 2.0 : 0.0)
             
