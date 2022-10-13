@@ -2,6 +2,14 @@
 ## 概要
 録音したデータの再生および削除,編集を行う画面
 
+## 画面構成
+|停止中|再生中|ソート中|
+|:--:|:--:|:--:|
+|![stop](https://user-images.githubusercontent.com/42649032/195528673-b86ccd8a-8eaf-47eb-ab24-331d3826b878.png)|![play](https://user-images.githubusercontent.com/42649032/195528685-dcea333f-a5cb-4477-bd38-e12cfa1fda45.png)|![sort](https://user-images.githubusercontent.com/42649032/195528692-26072854-0b76-4d3f-9f74-85693e095a9d.png)|
+
+
+## 画面仕様
+
 |項目名|画像|概要|
 |:--:|:--:|:--:|
 |ヘッダー|![header](https://user-images.githubusercontent.com/42649032/195525501-8d54cb39-2b72-40bf-966c-6f5332257cf8.png)|xボタンタップ時に[Stanby画面](Standby.md)に遷移する|
