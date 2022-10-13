@@ -33,7 +33,7 @@ struct RecordingView: View {
                 SlideSideActionView(isRecording: $isRecording,
                                     isShowSuccessSnackBar: $isShowSuccessSnackBar,
                                     timerHolder: timerHolder)
-                .frame(width: 300, height: 58)
+                .frame(width: 280, height: 58)
                 .padding(.top, 137)
             }
         }
