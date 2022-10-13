@@ -142,6 +142,11 @@ private extension RecordListView {
     }
 
     func updateTitle(title: String, id: UUID) {
+        self.displayRecords = displayRecords.compactMap{
+            if $0.id != id { return $0 }
+            return .init(record: $0, editTitle: title)
+        }
+
         self.records = records.compactMap{
             if $0.id != id { return $0 }
             return .init(record: $0, editTitle: title)
