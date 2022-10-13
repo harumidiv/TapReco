@@ -18,7 +18,7 @@ struct RecordListCardView: View {
     var body: some View {
         ZStack {
             HStack(spacing: 0) {
-                VStack(alignment: .leading){
+                VStack(alignment: .leading, spacing: 2){
                     Text(record.title)
                         .font(Font.system(size: 16, weight: .semibold))
                         .foregroundColor(AppColor.textLightGray)
@@ -27,7 +27,7 @@ struct RecordListCardView: View {
                         .foregroundColor(AppColor.textGray)
                 }
                 Spacer()
-                VStack(alignment: .trailing){
+                VStack(alignment: .trailing, spacing: 2){
                     Text(record.recordTime)
                         .font(Font.system(size: 15, weight: .medium))
                         .foregroundColor(AppColor.textLightGray)

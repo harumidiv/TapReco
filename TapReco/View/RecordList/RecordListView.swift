@@ -50,6 +50,10 @@ struct RecordListView: View {
                                     updateTitle(title: title, id: id)
                                 })
                                 .listRowBackground(AppColor.background)
+                                .listRowInsets(EdgeInsets(top: 5,
+                                                          leading: 16,
+                                                          bottom: 5,
+                                                          trailing: 16))
                             } else {
                                 Button(action: {
                                     setSelectedState(selectRecord: record)
@@ -59,17 +63,20 @@ struct RecordListView: View {
                                     RecordListCardView(record: record,
                                                        backgroundColor: AppColor.boxGray,
                                                        editComplete: {title,id in
-                                        // TODO タイトルの更新が反映されない
                                         updateTitle(title: title, id: id)
                                     })
                                 }
                                 .listRowBackground(AppColor.background)
+                                .listRowInsets(EdgeInsets(top: 5,
+                                                          leading: 16,
+                                                          bottom: 5,
+                                                          trailing: 16))
                             }
                         }
                         .listRowSeparator(.hidden)
                     }
                     .scrollContentBackground(.hidden)
-                    .listStyle(PlainListStyle())
+                    .listStyle(.plain)
                 }
             }
             .blur(radius: isShowSortView ? 2.0 : 0.0)

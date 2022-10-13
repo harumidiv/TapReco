@@ -32,7 +32,7 @@ final class SlideToUPUnlockView: UIView {
 
         let label = UILabel()
         label.textColor = UIColor(named: "text_light_gray")
-        label.font = UIFont.systemFont(ofSize: 13, weight: .bold)
+        label.font = UIFont.systemFont(ofSize: 16, weight: .bold)
         label.text = "録音履歴を確認"
 
         baseView.addSubview(label)
