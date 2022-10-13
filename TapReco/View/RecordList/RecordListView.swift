@@ -94,6 +94,9 @@ struct RecordListView: View {
             }
         }
         .background(AppColor.background)
+        .onChange(of: sortType) {_ in
+            displayRecords = getDisplayRecord()
+        }
         .onAppear{
             displayRecords = getDisplayRecord()
         }
