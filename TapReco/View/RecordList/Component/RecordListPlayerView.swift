@@ -11,8 +11,9 @@ struct RecordListPlayerView: View {
     // MARK: - Argument
     let saveAction: ()->Void
     @Binding var isPlaying: Bool
-    @Binding var records: [RecordData]
+    @Binding var record: RecordData
     @ObservedObject var audioPlayer: AudioPlayer
+    let deleteAction: (RecordData)->Void
 
     // MARK: - Property
     @State private var currentValue: Double = 0
@@ -21,14 +22,6 @@ struct RecordListPlayerView: View {
     @State var isSliderChanged: Bool = false
 
     @Environment(\.scenePhase) private var scenePhase
-
-    private var selectedIndex: Int {
-        records.firstIndex(where: { $0.isSelected })!
-    }
-
-    private var playRecord: RecordData {
-        records[selectedIndex]
-    }
 
     var body: some View {
         VStack {
@@ -76,7 +69,7 @@ struct RecordListPlayerView: View {
                         isPlaying = false
                     }
                     .sheet(isPresented: $isShowActivityView) {
-                        let recordFileURL: URL = audioPlayer.getURL(fileName: playRecord.fileName)
+                        let recordFileURL: URL = audioPlayer.getURL(fileName: record.fileName)
                         ActivityViewController(activityItems: [recordFileURL])
                     }
                 Spacer()
@@ -105,9 +98,7 @@ struct RecordListPlayerView: View {
                     .font(Font.system(size: 24, weight: .regular))
                     .foregroundColor(AppColor.iconLightGray)
                     .onTapGesture {
-                        audioPlayer.playStop()
-                        records.remove(at: selectedIndex)
-                        saveAction()
+                        deleteAction(record)
                     }
             }
             .padding(.horizontal, 30)
@@ -134,7 +125,7 @@ struct RecordListPlayerView_Previews: PreviewProvider {
     static var previews: some View {
         RecordListPlayerView(saveAction: {},
                              isPlaying: .constant(true),
-                             records: .constant(RecordData.sampleData),
-                             audioPlayer: AudioPlayer())
+                             record: .constant(RecordData.sampleData[0]),
+                             audioPlayer: AudioPlayer(), deleteAction: {_ in })
     }
 }
