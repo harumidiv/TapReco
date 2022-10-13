@@ -10,7 +10,7 @@
 ## デザイン
 https://www.figma.com/file/uH3WwOej6w6GB2bMBQJ2tD/test?node-id=1123%3A2033
 ## 画面
-[Intro画面](Document/Intro.md
-[Stanby画面](Document/Standby.md)
-[Recording画面](Document/Recording.md)
+[Intro画面](Document/Intro.md)<br>
+[Stanby画面](Document/Standby.md)<br>
+[Recording画面](Document/Recording.md)<br>
 [RecordList画面](Document/RecordList.md)
