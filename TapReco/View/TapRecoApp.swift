@@ -43,6 +43,7 @@ struct TapRecoApp: App {
             case .active:
                 // アプリ起動時のマイク使用許可のダイアログ表示
                 AVCaptureDevice.requestAccess(for: AVMediaType.audio, completionHandler: {(granted: Bool) in})
+                LocationManager.shared.requestPermission()
             case .inactive, .background:
                 store.records = store.records.compactMap{ .init(record: $0, isSelected: false)}
 
