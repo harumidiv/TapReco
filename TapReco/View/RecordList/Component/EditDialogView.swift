@@ -22,19 +22,27 @@ struct EditDialogView: View {
             Rectangle()
                 .foregroundColor(.black)
                 .opacity(0.2)
-            VStack {
+            VStack(spacing: 0) {
                 Text("タイトル編集")
                     .font(Font.system(size: 16, weight: .bold))
                     .padding()
                 TextField(placeholderText, text: $editText)
                     .background(AppColor.sortBackground)
                     .padding(.horizontal)
+                    .padding(.bottom)
 
-                HStack {
+                Rectangle()
+                    .frame(width: 300, height: 1)
+                    .foregroundColor(AppColor.sortLightGray)
+                HStack(spacing: 0) {
                     Button("キャンセル"){
                         updateAction(.cancel)
                     }
-                    .frame(width: 150)
+                    .frame(width: 150, height: 50)
+
+                    Rectangle()
+                        .frame(width: 1, height: 50)
+                        .foregroundColor(AppColor.sortLightGray)
                     Button("決定"){
                         if editText.isEmpty {
                             updateAction(.cancel)
@@ -42,9 +50,8 @@ struct EditDialogView: View {
                             updateAction(.done(title: editText))
                         }
                     }
-                    .frame(width: 150)
+                    .frame(width: 150, height: 50)
                 }
-                .padding()
             }
             .background(AppColor.background)
             .frame(width: 300)
