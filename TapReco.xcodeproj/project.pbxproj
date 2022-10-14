@@ -42,6 +42,8 @@
 		49940DD728EFF0C200A5E66D /* StandbyTapableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49940DD628EFF0C200A5E66D /* StandbyTapableView.swift */; };
 		4999777D28F8E9D6009226DE /* EditDialogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4999777C28F8E9D6009226DE /* EditDialogView.swift */; };
 		499A48FA28F91D9400BE9C36 /* EditBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499A48F928F91D9400BE9C36 /* EditBarView.swift */; };
+		499A48FC28F930A600BE9C36 /* ErrorWapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499A48FB28F930A600BE9C36 /* ErrorWapper.swift */; };
+		499A48FE28F930C500BE9C36 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499A48FD28F930C500BE9C36 /* ErrorView.swift */; };
 		49BEE51F26EDDF460002C43B /* TimerHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BEE51E26EDDF460002C43B /* TimerHolder.swift */; };
 		49C0D12526E8DE6E00B3666E /* WaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C0D12426E8DE6E00B3666E /* WaveView.swift */; };
 		49C0D12C26E9033900B3666E /* SlideSideActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C0D12B26E9033900B3666E /* SlideSideActionView.swift */; };
@@ -111,6 +113,8 @@
 		49940DD628EFF0C200A5E66D /* StandbyTapableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandbyTapableView.swift; sourceTree = "<group>"; };
 		4999777C28F8E9D6009226DE /* EditDialogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDialogView.swift; sourceTree = "<group>"; };
 		499A48F928F91D9400BE9C36 /* EditBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditBarView.swift; sourceTree = "<group>"; };
+		499A48FB28F930A600BE9C36 /* ErrorWapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorWapper.swift; sourceTree = "<group>"; };
+		499A48FD28F930C500BE9C36 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		49BEE51E26EDDF460002C43B /* TimerHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerHolder.swift; sourceTree = "<group>"; };
 		49C0D12426E8DE6E00B3666E /* WaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveView.swift; sourceTree = "<group>"; };
 		49C0D12B26E9033900B3666E /* SlideSideActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideSideActionView.swift; sourceTree = "<group>"; };
@@ -259,6 +263,7 @@
 			children = (
 				4925089A26DCF7D3005169AE /* TapRecoApp.swift */,
 				4925089C26DCF7D3005169AE /* RootView.swift */,
+				499A48FD28F930C500BE9C36 /* ErrorView.swift */,
 				494F57F528F1BC8300B2C79E /* Intro */,
 				49C0D13326EA331E00B3666E /* Standby */,
 				491DE9DB2758B8460084985B /* RecordList */,
@@ -365,6 +370,7 @@
 			children = (
 				49488CF128EECF3E0015CDFC /* RecordingData.swift */,
 				49488CEF28EECDF10015CDFC /* RecordStore.swift */,
+				499A48FB28F930A600BE9C36 /* ErrorWapper.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -525,6 +531,8 @@
 				494F580028F25ECA00B2C79E /* ActivityViewController.swift in Sources */,
 				49940DD528EFEA9500A5E66D /* StandbyBackgroundView.swift in Sources */,
 				494F57FE28F20BCC00B2C79E /* RecordListPlayerView.swift in Sources */,
+				499A48FC28F930A600BE9C36 /* ErrorWapper.swift in Sources */,
+				499A48FE28F930C500BE9C36 /* ErrorView.swift in Sources */,
 				49856ECE26E474B80015C12E /* AudioPlayer.swift in Sources */,
 				494F57FA28F1BFB200B2C79E /* IntroDetailView.swift in Sources */,
 				49488CF228EECF3E0015CDFC /* RecordingData.swift in Sources */,
