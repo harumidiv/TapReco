@@ -11,17 +11,25 @@ struct EditBarView: View {
     let placeHolderText: String
     @Binding var text: String
 
+    @FocusState private var selectState: Bool
+
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 8)
                 .fill(AppColor.sortBackground)
                 .frame(height: 36)
-            HStack(spacing: 10) {
-                Spacer()
-                    .frame(width: 0)
-                TextField(placeHolderText, text: $text)
-                    .foregroundColor(AppColor.textLightGray)
+            VStack {
+                HStack(spacing: 10) {
+                    Spacer()
+                        .frame(width: 0)
+                    TextField(placeHolderText, text: $text)
+                        .focused($selectState)
+                        .foregroundColor(AppColor.textLightGray)
+                }
             }
+        }
+        .onAppear{
+            selectState = true
         }
     }
 }
