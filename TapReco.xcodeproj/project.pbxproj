@@ -49,7 +49,6 @@
 		49C0D13226EA31C900B3666E /* StandbyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C0D13126EA31C900B3666E /* StandbyView.swift */; };
 		49C53B272760D10E0062E6B3 /* RecordListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C53B262760D10E0062E6B3 /* RecordListHeaderView.swift */; };
 		49D270EE28F433BC00AE503C /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D270ED28F433BC00AE503C /* SearchBarView.swift */; };
-		49F1032528F6701300D7BBA5 /* AlertTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F1032428F6701300D7BBA5 /* AlertTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,7 +117,6 @@
 		49C0D13126EA31C900B3666E /* StandbyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandbyView.swift; sourceTree = "<group>"; };
 		49C53B262760D10E0062E6B3 /* RecordListHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordListHeaderView.swift; sourceTree = "<group>"; };
 		49D270ED28F433BC00AE503C /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
-		49F1032428F6701300D7BBA5 /* AlertTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -354,7 +352,6 @@
 				49D270ED28F433BC00AE503C /* SearchBarView.swift */,
 				492DC57A28F4E33E00E7D3FB /* SortView.swift */,
 				492DC57C28F4E79D00E7D3FB /* SelectView.swift */,
-				49F1032428F6701300D7BBA5 /* AlertTextField.swift */,
 				4999777C28F8E9D6009226DE /* EditDialogView.swift */,
 			);
 			path = Component;
@@ -530,7 +527,6 @@
 				49488CF228EECF3E0015CDFC /* RecordingData.swift in Sources */,
 				49C53B272760D10E0062E6B3 /* RecordListHeaderView.swift in Sources */,
 				494F57FC28F2084C00B2C79E /* UserStrage.swift in Sources */,
-				49F1032528F6701300D7BBA5 /* AlertTextField.swift in Sources */,
 				4954D3B028F68F5E00F4128F /* MicrophoneVolumeLeftView.swift in Sources */,
 				491DE9DE2758B8640084985B /* RecordListView.swift in Sources */,
 				49C0D13026EA317500B3666E /* RecordingView.swift in Sources */,
