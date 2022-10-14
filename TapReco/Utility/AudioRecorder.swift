@@ -55,7 +55,7 @@ extension AudioRecorderImpl: AudioRecoder {
         let fileSize: String = getFileSize(filePath: filePath)
         let playbackTime: String = getPlaybackTime(filePath: filePath)
         let recordingDate: String = currentRecordingTitle!.components(separatedBy: "+").first!
-        let title: String = "新規録音"
+        let title: String = getTitle()
         return RecordData(title: title,
                           recordDate: recordingDate,
                           fileName: currentRecordingTitle ?? "",
@@ -67,6 +67,13 @@ extension AudioRecorderImpl: AudioRecoder {
 
 // MARK: - Private Method
 private extension AudioRecorderImpl {
+    func getTitle() -> String {
+        guard let address = LocationManager.shared.address else {
+            return "新規作成"
+        }
+        return address
+    }
+
     func getFileSize(filePath: String) -> String {
         let fileAttributes = try! FileManager.default.attributesOfItem(atPath: filePath)
 

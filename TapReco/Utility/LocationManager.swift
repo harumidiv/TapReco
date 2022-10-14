@@ -9,8 +9,8 @@ import CoreLocation
 
 final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     @Published var authorizationStatus: CLAuthorizationStatus
-    @Published var lastSeenLocation: CLLocation?
-    var location: CLLocation?
+    let geocoder = CLGeocoder()
+    var address: String?
 
     static let shared = LocationManager()
 
@@ -37,7 +37,21 @@ final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelega
     }
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        location = locations.first
-        lastSeenLocation = locations.first
+        if let location = locations.first {
+            self.geocoder.reverseGeocodeLocation( location, completionHandler: { ( placemarks, error ) in
+                if let placemark = placemarks?.first {
+                    //住所の取得
+                    let administrativeArea = placemark.administrativeArea == nil ? "" : placemark.administrativeArea!
+                    let locality = placemark.locality == nil ? "" : placemark.locality!
+                    let subLocality = placemark.subLocality == nil ? "" : placemark.subLocality!
+                    let thoroughfare = placemark.thoroughfare == nil ? "" : placemark.thoroughfare!
+                    let subThoroughfare = placemark.subThoroughfare == nil ? "" : placemark.subThoroughfare!
+                    let placeName = !thoroughfare.contains( subLocality ) ? subLocality : thoroughfare
+                    self.address = administrativeArea + locality + placeName + subThoroughfare
+                    print("address: \(self.address)")
+                }
+            } )
+        }
+
     }
 }
