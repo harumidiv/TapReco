@@ -26,8 +26,9 @@ struct EditDialogView: View {
                 Text("タイトル編集")
                     .font(Font.system(size: 16, weight: .bold))
                     .padding()
-                TextField(placeholderText, text: $editText)
-                    .background(AppColor.sortBackground)
+
+                EditBarView(placeHolderText: placeholderText,
+                            text: $editText)
                     .padding(.horizontal)
                     .padding(.bottom)
 
