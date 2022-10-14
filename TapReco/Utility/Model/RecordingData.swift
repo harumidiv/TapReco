@@ -15,8 +15,9 @@ struct RecordData: Identifiable, Codable {
     let fileSize: String
     let recordTime: String
     var isSelected: Bool
+    var isEditing: Bool
 
-    init(title: String, recordDate: String, fileName: String, fileSize: String, recordTime: String, isSelected: Bool = false) {
+    init(title: String, recordDate: String, fileName: String, fileSize: String, recordTime: String, isSelected: Bool = false, isEditing:Bool = false) {
         id = UUID()
         self.title = title
         self.recordDate = recordDate
@@ -24,6 +25,7 @@ struct RecordData: Identifiable, Codable {
         self.fileSize = fileSize
         self.recordTime = recordTime
         self.isSelected = isSelected
+        self.isEditing = isEditing
     }
 
 
@@ -39,8 +41,24 @@ struct RecordData: Identifiable, Codable {
         fileSize = record.fileSize
         recordTime = record.recordTime
         self.isSelected = isSelected
+        isEditing = record.isEditing
     }
 
+
+    /// 編集中の状態に切り替えるためのInitializer
+    /// - Parameters:
+    ///   - record: 既存のRecordData
+    ///   - isEditing: 編集状態
+    init(record: RecordData, isEditing: Bool) {
+        id = record.id
+        title = record.title
+        recordDate = record.recordDate
+        fileName = record.fileName
+        fileSize = record.fileSize
+        recordTime = record.recordTime
+        isSelected = record.isSelected
+        self.isEditing = isEditing
+    }
 
     ///  タイトルを編集するためのinitializer
     /// - Parameters:
@@ -53,7 +71,8 @@ struct RecordData: Identifiable, Codable {
         fileName = record.fileName
         fileSize = record.fileSize
         recordTime = record.recordTime
-        self.isSelected = record.isSelected
+        isSelected = record.isSelected
+        isEditing = false // 編集完了時必ずfalse状態に戻す
     }
 }
 
@@ -61,8 +80,8 @@ struct RecordData: Identifiable, Codable {
 extension RecordData {
     static let sampleData: [RecordData] =
     [
-    RecordData(title: "新規録音", recordDate:  "2022.10.07_14:54", fileName: "マイ録音", fileSize: "3.5MB", recordTime: "3:15"),
-    RecordData(title: "新規録音", recordDate:  "2022.10.07_14:54", fileName: "マイ録音", fileSize: "3.5MB", recordTime: "3:15"),
-    RecordData(title: "新規録音", recordDate:  "2022.10.07_14:54", fileName: "マイ録音", fileSize: "3.5MB", recordTime: "3:15")
+        RecordData(title: "新規録音", recordDate:  "2022.10.07_14:54", fileName: "マイ録音", fileSize: "3.5MB", recordTime: "3:15"),
+        RecordData(title: "新規録音", recordDate:  "2022.10.07_14:54", fileName: "マイ録音", fileSize: "3.5MB", recordTime: "3:15"),
+        RecordData(title: "新規録音", recordDate:  "2022.10.07_14:54", fileName: "マイ録音", fileSize: "3.5MB", recordTime: "3:15")
     ]
 }

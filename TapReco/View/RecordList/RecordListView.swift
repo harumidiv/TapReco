@@ -15,9 +15,9 @@ struct RecordListView: View {
     
     // MARK: - Property
     @StateObject var audioPlayer: AudioPlayer = AudioPlayer()
-    @State private var isPlaying: Bool = false
     @State private var searchText: String = ""
     @State private var sortType: SortType = .dateNew
+    @State private var isPlaying: Bool = false
     @State private var isShowSortView: Bool = false
 
     @State private var displayRecords: [RecordData] = []
@@ -46,8 +46,8 @@ struct RecordListView: View {
                             if record.isSelected {
                                 RecordListCardView(record: record,
                                                    backgroundColor: AppColor.boxBlack,
-                                                   editComplete: {title,id in
-                                    updateTitle(title: title, id: id)
+                                                   editAction: {id in
+                                    setEditState(id: id)
                                 })
                                 .listRowBackground(AppColor.background)
                                 .listRowInsets(EdgeInsets(top: 5,
@@ -62,8 +62,8 @@ struct RecordListView: View {
                                 }){
                                     RecordListCardView(record: record,
                                                        backgroundColor: AppColor.boxGray,
-                                                       editComplete: {title,id in
-                                        updateTitle(title: title, id: id)
+                                                       editAction: {id in
+                                        setEditState(id: id)
                                     })
                                 }
                                 .listRowBackground(AppColor.background)
@@ -80,7 +80,8 @@ struct RecordListView: View {
                 }
             }
             .blur(radius: isShowSortView ? 2.0 : 0.0)
-            
+
+            // PlayerViewの表示
             if displayRecords.contains(where: { $0.isSelected == true }) {
                 VStack(spacing: 0) {
                     Spacer()
@@ -103,9 +104,24 @@ struct RecordListView: View {
                 .ignoresSafeArea(edges: [.top])
                 .blur(radius: isShowSortView ? 2.0 : 0.0)
             }
-            
+
+            // SortViewの表示
             if isShowSortView {
                 SortView(isShowSortView: $isShowSortView, sortType: $sortType)
+            }
+
+            // EditViewの表示
+            if let editRecord: RecordData = displayRecords.filter{ $0.isEditing}.first {
+                EditDialogView(placeholderText: editRecord.title) {state in
+
+                    switch state {
+                    case .cancel:
+                        updateTitle(title: editRecord.title, id: editRecord.id)
+                    case .done(title: let title):
+                        updateTitle(title: title, id: editRecord.id)
+                    }
+
+                }
             }
         }
         .background(AppColor.background)
@@ -177,6 +193,14 @@ private extension RecordListView {
         self.displayRecords = displayRecords.compactMap{
             let isSelected = $0.id == selectRecord.id
             return RecordData(record: $0, isSelected: isSelected)
+        }
+    }
+
+    // 対象のセルを編集状態にする
+    func setEditState(id: UUID) {
+        self.displayRecords = displayRecords.compactMap{
+            let isEdit = $0.id == id
+            return RecordData(record: $0, isEditing: isEdit)
         }
     }
 }

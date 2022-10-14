@@ -11,29 +11,27 @@ struct SearchBarView: View {
     @Binding var text: String
 
     var body: some View {
-        VStack {
-            ZStack {
-                RoundedRectangle(cornerRadius: 8)
-                    .fill(AppColor.searchBackground)
-                    .frame(height: 36)
-                HStack(spacing: 6) {
-                    Spacer()
-                        .frame(width: 0)
-                    Image(systemName: "magnifyingglass")
-                        .foregroundColor(.gray)
-                    TextField("検索", text: $text)
-                        .foregroundColor(AppColor.textLightGray)
+        ZStack {
+            RoundedRectangle(cornerRadius: 8)
+                .fill(AppColor.searchBackground)
+                .frame(height: 36)
+            HStack(spacing: 6) {
+                Spacer()
+                    .frame(width: 0)
+                Image(systemName: "magnifyingglass")
+                    .foregroundColor(.gray)
+                TextField("検索", text: $text)
+                    .foregroundColor(AppColor.textLightGray)
 
-                    // 検索文字が空ではない場合は、クリアボタンを表示
-                    if !text.isEmpty {
-                        Button {
-                            text.removeAll()
-                        } label: {
-                            Image(systemName: "xmark.circle.fill")
-                                .foregroundColor(.gray)
-                        }
-                        .padding(.trailing, 6)
+                // 検索文字が空ではない場合は、クリアボタンを表示
+                if !text.isEmpty {
+                    Button {
+                        text.removeAll()
+                    } label: {
+                        Image(systemName: "xmark.circle.fill")
+                            .foregroundColor(.gray)
                     }
+                    .padding(.trailing, 6)
                 }
             }
         }

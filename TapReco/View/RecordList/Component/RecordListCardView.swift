@@ -11,9 +11,7 @@ import SwiftUI
 struct RecordListCardView: View {
     var record: RecordData
     let backgroundColor: Color
-
-    let editComplete: (_ title: String, _ id: UUID)->Void
-    @State private var isShowEditAlert: Bool = false
+    let editAction: (_ id: UUID)->Void
     
     var body: some View {
         ZStack {
@@ -36,7 +34,7 @@ struct RecordListCardView: View {
                         .foregroundColor(AppColor.textGray)
                 }
                 Button(action: {
-                    isShowEditAlert = true
+                    editAction(record.id)
                 }) {
                     Image(systemName: "ellipsis")
                         .rotationEffect(.degrees(90))
@@ -48,16 +46,6 @@ struct RecordListCardView: View {
             .padding()
             .background(backgroundColor)
             .cornerRadius(8)
-
-            if isShowEditAlert {
-                AlertTextField( isPresented: $isShowEditAlert,
-                                title: "タイトル編集",
-                                message: nil,
-                                placeholderText: record.title,
-                                updateAction: {text in
-                    editComplete(text, record.id)
-                })
-            }
         }
     }
 }
@@ -67,11 +55,11 @@ struct RecordListCardView_Previews: PreviewProvider {
         VStack {
             RecordListCardView(record: RecordData.sampleData[0],
                                backgroundColor: AppColor.boxGray,
-                               editComplete: {title,id in })
+                               editAction: {id in})
             .fixedSize(horizontal: false, vertical: true)
             RecordListCardView(record: RecordData.sampleData[0],
                                backgroundColor: AppColor.boxBlack,
-                               editComplete: {title,id in })
+                               editAction: {id in})
             .fixedSize(horizontal: false, vertical: true)
         }
         .padding()
@@ -79,10 +67,12 @@ struct RecordListCardView_Previews: PreviewProvider {
 
         VStack {
             RecordListCardView(record: RecordData.sampleData[0],
-                               backgroundColor: AppColor.boxGray, editComplete: {title,id in })
+                               backgroundColor: AppColor.boxGray,
+                               editAction: {id in})
             .fixedSize(horizontal: false, vertical: true)
             RecordListCardView(record: RecordData.sampleData[0],
-                               backgroundColor: AppColor.boxBlack, editComplete: {title,id in })
+                               backgroundColor: AppColor.boxBlack,
+                               editAction: {id in})
             .fixedSize(horizontal: false, vertical: true)
         }
         .padding()
