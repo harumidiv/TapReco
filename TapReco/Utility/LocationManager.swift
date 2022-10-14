@@ -48,7 +48,6 @@ final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelega
                     let subThoroughfare = placemark.subThoroughfare == nil ? "" : placemark.subThoroughfare!
                     let placeName = !thoroughfare.contains( subLocality ) ? subLocality : thoroughfare
                     self.address = administrativeArea + locality + placeName + subThoroughfare
-                    print("address: \(self.address)")
                 }
             } )
         }
