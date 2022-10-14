@@ -66,7 +66,6 @@ final class MicrophoneLebelManager: ObservableObject {
         // Finish observation
         
         // 高速で録音開始->ストップを行うといかがnilでクラッシュしてしまうので弾く
-        // TODO ここで弾くとそれ移行HapticFeedBackが機能しなくなってしまうので調査
         if recordingTimer == nil || queue == nil {
             return
         }

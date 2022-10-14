@@ -12,6 +12,7 @@ import AVFoundation
 struct TapRecoApp: App {
     @Environment(\.scenePhase) private var scenePhase
     @StateObject private var store = RecordStore()
+    @State private var errorWrapper: ErrorWrapper?
     
     var body: some Scene {
         WindowGroup {
@@ -20,7 +21,7 @@ struct TapRecoApp: App {
                     do {
                         try await RecordStore.save(records: store.records)
                     } catch {
-                        fatalError("TODO Error対応")
+                        errorWrapper = ErrorWrapper(error: error, guidance: "録音データの保存に失敗しました")
                     }
                 }
             }
@@ -28,8 +29,13 @@ struct TapRecoApp: App {
                 do {
                     store.records = try await RecordStore.load()
                 } catch {
-                    fatalError("TODO Error対応")
+                    errorWrapper = ErrorWrapper(error: error, guidance: "録音データの読み込みに失敗しました")
                 }
+            }
+            .sheet(item: $errorWrapper, onDismiss: {
+                // NOP
+            }) { wrapper in
+                ErrorView(errorWrapper: wrapper)
             }
         }
         .onChange(of: scenePhase) { scene in
@@ -45,4 +51,3 @@ struct TapRecoApp: App {
         }
     }
 }
-
