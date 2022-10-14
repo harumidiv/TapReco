@@ -8,11 +8,15 @@
 import SwiftUI
 
 struct EditDialogView: View {
-    @Binding var isShowEditAlert: Bool
-    let placeholderText: String
-    var updateAction: ()->Void
+    enum CompleteState {
+        case cancel
+        case done(title: String)
+    }
 
+    let placeholderText: String
+    var updateAction: (_ state: CompleteState)->Void
     @State private var editText: String = ""
+
     var body: some View {
         ZStack {
             Rectangle()
@@ -28,15 +32,14 @@ struct EditDialogView: View {
 
                 HStack {
                     Button("キャンセル"){
-                        isShowEditAlert.toggle()
+                        updateAction(.cancel)
                     }
                     .frame(width: 150)
                     Button("決定"){
                         if editText.isEmpty {
-                            isShowEditAlert.toggle()
+                            updateAction(.cancel)
                         } else {
-                            updateAction()
-                            isShowEditAlert.toggle()
+                            updateAction(.done(title: editText))
                         }
                     }
                     .frame(width: 150)
@@ -53,7 +56,7 @@ struct EditDialogView: View {
 
 struct EditDialogView_Previews: PreviewProvider {
     static var previews: some View {
-        EditDialogView(isShowEditAlert: .constant(true),
-                       placeholderText: "プレースホルダー"){}
+        EditDialogView(placeholderText: "プレースホルダー"){state in}
+
     }
 }

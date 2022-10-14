@@ -11,8 +11,8 @@ import SwiftUI
 struct RecordListCardView: View {
     var record: RecordData
     let backgroundColor: Color
+    let editAction: (_ id: UUID)->Void
 
-    let editComplete: (_ title: String, _ id: UUID)->Void
     @State private var isShowEditAlert: Bool = false
     
     var body: some View {
@@ -36,7 +36,7 @@ struct RecordListCardView: View {
                         .foregroundColor(AppColor.textGray)
                 }
                 Button(action: {
-                    isShowEditAlert = true
+                    editAction(record.id)
                 }) {
                     Image(systemName: "ellipsis")
                         .rotationEffect(.degrees(90))
@@ -50,42 +50,42 @@ struct RecordListCardView: View {
             .cornerRadius(8)
 
             if isShowEditAlert {
-                AlertTextField( isPresented: $isShowEditAlert,
-                                title: "タイトル編集",
-                                message: nil,
-                                placeholderText: record.title,
-                                updateAction: {text in
-                    editComplete(text, record.id)
-                })
+//                AlertTextField( isPresented: $isShowEditAlert,
+//                                title: "タイトル編集",
+//                                message: nil,
+//                                placeholderText: record.title,
+//                                updateAction: {text in
+////                    editComplete(text, record.id)
+//                })
             }
         }
     }
 }
 
-struct RecordListCardView_Previews: PreviewProvider {
-    static var previews: some View {
-        VStack {
-            RecordListCardView(record: RecordData.sampleData[0],
-                               backgroundColor: AppColor.boxGray,
-                               editComplete: {title,id in })
-            .fixedSize(horizontal: false, vertical: true)
-            RecordListCardView(record: RecordData.sampleData[0],
-                               backgroundColor: AppColor.boxBlack,
-                               editComplete: {title,id in })
-            .fixedSize(horizontal: false, vertical: true)
-        }
-        .padding()
-        .preferredColorScheme(.light)
-
-        VStack {
-            RecordListCardView(record: RecordData.sampleData[0],
-                               backgroundColor: AppColor.boxGray, editComplete: {title,id in })
-            .fixedSize(horizontal: false, vertical: true)
-            RecordListCardView(record: RecordData.sampleData[0],
-                               backgroundColor: AppColor.boxBlack, editComplete: {title,id in })
-            .fixedSize(horizontal: false, vertical: true)
-        }
-        .padding()
-        .preferredColorScheme(.dark)
-    }
-}
+//struct RecordListCardView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        VStack {
+//            RecordListCardView(record: RecordData.sampleData[0],
+//                               backgroundColor: AppColor.boxGray,
+//                               editComplete: {title,id in })
+//            .fixedSize(horizontal: false, vertical: true)
+//            RecordListCardView(record: RecordData.sampleData[0],
+//                               backgroundColor: AppColor.boxBlack,
+//                               editComplete: {title,id in })
+//            .fixedSize(horizontal: false, vertical: true)
+//        }
+//        .padding()
+//        .preferredColorScheme(.light)
+//
+//        VStack {
+//            RecordListCardView(record: RecordData.sampleData[0],
+//                               backgroundColor: AppColor.boxGray, editComplete: {title,id in })
+//            .fixedSize(horizontal: false, vertical: true)
+//            RecordListCardView(record: RecordData.sampleData[0],
+//                               backgroundColor: AppColor.boxBlack, editComplete: {title,id in })
+//            .fixedSize(horizontal: false, vertical: true)
+//        }
+//        .padding()
+//        .preferredColorScheme(.dark)
+//    }
+//}
