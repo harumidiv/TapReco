@@ -16,6 +16,7 @@ struct EditDialogView: View {
     let placeholderText: String
     var updateAction: (_ state: CompleteState)->Void
     @State private var editText: String = ""
+    @FocusState private var selectState: Bool
 
     var body: some View {
         ZStack {

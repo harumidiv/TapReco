@@ -18,14 +18,12 @@ struct EditBarView: View {
             RoundedRectangle(cornerRadius: 8)
                 .fill(AppColor.sortBackground)
                 .frame(height: 36)
-            VStack {
-                HStack(spacing: 10) {
-                    Spacer()
-                        .frame(width: 0)
-                    TextField(placeHolderText, text: $text)
-                        .focused($selectState)
-                        .foregroundColor(AppColor.textLightGray)
-                }
+            HStack(spacing: 10) {
+                Spacer()
+                    .frame(width: 0)
+                TextField(placeHolderText, text: $text)
+                    .focused($selectState)
+                    .foregroundColor(AppColor.textLightGray)
             }
         }
         .onAppear{
