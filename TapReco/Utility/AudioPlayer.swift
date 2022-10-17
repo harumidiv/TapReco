@@ -81,7 +81,7 @@ final class AudioPlayer: NSObject, ObservableObject {
         } else {
             audioPlayer.currentTime = 0
         }
-        audioPlayer.play()
+        reStart()
     }
 
     func setCurrentTime(time: Double) {
