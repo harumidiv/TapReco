@@ -111,7 +111,7 @@ struct RecordListView: View {
             }
 
             // EditViewの表示
-            if let editRecord: RecordData = displayRecords.filter{ $0.isEditing}.first {
+            if let editRecord: RecordData = displayRecords.filter({ $0.isEditing}).first {
                 EditDialogView(placeholderText: editRecord.title) {state in
 
                     switch state {
@@ -126,6 +126,9 @@ struct RecordListView: View {
         }
         .background(AppColor.background)
         .onChange(of: sortType) {_ in
+            displayRecords = getDisplayRecord()
+        }
+        .onChange(of: searchText) { _ in
             displayRecords = getDisplayRecord()
         }
         .onAppear{
