@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import StoreKit
 
 struct RecordListView: View {
     // MARK: Augument
@@ -21,6 +22,8 @@ struct RecordListView: View {
     @State private var isShowSortView: Bool = false
 
     @State private var displayRecords: [RecordData] = []
+    
+    @Environment(\.requestReview) var requestReview
 
     var body: some View {
         ZStack {
@@ -133,6 +136,11 @@ struct RecordListView: View {
         }
         .onAppear{
             displayRecords = getDisplayRecord()
+            
+            if records.count % 3 == 0 {
+                requestReview()
+            }
+            
         }
     }
 }
