@@ -13,13 +13,13 @@ jobs:
       - name: Set up Swift
         uses: actions/setup-swift@v1
         with:
-          swift-version: '5.5'
+          swift-version: '5.0'
       - name: Update dependencies
         run: swift package update
       - name: Commit updated dependencies
         run: |
-          git config --global user.name 'github-actions'
-          git config --global user.email 'github-actions@github.com'
+          git config --global harumidiv 'github-actions'
+          git config --global harumi.div@gmail.com 'github-actions@github.com'
           git add Package.resolved
           git commit -m 'Update dependencies'
       - name: Create Pull Request
