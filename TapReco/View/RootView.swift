@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import Combine
 
 struct RootView: View {
     // MARK: - Augument
@@ -14,16 +13,13 @@ struct RootView: View {
     let saveAction: ()->Void
 
     // MARK: - Property
-    // バックグラウンドに移動しようとすると停止してエラーになるので次回アクティブになった時にエラーのスナックバーをダ表示する
-    @State private var isNeedDisplayErrorSnackBar: Bool = false
+    @StateObject private var audioRecorder = AudioRecorderImpl()
     @State private var isRecording: Bool = false
     @State private var isShowSuccessSnackBar = false
     @State private var isShowFailureSnackBar = false
     // UserDefaultの値を参照して出すかのフラグの値が入るようにする
     @State private var isShowIntoView: Bool = UserStrage.isNeedDisplayIntro
-    private let audioRecorder = AudioRecorderImpl()
-    @Environment(\.scenePhase) private var scenePhase
-    
+
     var body: some View {
         ZStack {
             if isRecording {
@@ -44,39 +40,35 @@ struct RootView: View {
                 content: SnackBarSuccessView.init)
         .popup(isPresented: isShowFailureSnackBar,
                content: SnackBarFailureView.init)
-        .onChange(of: isRecording) { isRecording in
-            if isRecording {
-                let queue = DispatchQueue.global(qos: .userInitiated)
-                queue.async {
-                    audioRecorder.recordStart()
-                    TimerHolder().start()
+        .onChange(of: isRecording) { newValue in
+            if newValue {
+                do {
+                    try audioRecorder.recordStart()
+                } catch {
+                    isRecording = false
+                    showFailureSnackBar()
                 }
-                
             } else {
-                guard let newRecord = audioRecorder.recordStop() else {
-                    isNeedDisplayErrorSnackBar = true
-                    return
-                }
+                guard let newRecord = audioRecorder.recordStop() else { return }
                 records.append(newRecord)
                 saveAction()
             }
         }
-        .onChange(of: scenePhase) { scene in
-            if scene == .active && isNeedDisplayErrorSnackBar {
-                isNeedDisplayErrorSnackBar = false
-                isShowFailureSnackBar = true
-                Task {
-                    // 2秒後にスナックバーを消す
-                    try await Task.sleep(nanoseconds: 2_000_000_000)
-                    isShowFailureSnackBar = false
-                }
-            }
+        .onChange(of: audioRecorder.isInterruptedNonResumably) { interrupted in
+            guard interrupted else { return }
+            // ファイルを削除してから isRecording = false にする。
+            // recordStop() が nil を返すため壊れたレコードは一覧に追加されない。
+            audioRecorder.recordCancel()
+            isRecording = false
+            showFailureSnackBar()
+        }
+    }
 
-            if scene == .inactive || scene == .background {
-                withAnimation() {
-                    isRecording = false
-                }
-            }
+    private func showFailureSnackBar() {
+        isShowFailureSnackBar = true
+        Task {
+            try? await Task.sleep(nanoseconds: 2_000_000_000)
+            isShowFailureSnackBar = false
         }
     }
 }
