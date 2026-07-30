@@ -59,9 +59,11 @@ struct RecordListView: View {
                                                           trailing: 16))
                             } else {
                                 Button(action: {
+                                    guard audioPlayer.setup(fileName: record.fileName) else {
+                                        return
+                                    }
                                     setSelectedState(selectRecord: record)
                                     isPlaying = true
-                                    audioPlayer.setup(fileName: record.fileName)
                                 }){
                                     RecordListCardView(record: record,
                                                        backgroundColor: AppColor.boxGray,
@@ -85,23 +87,21 @@ struct RecordListView: View {
             .blur(radius: isShowSortView ? 2.0 : 0.0)
 
             // PlayerViewの表示
-            if displayRecords.contains(where: { $0.isSelected == true }) {
+            if let selectedIndex = displayRecords.firstIndex(where: { $0.isSelected }) {
                 VStack(spacing: 0) {
                     Spacer()
                     RecordListPlayerView(saveAction: saveAction,
                                          isPlaying: $isPlaying,
-                                         record: $displayRecords.filter{$0.isSelected.wrappedValue == true}.first!,
-                                         audioPlayer: audioPlayer){record in
+                                         record: displayRecords[selectedIndex],
+                                         audioPlayer: audioPlayer) { record in
                         audioPlayer.playStop()
-
-                        // 表示の更新を走らせるためにdisplayRecordsの値も書き換える必要がある
-                        let selectedDisplayIndex = displayRecords.firstIndex(where: { $0.id == record.id})!
-                        displayRecords.remove(at: selectedDisplayIndex)
-
-                        // 大元のデータを削除してデータ更新をかける
-                        let selectedIndex = records.firstIndex(where: { $0.id == record.id })!
-                        records.remove(at: selectedIndex)
-                        saveAction()
+                        if let displayIndex = displayRecords.firstIndex(where: { $0.id == record.id }) {
+                            displayRecords.remove(at: displayIndex)
+                        }
+                        if let recordIndex = records.firstIndex(where: { $0.id == record.id }) {
+                            records.remove(at: recordIndex)
+                            saveAction()
+                        }
                     }
                 }
                 .ignoresSafeArea(edges: [.top])
@@ -149,7 +149,7 @@ private extension RecordListView {
     func getDisplayRecord() -> [RecordData] {
         func stringToInt(text: String) -> Int64 {
             let splitNumber = (text.components(separatedBy: NSCharacterSet.decimalDigits.inverted))
-            return Int64(splitNumber.joined())!
+            return Int64(splitNumber.joined()) ?? 0
         }
 
         let sortRrcord: [RecordData]

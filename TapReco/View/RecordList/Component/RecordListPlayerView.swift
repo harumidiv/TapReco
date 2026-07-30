@@ -11,7 +11,7 @@ struct RecordListPlayerView: View {
     // MARK: - Argument
     let saveAction: ()->Void
     @Binding var isPlaying: Bool
-    @Binding var record: RecordData
+    let record: RecordData
     @ObservedObject var audioPlayer: AudioPlayer
     let deleteAction: (RecordData)->Void
 
@@ -33,8 +33,12 @@ struct RecordListPlayerView: View {
                    in: 0.0...audioPlayer.duration,
                    onEditingChanged: {isChanging in
                 self.isSliderChanged = isChanging
-                isChanging ? audioPlayer.changeSliderValue() : audioPlayer.stopSliderValue()
-                isPlaying = !isChanging
+                if isChanging {
+                    audioPlayer.changeSliderValue()
+                    isPlaying = false
+                } else {
+                    isPlaying = audioPlayer.stopSliderValue()
+                }
             })
             .accentColor(AppColor.iconLightGray)
             .padding(.horizontal)
@@ -77,8 +81,7 @@ struct RecordListPlayerView: View {
                     .font(Font.system(size: 24, weight: .regular))
                     .foregroundColor(AppColor.iconLightGray)
                     .onTapGesture {
-                        isPlaying = true
-                        audioPlayer.rewindFifteenSeconds()
+                        isPlaying = audioPlayer.rewindFifteenSeconds()
                     }
                 StartStopView(isPlaying: $isPlaying, audioPlayer: audioPlayer)
                     .padding([.leading, .trailing], 24)
@@ -107,7 +110,7 @@ struct RecordListPlayerView: View {
         .background(AppColor.background)
         .onAppear {
             audioPlayer.playComplete = {
-                isPlaying.toggle()
+                isPlaying = false
             }
         }
     }
@@ -125,7 +128,7 @@ struct RecordListPlayerView_Previews: PreviewProvider {
     static var previews: some View {
         RecordListPlayerView(saveAction: {},
                              isPlaying: .constant(true),
-                             record: .constant(RecordData.sampleData[0]),
+                             record: RecordData.sampleData[0],
                              audioPlayer: AudioPlayer(), deleteAction: {_ in })
     }
 }

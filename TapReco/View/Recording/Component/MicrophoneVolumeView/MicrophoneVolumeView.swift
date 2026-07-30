@@ -24,12 +24,17 @@ struct MicrophoneVolumeView: View {
                                       padding: padding,
                                       weight: weight)
         }
-        .onAppear() {
+        .task {
             // 遅延を追加しなしとHaptic HeedBackが発火しない
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                manager.startUpdatingVolume()
+            do {
+                try await Task.sleep(nanoseconds: 500_000_000)
+            } catch {
+                return
             }
-        }.onDisappear() {
+            guard !Task.isCancelled else { return }
+            manager.startUpdatingVolume()
+        }
+        .onDisappear {
             manager.stopUpdatingVolume()
         }
     }

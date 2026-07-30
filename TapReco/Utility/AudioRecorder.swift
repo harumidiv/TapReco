@@ -80,10 +80,10 @@ extension AudioRecorderImpl {
         audioRecorder = nil
         currentRecordingTitle = nil
 
-        let filePath = NSHomeDirectory() + "/Documents/" + title
+        let filePath = createURL(title: title).path
         return RecordData(
             title: getTitle(),
-            recordDate: title.components(separatedBy: "+").first!,
+            recordDate: title.components(separatedBy: "+").first ?? title,
             fileName: title,
             fileSize: getFileSize(filePath: filePath),
             recordTime: getPlaybackTime(filePath: filePath)
@@ -149,8 +149,11 @@ private extension AudioRecorderImpl {
     }
 
     func createURL(title: String) -> URL {
-        FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-            .appendingPathComponent(title)
+        let directory = FileManager.default.urls(
+            for: .documentDirectory,
+            in: .userDomainMask
+        ).first ?? FileManager.default.temporaryDirectory
+        return directory.appendingPathComponent(title)
     }
 
     func getTitle() -> String {

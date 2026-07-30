@@ -17,10 +17,20 @@ func AudioQueueInputCallback(inUserData: UnsafeMutableRawPointer?, inAQ: AudioQu
 final class MicrophoneLebelManager: ObservableObject {
     @Published var volume: CGFloat = 0
 
-    var queue: AudioQueueRef!
-    var recordingTimer: Timer!
+    private var queue: AudioQueueRef?
+    private var recordingTimer: Timer?
+
+    deinit {
+        recordingTimer?.invalidate()
+        if let queue {
+            AudioQueueStop(queue, true)
+            AudioQueueDispose(queue, true)
+        }
+    }
     
     func startUpdatingVolume() {
+        stopUpdatingVolume()
+
         // 録音データを記録するフォーマット
         var dataFormat = AudioStreamBasicDescription(
             mSampleRate: 44100.0,
@@ -36,62 +46,83 @@ final class MicrophoneLebelManager: ObservableObject {
             mReserved: 0)
         
         // 新しい録音オーディオキューオブジェクトを作成
-        AudioQueueNewInput(&dataFormat,
-                           AudioQueueInputCallback,
-                           UnsafeMutableRawPointer(Unmanaged.passUnretained(self).toOpaque()),
-                           .none,
-                           .none,
-                           0,
-                           &queue)
-        
-        // オーディオの再生または録音の開始
-        AudioQueueStart(self.queue, nil)
+        var newQueue: AudioQueueRef?
+        let creationStatus = AudioQueueNewInput(
+            &dataFormat,
+            AudioQueueInputCallback,
+            nil,
+            .none,
+            .none,
+            0,
+            &newQueue
+        )
+        guard creationStatus == noErr, let newQueue else { return }
         
         var enabledLevelMeter: UInt32 = 1
         // オーディオキューのプロパティ値を設定
-        AudioQueueSetProperty(self.queue,
-                              kAudioQueueProperty_EnableLevelMetering,
-                              &enabledLevelMeter,
-                              UInt32(MemoryLayout<UInt32>.size))
+        let meteringStatus = AudioQueueSetProperty(
+            newQueue,
+            kAudioQueueProperty_EnableLevelMetering,
+            &enabledLevelMeter,
+            UInt32(MemoryLayout<UInt32>.size)
+        )
+        guard meteringStatus == noErr else {
+            AudioQueueDispose(newQueue, true)
+            return
+        }
+
+        // オーディオの再生または録音の開始
+        let startStatus = AudioQueueStart(newQueue, nil)
+        guard startStatus == noErr else {
+            AudioQueueDispose(newQueue, true)
+            return
+        }
+        queue = newQueue
         
-        self.recordingTimer = Timer.scheduledTimer(timeInterval: 1 / 60,
-                                                   target: self,
-                                                   selector: #selector(self.detectVolume(timer:)),
-                                                   userInfo: nil,
-                                                   repeats: true)
-        self.recordingTimer?.fire()
+        recordingTimer = Timer.scheduledTimer(withTimeInterval: 1 / 60, repeats: true) {
+            [weak self] timer in
+            self?.detectVolume(timer: timer)
+        }
+        recordingTimer?.fire()
     }
     
     func stopUpdatingVolume() {
-        // Finish observation
-        
-        // 高速で録音開始->ストップを行うといかがnilでクラッシュしてしまうので弾く
-        if recordingTimer == nil || queue == nil {
+        recordingTimer?.invalidate()
+        recordingTimer = nil
+
+        guard let queue else {
+            volume = 0
             return
         }
-        recordingTimer.invalidate()
-        recordingTimer = nil
-        AudioQueueFlush(self.queue)
-        AudioQueueStop(self.queue, false)
-        AudioQueueDispose(self.queue, true)
+        self.queue = nil
+        AudioQueueStop(queue, true)
+        AudioQueueDispose(queue, true)
+        volume = 0
     }
     
-    @objc private func detectVolume(timer: Timer) {
-        // オーディオキューの現在のレベル情報の
+    private func detectVolume(timer: Timer) {
+        guard let queue else {
+            timer.invalidate()
+            return
+        }
         var levelMeter = AudioQueueLevelMeterState()
         var propertySize = UInt32(MemoryLayout<AudioQueueLevelMeterState>.size)
         
-        AudioQueueGetProperty(
-            self.queue,
+        let status = AudioQueueGetProperty(
+            queue,
             kAudioQueueProperty_CurrentLevelMeterDB,
             &levelMeter,
             &propertySize)
+        guard status == noErr else {
+            stopUpdatingVolume()
+            return
+        }
         
         let minVol: CGFloat = -50
         let maxVol: CGFloat = 0
         // min: -60, max: -0 くらいが手元の環境では取れたのでそっちの方が綺麗に動く
         let normalizationValue = (CGFloat(levelMeter.mAveragePower) - minVol) / (maxVol - minVol)
         
-        self.volume = normalizationValue
+        volume = min(max(normalizationValue, 0), 1)
     }
 }

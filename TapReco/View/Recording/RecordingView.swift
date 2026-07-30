@@ -40,6 +40,9 @@ struct RecordingView: View {
         .onAppear{
             timerHolder.start()
         }
+        .onDisappear {
+            timerHolder.stop()
+        }
     }
 }
 

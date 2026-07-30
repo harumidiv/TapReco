@@ -41,11 +41,11 @@ final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelega
             self.geocoder.reverseGeocodeLocation( location, completionHandler: { ( placemarks, error ) in
                 if let placemark = placemarks?.first {
                     //住所の取得
-                    let administrativeArea = placemark.administrativeArea == nil ? "" : placemark.administrativeArea!
-                    let locality = placemark.locality == nil ? "" : placemark.locality!
-                    let subLocality = placemark.subLocality == nil ? "" : placemark.subLocality!
-                    let thoroughfare = placemark.thoroughfare == nil ? "" : placemark.thoroughfare!
-                    let subThoroughfare = placemark.subThoroughfare == nil ? "" : placemark.subThoroughfare!
+                    let administrativeArea = placemark.administrativeArea ?? ""
+                    let locality = placemark.locality ?? ""
+                    let subLocality = placemark.subLocality ?? ""
+                    let thoroughfare = placemark.thoroughfare ?? ""
+                    let subThoroughfare = placemark.subThoroughfare ?? ""
                     let placeName = !thoroughfare.contains( subLocality ) ? subLocality : thoroughfare
                     self.address = administrativeArea + locality + placeName + subThoroughfare
                 }

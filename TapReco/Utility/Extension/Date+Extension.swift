@@ -94,6 +94,6 @@ extension Date {
 
 extension DateFormatter {
     static func dateFormat(fromTemplate: TapRecoDateFormat) -> String {
-        return DateFormatter.dateFormat(fromTemplate: fromTemplate.rawValue, options: 0, locale: Locale(identifier: "ja_JP"))!
+        return DateFormatter.dateFormat(fromTemplate: fromTemplate.rawValue, options: 0, locale: Locale(identifier: "ja_JP")) ?? fromTemplate.rawValue
     }
 }
