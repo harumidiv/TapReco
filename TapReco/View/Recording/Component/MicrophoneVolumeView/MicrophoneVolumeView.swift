@@ -12,6 +12,7 @@ struct MicrophoneVolumeView: View {
     let padding: CGFloat = 6
     let weight: CGFloat = 2
     @StateObject private var manager = MicrophoneLebelManager()
+    @Environment(\.scenePhase) private var scenePhase
 
     var body: some View {
         HStack(alignment: .center, spacing: 0) {
@@ -24,12 +25,21 @@ struct MicrophoneVolumeView: View {
                                       padding: padding,
                                       weight: weight)
         }
-        .onAppear() {
-            // 遅延を追加しなしとHaptic HeedBackが発火しない
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                manager.startUpdatingVolume()
+        .task(id: scenePhase) {
+            guard scenePhase == .active else {
+                manager.stopUpdatingVolume()
+                return
             }
-        }.onDisappear() {
+            // 遅延を追加しなしとHaptic HeedBackが発火しない
+            do {
+                try await Task.sleep(nanoseconds: 500_000_000)
+            } catch {
+                return
+            }
+            guard !Task.isCancelled else { return }
+            manager.startUpdatingVolume()
+        }
+        .onDisappear {
             manager.stopUpdatingVolume()
         }
     }

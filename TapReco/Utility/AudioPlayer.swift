@@ -8,129 +8,177 @@
 import AVFoundation
 import Combine
 
+@MainActor
 final class AudioPlayer: NSObject, ObservableObject {
     @Published var displayTime: Double = .zero
     @Published var displayCurrentTime: String = ""
     @Published var displaytimeLeft: String = ""
-    // スライダーの更新のために使用しているプロパティ
     @Published var updateValue: Int = 0
 
-    var cancellable: AnyCancellable?
-    private var audioPlayer: AVAudioPlayer!
-    var playComplete: (()->Void)?
-    /// ファイルの総再生時間
+    private var cancellable: AnyCancellable?
+    private var audioPlayer: AVAudioPlayer?
+    var playComplete: (() -> Void)?
+
     var duration: Double {
-        Double(audioPlayer.duration)
+        guard let duration = audioPlayer?.duration,
+              duration.isFinite,
+              duration >= 0 else { return 0 }
+        return duration
     }
 
-    /// ファイルの現在の再生時間
     var currentTime: Double {
-        Double(audioPlayer.currentTime)
+        guard let currentTime = audioPlayer?.currentTime,
+              currentTime.isFinite,
+              currentTime >= 0 else { return 0 }
+        return min(currentTime, duration)
     }
 
-    /// 初期化
-    func setup(fileName: String) {
-        self.audioPlayer = nil
-        self.audioPlayer = try! AVAudioPlayer(contentsOf: getURL(fileName: fileName))
-        self.audioPlayer.volume = 1.0
-        self.audioPlayer.delegate = self
+    @discardableResult
+    func setup(fileName: String) -> Bool {
+        guard let player = try? AVAudioPlayer(contentsOf: getURL(fileName: fileName)) else {
+            return false
+        }
+        player.volume = 1.0
+        player.delegate = self
 
-        playStart()
+        let previousPlayer = audioPlayer
+        audioPlayer = player
+        guard player.prepareToPlay(),
+              player.duration.isFinite,
+              player.duration >= 0,
+              player.play() else {
+            audioPlayer = previousPlayer
+            return false
+        }
+
+        resetTimer()
+        previousPlayer?.stop()
+        displayTime = 0
+        displayCurrentTime = "00:00"
+        displaytimeLeft = formattedTime(player.duration)
+        setTimer()
+        return true
     }
 
-    /// 再生途中から再度再生に切り替えを行う
-    /// - Parameter fileName: 再生するファイルのパス
-    func reStart() {
-        let currentTime = audioPlayer.currentTime
-        if currentTime == audioPlayer.duration || currentTime == 0 {
-            playStart()
+    @discardableResult
+    func reStart() -> Bool {
+        guard let player = audioPlayer else { return false }
+        let current = currentTime
+        if current >= duration || current == 0 {
+            return playStart()
         } else {
+            guard player.play() else { return false }
             setTimer()
-            audioPlayer.play()
+            return true
         }
     }
 
-    /// 再生を停止する
     func playStop() {
         resetTimer()
-        audioPlayer.stop()
+        audioPlayer?.stop()
     }
 
-    /// 再生時間を15秒先にスキップする
-    /// - Returns: 再生時間が末尾まで到達しているか否か
     func skipFifteenSeconds() -> Bool {
-        let currentTime = audioPlayer.currentTime
-        let timeDiff = audioPlayer.duration - currentTime
-        audioPlayer.stop()
+        guard let player = audioPlayer else { return true }
+        let current = currentTime
+        let totalDuration = duration
+        let timeDiff = totalDuration - current
+        player.stop()
         let isAbleToSkip = timeDiff > 15
         if isAbleToSkip {
-            audioPlayer.currentTime += 15
-            audioPlayer.play()
+            player.currentTime = min(current + 15, totalDuration)
+            guard player.play() else {
+                resetTimer()
+                return true
+            }
         } else {
-            audioPlayer.currentTime = audioPlayer.duration
+            player.currentTime = totalDuration
+            resetTimer()
         }
         return !isAbleToSkip
     }
 
-    /// 再生時間を15秒巻き戻す
-    func rewindFifteenSeconds() {
-        let currentTime = audioPlayer.currentTime
-        audioPlayer.stop()
-        if currentTime > 15 {
-            audioPlayer.currentTime -= 15
-        } else {
-            audioPlayer.currentTime = 0
-        }
-        reStart()
+    @discardableResult
+    func rewindFifteenSeconds() -> Bool {
+        guard let player = audioPlayer else { return false }
+        let current = currentTime
+        player.stop()
+        player.currentTime = current > 15 ? current - 15 : 0
+        return reStart()
     }
 
     func setCurrentTime(time: Double) {
-        audioPlayer.currentTime = TimeInterval(time)
+        guard time.isFinite, time >= 0, let audioPlayer else { return }
+        audioPlayer.currentTime = min(time, duration)
     }
 
-    /// スライダーに変更が開始された
     func changeSliderValue() {
         playStop()
     }
 
-    /// スライダーの変更が停止された
-    func stopSliderValue() {
+    @discardableResult
+    func stopSliderValue() -> Bool {
         audioPlayer?.currentTime = displayTime
-        reStart()
+        return reStart()
     }
 }
 
 // MARK: - PrivateMethod
 extension AudioPlayer {
-    func getURL(fileName: String) -> URL{
-        return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent(fileName)
+    func getURL(fileName: String) -> URL {
+        let directory = FileManager.default.urls(
+            for: .documentDirectory,
+            in: .userDomainMask
+        ).first ?? FileManager.default.temporaryDirectory
+        return directory.appendingPathComponent(fileName)
     }
 
-    /// 0秒からの再生
-    private func playStart() {
+    private func playStart() -> Bool {
+        guard let player = audioPlayer else { return false }
+        guard player.prepareToPlay(),
+              player.duration.isFinite,
+              player.duration >= 0,
+              player.play() else {
+            resetTimer()
+            return false
+        }
         setTimer()
-
-        audioPlayer.prepareToPlay()
-        audioPlayer.play()
+        return true
     }
 
     private func setTimer() {
+        resetTimer()
         cancellable = Timer.publish(every: 0.01, on: .main, in: .common)
             .autoconnect()
-            .sink { _ in
-                self.updateValue += 1
+            .sink { [weak self] _ in
+                self?.updateValue += 1
             }
     }
 
     private func resetTimer() {
         updateValue = 0
         cancellable?.cancel()
+        cancellable = nil
+    }
+
+    private func formattedTime(_ time: Double) -> String {
+        guard time.isFinite,
+              time >= 0,
+              time <= Double(Int.max) else { return "00:00" }
+        let seconds = Int(time)
+        return String(format: "%02d:%02d", seconds / 60, seconds % 60)
     }
 }
 
 extension AudioPlayer: AVAudioPlayerDelegate {
-    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
-        resetTimer()
-        playComplete?()
+    nonisolated func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        let playerID = ObjectIdentifier(player)
+        Task { @MainActor [weak self] in
+            guard let self,
+                  let currentPlayer = audioPlayer,
+                  ObjectIdentifier(currentPlayer) == playerID else { return }
+            resetTimer()
+            playComplete?()
+        }
     }
 }

@@ -30,9 +30,8 @@ struct SlideUPActionView: UIViewRepresentable {
     }
     
     func updateUIView(_ uiView: UIView, context: Context) {
-        if !isPresentedRecordListView {
-            let slideToActionView = uiView.subviews.first as! SlideToUPUnlockView
-            slideToActionView.resetDragPoint()
-        }
+        guard !isPresentedRecordListView,
+              let slideToActionView = uiView.subviews.first as? SlideToUPUnlockView else { return }
+        slideToActionView.resetDragPoint()
     }
 }

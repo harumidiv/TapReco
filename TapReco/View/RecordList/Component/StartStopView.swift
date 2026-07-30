@@ -30,8 +30,7 @@ struct StartStopView: View {
                     .font(.system(size: 50, weight: .light))
                     .foregroundColor(AppColor.iconLightGray)
                     .onTapGesture {
-                        isPlaying.toggle()
-                        audioPlayer.reStart()
+                        isPlaying = audioPlayer.reStart()
                     }
             }
         }

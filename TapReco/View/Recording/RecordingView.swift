@@ -11,6 +11,7 @@ struct RecordingView: View {
     @Binding var isRecording: Bool
     @Binding var isShowSuccessSnackBar: Bool
     @StateObject private var timerHolder = TimerHolder()
+    @Environment(\.scenePhase) private var scenePhase
     
     var body: some View {
         ZStack {
@@ -39,6 +40,19 @@ struct RecordingView: View {
         }
         .onAppear{
             timerHolder.start()
+        }
+        .onDisappear {
+            timerHolder.stop()
+        }
+        .onChange(of: scenePhase) { newPhase in
+            switch newPhase {
+            case .active:
+                timerHolder.resumeDisplayUpdates()
+            case .inactive, .background:
+                timerHolder.pauseDisplayUpdates()
+            @unknown default:
+                timerHolder.pauseDisplayUpdates()
+            }
         }
     }
 }

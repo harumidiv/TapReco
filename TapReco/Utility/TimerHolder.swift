@@ -8,27 +8,51 @@
 import SwiftUI
 import Combine
 
-final class TimerHolder : ObservableObject {
-    @Published var timer : Timer!
+@MainActor
+final class TimerHolder: ObservableObject {
     @Published var timerText: String = "00:00:00"
-    private var elapsedTime: CGFloat = 0
+    private var timerCancellable: AnyCancellable?
+    private var startedAt: Date?
     
     func start() {
-        self.timer?.invalidate()
-        self.timer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) {
-            _ in
-            
-            self.elapsedTime += 0.01
-            let milliSecond = Int(self.elapsedTime * 100) % 100
-            let second = Int(self.elapsedTime) % 60
-            let minutes = Int(self.elapsedTime / 60)
-            
-            self.timerText = String(format: "%02d:%02d:%02d", minutes, second, milliSecond)
-        }
+        startedAt = Date()
+        timerText = "00:00:00"
+        resumeDisplayUpdates()
+    }
+
+    func pauseDisplayUpdates() {
+        timerCancellable?.cancel()
+        timerCancellable = nil
+    }
+
+    func resumeDisplayUpdates() {
+        guard startedAt != nil, timerCancellable == nil else { return }
+        updateTimerText()
+        timerCancellable = Timer.publish(every: 0.01, on: .main, in: .common)
+            .autoconnect()
+            .sink { [weak self] _ in
+                self?.updateTimerText()
+            }
     }
     
     func stop() {
-        timer.invalidate()
-        timer = nil
+        pauseDisplayUpdates()
+        startedAt = nil
+    }
+
+    private func updateTimerText() {
+        guard let startedAt else { return }
+        let elapsedTime = max(Date().timeIntervalSince(startedAt), 0)
+        guard elapsedTime.isFinite,
+              elapsedTime <= Double(Int.max) / 100 else {
+            timerText = "00:00:00"
+            return
+        }
+
+        let centiseconds = Int(elapsedTime * 100)
+        let milliSecond = centiseconds % 100
+        let second = (centiseconds / 100) % 60
+        let minutes = centiseconds / 6_000
+        timerText = String(format: "%02d:%02d:%02d", minutes, second, milliSecond)
     }
 }
