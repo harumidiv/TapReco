@@ -5,7 +5,7 @@
 //  Created by 佐川 晴海 on 2021/09/06.
 //
 
-import Foundation
+import SwiftUI
 import AVFoundation
 import AudioToolbox
 import Combine
@@ -117,12 +117,14 @@ final class MicrophoneLebelManager: ObservableObject {
             &propertySize)
         // 起動直後など一時的な失敗はスキップし、タイマーは継続する
         guard status == noErr else { return }
-        
+
         let minVol: CGFloat = -50
         let maxVol: CGFloat = 0
         // min: -60, max: -0 くらいが手元の環境では取れたのでそっちの方が綺麗に動く
         let normalizationValue = (CGFloat(levelMeter.mAveragePower) - minVol) / (maxVol - minVol)
-        
-        volume = min(max(normalizationValue, 0), 1)
+
+        withAnimation(.spring(response: 0.15, dampingFraction: 0.75)) {
+            volume = min(max(normalizationValue, 0), 1)
+        }
     }
 }

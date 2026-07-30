@@ -15,19 +15,14 @@ struct MicrophoneVolumeRightView: View {
 
     var body: some View {
         HStack(spacing: 0) {
-            // 11
             RoundedRectangle(cornerRadius: width / 2)
                 .foregroundColor(AppColor.statusOK)
-                .frame(width: width,
-                       height: calculateHeight(value: 30))
+                .frame(width: width, height: calculateHeight(value: 30))
                 .padding(padding)
-            // 12
             RoundedRectangle(cornerRadius: width / 2)
                 .foregroundColor(AppColor.statusOK)
-                .frame(width: width,
-                       height: calculateHeight(value: 20))
+                .frame(width: width, height: calculateHeight(value: 20))
                 .padding(padding)
-            // 13
             WaveView(manager: manager,
                      width: width,
                      topViewHeight: 30,
@@ -38,13 +33,10 @@ struct MicrophoneVolumeRightView: View {
             .frame(width: width)
             .padding(padding)
             .offset(y: 2)
-            // 14
             RoundedRectangle(cornerRadius: width / 2)
                 .foregroundColor(AppColor.statusOK)
-                .frame(width: width,
-                       height: calculateHeight(value: 35))
+                .frame(width: width, height: calculateHeight(value: 35))
                 .padding(padding)
-            // 15
             WaveView(manager: manager,
                      width: width,
                      topViewHeight: 30,
@@ -55,14 +47,11 @@ struct MicrophoneVolumeRightView: View {
             .frame(width: width)
             .padding(padding)
             .offset(y: 6)
-            // 16
             RoundedRectangle(cornerRadius: width / 2)
                 .foregroundColor(AppColor.statusError)
-                .frame(width: width,
-                       height: calculateHeight(value: 20))
+                .frame(width: width, height: calculateHeight(value: 20))
                 .offset(y: -10)
                 .padding(padding)
-            // 17
             WaveView(manager: manager,
                      width: width,
                      topViewHeight: 30,
@@ -73,20 +62,17 @@ struct MicrophoneVolumeRightView: View {
             .frame(width: width)
             .padding(padding)
             .offset(y: 3)
-            // 18
             RoundedRectangle(cornerRadius: width / 2)
                 .foregroundColor(AppColor.iconGray)
-                .frame(width: width,
-                       height: calculateHeight(value: 37))
+                .frame(width: width, height: calculateHeight(value: 37))
                 .padding(padding)
-            // 19
             RoundedRectangle(cornerRadius: width / 2)
                 .foregroundColor(AppColor.iconGray)
-                .frame(width: width,
-                       height: calculateHeight(value: 30))
+                .frame(width: width, height: calculateHeight(value: 30))
                 .padding(padding)
         }
     }
+
     func calculateHeight(value: Double) -> Double {
         abs(value + (value * manager.volume) * weight)
     }
