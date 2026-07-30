@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@MainActor
 final class UserStrage {
     @AppStorage("isNeedDisplayIntro") static var isNeedDisplayIntro: Bool = true
 }

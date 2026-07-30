@@ -12,6 +12,7 @@ struct MicrophoneVolumeView: View {
     let padding: CGFloat = 6
     let weight: CGFloat = 2
     @StateObject private var manager = MicrophoneLebelManager()
+    @Environment(\.scenePhase) private var scenePhase
 
     var body: some View {
         HStack(alignment: .center, spacing: 0) {
@@ -24,7 +25,11 @@ struct MicrophoneVolumeView: View {
                                       padding: padding,
                                       weight: weight)
         }
-        .task {
+        .task(id: scenePhase) {
+            guard scenePhase == .active else {
+                manager.stopUpdatingVolume()
+                return
+            }
             // 遅延を追加しなしとHaptic HeedBackが発火しない
             do {
                 try await Task.sleep(nanoseconds: 500_000_000)

@@ -8,25 +8,32 @@
 import Foundation
 import AVFoundation
 import AudioToolbox
+import Combine
 
 
 func AudioQueueInputCallback(inUserData: UnsafeMutableRawPointer?, inAQ: AudioQueueRef, inBuffer: AudioQueueBufferRef, inSrartTime: UnsafePointer<AudioTimeStamp>, inNumberPacketDescriptions: UInt32, inPacketDescs: UnsafePointer<AudioStreamPacketDescription>?) {
     // NOP
 }
 
+private final class AudioQueueResource: @unchecked Sendable {
+    let queue: AudioQueueRef
+
+    init(queue: AudioQueueRef) {
+        self.queue = queue
+    }
+
+    deinit {
+        AudioQueueStop(queue, true)
+        AudioQueueDispose(queue, true)
+    }
+}
+
+@MainActor
 final class MicrophoneLebelManager: ObservableObject {
     @Published var volume: CGFloat = 0
 
-    private var queue: AudioQueueRef?
-    private var recordingTimer: Timer?
-
-    deinit {
-        recordingTimer?.invalidate()
-        if let queue {
-            AudioQueueStop(queue, true)
-            AudioQueueDispose(queue, true)
-        }
-    }
+    private var queueResource: AudioQueueResource?
+    private var levelCancellable: AnyCancellable?
     
     func startUpdatingVolume() {
         stopUpdatingVolume()
@@ -77,34 +84,29 @@ final class MicrophoneLebelManager: ObservableObject {
             AudioQueueDispose(newQueue, true)
             return
         }
-        queue = newQueue
-        
-        recordingTimer = Timer.scheduledTimer(withTimeInterval: 1 / 60, repeats: true) {
-            [weak self] timer in
-            self?.detectVolume(timer: timer)
-        }
-        recordingTimer?.fire()
+        queueResource = AudioQueueResource(queue: newQueue)
+
+        levelCancellable = Timer.publish(every: 1 / 60, on: .main, in: .common)
+            .autoconnect()
+            .sink { [weak self] _ in
+                self?.detectVolume()
+            }
     }
     
     func stopUpdatingVolume() {
-        recordingTimer?.invalidate()
-        recordingTimer = nil
+        levelCancellable?.cancel()
+        levelCancellable = nil
 
-        guard let queue else {
+        guard queueResource != nil else {
             volume = 0
             return
         }
-        self.queue = nil
-        AudioQueueStop(queue, true)
-        AudioQueueDispose(queue, true)
+        queueResource = nil
         volume = 0
     }
     
-    private func detectVolume(timer: Timer) {
-        guard let queue else {
-            timer.invalidate()
-            return
-        }
+    private func detectVolume() {
+        guard let queue = queueResource?.queue else { return }
         var levelMeter = AudioQueueLevelMeterState()
         var propertySize = UInt32(MemoryLayout<AudioQueueLevelMeterState>.size)
         
@@ -113,10 +115,8 @@ final class MicrophoneLebelManager: ObservableObject {
             kAudioQueueProperty_CurrentLevelMeterDB,
             &levelMeter,
             &propertySize)
-        guard status == noErr else {
-            stopUpdatingVolume()
-            return
-        }
+        // 起動直後など一時的な失敗はスキップし、タイマーは継続する
+        guard status == noErr else { return }
         
         let minVol: CGFloat = -50
         let maxVol: CGFloat = 0

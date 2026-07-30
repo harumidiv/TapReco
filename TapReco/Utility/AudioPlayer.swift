@@ -8,6 +8,7 @@
 import AVFoundation
 import Combine
 
+@MainActor
 final class AudioPlayer: NSObject, ObservableObject {
     @Published var displayTime: Double = .zero
     @Published var displayCurrentTime: String = ""
@@ -19,11 +20,17 @@ final class AudioPlayer: NSObject, ObservableObject {
     var playComplete: (() -> Void)?
 
     var duration: Double {
-        audioPlayer?.duration ?? 0
+        guard let duration = audioPlayer?.duration,
+              duration.isFinite,
+              duration >= 0 else { return 0 }
+        return duration
     }
 
     var currentTime: Double {
-        audioPlayer?.currentTime ?? 0
+        guard let currentTime = audioPlayer?.currentTime,
+              currentTime.isFinite,
+              currentTime >= 0 else { return 0 }
+        return min(currentTime, duration)
     }
 
     @discardableResult
@@ -36,13 +43,19 @@ final class AudioPlayer: NSObject, ObservableObject {
 
         let previousPlayer = audioPlayer
         audioPlayer = player
-        guard player.prepareToPlay(), player.play() else {
+        guard player.prepareToPlay(),
+              player.duration.isFinite,
+              player.duration >= 0,
+              player.play() else {
             audioPlayer = previousPlayer
             return false
         }
 
         resetTimer()
         previousPlayer?.stop()
+        displayTime = 0
+        displayCurrentTime = "00:00"
+        displaytimeLeft = formattedTime(player.duration)
         setTimer()
         return true
     }
@@ -50,8 +63,8 @@ final class AudioPlayer: NSObject, ObservableObject {
     @discardableResult
     func reStart() -> Bool {
         guard let player = audioPlayer else { return false }
-        let current = player.currentTime
-        if current == player.duration || current == 0 {
+        let current = currentTime
+        if current >= duration || current == 0 {
             return playStart()
         } else {
             guard player.play() else { return false }
@@ -67,18 +80,19 @@ final class AudioPlayer: NSObject, ObservableObject {
 
     func skipFifteenSeconds() -> Bool {
         guard let player = audioPlayer else { return true }
-        let current = player.currentTime
-        let timeDiff = player.duration - current
+        let current = currentTime
+        let totalDuration = duration
+        let timeDiff = totalDuration - current
         player.stop()
         let isAbleToSkip = timeDiff > 15
         if isAbleToSkip {
-            player.currentTime += 15
+            player.currentTime = min(current + 15, totalDuration)
             guard player.play() else {
                 resetTimer()
                 return true
             }
         } else {
-            player.currentTime = player.duration
+            player.currentTime = totalDuration
             resetTimer()
         }
         return !isAbleToSkip
@@ -87,14 +101,15 @@ final class AudioPlayer: NSObject, ObservableObject {
     @discardableResult
     func rewindFifteenSeconds() -> Bool {
         guard let player = audioPlayer else { return false }
-        let current = player.currentTime
+        let current = currentTime
         player.stop()
         player.currentTime = current > 15 ? current - 15 : 0
         return reStart()
     }
 
     func setCurrentTime(time: Double) {
-        audioPlayer?.currentTime = TimeInterval(time)
+        guard time.isFinite, time >= 0, let audioPlayer else { return }
+        audioPlayer.currentTime = min(time, duration)
     }
 
     func changeSliderValue() {
@@ -120,7 +135,10 @@ extension AudioPlayer {
 
     private func playStart() -> Bool {
         guard let player = audioPlayer else { return false }
-        guard player.prepareToPlay(), player.play() else {
+        guard player.prepareToPlay(),
+              player.duration.isFinite,
+              player.duration >= 0,
+              player.play() else {
             resetTimer()
             return false
         }
@@ -142,12 +160,25 @@ extension AudioPlayer {
         cancellable?.cancel()
         cancellable = nil
     }
+
+    private func formattedTime(_ time: Double) -> String {
+        guard time.isFinite,
+              time >= 0,
+              time <= Double(Int.max) else { return "00:00" }
+        let seconds = Int(time)
+        return String(format: "%02d:%02d", seconds / 60, seconds % 60)
+    }
 }
 
 extension AudioPlayer: AVAudioPlayerDelegate {
-    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
-        guard audioPlayer === player else { return }
-        resetTimer()
-        playComplete?()
+    nonisolated func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        let playerID = ObjectIdentifier(player)
+        Task { @MainActor [weak self] in
+            guard let self,
+                  let currentPlayer = audioPlayer,
+                  ObjectIdentifier(currentPlayer) == playerID else { return }
+            resetTimer()
+            playComplete?()
+        }
     }
 }

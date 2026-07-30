@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct RecordData: Identifiable, Codable {
+struct RecordData: Identifiable, Codable, Sendable {
     let id: UUID
     let title: String
     let recordDate: String

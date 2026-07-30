@@ -11,25 +11,42 @@ enum RecordingError: Error {
     case failedToStart
 }
 
+private final class NotificationObservation: @unchecked Sendable {
+    private let token: NSObjectProtocol
+
+    init(token: NSObjectProtocol) {
+        self.token = token
+    }
+
+    deinit {
+        NotificationCenter.default.removeObserver(token)
+    }
+}
+
+@MainActor
 final class AudioRecorderImpl: NSObject, ObservableObject {
     // 復帰不可能な割り込み（電話着信など）が発生したことをRootViewへ通知する
     @Published private(set) var isInterruptedNonResumably = false
 
     private var audioRecorder: AVAudioRecorder?
     private var currentRecordingTitle: String?
+    private var interruptionObserver: NotificationObservation?
 
     override init() {
         super.init()
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(handleInterruption(_:)),
-            name: AVAudioSession.interruptionNotification,
-            object: AVAudioSession.sharedInstance()
-        )
-    }
-
-    deinit {
-        NotificationCenter.default.removeObserver(self)
+        let token = NotificationCenter.default.addObserver(
+            forName: AVAudioSession.interruptionNotification,
+            object: AVAudioSession.sharedInstance(),
+            queue: .main
+        ) { [weak self] notification in
+            guard let info = notification.userInfo,
+                  let typeValue = info[AVAudioSessionInterruptionTypeKey] as? UInt else { return }
+            let optionsValue = info[AVAudioSessionInterruptionOptionKey] as? UInt ?? 0
+            Task { @MainActor [weak self] in
+                self?.handleInterruption(typeValue: typeValue, optionsValue: optionsValue)
+            }
+        }
+        interruptionObserver = NotificationObservation(token: token)
     }
 }
 
@@ -104,35 +121,42 @@ extension AudioRecorderImpl {
 // MARK: - AVAudioRecorderDelegate
 
 extension AudioRecorderImpl: AVAudioRecorderDelegate {
-    func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
-        // 古いレコーダーや recordCancel 後の遅延コールバックは無視する
-        guard audioRecorder === recorder else { return }
-        if !flag {
-            isInterruptedNonResumably = true
+    nonisolated func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
+        let recorderID = ObjectIdentifier(recorder)
+        Task { @MainActor [weak self] in
+            // 古いレコーダーや recordCancel 後の遅延コールバックは無視する
+            guard let self,
+                  let currentRecorder = audioRecorder,
+                  ObjectIdentifier(currentRecorder) == recorderID else { return }
+            if !flag {
+                isInterruptedNonResumably = true
+            }
         }
     }
 
-    func audioRecorderEncodeErrorDidOccur(_ recorder: AVAudioRecorder, error: Error?) {
-        guard audioRecorder === recorder else { return }
-        isInterruptedNonResumably = true
+    nonisolated func audioRecorderEncodeErrorDidOccur(_ recorder: AVAudioRecorder, error: Error?) {
+        let recorderID = ObjectIdentifier(recorder)
+        Task { @MainActor [weak self] in
+            guard let self,
+                  let currentRecorder = audioRecorder,
+                  ObjectIdentifier(currentRecorder) == recorderID else { return }
+            isInterruptedNonResumably = true
+        }
     }
 }
 
 // MARK: - Private
 
 private extension AudioRecorderImpl {
-    @objc func handleInterruption(_ notification: Notification) {
+    func handleInterruption(typeValue: UInt, optionsValue: UInt) {
         // 録音中でなければ再生中などの割り込みなので処理しない
         guard audioRecorder != nil else { return }
-        guard let info = notification.userInfo,
-              let typeValue = info[AVAudioSessionInterruptionTypeKey] as? UInt,
-              let type = AVAudioSession.InterruptionType(rawValue: typeValue) else { return }
+        guard let type = AVAudioSession.InterruptionType(rawValue: typeValue) else { return }
 
         switch type {
         case .began:
             audioRecorder?.pause()
         case .ended:
-            let optionsValue = info[AVAudioSessionInterruptionOptionKey] as? UInt ?? 0
             if AVAudioSession.InterruptionOptions(rawValue: optionsValue).contains(.shouldResume) {
                 // setActive と record の両方が成功した場合のみ録音再開とみなす
                 let activated = (try? AVAudioSession.sharedInstance().setActive(true)) != nil
@@ -171,6 +195,9 @@ private extension AudioRecorderImpl {
 
     func getPlaybackTime(filePath: String) -> String {
         guard let player = try? AVAudioPlayer(contentsOf: URL(fileURLWithPath: filePath)) else { return "" }
+        guard player.duration.isFinite,
+              player.duration >= 0,
+              player.duration <= Double(Int.max) else { return "" }
         let duration = Int(player.duration)
         let min = duration / 60
         let sec = duration % 60

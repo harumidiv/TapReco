@@ -7,7 +7,8 @@
 
 import CoreLocation
 
-final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
+@MainActor
+final class LocationManager: NSObject, ObservableObject {
     @Published var authorizationStatus: CLAuthorizationStatus
     let geocoder = CLGeocoder()
     var address: String?
@@ -38,7 +39,7 @@ final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelega
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first {
-            self.geocoder.reverseGeocodeLocation( location, completionHandler: { ( placemarks, error ) in
+            geocoder.reverseGeocodeLocation(location, completionHandler: { [weak self] placemarks, _ in
                 if let placemark = placemarks?.first {
                     //住所の取得
                     let administrativeArea = placemark.administrativeArea ?? ""
@@ -47,10 +48,15 @@ final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelega
                     let thoroughfare = placemark.thoroughfare ?? ""
                     let subThoroughfare = placemark.subThoroughfare ?? ""
                     let placeName = !thoroughfare.contains( subLocality ) ? subLocality : thoroughfare
-                    self.address = administrativeArea + locality + placeName + subThoroughfare
+                    let address = administrativeArea + locality + placeName + subThoroughfare
+                    Task { @MainActor [weak self] in
+                        self?.address = address
+                    }
                 }
-            } )
+            })
         }
 
     }
 }
+
+extension LocationManager: @preconcurrency CLLocationManagerDelegate {}

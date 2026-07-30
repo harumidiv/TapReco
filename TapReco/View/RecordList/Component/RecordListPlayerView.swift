@@ -113,9 +113,21 @@ struct RecordListPlayerView: View {
                 isPlaying = false
             }
         }
+        .onDisappear {
+            audioPlayer.playComplete = nil
+            audioPlayer.playStop()
+        }
+        .onChange(of: scenePhase) { newPhase in
+            guard newPhase != .active else { return }
+            audioPlayer.playStop()
+            isPlaying = false
+        }
     }
 
     private func convertTimeToDisplayString(time: Double) -> String {
+        guard time.isFinite,
+              time >= 0,
+              time <= Double(Int.max) else { return "00:00" }
         let time = Int(time)
         let minute = time / 60
         let seconds = time % 60
