@@ -16,6 +16,7 @@ final class LocationManager: NSObject, ObservableObject {
     static let shared = LocationManager()
 
     private let locationManager: CLLocationManager
+    private var authorizationContinuation: CheckedContinuation<Void, Never>?
 
     private override init() {
         locationManager = CLLocationManager()
@@ -29,12 +30,21 @@ final class LocationManager: NSObject, ObservableObject {
         locationManager.startUpdatingLocation()
     }
 
-    func requestPermission() {
-        locationManager.requestWhenInUseAuthorization()
+    /// 位置情報の許可ダイアログを表示し、ユーザーが選択するまで待つ
+    func requestPermission() async {
+        guard locationManager.authorizationStatus == .notDetermined,
+              authorizationContinuation == nil else { return }
+        await withCheckedContinuation { continuation in
+            authorizationContinuation = continuation
+            locationManager.requestWhenInUseAuthorization()
+        }
     }
 
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         authorizationStatus = manager.authorizationStatus
+        guard manager.authorizationStatus != .notDetermined else { return }
+        authorizationContinuation?.resume()
+        authorizationContinuation = nil
     }
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

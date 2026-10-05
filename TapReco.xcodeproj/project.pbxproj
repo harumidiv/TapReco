@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -53,6 +53,8 @@
 		49C0D13226EA31C900B3666E /* StandbyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C0D13126EA31C900B3666E /* StandbyView.swift */; };
 		49C53B272760D10E0062E6B3 /* RecordListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C53B262760D10E0062E6B3 /* RecordListHeaderView.swift */; };
 		49D270EE28F433BC00AE503C /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D270ED28F433BC00AE503C /* SearchBarView.swift */; };
+		AD0000000000000000000001 /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = AD0000000000000000000002 /* GoogleMobileAds */; };
+		AD0000000000000000000005 /* InterstitialAdManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0000000000000000000004 /* InterstitialAdManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,6 +127,7 @@
 		49C0D13126EA31C900B3666E /* StandbyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandbyView.swift; sourceTree = "<group>"; };
 		49C53B262760D10E0062E6B3 /* RecordListHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordListHeaderView.swift; sourceTree = "<group>"; };
 		49D270ED28F433BC00AE503C /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
+		AD0000000000000000000004 /* InterstitialAdManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterstitialAdManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +135,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD0000000000000000000001 /* GoogleMobileAds in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,6 +255,7 @@
 				49409CBE275DDDBC003933BA /* Extension */,
 				49856ECD26E474B80015C12E /* AudioPlayer.swift */,
 				49856ECA26E474030015C12E /* AudioRecorder.swift */,
+				AD0000000000000000000004 /* InterstitialAdManager.swift */,
 				49856F4D26E633080015C12E /* MicrophoneLebelManager.swift */,
 				49BEE51E26EDDF460002C43B /* TimerHolder.swift */,
 				494F57FB28F2084C00B2C79E /* UserStrage.swift */,
@@ -395,6 +400,7 @@
 			);
 			name = TapReco;
 			packageProductDependencies = (
+				AD0000000000000000000002 /* GoogleMobileAds */,
 			);
 			productName = TapReco;
 			productReference = 4925089726DCF7D3005169AE /* TapReco.app */;
@@ -468,6 +474,7 @@
 			);
 			mainGroup = 4925088E26DCF7D3005169AE;
 			packageReferences = (
+				AD0000000000000000000003 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
 			);
 			productRefGroup = 4925089826DCF7D3005169AE /* Products */;
 			projectDirPath = "";
@@ -535,6 +542,7 @@
 				499A48FC28F930A600BE9C36 /* ErrorWapper.swift in Sources */,
 				499A48FE28F930C500BE9C36 /* ErrorView.swift in Sources */,
 				49856ECE26E474B80015C12E /* AudioPlayer.swift in Sources */,
+				AD0000000000000000000005 /* InterstitialAdManager.swift in Sources */,
 				494F57FA28F1BFB200B2C79E /* IntroDetailView.swift in Sources */,
 				49488CF228EECF3E0015CDFC /* RecordingData.swift in Sources */,
 				49C53B272760D10E0062E6B3 /* RecordListHeaderView.swift in Sources */,
@@ -713,7 +721,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_ASSET_PATHS = "\"TapReco/Preview Content\"";
 				DEVELOPMENT_TEAM = 24BSY9Z4H5;
 				ENABLE_PREVIEWS = YES;
@@ -724,7 +732,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = harumidiv.TapReco;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -740,7 +748,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_ASSET_PATHS = "\"TapReco/Preview Content\"";
 				DEVELOPMENT_TEAM = 24BSY9Z4H5;
 				ENABLE_PREVIEWS = YES;
@@ -751,7 +759,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = harumidiv.TapReco;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -884,6 +892,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		AD0000000000000000000003 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/googleads/swift-package-manager-google-mobile-ads.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 13.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		AD0000000000000000000002 /* GoogleMobileAds */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AD0000000000000000000003 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
+			productName = GoogleMobileAds;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4925088F26DCF7D3005169AE /* Project object */;
 }

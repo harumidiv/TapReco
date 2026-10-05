@@ -59,11 +59,17 @@ struct RecordListView: View {
                                                           trailing: 16))
                             } else {
                                 Button(action: {
-                                    guard audioPlayer.setup(fileName: record.fileName) else {
-                                        return
+                                    InterstitialAdManager.shared.showIfNeeded(beforePresent: {
+                                        // 広告の音声と重ならないよう再生中の録音を止める
+                                        audioPlayer.playStop()
+                                        isPlaying = false
+                                    }) {
+                                        guard audioPlayer.setup(fileName: record.fileName) else {
+                                            return
+                                        }
+                                        setSelectedState(selectRecord: record)
+                                        isPlaying = true
                                     }
-                                    setSelectedState(selectRecord: record)
-                                    isPlaying = true
                                 }){
                                     RecordListCardView(record: record,
                                                        backgroundColor: AppColor.boxGray,
@@ -137,7 +143,12 @@ struct RecordListView: View {
         .onAppear{
             displayRecords = getDisplayRecord()
             
-            if records.count % 3 == 0 {
+            // レビュー依頼は同じアプリバージョンにつき1回だけにする
+            let currentVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? ""
+            if !records.isEmpty,
+               records.count % 3 == 0,
+               UserStrage.lastVersionPromptedForReview != currentVersion {
+                UserStrage.lastVersionPromptedForReview = currentVersion
                 requestReview()
             }
             

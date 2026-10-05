@@ -10,4 +10,5 @@ import SwiftUI
 @MainActor
 final class UserStrage {
     @AppStorage("isNeedDisplayIntro") static var isNeedDisplayIntro: Bool = true
+    @AppStorage("lastVersionPromptedForReview") static var lastVersionPromptedForReview: String = ""
 }
