@@ -20,7 +20,7 @@ final class InterstitialAdManager: NSObject {
     #endif
 
     /// 何回の再生につき1回広告を表示するか
-    private let showInterval = 3
+    private let showInterval = 2
     private let playCountKey = "interstitialPlayCount"
 
     private var interstitialAd: InterstitialAd?

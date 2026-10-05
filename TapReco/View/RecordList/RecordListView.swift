@@ -143,7 +143,12 @@ struct RecordListView: View {
         .onAppear{
             displayRecords = getDisplayRecord()
             
-            if records.count % 3 == 0 {
+            // レビュー依頼は同じアプリバージョンにつき1回だけにする
+            let currentVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? ""
+            if !records.isEmpty,
+               records.count % 3 == 0,
+               UserStrage.lastVersionPromptedForReview != currentVersion {
+                UserStrage.lastVersionPromptedForReview = currentVersion
                 requestReview()
             }
             
