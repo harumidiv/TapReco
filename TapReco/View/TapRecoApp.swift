@@ -7,13 +7,15 @@
 
 import SwiftUI
 import AVFoundation
+import AppTrackingTransparency
 
 @main
 struct TapRecoApp: App {
     @Environment(\.scenePhase) private var scenePhase
     @StateObject private var store = RecordStore()
     @State private var errorWrapper: ErrorWrapper?
-    
+    @State private var isRequestingPermissions = false
+
     var body: some Scene {
         WindowGroup {
             RootView(records: $store.records) {
@@ -41,14 +43,30 @@ struct TapRecoApp: App {
         .onChange(of: scenePhase) { scene in
             switch scene {
             case .active:
-                // アプリ起動時のマイク使用許可のダイアログ表示
-                AVCaptureDevice.requestAccess(for: AVMediaType.audio, completionHandler: {(granted: Bool) in})
-                LocationManager.shared.requestPermission()
+                guard !isRequestingPermissions else { return }
+                isRequestingPermissions = true
+                Task {
+                    await requestPermissions()
+                    isRequestingPermissions = false
+                }
             case .inactive, .background:
                 store.records = store.records.compactMap{ .init(record: $0, isSelected: false)}
 
             @unknown default: break
             }
         }
+    }
+
+    /// アプリ起動時の許可ダイアログを重ならないよう順番に表示し、最後に広告SDKを開始する
+    private func requestPermissions() async {
+        _ = await AVCaptureDevice.requestAccess(for: .audio)
+        await LocationManager.shared.requestPermission()
+        // ATTはアプリがアクティブでないとダイアログが出ないため、直前のダイアログが閉じるのを待つ
+        while UIApplication.shared.applicationState != .active {
+            try? await Task.sleep(nanoseconds: 100_000_000)
+        }
+        _ = await ATTrackingManager.requestTrackingAuthorization()
+        // ATTの結果を反映させるため、広告の読み込みは許可ダイアログの後に行う
+        InterstitialAdManager.shared.start()
     }
 }
