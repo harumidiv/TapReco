@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
+import AVFoundation
 
 struct RootView: View {
     // MARK: - Augument
     @Binding var records: [RecordData]
+    let recordingRequestID: UUID?
     let saveAction: ()->Void
 
     // MARK: - Property
@@ -17,6 +19,7 @@ struct RootView: View {
     @State private var isRecording: Bool = false
     @State private var isShowSuccessSnackBar = false
     @State private var isShowFailureSnackBar = false
+    @State private var handledRecordingRequestID: UUID?
     // UserDefaultの値を参照して出すかのフラグの値が入るようにする
     @State private var isShowIntoView: Bool = UserStrage.isNeedDisplayIntro
 
@@ -62,6 +65,36 @@ struct RootView: View {
             isRecording = false
             showFailureSnackBar()
         }
+        .onAppear {
+            handleRecordingRequest(recordingRequestID)
+        }
+        .onChange(of: recordingRequestID) { requestID in
+            handleRecordingRequest(requestID)
+        }
+    }
+
+    private func handleRecordingRequest(_ requestID: UUID?) {
+        guard let requestID,
+              requestID != handledRecordingRequestID,
+              !isRecording else { return }
+        handledRecordingRequestID = requestID
+
+        Task { @MainActor in
+            switch AVCaptureDevice.authorizationStatus(for: .audio) {
+            case .authorized:
+                isRecording = true
+            case .notDetermined:
+                if await AVCaptureDevice.requestAccess(for: .audio) {
+                    isRecording = true
+                } else {
+                    showFailureSnackBar()
+                }
+            case .denied, .restricted:
+                showFailureSnackBar()
+            @unknown default:
+                showFailureSnackBar()
+            }
+        }
     }
 
     private func showFailureSnackBar() {
@@ -75,6 +108,8 @@ struct RootView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        RootView(records: .constant(RecordData.sampleData), saveAction: {})
+        RootView(records: .constant(RecordData.sampleData),
+                 recordingRequestID: nil,
+                 saveAction: {})
     }
 }

@@ -55,6 +55,8 @@
 		49D270EE28F433BC00AE503C /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D270ED28F433BC00AE503C /* SearchBarView.swift */; };
 		AD0000000000000000000001 /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = AD0000000000000000000002 /* GoogleMobileAds */; };
 		AD0000000000000000000005 /* InterstitialAdManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0000000000000000000004 /* InterstitialAdManager.swift */; };
+		AA1000000000000000000001 /* TapRecoWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1000000000000000000004 /* TapRecoWidget.swift */; };
+		AA1000000000000000000002 /* TapRecoWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = AA1000000000000000000006 /* TapRecoWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,7 +74,28 @@
 			remoteGlobalIDString = 4925089626DCF7D3005169AE;
 			remoteInfo = TapReco;
 		};
+		AA1000000000000000000003 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4925088F26DCF7D3005169AE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AA1000000000000000000009;
+			remoteInfo = TapRecoWidget;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		AA1000000000000000000010 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				AA1000000000000000000002 /* TapRecoWidget.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		491DE9DD2758B8640084985B /* RecordListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordListView.swift; sourceTree = "<group>"; };
@@ -128,6 +151,9 @@
 		49C53B262760D10E0062E6B3 /* RecordListHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordListHeaderView.swift; sourceTree = "<group>"; };
 		49D270ED28F433BC00AE503C /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		AD0000000000000000000004 /* InterstitialAdManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterstitialAdManager.swift; sourceTree = "<group>"; };
+		AA1000000000000000000004 /* TapRecoWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapRecoWidget.swift; sourceTree = "<group>"; };
+		AA1000000000000000000005 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA1000000000000000000006 /* TapRecoWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TapRecoWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +179,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AA1000000000000000000007 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -169,6 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				4925089926DCF7D3005169AE /* TapReco */,
+				AA1000000000000000000008 /* TapRecoWidget */,
 				492508AB26DCF7D4005169AE /* TapRecoTests */,
 				492508B626DCF7D4005169AE /* TapRecoUITests */,
 				4925089826DCF7D3005169AE /* Products */,
@@ -179,10 +213,20 @@
 			isa = PBXGroup;
 			children = (
 				4925089726DCF7D3005169AE /* TapReco.app */,
+				AA1000000000000000000006 /* TapRecoWidget.appex */,
 				492508A826DCF7D4005169AE /* TapRecoTests.xctest */,
 				492508B326DCF7D4005169AE /* TapRecoUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		AA1000000000000000000008 /* TapRecoWidget */ = {
+			isa = PBXGroup;
+			children = (
+				AA1000000000000000000004 /* TapRecoWidget.swift */,
+				AA1000000000000000000005 /* Info.plist */,
+			);
+			path = TapRecoWidget;
 			sourceTree = "<group>";
 		};
 		4925089926DCF7D3005169AE /* TapReco */ = {
@@ -393,10 +437,12 @@
 				4925089326DCF7D3005169AE /* Sources */,
 				4925089426DCF7D3005169AE /* Frameworks */,
 				4925089526DCF7D3005169AE /* Resources */,
+				AA1000000000000000000010 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				AA1000000000000000000012 /* PBXTargetDependency */,
 			);
 			name = TapReco;
 			packageProductDependencies = (
@@ -405,6 +451,25 @@
 			productName = TapReco;
 			productReference = 4925089726DCF7D3005169AE /* TapReco.app */;
 			productType = "com.apple.product-type.application";
+		};
+		AA1000000000000000000009 /* TapRecoWidget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA1000000000000000000015 /* Build configuration list for PBXNativeTarget "TapRecoWidget" */;
+			buildPhases = (
+				AA1000000000000000000011 /* Sources */,
+				AA1000000000000000000007 /* Frameworks */,
+				AA1000000000000000000013 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TapRecoWidget;
+			packageProductDependencies = (
+			);
+			productName = TapRecoWidget;
+			productReference = AA1000000000000000000006 /* TapRecoWidget.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 		492508A726DCF7D4005169AE /* TapRecoTests */ = {
 			isa = PBXNativeTarget;
@@ -462,6 +527,9 @@
 						CreatedOnToolsVersion = 12.5.1;
 						TestTargetID = 4925089626DCF7D3005169AE;
 					};
+					AA1000000000000000000009 = {
+						CreatedOnToolsVersion = 26.0;
+					};
 				};
 			};
 			buildConfigurationList = 4925089226DCF7D3005169AE /* Build configuration list for PBXProject "TapReco" */;
@@ -481,6 +549,7 @@
 			projectRoot = "";
 			targets = (
 				4925089626DCF7D3005169AE /* TapReco */,
+				AA1000000000000000000009 /* TapRecoWidget */,
 				492508A726DCF7D4005169AE /* TapRecoTests */,
 				492508B226DCF7D4005169AE /* TapRecoUITests */,
 			);
@@ -505,6 +574,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		492508B126DCF7D4005169AE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA1000000000000000000013 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -580,6 +656,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AA1000000000000000000011 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA1000000000000000000001 /* TapRecoWidget.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -592,6 +676,11 @@
 			isa = PBXTargetDependency;
 			target = 4925089626DCF7D3005169AE /* TapReco */;
 			targetProxy = 492508B426DCF7D4005169AE /* PBXContainerItemProxy */;
+		};
+		AA1000000000000000000012 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AA1000000000000000000009 /* TapRecoWidget */;
+			targetProxy = AA1000000000000000000003 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -721,7 +810,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_ASSET_PATHS = "\"TapReco/Preview Content\"";
 				DEVELOPMENT_TEAM = 24BSY9Z4H5;
 				ENABLE_PREVIEWS = YES;
@@ -732,7 +821,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.0;
+				MARKETING_VERSION = 1.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = harumidiv.TapReco;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -748,7 +837,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_ASSET_PATHS = "\"TapReco/Preview Content\"";
 				DEVELOPMENT_TEAM = 24BSY9Z4H5;
 				ENABLE_PREVIEWS = YES;
@@ -759,7 +848,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.0;
+				MARKETING_VERSION = 1.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = harumidiv.TapReco;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -852,6 +941,54 @@
 			};
 			name = Release;
 		};
+		AA1000000000000000000016 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 8;
+				DEVELOPMENT_TEAM = 24BSY9Z4H5;
+				INFOPLIST_FILE = TapRecoWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.3.0;
+				PRODUCT_BUNDLE_IDENTIFIER = harumidiv.TapReco.Widget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		AA1000000000000000000017 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 8;
+				DEVELOPMENT_TEAM = 24BSY9Z4H5;
+				INFOPLIST_FILE = TapRecoWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.3.0;
+				PRODUCT_BUNDLE_IDENTIFIER = harumidiv.TapReco.Widget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -887,6 +1024,15 @@
 			buildConfigurations = (
 				492508C326DCF7D4005169AE /* Debug */,
 				492508C426DCF7D4005169AE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AA1000000000000000000015 /* Build configuration list for PBXNativeTarget "TapRecoWidget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA1000000000000000000016 /* Debug */,
+				AA1000000000000000000017 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

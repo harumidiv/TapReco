@@ -15,10 +15,12 @@ struct TapRecoApp: App {
     @StateObject private var store = RecordStore()
     @State private var errorWrapper: ErrorWrapper?
     @State private var isRequestingPermissions = false
+    @State private var recordingRequestID: UUID?
 
     var body: some Scene {
         WindowGroup {
-            RootView(records: $store.records) {
+            RootView(records: $store.records,
+                     recordingRequestID: recordingRequestID) {
                 Task {
                     do {
                         try await RecordStore.save(records: store.records)
@@ -33,6 +35,10 @@ struct TapRecoApp: App {
                 } catch {
                     errorWrapper = ErrorWrapper(error: error, guidance: "録音データの読み込みに失敗しました")
                 }
+            }
+            .onOpenURL { url in
+                guard url.scheme == "tapreco", url.host == "record" else { return }
+                recordingRequestID = UUID()
             }
             .sheet(item: $errorWrapper, onDismiss: {
                 // NOP
