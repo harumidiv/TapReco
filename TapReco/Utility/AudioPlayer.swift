@@ -43,7 +43,8 @@ final class AudioPlayer: NSObject, ObservableObject {
 
         let previousPlayer = audioPlayer
         audioPlayer = player
-        guard player.prepareToPlay(),
+        guard activatePlaybackSession(),
+              player.prepareToPlay(),
               player.duration.isFinite,
               player.duration >= 0,
               player.play() else {
@@ -67,7 +68,7 @@ final class AudioPlayer: NSObject, ObservableObject {
         if current >= duration || current == 0 {
             return playStart()
         } else {
-            guard player.play() else { return false }
+            guard activatePlaybackSession(), player.play() else { return false }
             setTimer()
             return true
         }
@@ -76,6 +77,7 @@ final class AudioPlayer: NSObject, ObservableObject {
     func playStop() {
         resetTimer()
         audioPlayer?.stop()
+        deactivatePlaybackSession()
     }
 
     func skipFifteenSeconds() -> Bool {
@@ -87,13 +89,14 @@ final class AudioPlayer: NSObject, ObservableObject {
         let isAbleToSkip = timeDiff > 15
         if isAbleToSkip {
             player.currentTime = min(current + 15, totalDuration)
-            guard player.play() else {
+            guard activatePlaybackSession(), player.play() else {
                 resetTimer()
                 return true
             }
         } else {
             player.currentTime = totalDuration
             resetTimer()
+            deactivatePlaybackSession()
         }
         return !isAbleToSkip
     }
@@ -135,7 +138,8 @@ extension AudioPlayer {
 
     private func playStart() -> Bool {
         guard let player = audioPlayer else { return false }
-        guard player.prepareToPlay(),
+        guard activatePlaybackSession(),
+              player.prepareToPlay(),
               player.duration.isFinite,
               player.duration >= 0,
               player.play() else {
@@ -144,6 +148,25 @@ extension AudioPlayer {
         }
         setTimer()
         return true
+    }
+
+    private func activatePlaybackSession() -> Bool {
+        let session = AVAudioSession.sharedInstance()
+        do {
+            // .playback を指定すると、端末がサイレントモードでも録音音声を再生できる
+            try session.setCategory(.playback, mode: .default)
+            try session.setActive(true)
+            return true
+        } catch {
+            return false
+        }
+    }
+
+    private func deactivatePlaybackSession() {
+        try? AVAudioSession.sharedInstance().setActive(
+            false,
+            options: .notifyOthersOnDeactivation
+        )
     }
 
     private func setTimer() {
@@ -178,6 +201,7 @@ extension AudioPlayer: AVAudioPlayerDelegate {
                   let currentPlayer = audioPlayer,
                   ObjectIdentifier(currentPlayer) == playerID else { return }
             resetTimer()
+            deactivatePlaybackSession()
             playComplete?()
         }
     }
