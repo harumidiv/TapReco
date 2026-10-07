@@ -88,7 +88,9 @@ extension Date {
     }
 
     func getDate(daysAgo: Int) -> Date {
-        return Calendar.current.date(byAdding: .day, value: -daysAgo, to: self) ?? self
+        let (dayOffset, overflow) = daysAgo.multipliedReportingOverflow(by: -1)
+        guard !overflow else { return self }
+        return Calendar.current.date(byAdding: .day, value: dayOffset, to: self) ?? self
     }
 }
 

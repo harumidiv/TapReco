@@ -7,7 +7,7 @@
 import SwiftUI
 import WidgetKit
 
-private let recordingURL = URL(string: "tapreco://record")!
+private let recordingURL = URL(string: "tapreco://record")
 
 private struct RecordingEntry: TimelineEntry {
     let date: Date

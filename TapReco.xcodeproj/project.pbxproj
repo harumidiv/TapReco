@@ -54,7 +54,10 @@
 		49C53B272760D10E0062E6B3 /* RecordListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C53B262760D10E0062E6B3 /* RecordListHeaderView.swift */; };
 		49D270EE28F433BC00AE503C /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D270ED28F433BC00AE503C /* SearchBarView.swift */; };
 		AD0000000000000000000001 /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = AD0000000000000000000002 /* GoogleMobileAds */; };
-		AD0000000000000000000005 /* InterstitialAdManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0000000000000000000004 /* InterstitialAdManager.swift */; };
+		AD0000000000000000000005 /* AdManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0000000000000000000004 /* AdManager.swift */; };
+		AD0000000000000000000007 /* BannerAdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0000000000000000000006 /* BannerAdView.swift */; };
+		AD0000000000000000000009 /* NativeAdStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0000000000000000000008 /* NativeAdStore.swift */; };
+		AD000000000000000000000B /* NativeAdCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD000000000000000000000A /* NativeAdCardView.swift */; };
 		AA1000000000000000000001 /* TapRecoWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1000000000000000000004 /* TapRecoWidget.swift */; };
 		AA1000000000000000000002 /* TapRecoWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = AA1000000000000000000006 /* TapRecoWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -150,7 +153,10 @@
 		49C0D13126EA31C900B3666E /* StandbyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandbyView.swift; sourceTree = "<group>"; };
 		49C53B262760D10E0062E6B3 /* RecordListHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordListHeaderView.swift; sourceTree = "<group>"; };
 		49D270ED28F433BC00AE503C /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
-		AD0000000000000000000004 /* InterstitialAdManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterstitialAdManager.swift; sourceTree = "<group>"; };
+		AD0000000000000000000006 /* BannerAdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerAdView.swift; sourceTree = "<group>"; };
+		AD0000000000000000000008 /* NativeAdStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeAdStore.swift; sourceTree = "<group>"; };
+		AD000000000000000000000A /* NativeAdCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeAdCardView.swift; sourceTree = "<group>"; };
+		AD0000000000000000000004 /* AdManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdManager.swift; sourceTree = "<group>"; };
 		AA1000000000000000000004 /* TapRecoWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapRecoWidget.swift; sourceTree = "<group>"; };
 		AA1000000000000000000005 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA1000000000000000000006 /* TapRecoWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TapRecoWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -299,7 +305,8 @@
 				49409CBE275DDDBC003933BA /* Extension */,
 				49856ECD26E474B80015C12E /* AudioPlayer.swift */,
 				49856ECA26E474030015C12E /* AudioRecorder.swift */,
-				AD0000000000000000000004 /* InterstitialAdManager.swift */,
+				AD0000000000000000000004 /* AdManager.swift */,
+				AD0000000000000000000008 /* NativeAdStore.swift */,
 				49856F4D26E633080015C12E /* MicrophoneLebelManager.swift */,
 				49BEE51E26EDDF460002C43B /* TimerHolder.swift */,
 				494F57FB28F2084C00B2C79E /* UserStrage.swift */,
@@ -407,6 +414,8 @@
 				4941A171276A1A1F00A80335 /* RecordListCardView.swift */,
 				494F57FF28F25ECA00B2C79E /* ActivityViewController.swift */,
 				494F57FD28F20BCC00B2C79E /* RecordListPlayerView.swift */,
+				AD0000000000000000000006 /* BannerAdView.swift */,
+				AD000000000000000000000A /* NativeAdCardView.swift */,
 				4962568628F2D5ED0044A6CD /* StartStopView.swift */,
 				49D270ED28F433BC00AE503C /* SearchBarView.swift */,
 				492DC57A28F4E33E00E7D3FB /* SortView.swift */,
@@ -618,7 +627,10 @@
 				499A48FC28F930A600BE9C36 /* ErrorWapper.swift in Sources */,
 				499A48FE28F930C500BE9C36 /* ErrorView.swift in Sources */,
 				49856ECE26E474B80015C12E /* AudioPlayer.swift in Sources */,
-				AD0000000000000000000005 /* InterstitialAdManager.swift in Sources */,
+				AD0000000000000000000005 /* AdManager.swift in Sources */,
+				AD0000000000000000000007 /* BannerAdView.swift in Sources */,
+				AD0000000000000000000009 /* NativeAdStore.swift in Sources */,
+				AD000000000000000000000B /* NativeAdCardView.swift in Sources */,
 				494F57FA28F1BFB200B2C79E /* IntroDetailView.swift in Sources */,
 				49488CF228EECF3E0015CDFC /* RecordingData.swift in Sources */,
 				49C53B272760D10E0062E6B3 /* RecordListHeaderView.swift in Sources */,
@@ -865,7 +877,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 24BSY9Z4H5;
 				INFOPLIST_FILE = TapRecoTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -887,7 +899,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 24BSY9Z4H5;
 				INFOPLIST_FILE = TapRecoTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -908,6 +920,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 24BSY9Z4H5;
 				INFOPLIST_FILE = TapRecoUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -928,6 +941,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 24BSY9Z4H5;
 				INFOPLIST_FILE = TapRecoUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

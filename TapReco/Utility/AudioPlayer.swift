@@ -121,7 +121,7 @@ final class AudioPlayer: NSObject, ObservableObject {
 
     @discardableResult
     func stopSliderValue() -> Bool {
-        audioPlayer?.currentTime = displayTime
+        setCurrentTime(time: displayTime)
         return reStart()
     }
 }
@@ -174,7 +174,8 @@ extension AudioPlayer {
         cancellable = Timer.publish(every: 0.01, on: .main, in: .common)
             .autoconnect()
             .sink { [weak self] _ in
-                self?.updateValue += 1
+                guard let self else { return }
+                updateValue = updateValue == .max ? 0 : updateValue + 1
             }
     }
 

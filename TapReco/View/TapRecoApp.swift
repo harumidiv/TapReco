@@ -73,6 +73,6 @@ struct TapRecoApp: App {
         }
         _ = await ATTrackingManager.requestTrackingAuthorization()
         // ATTの結果を反映させるため、広告の読み込みは許可ダイアログの後に行う
-        InterstitialAdManager.shared.start()
+        AdManager.shared.start()
     }
 }

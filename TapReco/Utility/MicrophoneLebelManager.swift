@@ -118,13 +118,22 @@ final class MicrophoneLebelManager: ObservableObject {
         // 起動直後など一時的な失敗はスキップし、タイマーは継続する
         guard status == noErr else { return }
 
-        let minVol: CGFloat = -50
-        let maxVol: CGFloat = 0
-        // min: -60, max: -0 くらいが手元の環境では取れたのでそっちの方が綺麗に動く
-        let normalizationValue = (CGFloat(levelMeter.mAveragePower) - minVol) / (maxVol - minVol)
+        let normalizationValue = Self.normalizedVolume(averagePower: levelMeter.mAveragePower)
 
         withAnimation(.spring(response: 0.15, dampingFraction: 0.75)) {
-            volume = min(max(normalizationValue, 0), 1)
+            volume = normalizationValue
         }
+    }
+
+    nonisolated static func normalizedVolume(averagePower: Float) -> CGFloat {
+        let minimumPower: CGFloat = -50
+        let maximumPower: CGFloat = 0
+        let power = CGFloat(averagePower)
+        guard power.isFinite else { return 0 }
+
+        // min: -60, max: -0 くらいが手元の環境では取れたのでそっちの方が綺麗に動く
+        let normalizedValue = (power - minimumPower) / (maximumPower - minimumPower)
+        guard normalizedValue.isFinite else { return 0 }
+        return min(max(normalizedValue, 0), 1)
     }
 }

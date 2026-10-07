@@ -30,7 +30,9 @@ struct RecordListPlayerView: View {
                 .frame(height: 1)
                 .padding(.bottom)
             Slider(value: $audioPlayer.displayTime,
-                   in: 0.0...audioPlayer.duration,
+                   // 読み込み直後や壊れた音声で duration が 0 の場合にも、
+                   // Slider 内部へゼロ幅の範囲を渡さない。
+                   in: 0.0...max(audioPlayer.duration, 0.01),
                    onEditingChanged: {isChanging in
                 self.isSliderChanged = isChanging
                 if isChanging {
@@ -63,49 +65,53 @@ struct RecordListPlayerView: View {
             }
             .padding(.horizontal, 30)
 
-            HStack(spacing: 0){
-                Image(systemName: "square.and.arrow.up")
-                    .foregroundColor(AppColor.iconLightGray)
-                    .font(Font.system(size: 24, weight: .regular))
-                    .onTapGesture {
-                        audioPlayer.playStop()
-                        isShowActivityView = true
-                        isPlaying = false
-                    }
-                    .sheet(isPresented: $isShowActivityView) {
-                        let recordFileURL: URL = audioPlayer.getURL(fileName: record.fileName)
-                        ActivityViewController(activityItems: [recordFileURL])
-                    }
-                Spacer()
-                Image(systemName: "gobackward.15")
-                    .font(Font.system(size: 24, weight: .regular))
-                    .foregroundColor(AppColor.iconLightGray)
-                    .onTapGesture {
-                        isPlaying = audioPlayer.rewindFifteenSeconds()
-                    }
-                StartStopView(isPlaying: $isPlaying, audioPlayer: audioPlayer)
-                    .padding([.leading, .trailing], 24)
-                Image(systemName: "goforward.15")
-                    .font(Font.system(size: 24, weight: .regular))
-                    .foregroundColor(AppColor.iconLightGray)
-                    .onTapGesture {
-                        isPlaying = true
-                        if audioPlayer.skipFifteenSeconds() {
-                            // 末尾まできていたらストップする
+            // 再生ボタンとバナー広告の間隔を固定する
+            VStack(spacing: 8) {
+                HStack(spacing: 0){
+                    Image(systemName: "square.and.arrow.up")
+                        .foregroundColor(AppColor.iconLightGray)
+                        .font(Font.system(size: 24, weight: .regular))
+                        .onTapGesture {
+                            audioPlayer.playStop()
+                            isShowActivityView = true
                             isPlaying = false
-                            audioPlayer.setCurrentTime(time: 0)
                         }
-                    }
-                Spacer()
-                Image(systemName: "trash")
-                    .font(Font.system(size: 24, weight: .regular))
-                    .foregroundColor(AppColor.iconLightGray)
-                    .onTapGesture {
-                        deleteAction(record)
-                    }
+                        .sheet(isPresented: $isShowActivityView) {
+                            let recordFileURL: URL = audioPlayer.getURL(fileName: record.fileName)
+                            ActivityViewController(activityItems: [recordFileURL])
+                        }
+                    Spacer()
+                    Image(systemName: "gobackward.15")
+                        .font(Font.system(size: 24, weight: .regular))
+                        .foregroundColor(AppColor.iconLightGray)
+                        .onTapGesture {
+                            isPlaying = audioPlayer.rewindFifteenSeconds()
+                        }
+                    StartStopView(isPlaying: $isPlaying, audioPlayer: audioPlayer)
+                        .padding([.leading, .trailing], 24)
+                    Image(systemName: "goforward.15")
+                        .font(Font.system(size: 24, weight: .regular))
+                        .foregroundColor(AppColor.iconLightGray)
+                        .onTapGesture {
+                            isPlaying = true
+                            if audioPlayer.skipFifteenSeconds() {
+                                // 末尾まできていたらストップする
+                                isPlaying = false
+                                audioPlayer.setCurrentTime(time: 0)
+                            }
+                        }
+                    Spacer()
+                    Image(systemName: "trash")
+                        .font(Font.system(size: 24, weight: .regular))
+                        .foregroundColor(AppColor.iconLightGray)
+                        .onTapGesture {
+                            deleteAction(record)
+                        }
+                }
+                .padding(.horizontal, 30)
+
+                BannerAdView()
             }
-            .padding(.horizontal, 30)
-            .padding(.bottom, 38)
         }
         .background(AppColor.background)
         .onAppear {
