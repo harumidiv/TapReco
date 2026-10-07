@@ -117,7 +117,8 @@ struct RecordListView: View {
                         }
                     }
                 }
-                .ignoresSafeArea(edges: [.top])
+                // バナー広告の下に Safe Area の余白が出ないよう画面最下部まで広げる
+                .ignoresSafeArea(edges: [.top, .bottom])
                 .blur(radius: isShowSortView ? 2.0 : 0.0)
             }
 
