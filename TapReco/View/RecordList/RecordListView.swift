@@ -7,6 +7,7 @@
 
 import SwiftUI
 import StoreKit
+import GoogleMobileAds
 
 struct RecordListView: View {
     // MARK: Augument
@@ -16,6 +17,7 @@ struct RecordListView: View {
     
     // MARK: - Property
     @StateObject var audioPlayer: AudioPlayer = AudioPlayer()
+    @StateObject private var nativeAdStore = NativeAdStore()
     @State private var searchText: String = ""
     @State private var sortType: SortType = .dateNew
     @State private var isPlaying: Bool = false
@@ -45,7 +47,7 @@ struct RecordListView: View {
                     Spacer()
                 } else {
                     List {
-                        ForEach(displayRecords) { record in
+                        ForEach(Array(displayRecords.enumerated()), id: \.element.id) { index, record in
                             if record.isSelected {
                                 RecordListCardView(record: record,
                                                    backgroundColor: AppColor.boxBlack,
@@ -59,17 +61,11 @@ struct RecordListView: View {
                                                           trailing: 16))
                             } else {
                                 Button(action: {
-                                    InterstitialAdManager.shared.showIfNeeded(beforePresent: {
-                                        // 広告の音声と重ならないよう再生中の録音を止める
-                                        audioPlayer.playStop()
-                                        isPlaying = false
-                                    }) {
-                                        guard audioPlayer.setup(fileName: record.fileName) else {
-                                            return
-                                        }
-                                        setSelectedState(selectRecord: record)
-                                        isPlaying = true
+                                    guard audioPlayer.setup(fileName: record.fileName) else {
+                                        return
                                     }
+                                    setSelectedState(selectRecord: record)
+                                    isPlaying = true
                                 }){
                                     RecordListCardView(record: record,
                                                        backgroundColor: AppColor.boxGray,
@@ -83,6 +79,17 @@ struct RecordListView: View {
                                                           bottom: 5,
                                                           trailing: 16))
                             }
+
+                            if let nativeAd = nativeAd(after: index) {
+                                NativeAdCardView(nativeAd: nativeAd)
+                                    .frame(height: NativeAdCardView.height)
+                                    .listRowBackground(AppColor.background)
+                                    // 録音カードとの誤タップを避けるため上下を少し広めに空ける
+                                    .listRowInsets(EdgeInsets(top: 12,
+                                                              leading: 16,
+                                                              bottom: 12,
+                                                              trailing: 16))
+                            }
                         }
                         .listRowSeparator(.hidden)
                     }
@@ -93,12 +100,12 @@ struct RecordListView: View {
             .blur(radius: isShowSortView ? 2.0 : 0.0)
 
             // PlayerViewの表示
-            if let selectedIndex = displayRecords.firstIndex(where: { $0.isSelected }) {
+            if let selectedRecord = displayRecords.first(where: { $0.isSelected }) {
                 VStack(spacing: 0) {
                     Spacer()
                     RecordListPlayerView(saveAction: saveAction,
                                          isPlaying: $isPlaying,
-                                         record: displayRecords[selectedIndex],
+                                         record: selectedRecord,
                                          audioPlayer: audioPlayer) { record in
                         audioPlayer.playStop()
                         if let displayIndex = displayRecords.firstIndex(where: { $0.id == record.id }) {
@@ -110,7 +117,8 @@ struct RecordListView: View {
                         }
                     }
                 }
-                .ignoresSafeArea(edges: [.top])
+                // バナー広告の下に Safe Area の余白が出ないよう画面最下部まで広げる
+                .ignoresSafeArea(edges: [.top, .bottom])
                 .blur(radius: isShowSortView ? 2.0 : 0.0)
             }
 
@@ -142,6 +150,9 @@ struct RecordListView: View {
         }
         .onAppear{
             displayRecords = getDisplayRecord()
+            if records.count > Self.firstNativeAdPosition {
+                nativeAdStore.loadIfNeeded()
+            }
             
             // レビュー依頼は同じアプリバージョンにつき1回だけにする
             let currentVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? ""
@@ -157,6 +168,21 @@ struct RecordListView: View {
 }
 
 private extension RecordListView {
+    /// この件数の録音の後に1つ目のネイティブ広告を表示する
+    static let firstNativeAdPosition = 5
+    /// 2つ目以降のネイティブ広告を表示する間隔（録音の件数）
+    static let nativeAdInterval = 10
+
+    /// index番目の録音の直後に表示するネイティブ広告。録音と録音の間にだけ表示する
+    func nativeAd(after index: Int) -> NativeAd? {
+        let offset = index + 1 - Self.firstNativeAdPosition
+        guard offset >= 0,
+              offset % Self.nativeAdInterval == 0,
+              index < displayRecords.count - 1 else { return nil }
+        let slot = offset / Self.nativeAdInterval
+        return nativeAdStore.nativeAds.indices.contains(slot) ? nativeAdStore.nativeAds[slot] : nil
+    }
+
     func getDisplayRecord() -> [RecordData] {
         func stringToInt(text: String) -> Int64 {
             let splitNumber = (text.components(separatedBy: NSCharacterSet.decimalDigits.inverted))

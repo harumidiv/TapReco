@@ -23,6 +23,23 @@ class TapRecoTests: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
 
+    func testMicrophoneVolumeNormalizationRejectsNonFiniteValues() {
+        XCTAssertEqual(MicrophoneLebelManager.normalizedVolume(averagePower: .nan), 0)
+        XCTAssertEqual(MicrophoneLebelManager.normalizedVolume(averagePower: .infinity), 0)
+        XCTAssertEqual(MicrophoneLebelManager.normalizedVolume(averagePower: -.infinity), 0)
+    }
+
+    func testMicrophoneVolumeNormalizationClampsValues() {
+        XCTAssertEqual(MicrophoneLebelManager.normalizedVolume(averagePower: -100), 0)
+        XCTAssertEqual(MicrophoneLebelManager.normalizedVolume(averagePower: -25), 0.5)
+        XCTAssertEqual(MicrophoneLebelManager.normalizedVolume(averagePower: 10), 1)
+    }
+
+    func testGetDateHandlesMinimumIntegerWithoutOverflow() {
+        let date = Date(timeIntervalSince1970: 1_000_000)
+        XCTAssertEqual(date.getDate(daysAgo: .min), date)
+    }
+
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
         self.measure {
