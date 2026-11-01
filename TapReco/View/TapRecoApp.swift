@@ -12,7 +12,7 @@ import AppTrackingTransparency
 @main
 struct TapRecoApp: App {
     @Environment(\.scenePhase) private var scenePhase
-    @StateObject private var store = RecordStore()
+    @StateObject private var store = RecordStore.shared
     @State private var errorWrapper: ErrorWrapper?
     @State private var isRequestingPermissions = false
     @State private var recordingRequestID: UUID?
@@ -23,7 +23,7 @@ struct TapRecoApp: App {
                      recordingRequestID: recordingRequestID) {
                 Task {
                     do {
-                        try await RecordStore.save(records: store.records)
+                        try await store.save()
                     } catch {
                         errorWrapper = ErrorWrapper(error: error, guidance: "録音データの保存に失敗しました")
                     }
@@ -31,10 +31,14 @@ struct TapRecoApp: App {
             }
             .task {
                 do {
-                    store.records = try await RecordStore.load()
+                    try await store.loadIfNeeded()
                 } catch {
                     errorWrapper = ErrorWrapper(error: error, guidance: "録音データの読み込みに失敗しました")
                 }
+            }
+            .onReceive(RecordingController.shared.failures) { failure in
+                guard case .saveFailed(let error) = failure else { return }
+                errorWrapper = ErrorWrapper(error: error, guidance: "録音データの保存に失敗しました")
             }
             .onOpenURL { url in
                 guard url.scheme == "tapreco", url.host == "record" else { return }
