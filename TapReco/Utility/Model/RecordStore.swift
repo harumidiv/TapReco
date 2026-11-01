@@ -38,19 +38,42 @@ private actor RecordPersistence {
 
 @MainActor
 final class RecordStore: ObservableObject {
-    @Published var records: [RecordData] = []
+    static let shared = RecordStore()
 
-    /// 端末内部に保存している録音データを取得する
-    /// - Returns: 録音データ一覧
-    static func load() async throws -> [RecordData] {
-        try await RecordPersistence.shared.load()
+    @Published var records: [RecordData] = []
+    private var loadTask: Task<Void, Error>?
+
+    private init() {}
+
+    /// 端末内部に保存している録音データを読み込む。読み込み済みの場合は何もしない
+    func loadIfNeeded() async throws {
+        if let loadTask {
+            return try await loadTask.value
+        }
+        let task = Task {
+            records = try await RecordPersistence.shared.load()
+        }
+        loadTask = task
+        do {
+            try await task.value
+        } catch {
+            // 失敗した場合は次回呼び出し時に再読み込みする
+            loadTask = nil
+            throw error
+        }
     }
 
-    /// 新規に録音データを保存する
-    /// - Parameter records: 録音データ
-    /// - Returns: 成功の有無
-    @discardableResult
-    static func save(records: [RecordData]) async throws -> Int {
+    /// 録音データ一覧を端末内部に保存する。
+    /// 読み込み前に保存すると既存のデータを上書きしてしまうため、未読み込みの場合は先に読み込む
+    func save() async throws {
+        try await loadIfNeeded()
         try await RecordPersistence.shared.save(records: records)
+    }
+
+    /// 新規の録音データを一覧に追加して保存する
+    func append(_ record: RecordData) async throws {
+        try await loadIfNeeded()
+        records.append(record)
+        try await save()
     }
 }

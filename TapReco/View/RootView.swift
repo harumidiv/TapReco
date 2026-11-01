@@ -15,8 +15,7 @@ struct RootView: View {
     let saveAction: ()->Void
 
     // MARK: - Property
-    @StateObject private var audioRecorder = AudioRecorderImpl()
-    @State private var isRecording: Bool = false
+    @ObservedObject private var recordingController = RecordingController.shared
     @State private var isShowSuccessSnackBar = false
     @State private var isShowFailureSnackBar = false
     @State private var handledRecordingRequestID: UUID?
@@ -25,14 +24,14 @@ struct RootView: View {
 
     var body: some View {
         ZStack {
-            if isRecording {
-                RecordingView(isRecording: $isRecording,
+            if recordingController.isRecording {
+                RecordingView(isRecording: isRecording,
                               isShowSuccessSnackBar: $isShowSuccessSnackBar)
                 .defersSystemGestures(on: .bottom)
             } else {
                 StandbyView(saveAction: saveAction,
                             records: $records,
-                            isRecording: $isRecording)
+                            isRecording: isRecording)
                 .blur(radius: isShowIntoView ? 2.0 : 0.0)
                 if isShowIntoView {
                     IntroView(isShowIntoView: $isShowIntoView)
@@ -43,26 +42,8 @@ struct RootView: View {
                 content: SnackBarSuccessView.init)
         .popup(isPresented: isShowFailureSnackBar,
                content: SnackBarFailureView.init)
-        .onChange(of: isRecording) { newValue in
-            if newValue {
-                do {
-                    try audioRecorder.recordStart()
-                } catch {
-                    isRecording = false
-                    showFailureSnackBar()
-                }
-            } else {
-                guard let newRecord = audioRecorder.recordStop() else { return }
-                records.append(newRecord)
-                saveAction()
-            }
-        }
-        .onChange(of: audioRecorder.isInterruptedNonResumably) { interrupted in
-            guard interrupted else { return }
-            // ファイルを削除してから isRecording = false にする。
-            // recordStop() が nil を返すため壊れたレコードは一覧に追加されない。
-            audioRecorder.recordCancel()
-            isRecording = false
+        .onReceive(recordingController.failures) { failure in
+            guard case .interrupted = failure else { return }
             showFailureSnackBar()
         }
         .onAppear {
@@ -76,16 +57,16 @@ struct RootView: View {
     private func handleRecordingRequest(_ requestID: UUID?) {
         guard let requestID,
               requestID != handledRecordingRequestID,
-              !isRecording else { return }
+              !recordingController.isRecording else { return }
         handledRecordingRequestID = requestID
 
         Task { @MainActor in
             switch AVCaptureDevice.authorizationStatus(for: .audio) {
             case .authorized:
-                isRecording = true
+                startRecording()
             case .notDetermined:
                 if await AVCaptureDevice.requestAccess(for: .audio) {
-                    isRecording = true
+                    startRecording()
                 } else {
                     showFailureSnackBar()
                 }
@@ -94,6 +75,28 @@ struct RootView: View {
             @unknown default:
                 showFailureSnackBar()
             }
+        }
+    }
+
+    // 子Viewからは従来どおりBindingで録音の開始・停止を行う
+    private var isRecording: Binding<Bool> {
+        Binding(
+            get: { recordingController.isRecording },
+            set: { newValue in
+                if newValue {
+                    startRecording()
+                } else {
+                    recordingController.stop()
+                }
+            }
+        )
+    }
+
+    private func startRecording() {
+        do {
+            try recordingController.start()
+        } catch {
+            showFailureSnackBar()
         }
     }
 

@@ -25,7 +25,7 @@ private final class NotificationObservation: @unchecked Sendable {
 
 @MainActor
 final class AudioRecorderImpl: NSObject, ObservableObject {
-    // 復帰不可能な割り込み（電話着信など）が発生したことをRootViewへ通知する
+    // 復帰不可能な割り込み（電話着信など）が発生したことをRecordingControllerへ通知する
     @Published private(set) var isInterruptedNonResumably = false
 
     private var audioRecorder: AVAudioRecorder?
