@@ -32,7 +32,11 @@ private struct TapRecoWidgetView: View {
 
     var body: some View {
         Group {
-            if #available(iOSApplicationExtension 17.0, *) {
+            if isAccessory {
+                // ロック画面ではシステムが背景を描画するため、背景色は付けない
+                accessoryContent
+                    .accessoryContainerBackground()
+            } else if #available(iOSApplicationExtension 17.0, *) {
                 content
                     .containerBackground(backgroundColor, for: .widget)
             } else {
@@ -41,6 +45,48 @@ private struct TapRecoWidgetView: View {
             }
         }
         .widgetURL(recordingURL)
+    }
+
+    private var isAccessory: Bool {
+        switch family {
+        case .accessoryCircular, .accessoryRectangular, .accessoryInline:
+            return true
+        default:
+            return false
+        }
+    }
+
+    @ViewBuilder
+    private var accessoryContent: some View {
+        switch family {
+        case .accessoryCircular:
+            ZStack {
+                AccessoryWidgetBackground()
+                Image(systemName: "mic.fill")
+                    .font(.system(size: 24, weight: .bold))
+            }
+            .widgetAccentable()
+        case .accessoryRectangular:
+            HStack(spacing: 8) {
+                ZStack {
+                    AccessoryWidgetBackground()
+                    Image(systemName: "mic.fill")
+                        .font(.system(size: 20, weight: .bold))
+                }
+                .frame(width: 44, height: 44)
+                .widgetAccentable()
+
+                VStack(alignment: .leading, spacing: 2) {
+                    Text("たぷれこ")
+                        .font(.headline)
+                    Text("タップで録音")
+                        .font(.caption)
+                }
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+        default:
+            Label("タップで録音", systemImage: "mic.fill")
+        }
     }
 
     private var content: some View {
@@ -88,6 +134,17 @@ private struct TapRecoWidgetView: View {
     }
 }
 
+private extension View {
+    @ViewBuilder
+    func accessoryContainerBackground() -> some View {
+        if #available(iOSApplicationExtension 17.0, *) {
+            containerBackground(.clear, for: .widget)
+        } else {
+            self
+        }
+    }
+}
+
 @main
 struct TapRecoWidget: Widget {
     let kind = "TapRecoRecordingWidget"
@@ -98,6 +155,13 @@ struct TapRecoWidget: Widget {
         }
         .configurationDisplayName("すぐに録音")
         .description("ウィジェットをタップして、たぷれこで録音を開始します。")
-        .supportedFamilies([.systemSmall, .systemMedium])
+        .supportedFamilies([
+            .systemSmall,
+            .systemMedium,
+            // ロック画面用
+            .accessoryCircular,
+            .accessoryRectangular,
+            .accessoryInline,
+        ])
     }
 }
