@@ -15,12 +15,10 @@ struct TapRecoApp: App {
     @StateObject private var store = RecordStore.shared
     @State private var errorWrapper: ErrorWrapper?
     @State private var isRequestingPermissions = false
-    @State private var recordingRequestID: UUID?
 
     var body: some Scene {
         WindowGroup {
-            RootView(records: $store.records,
-                     recordingRequestID: recordingRequestID) {
+            RootView(records: $store.records) {
                 Task {
                     do {
                         try await store.save()
@@ -42,7 +40,7 @@ struct TapRecoApp: App {
             }
             .onOpenURL { url in
                 guard url.scheme == "tapreco", url.host == "record" else { return }
-                recordingRequestID = UUID()
+                RecordingController.shared.requestStart()
             }
             .sheet(item: $errorWrapper, onDismiss: {
                 // NOP

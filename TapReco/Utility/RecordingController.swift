@@ -20,6 +20,10 @@ final class RecordingController: ObservableObject {
     static let shared = RecordingController()
 
     @Published private(set) var isRecording = false
+    /// ウィジェット・URLスキーム・ショートカットからの録音開始要求。
+    /// 画面側がマイク権限を確認してから録音を開始する。
+    /// 起動直後で画面がまだ表示されていなくても要求を取りこぼさないよう、値として保持する。
+    @Published private(set) var startRequestID: UUID?
     let failures = PassthroughSubject<RecordingFailure, Never>()
 
     private let audioRecorder = AudioRecorderImpl()
@@ -33,6 +37,10 @@ final class RecordingController: ObservableObject {
                 self?.cancelByInterruption()
             }
             .store(in: &cancellables)
+    }
+
+    func requestStart() {
+        startRequestID = UUID()
     }
 
     func start() throws {

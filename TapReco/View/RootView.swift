@@ -11,7 +11,6 @@ import AVFoundation
 struct RootView: View {
     // MARK: - Augument
     @Binding var records: [RecordData]
-    let recordingRequestID: UUID?
     let saveAction: ()->Void
 
     // MARK: - Property
@@ -47,9 +46,9 @@ struct RootView: View {
             showFailureSnackBar()
         }
         .onAppear {
-            handleRecordingRequest(recordingRequestID)
+            handleRecordingRequest(recordingController.startRequestID)
         }
-        .onChange(of: recordingRequestID) { requestID in
+        .onChange(of: recordingController.startRequestID) { requestID in
             handleRecordingRequest(requestID)
         }
     }
@@ -112,7 +111,6 @@ struct RootView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         RootView(records: .constant(RecordData.sampleData),
-                 recordingRequestID: nil,
                  saveAction: {})
     }
 }

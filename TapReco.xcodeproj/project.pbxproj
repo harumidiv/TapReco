@@ -47,6 +47,7 @@
 		499A490028F94A8000BE9C36 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499A48FF28F94A8000BE9C36 /* LocationManager.swift */; };
 		49BEE51F26EDDF460002C43B /* TimerHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BEE51E26EDDF460002C43B /* TimerHolder.swift */; };
 		BB10000000000000000000A1 /* RecordingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB10000000000000000000A2 /* RecordingController.swift */; };
+		BB10000000000000000000B1 /* StartRecordingIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB10000000000000000000B2 /* StartRecordingIntent.swift */; };
 		49C0D12526E8DE6E00B3666E /* WaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C0D12426E8DE6E00B3666E /* WaveView.swift */; };
 		49C0D12C26E9033900B3666E /* SlideSideActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C0D12B26E9033900B3666E /* SlideSideActionView.swift */; };
 		49C0D12E26E904AA00B3666E /* SlideToActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C0D12D26E904AA00B3666E /* SlideToActionView.swift */; };
@@ -148,6 +149,7 @@
 		499A48FF28F94A8000BE9C36 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		49BEE51E26EDDF460002C43B /* TimerHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerHolder.swift; sourceTree = "<group>"; };
 		BB10000000000000000000A2 /* RecordingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingController.swift; sourceTree = "<group>"; };
+		BB10000000000000000000B2 /* StartRecordingIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartRecordingIntent.swift; sourceTree = "<group>"; };
 		49C0D12426E8DE6E00B3666E /* WaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveView.swift; sourceTree = "<group>"; };
 		49C0D12B26E9033900B3666E /* SlideSideActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideSideActionView.swift; sourceTree = "<group>"; };
 		49C0D12D26E904AA00B3666E /* SlideToActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideToActionView.swift; sourceTree = "<group>"; };
@@ -303,6 +305,7 @@
 				49856F4D26E633080015C12E /* MicrophoneLebelManager.swift */,
 				49BEE51E26EDDF460002C43B /* TimerHolder.swift */,
 				BB10000000000000000000A2 /* RecordingController.swift */,
+				BB10000000000000000000B2 /* StartRecordingIntent.swift */,
 				494F57FB28F2084C00B2C79E /* UserStrage.swift */,
 				4962568828F3B1E30044A6CD /* AppColor.swift */,
 				4954D3CF28F6ADC900F4128F /* Popup.swift */,
@@ -617,6 +620,7 @@
 				4954D3B228F6907600F4128F /* MicrophoneVolumeRightView.swift in Sources */,
 				49BEE51F26EDDF460002C43B /* TimerHolder.swift in Sources */,
 				BB10000000000000000000A1 /* RecordingController.swift in Sources */,
+				BB10000000000000000000B1 /* StartRecordingIntent.swift in Sources */,
 				492DC57D28F4E79D00E7D3FB /* SelectView.swift in Sources */,
 				495B95F2277DA6E6009A393C /* SlideUPActionView.swift in Sources */,
 				49409CC0275DDDCA003933BA /* Date+Extension.swift in Sources */,
@@ -826,7 +830,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 12;
+				CURRENT_PROJECT_VERSION = 13;
 				DEVELOPMENT_ASSET_PATHS = "\"TapReco/Preview Content\"";
 				DEVELOPMENT_TEAM = 24BSY9Z4H5;
 				ENABLE_PREVIEWS = YES;
@@ -853,7 +857,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 12;
+				CURRENT_PROJECT_VERSION = 13;
 				DEVELOPMENT_ASSET_PATHS = "\"TapReco/Preview Content\"";
 				DEVELOPMENT_TEAM = 24BSY9Z4H5;
 				ENABLE_PREVIEWS = YES;
@@ -965,7 +969,7 @@
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 13;
 				DEVELOPMENT_TEAM = 24BSY9Z4H5;
 				INFOPLIST_FILE = TapRecoWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -974,7 +978,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.3.0;
+				MARKETING_VERSION = 1.4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = harumidiv.TapReco.Widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -989,7 +993,7 @@
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 13;
 				DEVELOPMENT_TEAM = 24BSY9Z4H5;
 				INFOPLIST_FILE = TapRecoWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -998,7 +1002,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.3.0;
+				MARKETING_VERSION = 1.4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = harumidiv.TapReco.Widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
