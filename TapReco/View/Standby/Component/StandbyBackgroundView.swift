@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct StandbyBackgroundView: View {
+    @Environment(\.locale) private var locale
+
     var body: some View {
         ZStack {
             Rectangle()
@@ -24,7 +26,17 @@ struct StandbyBackgroundView: View {
                 .opacity(0.4)
             VStack(spacing: 18) {
                 Image("icon_microphone")
-                Image("description")
+                if locale.identifier.hasPrefix("ja") {
+                    Image("description")
+                } else {
+                    Text("画面をタップして録音開始")
+                        .font(.system(size: 20, weight: .bold))
+                        .foregroundColor(AppColor.textLightGray)
+                        .multilineTextAlignment(.center)
+                        .lineLimit(1)
+                        .minimumScaleFactor(0.75)
+                        .frame(width: 194.594238, height: 20.459961)
+                }
             }
         }
     }

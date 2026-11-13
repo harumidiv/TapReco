@@ -1,0 +1,9 @@
+{
+ "ja": ["オーディオ録音", "その他", "コピー", "\"ファイル\"に保存", "アクションを編集…"],
+ "en": ["Audio recording", "More", "Copy", "Save to Files", "Edit Actions…"],
+ "ko": ["오디오 녹음", "더 보기", "복사", "파일에 저장", "동작 편집…"],
+ "zh-Hant": ["音訊錄音", "更多", "拷貝", "儲存到「檔案」", "編輯動作…"],
+ "es": ["Grabación de audio", "Más", "Copiar", "Guardar en Archivos", "Editar acciones…"],
+ "pt-BR": ["Gravação de áudio", "Mais", "Copiar", "Salvar em Arquivos", "Editar Ações…"],
+ "id": ["Rekaman audio", "Lainnya", "Salin", "Simpan ke File", "Edit Tindakan…"]
+}

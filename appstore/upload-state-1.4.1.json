@@ -1,0 +1,1276 @@
+{
+  "versionId": "d844dcd6-a044-41fd-8121-4681836d8949",
+  "metadata": {
+    "en-US": {
+      "appInfoLocalizations": "96a950a1-5de9-434d-a801-55897987d6ce",
+      "appStoreVersionLocalizations": "295c21fc-4ea0-4202-99d9-c84e4d6b94bd"
+    },
+    "ko": {
+      "appInfoLocalizations": "f9c29c40-5bff-492e-8fa1-5c81e29d2a44",
+      "appStoreVersionLocalizations": "78e3c7bf-07c7-41d4-aca8-e150686cb2dd"
+    },
+    "zh-Hant": {
+      "appInfoLocalizations": "5b82d549-88c1-44d5-aa3a-4a168142dabe",
+      "appStoreVersionLocalizations": "7a604e30-165f-46cf-a6c1-b46344e09f6f"
+    },
+    "es-MX": {
+      "appInfoLocalizations": "f1c23143-80e2-4c23-99fa-7420812def08",
+      "appStoreVersionLocalizations": "cc0c1d05-17fb-44f3-8ae1-978ba2541b99"
+    },
+    "pt-BR": {
+      "appInfoLocalizations": "17217931-73d5-4941-923c-7792fabe2899",
+      "appStoreVersionLocalizations": "35057b60-59bb-4728-9190-ab94f245d978"
+    },
+    "id": {
+      "appInfoLocalizations": "d9023f45-4f91-4db0-b8f7-0bcbe9ca73e7",
+      "appStoreVersionLocalizations": "9bd9d0d8-6700-4db4-b864-91897277aa8a"
+    },
+    "ja": {
+      "appInfoLocalizations": "773c3395-47b7-4ff5-81a3-5ee930f2ca8b",
+      "appStoreVersionLocalizations": "77766814-184c-4ba7-abf3-604a1e16dbc8"
+    },
+    "es-ES": {
+      "appInfoLocalizations": "62736503-08bd-4ec7-a245-b5ac57c2267f",
+      "appStoreVersionLocalizations": "e13160ea-67bc-4f97-b055-0712ab852185"
+    }
+  },
+  "images": {
+    "iphone/ja/01-record-anywhere.png": {
+      "id": "73800018-014e-8c25-8033-d7e7653f4288",
+      "sha256": "064deeee378e9c2f956f18c56df456d3a681faa6d945485d098ba3dfde5de1f8",
+      "group": "IPHONE_DYNAMIC_ISLAND_LARGE_PROFILE",
+      "state": "PREPARE_FOR_SUBMISSION",
+      "specId": "bd402f1a-26ee-5b83-9dd7-972c60c43d47"
+    },
+    "iphone/ja/02-tap-to-record.png": {
+      "id": "e3400018-014e-8c25-8039-e27cebb33832",
+      "sha256": "2057ccb60a3b2570a83cd30c1cd897fcaefca4e0739a1ae6fc8512367c496166",
+      "group": "IPHONE_DYNAMIC_ISLAND_LARGE_PROFILE",
+      "state": "PREPARE_FOR_SUBMISSION",
+      "specId": "bd402f1a-26ee-5b83-9dd7-972c60c43d47"
+    },
+    "iphone/ja/03-slide-to-stop.png": {
+      "id": "fcc00018-014e-8c25-8001-93198b6c0567",
+      "sha256": "054a4d0570025c2db8b7687a8b88a0c73a3e305b09d3c9053b27562737f5c26e",
+      "group": "IPHONE_DYNAMIC_ISLAND_LARGE_PROFILE",
+      "state": "PREPARE_FOR_SUBMISSION",
+      "specId": "bd402f1a-26ee-5b83-9dd7-972c60c43d47"
+    },
+    "iphone/ja/04-share-recordings.png": {
+      "id": "70000018-014e-8c25-801b-e03c39b0bff1",
+      "sha256": "fcd954889bb60439e10444bc2820f0f63ea497c373904ef8f260da04782dc7d2",
+      "group": "IPHONE_DYNAMIC_ISLAND_LARGE_PROFILE",
+      "state": "PREPARE_FOR_SUBMISSION",
+      "specId": "bd402f1a-26ee-5b83-9dd7-972c60c43d47"
+    },
+    "iphone/ja/05-recording-list.png": {
+      "id": "9d800018-014e-8c25-8024-0821cc2c5f0e",
+      "sha256": "7d261416bb602a8bdf2b07ea81cd7a76426a3e2490bc1fe838f5338e3fb074e7",
+      "group": "IPHONE_DYNAMIC_ISLAND_LARGE_PROFILE",
+      "state": "PREPARE_FOR_SUBMISSION",
+      "specId": "bd402f1a-26ee-5b83-9dd7-972c60c43d47"
+    },
+    "iphone/en/01-record-anywhere.png": {
+      "id": "3c800018-014e-8c25-8019-12e775210e16",
+      "sha256": "9de3074bd3bdb9056f9e43e1fc0a05bdbec0aa5ce7115b68a5b82a630344af72",
+      "group": "IPHONE_DYNAMIC_ISLAND_LARGE_PROFILE",
+      "state": "PREPARE_FOR_SUBMISSION",
+      "specId": "bd402f1a-26ee-5b83-9dd7-972c60c43d47"
+    },
+    "iphone/en/02-tap-to-record.png": {
+      "id": "9bc00018-014e-8c25-803e-ac7cf4cf779f",
+      "sha256": "65603bb8b97e83ef543e1f4f5d230ff19c8730fc3fc10933d50353c900a4d333",
+      "group": "IPHONE_DYNAMIC_ISLAND_LARGE_PROFILE",
+      "state": "PREPARE_FOR_SUBMISSION",
+      "specId": "bd402f1a-26ee-5b83-9dd7-972c60c43d47"
+    },
+    "iphone/en/03-slide-to-stop.png": {
+      "id": "74400018-014e-8c25-8027-3d611c5f35a5",
+      "sha256": "64269e4b9b5c18135550f431fdc32df7ad197479dc9bcd4113402e08b1859d2d",
+      "group": "IPHONE_DYNAMIC_ISLAND_LARGE_PROFILE",
+      "state": "PREPARE_FOR_SUBMISSION",
+      "specId": "bd402f1a-26ee-5b83-9dd7-972c60c43d47"
+    },
+    "iphone/en/04-share-recordings.png": {
+      "id": "c4400018-014e-8c25-803e-0a3547055354",
+      "sha256": "a2a8410f4e6c5fff4dba263eb64988321a6fde47e269f18f932a7dec38b74fc5",
+      "group": "IPHONE_DYNAMIC_ISLAND_LARGE_PROFILE",
+      "state": "PREPARE_FOR_SUBMISSION",
+      "specId": "bd402f1a-26ee-5b83-9dd7-972c60c43d47"
+    },
+    "iphone/en/05-recording-list.png": {
+      "id": "b9c00018-014e-8c25-803f-d90306d7df78",
+      "sha256": "04d56756ebf00e9d3830c89c10d3c416087735269ccd2756380f78b2faf22300",
+      "group": "IPHONE_DYNAMIC_ISLAND_LARGE_PROFILE",
+      "state": "PREPARE_FOR_SUBMISSION",
+      "specId": "bd402f1a-26ee-5b83-9dd7-972c60c43d47"
+    },
+    "iphone/ko/01-record-anywhere.png": {
+      "id": "edc00018-014e-8c25-802f-b52b65c0cc84",
+      "sha256": "a6786b3188bfd04be4cd1a5a28de32a06b7e7d7e2c54feafd12e2e0221414132",
+      "group": "IPHONE_DYNAMIC_ISLAND_LARGE_PROFILE",
+      "state": "PREPARE_FOR_SUBMISSION",
+      "specId": "bd402f1a-26ee-5b83-9dd7-972c60c43d47"
+    },
+    "iphone/ko/02-tap-to-record.png": {
+      "id": "f1800018-014e-8c25-8021-b75ceb5c8911",
+      "sha256": "9a38843155e3a21b022f37c15fda7db023708f9b18c095d13573c9ad3e5b0888",
+      "group": "IPHONE_DYNAMIC_ISLAND_LARGE_PROFILE",
+      "state": "PREPARE_FOR_SUBMISSION",
+      "specId": "bd402f1a-26ee-5b83-9dd7-972c60c43d47"
+    },
+    "iphone/ko/03-slide-to-stop.png": {
+      "id": "f5c00018-014e-8c25-8037-770152ca5cb7",
+      "sha256": "7219578402bfd24c00b64f1653ae1e24d09f7bb898015a5f1b817b0a176d86a9",
+      "group": "IPHONE_DYNAMIC_ISLAND_LARGE_PROFILE",
+      "state": "PREPARE_FOR_SUBMISSION",
+      "specId": "bd402f1a-26ee-5b83-9dd7-972c60c43d47"
+    },
+    "iphone/ko/04-share-recordings.png": {
+      "id": "48000018-014e-8c25-8011-1fac899caecc",
+      "sha256": "77fe633af78c5ecdff8223145989a7f781727cca290116f2b1048ee58f62594f",
+      "group": "IPHONE_DYNAMIC_ISLAND_LARGE_PROFILE",
+      "state": "PREPARE_FOR_SUBMISSION",
+      "specId": "bd402f1a-26ee-5b83-9dd7-972c60c43d47"
+    },
+    "iphone/ko/05-recording-list.png": {
+      "id": "6bc00018-014e-8c25-8032-efa4582ba812",
+      "sha256": "7c5077b827191b655a745d55f4932fdfa549b00b21e3645779d3878d08e0226a",
+      "group": "IPHONE_DYNAMIC_ISLAND_LARGE_PROFILE",
+      "state": "PREPARE_FOR_SUBMISSION",
+      "specId": "bd402f1a-26ee-5b83-9dd7-972c60c43d47"
+    },
+    "iphone/zh-Hant/01-record-anywhere.png": {
+      "id": "52000018-014e-8c25-801b-d949542237a1",
+      "sha256": "4ff73dfed9dffd195da8c417132039ffcd3d9e85761b264280baafce1397e2c9",
+      "group": "IPHONE_DYNAMIC_ISLAND_LARGE_PROFILE",
+      "state": "PREPARE_FOR_SUBMISSION",
+      "specId": "bd402f1a-26ee-5b83-9dd7-972c60c43d47"
+    },
+    "iphone/zh-Hant/02-tap-to-record.png": {
+      "id": "c7800018-014e-8c25-8004-68920934ad55",
+      "sha256": "f14c6dd13c2c2481801e3b4f4a211d54602503d2c6805a6611ea1dd1e7192a48",
+      "group": "IPHONE_DYNAMIC_ISLAND_LARGE_PROFILE",
+      "state": "PREPARE_FOR_SUBMISSION",
+      "specId": "bd402f1a-26ee-5b83-9dd7-972c60c43d47"
+    },
+    "iphone/zh-Hant/03-slide-to-stop.png": {
+      "id": "a1000018-014e-8c25-8014-481c70716a6b",
+      "sha256": "48a31b325a26c12626434b2d40e3d96a29922dabf7c248028f66ef1725349b6f",
+      "group": "IPHONE_DYNAMIC_ISLAND_LARGE_PROFILE",
+      "state": "PREPARE_FOR_SUBMISSION",
+      "specId": "bd402f1a-26ee-5b83-9dd7-972c60c43d47"
+    },
+    "iphone/zh-Hant/04-share-recordings.png": {
+      "id": "8ac00018-014e-8c25-802c-ccade3f2f298",
+      "sha256": "b04570d007e6bea57f860564e741df7b943b0680045f07766367098ef8a0ac14",
+      "group": "IPHONE_DYNAMIC_ISLAND_LARGE_PROFILE",
+      "state": "PREPARE_FOR_SUBMISSION",
+      "specId": "bd402f1a-26ee-5b83-9dd7-972c60c43d47"
+    },
+    "iphone/zh-Hant/05-recording-list.png": {
+      "id": "e7000018-014e-8c25-803b-33f429c8bbfb",
+      "sha256": "7f07eb460dbe8ac29462218c98cd36a59926c214b47e5db610f05e5230406949",
+      "group": "IPHONE_DYNAMIC_ISLAND_LARGE_PROFILE",
+      "state": "PREPARE_FOR_SUBMISSION",
+      "specId": "bd402f1a-26ee-5b83-9dd7-972c60c43d47"
+    },
+    "iphone/es/01-record-anywhere.png": {
+      "id": "1bc00018-014e-8c25-8003-b4e15198d001",
+      "sha256": "e9afc0a923b93272c74d6486e3aad73946db2a72a62081f1616eb271c92b9947",
+      "group": "IPHONE_DYNAMIC_ISLAND_LARGE_PROFILE",
+      "state": "PREPARE_FOR_SUBMISSION",
+      "specId": "bd402f1a-26ee-5b83-9dd7-972c60c43d47"
+    },
+    "iphone/es/02-tap-to-record.png": {
+      "id": "f6400018-014e-8c25-8028-1b4ba46267cc",
+      "sha256": "3326a230bd815de7953e7a3e5c262e721cbdd32c8c92b93c851b1c412b971a47",
+      "group": "IPHONE_DYNAMIC_ISLAND_LARGE_PROFILE",
+      "state": "PREPARE_FOR_SUBMISSION",
+      "specId": "bd402f1a-26ee-5b83-9dd7-972c60c43d47"
+    },
+    "iphone/es/03-slide-to-stop.png": {
+      "id": "1f400018-014e-8c25-802a-d2925a20f07a",
+      "sha256": "4d3e495d872af9967d0b3942c3b49f144b8504c1be1cdab1a3995135c74dc63a",
+      "group": "IPHONE_DYNAMIC_ISLAND_LARGE_PROFILE",
+      "state": "PREPARE_FOR_SUBMISSION",
+      "specId": "bd402f1a-26ee-5b83-9dd7-972c60c43d47"
+    },
+    "iphone/es/04-share-recordings.png": {
+      "id": "d8400018-014e-8c25-803b-ab59190f3478",
+      "sha256": "c69b571cb803688361fa5acab8bc2be0a25c7f4499f6d3f6399a197f6ea4a7a8",
+      "group": "IPHONE_DYNAMIC_ISLAND_LARGE_PROFILE",
+      "state": "PREPARE_FOR_SUBMISSION",
+      "specId": "bd402f1a-26ee-5b83-9dd7-972c60c43d47"
+    },
+    "iphone/es/05-recording-list.png": {
+      "id": "1f000018-014e-8c25-8023-54d3215e25ae",
+      "sha256": "32ef80f053e1e11a1fb8e8be5359738bf6d669473fbc8dbd4a2addee5d0a01af",
+      "group": "IPHONE_DYNAMIC_ISLAND_LARGE_PROFILE",
+      "state": "PREPARE_FOR_SUBMISSION",
+      "specId": "bd402f1a-26ee-5b83-9dd7-972c60c43d47"
+    },
+    "iphone/pt-BR/01-record-anywhere.png": {
+      "id": "ce000018-014e-8c25-800d-b2e013c1a3d8",
+      "sha256": "2f7fe3c62887657b1d21b18e6feaf0ac5543e2e21e8f7e219d910b745d531df3",
+      "group": "IPHONE_DYNAMIC_ISLAND_LARGE_PROFILE",
+      "state": "PREPARE_FOR_SUBMISSION",
+      "specId": "bd402f1a-26ee-5b83-9dd7-972c60c43d47"
+    },
+    "iphone/pt-BR/02-tap-to-record.png": {
+      "id": "1b400018-014e-8c25-8015-de2873e4a716",
+      "sha256": "201fc34c66565cccfff6048b040c170fb4d82e11056d1514d2607aaa2e9a95d3",
+      "group": "IPHONE_DYNAMIC_ISLAND_LARGE_PROFILE",
+      "state": "PREPARE_FOR_SUBMISSION",
+      "specId": "bd402f1a-26ee-5b83-9dd7-972c60c43d47"
+    },
+    "iphone/pt-BR/03-slide-to-stop.png": {
+      "id": "01000018-014e-8c25-802e-c9d140497cc6",
+      "sha256": "e11d0c6167fcd51b954d6551fd958f935160e10cae6589cf42ee5575851c5210",
+      "group": "IPHONE_DYNAMIC_ISLAND_LARGE_PROFILE",
+      "state": "PREPARE_FOR_SUBMISSION",
+      "specId": "bd402f1a-26ee-5b83-9dd7-972c60c43d47"
+    },
+    "iphone/pt-BR/04-share-recordings.png": {
+      "id": "f6000018-014e-8c25-8000-e25c2bebf856",
+      "sha256": "a24a1fa385c0ffae0deaf3b96fa32464b3de407ba8bb816f034cdedcfe59a156",
+      "group": "IPHONE_DYNAMIC_ISLAND_LARGE_PROFILE",
+      "state": "PREPARE_FOR_SUBMISSION",
+      "specId": "bd402f1a-26ee-5b83-9dd7-972c60c43d47"
+    },
+    "iphone/pt-BR/05-recording-list.png": {
+      "id": "85800018-014e-8c25-802a-7f1dd11e638b",
+      "sha256": "381d2f13fa9af68404c36a888c7e7f9211e28c0bcc6870eb7a21abe7f01b47ba",
+      "group": "IPHONE_DYNAMIC_ISLAND_LARGE_PROFILE",
+      "state": "PREPARE_FOR_SUBMISSION",
+      "specId": "bd402f1a-26ee-5b83-9dd7-972c60c43d47"
+    },
+    "iphone/id/01-record-anywhere.png": {
+      "id": "d5800018-014e-8c25-8026-2abf1ffdac9e",
+      "sha256": "faf5baf74a8ae177dc4560482dccd1ecb263e3a70a7ad6d1521816f72e5fd40c",
+      "group": "IPHONE_DYNAMIC_ISLAND_LARGE_PROFILE",
+      "state": "PREPARE_FOR_SUBMISSION",
+      "specId": "bd402f1a-26ee-5b83-9dd7-972c60c43d47"
+    },
+    "iphone/id/02-tap-to-record.png": {
+      "id": "17800018-014e-8c25-802a-621a58053c27",
+      "sha256": "c311db8e79fad2aaf3411d1353af8cce96d6526d1bde6cb712ba635b2f47edc7",
+      "group": "IPHONE_DYNAMIC_ISLAND_LARGE_PROFILE",
+      "state": "PREPARE_FOR_SUBMISSION",
+      "specId": "bd402f1a-26ee-5b83-9dd7-972c60c43d47"
+    },
+    "iphone/id/03-slide-to-stop.png": {
+      "id": "6e000018-014e-8c25-8020-af7bdfbef032",
+      "sha256": "c7d2bddb988d19d88bdeaf2536ba96d75bc0232a946b012f6b38bdfebb2125c9",
+      "group": "IPHONE_DYNAMIC_ISLAND_LARGE_PROFILE",
+      "state": "PREPARE_FOR_SUBMISSION",
+      "specId": "bd402f1a-26ee-5b83-9dd7-972c60c43d47"
+    },
+    "iphone/id/04-share-recordings.png": {
+      "id": "c6800018-014e-8c25-8011-3383c1233f3a",
+      "sha256": "8f0a56e74a27fc0a1e4c2916114ee132f95eddb718c637f51839e33c45a63e94",
+      "group": "IPHONE_DYNAMIC_ISLAND_LARGE_PROFILE",
+      "state": "PREPARE_FOR_SUBMISSION",
+      "specId": "bd402f1a-26ee-5b83-9dd7-972c60c43d47"
+    },
+    "iphone/id/05-recording-list.png": {
+      "id": "ce400018-014e-8c25-800a-bd878a98861a",
+      "sha256": "aa6dbc036da2399df66d46e03c9432bff9f0175960437de02d20841505296c04",
+      "group": "IPHONE_DYNAMIC_ISLAND_LARGE_PROFILE",
+      "state": "PREPARE_FOR_SUBMISSION",
+      "specId": "bd402f1a-26ee-5b83-9dd7-972c60c43d47"
+    },
+    "iphone-duo/ja/01-record-anywhere.png": {
+      "id": "8c000018-014e-8c25-8004-6523b67d17f3",
+      "sha256": "ae5a4183cd53be36ec2cca31f8b136c94330fb2dc98634e1ba413ade80e347f2",
+      "group": "IPHONE_DUO_PROFILE",
+      "state": "PREPARE_FOR_SUBMISSION",
+      "specId": "205e7ab6-a23a-4ee2-b327-0a99ec2a2520"
+    },
+    "iphone-duo/ja/02-tap-to-record.png": {
+      "id": "5e400018-014e-8c25-801f-d9224583f20f",
+      "sha256": "af98446743dd7d29d93fe0da249e73c44703ad888e9d6e856dc09ab3503409a4",
+      "group": "IPHONE_DUO_PROFILE",
+      "state": "PREPARE_FOR_SUBMISSION",
+      "specId": "205e7ab6-a23a-4ee2-b327-0a99ec2a2520"
+    },
+    "iphone-duo/ja/03-slide-to-stop.png": {
+      "id": "3c800018-014e-8c25-800e-4a175c307028",
+      "sha256": "4bbd29463ccc60c6b4feccebb4c87736c63e4a938df239f35fb592c36124731b",
+      "group": "IPHONE_DUO_PROFILE",
+      "state": "PREPARE_FOR_SUBMISSION",
+      "specId": "205e7ab6-a23a-4ee2-b327-0a99ec2a2520"
+    },
+    "iphone-duo/ja/04-share-recordings.png": {
+      "id": "65800018-014e-8c25-8000-ada03ec52fa0",
+      "sha256": "b403301b05ede5717953f6db427dd4f6ee3f240a2873c56f24ce0e3db79007bd",
+      "group": "IPHONE_DUO_PROFILE",
+      "state": "PREPARE_FOR_SUBMISSION",
+      "specId": "205e7ab6-a23a-4ee2-b327-0a99ec2a2520"
+    },
+    "iphone-duo/ja/05-recording-list.png": {
+      "id": "09800018-014e-8c25-8028-81523467271d",
+      "sha256": "2ed255ca224190adefe71904e32a2a514e051be8d0f3f8681fbeaaab3a20f242",
+      "group": "IPHONE_DUO_PROFILE",
+      "state": "PREPARE_FOR_SUBMISSION",
+      "specId": "205e7ab6-a23a-4ee2-b327-0a99ec2a2520"
+    },
+    "iphone-duo/en/01-record-anywhere.png": {
+      "id": "e6000018-014e-8c25-801b-733b1e742c3b",
+      "sha256": "5e15d20bc8c6ba269cf0589d2f5f896750f4d65c72d610257ee533befd0b4e2d",
+      "group": "IPHONE_DUO_PROFILE",
+      "state": "PREPARE_FOR_SUBMISSION",
+      "specId": "205e7ab6-a23a-4ee2-b327-0a99ec2a2520"
+    },
+    "iphone-duo/en/02-tap-to-record.png": {
+      "id": "27000018-014e-8c25-801c-fbdbc2f081a6",
+      "sha256": "87774e932f632954b54f0539235de957c417c6d0e691eb0e01cb8e75f26bb518",
+      "group": "IPHONE_DUO_PROFILE",
+      "state": "PREPARE_FOR_SUBMISSION",
+      "specId": "205e7ab6-a23a-4ee2-b327-0a99ec2a2520"
+    },
+    "iphone-duo/en/03-slide-to-stop.png": {
+      "id": "c0000018-014e-8c25-8006-5b070811b86f",
+      "sha256": "f1a5737b3730464f2b3eedef306d124eebbcdf2d863ed1d84731f79729710491",
+      "group": "IPHONE_DUO_PROFILE",
+      "state": "PREPARE_FOR_SUBMISSION",
+      "specId": "205e7ab6-a23a-4ee2-b327-0a99ec2a2520"
+    },
+    "iphone-duo/en/04-share-recordings.png": {
+      "id": "08c00018-014e-8c25-800a-63e01039ba26",
+      "sha256": "ab6f29f642ea104fece3a7f7620901ba6c1946bde03903de800dc6d340789ec8",
+      "group": "IPHONE_DUO_PROFILE",
+      "state": "PREPARE_FOR_SUBMISSION",
+      "specId": "205e7ab6-a23a-4ee2-b327-0a99ec2a2520"
+    },
+    "iphone-duo/en/05-recording-list.png": {
+      "id": "35400018-014e-8c25-801b-4cb0dff1cf7c",
+      "sha256": "05a3ea4cb0d336fe1a5210d62f4671baaff5d431e83f650ca9293dae9bbf243c",
+      "group": "IPHONE_DUO_PROFILE",
+      "state": "PREPARE_FOR_SUBMISSION",
+      "specId": "205e7ab6-a23a-4ee2-b327-0a99ec2a2520"
+    },
+    "iphone-duo/ko/01-record-anywhere.png": {
+      "id": "e2400018-014e-8c25-8029-1f41213b843e",
+      "sha256": "bcb1ec6aebc277875d9d0a20ff62d57911fa1c8d5b11ad0b7f8a424f9d6206cc",
+      "group": "IPHONE_DUO_PROFILE",
+      "state": "PREPARE_FOR_SUBMISSION",
+      "specId": "205e7ab6-a23a-4ee2-b327-0a99ec2a2520"
+    },
+    "iphone-duo/ko/02-tap-to-record.png": {
+      "id": "be400018-014e-8c25-8024-acf887f091d3",
+      "sha256": "627c046608284932ad41a2d75788814b282c62fc243a4f4aaf4e6a05e937c2f7",
+      "group": "IPHONE_DUO_PROFILE",
+      "state": "PREPARE_FOR_SUBMISSION",
+      "specId": "205e7ab6-a23a-4ee2-b327-0a99ec2a2520"
+    },
+    "iphone-duo/ko/03-slide-to-stop.png": {
+      "id": "35800018-014e-8c25-8027-7b7033cebe7a",
+      "sha256": "adb19394d81cdb7b7525c234a241972a53c07e636ef888b6f73ef09e858dae3f",
+      "group": "IPHONE_DUO_PROFILE",
+      "state": "PREPARE_FOR_SUBMISSION",
+      "specId": "205e7ab6-a23a-4ee2-b327-0a99ec2a2520"
+    },
+    "iphone-duo/ko/04-share-recordings.png": {
+      "id": "a8c00018-014e-8c25-800e-98a6fbcf4b5c",
+      "sha256": "9699d8870f1e46629b4125c4a695ef640116d2193dfb848af40485666c1f1005",
+      "group": "IPHONE_DUO_PROFILE",
+      "state": "PREPARE_FOR_SUBMISSION",
+      "specId": "205e7ab6-a23a-4ee2-b327-0a99ec2a2520"
+    },
+    "iphone-duo/ko/05-recording-list.png": {
+      "id": "f3000018-014e-8c25-8026-07e12c14ea7b",
+      "sha256": "5f73e44764fb78373aae595191fb52e2ed0973822d88e10fc021144cab971fdd",
+      "group": "IPHONE_DUO_PROFILE",
+      "state": "PREPARE_FOR_SUBMISSION",
+      "specId": "205e7ab6-a23a-4ee2-b327-0a99ec2a2520"
+    },
+    "iphone-duo/zh-Hant/01-record-anywhere.png": {
+      "id": "ee800018-014e-8c25-8023-13575261e52b",
+      "sha256": "712e2d78a570d47777ecc72f397c766ace34498493679172de5d04f4d00fdc99",
+      "group": "IPHONE_DUO_PROFILE",
+      "state": "PREPARE_FOR_SUBMISSION",
+      "specId": "205e7ab6-a23a-4ee2-b327-0a99ec2a2520"
+    },
+    "iphone-duo/zh-Hant/02-tap-to-record.png": {
+      "id": "81400018-014e-8c25-800e-2fbb32289c3d",
+      "sha256": "1fb4b18480de0a23c6f3830e93d140fbc632a9706eb1f8dc2b021be7c01741c8",
+      "group": "IPHONE_DUO_PROFILE",
+      "state": "PREPARE_FOR_SUBMISSION",
+      "specId": "205e7ab6-a23a-4ee2-b327-0a99ec2a2520"
+    },
+    "iphone-duo/zh-Hant/03-slide-to-stop.png": {
+      "id": "3fc00018-014e-8c25-8024-4ad8f5954562",
+      "sha256": "8d1f7185a6cdecce1aacef8051aca81b1d79abd3cb72fc41bd0d6122828d9392",
+      "group": "IPHONE_DUO_PROFILE",
+      "state": "PREPARE_FOR_SUBMISSION",
+      "specId": "205e7ab6-a23a-4ee2-b327-0a99ec2a2520"
+    },
+    "iphone-duo/zh-Hant/04-share-recordings.png": {
+      "id": "2ec00018-014e-8c25-801b-b0abfbae776f",
+      "sha256": "139000e31d6e920af2f4de4aa99e916b153dc65bda36ce4a060d8cc1559591cd",
+      "group": "IPHONE_DUO_PROFILE",
+      "state": "PREPARE_FOR_SUBMISSION",
+      "specId": "205e7ab6-a23a-4ee2-b327-0a99ec2a2520"
+    },
+    "iphone-duo/zh-Hant/05-recording-list.png": {
+      "id": "d2000018-014e-8c25-800d-95574f200663",
+      "sha256": "25282a68320edcacd82343664eb13a400e596e1582f4cb567b81dccb0b676306",
+      "group": "IPHONE_DUO_PROFILE",
+      "state": "PREPARE_FOR_SUBMISSION",
+      "specId": "205e7ab6-a23a-4ee2-b327-0a99ec2a2520"
+    },
+    "iphone-duo/es/01-record-anywhere.png": {
+      "id": "9b800018-014e-8c25-802b-e76dcf995e63",
+      "sha256": "b0b50609d3f6dd65ce2b6e879516bea8484b4c736afd6002dd9b122f6af9d2ed",
+      "group": "IPHONE_DUO_PROFILE",
+      "state": "PREPARE_FOR_SUBMISSION",
+      "specId": "205e7ab6-a23a-4ee2-b327-0a99ec2a2520"
+    },
+    "iphone-duo/es/02-tap-to-record.png": {
+      "id": "62800018-014e-8c25-803e-ef215b9feb79",
+      "sha256": "5d6bcf4efeec1d1d37906f66863c34579f2be2ebe8ecd0385fbbf64be090934d",
+      "group": "IPHONE_DUO_PROFILE",
+      "state": "PREPARE_FOR_SUBMISSION",
+      "specId": "205e7ab6-a23a-4ee2-b327-0a99ec2a2520"
+    },
+    "iphone-duo/es/03-slide-to-stop.png": {
+      "id": "48400018-014e-8c25-802e-136d92975a28",
+      "sha256": "d638c6a6f4e68ff5a5deb01cb876f4d7d6b4d0dfb77a010ac7728fbace5ee192",
+      "group": "IPHONE_DUO_PROFILE",
+      "state": "PREPARE_FOR_SUBMISSION",
+      "specId": "205e7ab6-a23a-4ee2-b327-0a99ec2a2520"
+    },
+    "iphone-duo/es/04-share-recordings.png": {
+      "id": "f5000018-014e-8c25-8012-f643fe37f966",
+      "sha256": "3ed16abf73dca9af77f2ce62be193763a7d8a3698032b3c7d4f6b6e2eff112a7",
+      "group": "IPHONE_DUO_PROFILE",
+      "state": "PREPARE_FOR_SUBMISSION",
+      "specId": "205e7ab6-a23a-4ee2-b327-0a99ec2a2520"
+    },
+    "iphone-duo/es/05-recording-list.png": {
+      "id": "9e000018-014e-8c25-8007-e79b0a48c5ff",
+      "sha256": "2c795be2c0eb39702a0fe75033343cb893a324c14d6befa11af4588619188891",
+      "group": "IPHONE_DUO_PROFILE",
+      "state": "PREPARE_FOR_SUBMISSION",
+      "specId": "205e7ab6-a23a-4ee2-b327-0a99ec2a2520"
+    },
+    "iphone-duo/pt-BR/01-record-anywhere.png": {
+      "id": "54400018-014e-8c25-8009-402e0684cf7a",
+      "sha256": "eaf650c9d9e157bfd5a7716e357f29a8d58772eb83fac5d972b048cbb4f77918",
+      "group": "IPHONE_DUO_PROFILE",
+      "state": "PREPARE_FOR_SUBMISSION",
+      "specId": "205e7ab6-a23a-4ee2-b327-0a99ec2a2520"
+    },
+    "iphone-duo/pt-BR/02-tap-to-record.png": {
+      "id": "40c00018-014e-8c25-8005-6043e6f434cf",
+      "sha256": "0779d17dbdb2e74012474c258ec2386bfd404f2f3729a3a31a65ba3825b41409",
+      "group": "IPHONE_DUO_PROFILE",
+      "state": "PREPARE_FOR_SUBMISSION",
+      "specId": "205e7ab6-a23a-4ee2-b327-0a99ec2a2520"
+    },
+    "iphone-duo/pt-BR/03-slide-to-stop.png": {
+      "id": "0ec00018-014e-8c25-8019-d90e70afb996",
+      "sha256": "693dc2a5577147828ef9b217657a9b1f096e5df81029d367d0946222929099fb",
+      "group": "IPHONE_DUO_PROFILE",
+      "state": "PREPARE_FOR_SUBMISSION",
+      "specId": "205e7ab6-a23a-4ee2-b327-0a99ec2a2520"
+    },
+    "iphone-duo/pt-BR/04-share-recordings.png": {
+      "id": "f3400018-014e-8c25-8012-76f333aa648f",
+      "sha256": "2fe40c9a003fe815290952746ca5db0a23839c8e3da602e03c058fc78bf9941c",
+      "group": "IPHONE_DUO_PROFILE",
+      "state": "PREPARE_FOR_SUBMISSION",
+      "specId": "205e7ab6-a23a-4ee2-b327-0a99ec2a2520"
+    },
+    "iphone-duo/pt-BR/05-recording-list.png": {
+      "id": "df800018-014e-8c25-802c-ef45e0e916ca",
+      "sha256": "6d4c5c1da0c8a7d9956d4e5f8b84e38f55e14ee4aeb01953c2e662ee4ef0b78e",
+      "group": "IPHONE_DUO_PROFILE",
+      "state": "PREPARE_FOR_SUBMISSION",
+      "specId": "205e7ab6-a23a-4ee2-b327-0a99ec2a2520"
+    },
+    "iphone-duo/id/01-record-anywhere.png": {
+      "id": "8c000018-014e-8c25-8007-c6da4b03b521",
+      "sha256": "bd8721a4445efc0f304e636c3cad5b6022e70b99cebc62af345ac08a852e78fb",
+      "group": "IPHONE_DUO_PROFILE",
+      "state": "PREPARE_FOR_SUBMISSION",
+      "specId": "205e7ab6-a23a-4ee2-b327-0a99ec2a2520"
+    },
+    "iphone-duo/id/02-tap-to-record.png": {
+      "id": "70c00018-014e-8c25-802f-1cdfc1a347aa",
+      "sha256": "588bbcaa56b89a2cb9be8016d5dd0e9a8e7197730d453bf1838753f8b6bc60a1",
+      "group": "IPHONE_DUO_PROFILE",
+      "state": "PREPARE_FOR_SUBMISSION",
+      "specId": "205e7ab6-a23a-4ee2-b327-0a99ec2a2520"
+    },
+    "iphone-duo/id/03-slide-to-stop.png": {
+      "id": "48000018-014e-8c25-801b-fdebdce176de",
+      "sha256": "c94233c8de3a985a5a3513574f81332319e298559860677d0009cb78c58a1415",
+      "group": "IPHONE_DUO_PROFILE",
+      "state": "PREPARE_FOR_SUBMISSION",
+      "specId": "205e7ab6-a23a-4ee2-b327-0a99ec2a2520"
+    },
+    "iphone-duo/id/04-share-recordings.png": {
+      "id": "d8800018-014e-8c25-801c-fba4c504d880",
+      "sha256": "8c5aef250cb9e5b561850893bd34803d44677067c82d43ccba0fe93dc178b76e",
+      "group": "IPHONE_DUO_PROFILE",
+      "state": "PREPARE_FOR_SUBMISSION",
+      "specId": "205e7ab6-a23a-4ee2-b327-0a99ec2a2520"
+    },
+    "iphone-duo/id/05-recording-list.png": {
+      "id": "13800018-014e-8c25-802b-9eb24dd6b991",
+      "sha256": "e1dcad39078b3ecfcc2ad5f6fea30f7b53b85b6718a67216e1ae6f5ba9bb73db",
+      "group": "IPHONE_DUO_PROFILE",
+      "state": "PREPARE_FOR_SUBMISSION",
+      "specId": "205e7ab6-a23a-4ee2-b327-0a99ec2a2520"
+    }
+  },
+  "placements": {
+    "en-US/iphone/en/01-record-anywhere.png": {
+      "id": "e1c00018-014e-8c25-8f35-6cb967794eb8",
+      "group": "IPHONE_DYNAMIC_ISLAND_LARGE_PROFILE",
+      "state": "ACTIVE"
+    },
+    "en-US/iphone/en/02-tap-to-record.png": {
+      "id": "41800018-014e-8c25-8f23-cd74b0321253",
+      "group": "IPHONE_DYNAMIC_ISLAND_LARGE_PROFILE",
+      "state": "ACTIVE"
+    },
+    "en-US/iphone/en/03-slide-to-stop.png": {
+      "id": "7d800018-014e-8c25-8f2a-b0df342151f2",
+      "group": "IPHONE_DYNAMIC_ISLAND_LARGE_PROFILE",
+      "state": "ACTIVE"
+    },
+    "en-US/iphone/en/04-share-recordings.png": {
+      "id": "bc000018-014e-8c25-8f29-f1f089fb728d",
+      "group": "IPHONE_DYNAMIC_ISLAND_LARGE_PROFILE",
+      "state": "ACTIVE"
+    },
+    "en-US/iphone/en/05-recording-list.png": {
+      "id": "5ac00018-014e-8c25-8f00-7354ae96bdb2",
+      "group": "IPHONE_DYNAMIC_ISLAND_LARGE_PROFILE",
+      "state": "ACTIVE"
+    },
+    "en-US/iphone-duo/en/01-record-anywhere.png": {
+      "id": "cf800018-014e-8c25-8f2f-cdefeca24a26",
+      "group": "IPHONE_DUO_PROFILE",
+      "state": "ACTIVE"
+    },
+    "en-US/iphone-duo/en/02-tap-to-record.png": {
+      "id": "b4800018-014e-8c25-8f3f-a4573d8b9fe8",
+      "group": "IPHONE_DUO_PROFILE",
+      "state": "ACTIVE"
+    },
+    "en-US/iphone-duo/en/03-slide-to-stop.png": {
+      "id": "1f000018-014e-8c25-8f0c-ffb19ddeb14a",
+      "group": "IPHONE_DUO_PROFILE",
+      "state": "ACTIVE"
+    },
+    "en-US/iphone-duo/en/04-share-recordings.png": {
+      "id": "dd400018-014e-8c25-8f33-43c32fc3faf0",
+      "group": "IPHONE_DUO_PROFILE",
+      "state": "ACTIVE"
+    },
+    "en-US/iphone-duo/en/05-recording-list.png": {
+      "id": "41800018-014e-8c25-8f1b-79b7ae1e540c",
+      "group": "IPHONE_DUO_PROFILE",
+      "state": "ACTIVE"
+    },
+    "ko/iphone/ko/01-record-anywhere.png": {
+      "id": "13800018-014e-8c25-8f1d-8bdbf86728ac",
+      "group": "IPHONE_DYNAMIC_ISLAND_LARGE_PROFILE",
+      "state": "ACTIVE"
+    },
+    "ko/iphone/ko/02-tap-to-record.png": {
+      "id": "e1400018-014e-8c25-8f3d-cb9ad6ca645e",
+      "group": "IPHONE_DYNAMIC_ISLAND_LARGE_PROFILE",
+      "state": "ACTIVE"
+    },
+    "ko/iphone/ko/03-slide-to-stop.png": {
+      "id": "ffc00018-014e-8c25-8f2a-f573832ee3f8",
+      "group": "IPHONE_DYNAMIC_ISLAND_LARGE_PROFILE",
+      "state": "ACTIVE"
+    },
+    "ko/iphone/ko/04-share-recordings.png": {
+      "id": "e2800018-014e-8c25-8f1f-359e34b49344",
+      "group": "IPHONE_DYNAMIC_ISLAND_LARGE_PROFILE",
+      "state": "ACTIVE"
+    },
+    "ko/iphone/ko/05-recording-list.png": {
+      "id": "ce400018-014e-8c25-8f3c-a1824f37d222",
+      "group": "IPHONE_DYNAMIC_ISLAND_LARGE_PROFILE",
+      "state": "ACTIVE"
+    },
+    "ko/iphone-duo/ko/01-record-anywhere.png": {
+      "id": "43400018-014e-8c25-8f12-2f375d57f3d6",
+      "group": "IPHONE_DUO_PROFILE",
+      "state": "ACTIVE"
+    },
+    "ko/iphone-duo/ko/02-tap-to-record.png": {
+      "id": "59800018-014e-8c25-8f0f-7702ed1875fd",
+      "group": "IPHONE_DUO_PROFILE",
+      "state": "ACTIVE"
+    },
+    "ko/iphone-duo/ko/03-slide-to-stop.png": {
+      "id": "fd400018-014e-8c25-8f1b-6c040bdeef19",
+      "group": "IPHONE_DUO_PROFILE",
+      "state": "ACTIVE"
+    },
+    "ko/iphone-duo/ko/04-share-recordings.png": {
+      "id": "66c00018-014e-8c25-8f1f-6264224f73e7",
+      "group": "IPHONE_DUO_PROFILE",
+      "state": "ACTIVE"
+    },
+    "ko/iphone-duo/ko/05-recording-list.png": {
+      "id": "18400018-014e-8c25-8f07-defbc85106d7",
+      "group": "IPHONE_DUO_PROFILE",
+      "state": "ACTIVE"
+    },
+    "zh-Hant/iphone/zh-Hant/01-record-anywhere.png": {
+      "id": "28000018-014e-8c25-8f29-1fb993b1b5bc",
+      "group": "IPHONE_DYNAMIC_ISLAND_LARGE_PROFILE",
+      "state": "ACTIVE"
+    },
+    "zh-Hant/iphone/zh-Hant/02-tap-to-record.png": {
+      "id": "61800018-014e-8c25-8f25-875b35da24e6",
+      "group": "IPHONE_DYNAMIC_ISLAND_LARGE_PROFILE",
+      "state": "ACTIVE"
+    },
+    "zh-Hant/iphone/zh-Hant/03-slide-to-stop.png": {
+      "id": "be000018-014e-8c25-8f05-157ca07af426",
+      "group": "IPHONE_DYNAMIC_ISLAND_LARGE_PROFILE",
+      "state": "ACTIVE"
+    },
+    "zh-Hant/iphone/zh-Hant/04-share-recordings.png": {
+      "id": "66400018-014e-8c25-8f19-65bf8c849713",
+      "group": "IPHONE_DYNAMIC_ISLAND_LARGE_PROFILE",
+      "state": "ACTIVE"
+    },
+    "zh-Hant/iphone/zh-Hant/05-recording-list.png": {
+      "id": "4b800018-014e-8c25-8f3f-a82facd28dfa",
+      "group": "IPHONE_DYNAMIC_ISLAND_LARGE_PROFILE",
+      "state": "ACTIVE"
+    },
+    "zh-Hant/iphone-duo/zh-Hant/01-record-anywhere.png": {
+      "id": "c2400018-014e-8c25-8f13-4e6fb3b4f357",
+      "group": "IPHONE_DUO_PROFILE",
+      "state": "ACTIVE"
+    },
+    "zh-Hant/iphone-duo/zh-Hant/02-tap-to-record.png": {
+      "id": "7d800018-014e-8c25-8f21-86d001b82ffb",
+      "group": "IPHONE_DUO_PROFILE",
+      "state": "ACTIVE"
+    },
+    "zh-Hant/iphone-duo/zh-Hant/03-slide-to-stop.png": {
+      "id": "00800018-014e-8c25-8f13-9ab3c8a11d8f",
+      "group": "IPHONE_DUO_PROFILE",
+      "state": "ACTIVE"
+    },
+    "zh-Hant/iphone-duo/zh-Hant/04-share-recordings.png": {
+      "id": "15800018-014e-8c25-8f01-7ab463198e31",
+      "group": "IPHONE_DUO_PROFILE",
+      "state": "ACTIVE"
+    },
+    "zh-Hant/iphone-duo/zh-Hant/05-recording-list.png": {
+      "id": "04c00018-014e-8c25-8f27-9c035392b409",
+      "group": "IPHONE_DUO_PROFILE",
+      "state": "ACTIVE"
+    },
+    "es-MX/iphone/es/01-record-anywhere.png": {
+      "id": "ecc00018-014e-8c25-8f2a-ad0615812731",
+      "group": "IPHONE_DYNAMIC_ISLAND_LARGE_PROFILE",
+      "state": "ACTIVE"
+    },
+    "es-MX/iphone/es/02-tap-to-record.png": {
+      "id": "1c000018-014e-8c25-8f3d-597c501eb14b",
+      "group": "IPHONE_DYNAMIC_ISLAND_LARGE_PROFILE",
+      "state": "ACTIVE"
+    },
+    "es-MX/iphone/es/03-slide-to-stop.png": {
+      "id": "23400018-014e-8c25-8f34-10d105c3ed55",
+      "group": "IPHONE_DYNAMIC_ISLAND_LARGE_PROFILE",
+      "state": "ACTIVE"
+    },
+    "es-MX/iphone/es/04-share-recordings.png": {
+      "id": "aa000018-014e-8c25-8f21-20594906b3b5",
+      "group": "IPHONE_DYNAMIC_ISLAND_LARGE_PROFILE",
+      "state": "ACTIVE"
+    },
+    "es-MX/iphone/es/05-recording-list.png": {
+      "id": "bac00018-014e-8c25-8f20-8041c5853b55",
+      "group": "IPHONE_DYNAMIC_ISLAND_LARGE_PROFILE",
+      "state": "ACTIVE"
+    },
+    "es-MX/iphone-duo/es/01-record-anywhere.png": {
+      "id": "11400018-014e-8c25-8f35-3aee9688ec46",
+      "group": "IPHONE_DUO_PROFILE",
+      "state": "ACTIVE"
+    },
+    "es-MX/iphone-duo/es/02-tap-to-record.png": {
+      "id": "fdc00018-014e-8c25-8f0b-e5e578d2cb5c",
+      "group": "IPHONE_DUO_PROFILE",
+      "state": "ACTIVE"
+    },
+    "es-MX/iphone-duo/es/03-slide-to-stop.png": {
+      "id": "55c00018-014e-8c25-8f0b-9e67bc02e79c",
+      "group": "IPHONE_DUO_PROFILE",
+      "state": "ACTIVE"
+    },
+    "es-MX/iphone-duo/es/04-share-recordings.png": {
+      "id": "11400018-014e-8c25-8f24-a8c2a5cb3adf",
+      "group": "IPHONE_DUO_PROFILE",
+      "state": "ACTIVE"
+    },
+    "es-MX/iphone-duo/es/05-recording-list.png": {
+      "id": "a0c00018-014e-8c25-8f33-9784acedf82e",
+      "group": "IPHONE_DUO_PROFILE",
+      "state": "ACTIVE"
+    },
+    "pt-BR/iphone/pt-BR/01-record-anywhere.png": {
+      "id": "6fc00018-014e-8c25-8f26-9862a6c78b3e",
+      "group": "IPHONE_DYNAMIC_ISLAND_LARGE_PROFILE",
+      "state": "ACTIVE"
+    },
+    "pt-BR/iphone/pt-BR/02-tap-to-record.png": {
+      "id": "35400018-014e-8c25-8f15-e8781f3ff061",
+      "group": "IPHONE_DYNAMIC_ISLAND_LARGE_PROFILE",
+      "state": "ACTIVE"
+    },
+    "pt-BR/iphone/pt-BR/03-slide-to-stop.png": {
+      "id": "20800018-014e-8c25-8f39-dfab0ecfdebc",
+      "group": "IPHONE_DYNAMIC_ISLAND_LARGE_PROFILE",
+      "state": "ACTIVE"
+    },
+    "pt-BR/iphone/pt-BR/04-share-recordings.png": {
+      "id": "e1c00018-014e-8c25-8f0f-06043935375e",
+      "group": "IPHONE_DYNAMIC_ISLAND_LARGE_PROFILE",
+      "state": "ACTIVE"
+    },
+    "pt-BR/iphone/pt-BR/05-recording-list.png": {
+      "id": "cb000018-014e-8c25-8f28-5150aea1d6ee",
+      "group": "IPHONE_DYNAMIC_ISLAND_LARGE_PROFILE",
+      "state": "ACTIVE"
+    },
+    "pt-BR/iphone-duo/pt-BR/01-record-anywhere.png": {
+      "id": "05c00018-014e-8c25-8f2c-82c0762b74e7",
+      "group": "IPHONE_DUO_PROFILE",
+      "state": "ACTIVE"
+    },
+    "pt-BR/iphone-duo/pt-BR/02-tap-to-record.png": {
+      "id": "e3000018-014e-8c25-8f04-8d9ba59099bc",
+      "group": "IPHONE_DUO_PROFILE",
+      "state": "ACTIVE"
+    },
+    "pt-BR/iphone-duo/pt-BR/03-slide-to-stop.png": {
+      "id": "22c00018-014e-8c25-8f38-09874587e8c4",
+      "group": "IPHONE_DUO_PROFILE",
+      "state": "ACTIVE"
+    },
+    "pt-BR/iphone-duo/pt-BR/04-share-recordings.png": {
+      "id": "21c00018-014e-8c25-8f11-0825833baf87",
+      "group": "IPHONE_DUO_PROFILE",
+      "state": "ACTIVE"
+    },
+    "pt-BR/iphone-duo/pt-BR/05-recording-list.png": {
+      "id": "ee800018-014e-8c25-8f36-f63a2529907c",
+      "group": "IPHONE_DUO_PROFILE",
+      "state": "ACTIVE"
+    },
+    "id/iphone/id/01-record-anywhere.png": {
+      "id": "a0800018-014e-8c25-8f0f-d8998a6aaa08",
+      "group": "IPHONE_DYNAMIC_ISLAND_LARGE_PROFILE",
+      "state": "ACTIVE"
+    },
+    "id/iphone/id/02-tap-to-record.png": {
+      "id": "b7000018-014e-8c25-8f10-e82c2be461d9",
+      "group": "IPHONE_DYNAMIC_ISLAND_LARGE_PROFILE",
+      "state": "ACTIVE"
+    },
+    "id/iphone/id/03-slide-to-stop.png": {
+      "id": "06400018-014e-8c25-8f36-c3d0d69e5ae0",
+      "group": "IPHONE_DYNAMIC_ISLAND_LARGE_PROFILE",
+      "state": "ACTIVE"
+    },
+    "id/iphone/id/04-share-recordings.png": {
+      "id": "10800018-014e-8c25-8f31-c44808261a7d",
+      "group": "IPHONE_DYNAMIC_ISLAND_LARGE_PROFILE",
+      "state": "ACTIVE"
+    },
+    "id/iphone/id/05-recording-list.png": {
+      "id": "ca800018-014e-8c25-8f26-198961215835",
+      "group": "IPHONE_DYNAMIC_ISLAND_LARGE_PROFILE",
+      "state": "ACTIVE"
+    },
+    "id/iphone-duo/id/01-record-anywhere.png": {
+      "id": "61400018-014e-8c25-8f09-297688dd0c33",
+      "group": "IPHONE_DUO_PROFILE",
+      "state": "ACTIVE"
+    },
+    "id/iphone-duo/id/02-tap-to-record.png": {
+      "id": "5e000018-014e-8c25-8f10-69c953f1607e",
+      "group": "IPHONE_DUO_PROFILE",
+      "state": "ACTIVE"
+    },
+    "id/iphone-duo/id/03-slide-to-stop.png": {
+      "id": "0b400018-014e-8c25-8f3c-34a960eb71a5",
+      "group": "IPHONE_DUO_PROFILE",
+      "state": "ACTIVE"
+    },
+    "id/iphone-duo/id/04-share-recordings.png": {
+      "id": "8f000018-014e-8c25-8f30-51d74a1301d3",
+      "group": "IPHONE_DUO_PROFILE",
+      "state": "ACTIVE"
+    },
+    "id/iphone-duo/id/05-recording-list.png": {
+      "id": "d1000018-014e-8c25-8f20-7fb506433285",
+      "group": "IPHONE_DUO_PROFILE",
+      "state": "ACTIVE"
+    },
+    "ja/iphone/ja/01-record-anywhere.png": {
+      "id": "16400018-014e-8c25-8f05-74cd50818986",
+      "group": "IPHONE_DYNAMIC_ISLAND_LARGE_PROFILE",
+      "state": "ACTIVE"
+    },
+    "ja/iphone/ja/02-tap-to-record.png": {
+      "id": "e8800018-014e-8c25-8f1e-552e17d05fa3",
+      "group": "IPHONE_DYNAMIC_ISLAND_LARGE_PROFILE",
+      "state": "ACTIVE"
+    },
+    "ja/iphone/ja/03-slide-to-stop.png": {
+      "id": "e5400018-014e-8c25-8f25-e56434c0e8d4",
+      "group": "IPHONE_DYNAMIC_ISLAND_LARGE_PROFILE",
+      "state": "ACTIVE"
+    },
+    "ja/iphone/ja/04-share-recordings.png": {
+      "id": "f0400018-014e-8c25-8f0b-ed0b49921cc5",
+      "group": "IPHONE_DYNAMIC_ISLAND_LARGE_PROFILE",
+      "state": "ACTIVE"
+    },
+    "ja/iphone/ja/05-recording-list.png": {
+      "id": "f8c00018-014e-8c25-8f0f-bb9afd5d8103",
+      "group": "IPHONE_DYNAMIC_ISLAND_LARGE_PROFILE",
+      "state": "ACTIVE"
+    },
+    "ja/iphone-duo/ja/01-record-anywhere.png": {
+      "id": "76400018-014e-8c25-8f24-81c5d64afacb",
+      "group": "IPHONE_DUO_PROFILE",
+      "state": "ACTIVE"
+    },
+    "ja/iphone-duo/ja/02-tap-to-record.png": {
+      "id": "4f400018-014e-8c25-8f1c-19aba74bd579",
+      "group": "IPHONE_DUO_PROFILE",
+      "state": "ACTIVE"
+    },
+    "ja/iphone-duo/ja/03-slide-to-stop.png": {
+      "id": "e2800018-014e-8c25-8f04-f7f968d83528",
+      "group": "IPHONE_DUO_PROFILE",
+      "state": "ACTIVE"
+    },
+    "ja/iphone-duo/ja/04-share-recordings.png": {
+      "id": "78400018-014e-8c25-8f02-8b8a61708eb9",
+      "group": "IPHONE_DUO_PROFILE",
+      "state": "ACTIVE"
+    },
+    "ja/iphone-duo/ja/05-recording-list.png": {
+      "id": "39400018-014e-8c25-8f19-92b9bee54235",
+      "group": "IPHONE_DUO_PROFILE",
+      "state": "ACTIVE"
+    },
+    "es-ES/iphone/es/01-record-anywhere.png": {
+      "id": "8ac00018-014e-8c25-8f0f-c5953a20dcc3",
+      "group": "IPHONE_DYNAMIC_ISLAND_LARGE_PROFILE",
+      "state": "ACTIVE"
+    },
+    "es-ES/iphone/es/02-tap-to-record.png": {
+      "id": "58000018-014e-8c25-8f3c-417cb0a95d2e",
+      "group": "IPHONE_DYNAMIC_ISLAND_LARGE_PROFILE",
+      "state": "ACTIVE"
+    },
+    "es-ES/iphone/es/03-slide-to-stop.png": {
+      "id": "7b800018-014e-8c25-8f3f-078bc98594ba",
+      "group": "IPHONE_DYNAMIC_ISLAND_LARGE_PROFILE",
+      "state": "ACTIVE"
+    },
+    "es-ES/iphone/es/04-share-recordings.png": {
+      "id": "2c400018-014e-8c25-8f36-272145c97ed6",
+      "group": "IPHONE_DYNAMIC_ISLAND_LARGE_PROFILE",
+      "state": "ACTIVE"
+    },
+    "es-ES/iphone/es/05-recording-list.png": {
+      "id": "6d400018-014e-8c25-8f17-0530d1499b8a",
+      "group": "IPHONE_DYNAMIC_ISLAND_LARGE_PROFILE",
+      "state": "ACTIVE"
+    },
+    "es-ES/iphone-duo/es/01-record-anywhere.png": {
+      "id": "a8400018-014e-8c25-8f00-d19ebe8cca55",
+      "group": "IPHONE_DUO_PROFILE",
+      "state": "ACTIVE"
+    },
+    "es-ES/iphone-duo/es/02-tap-to-record.png": {
+      "id": "14800018-014e-8c25-8f0c-7df7b061b147",
+      "group": "IPHONE_DUO_PROFILE",
+      "state": "ACTIVE"
+    },
+    "es-ES/iphone-duo/es/03-slide-to-stop.png": {
+      "id": "5f000018-014e-8c25-8f02-7bcbd8957d12",
+      "group": "IPHONE_DUO_PROFILE",
+      "state": "ACTIVE"
+    },
+    "es-ES/iphone-duo/es/04-share-recordings.png": {
+      "id": "13c00018-014e-8c25-8f2f-f010f3287bab",
+      "group": "IPHONE_DUO_PROFILE",
+      "state": "ACTIVE"
+    },
+    "es-ES/iphone-duo/es/05-recording-list.png": {
+      "id": "59000018-014e-8c25-8f0e-51400131f096",
+      "group": "IPHONE_DUO_PROFILE",
+      "state": "ACTIVE"
+    }
+  },
+  "removedPlacements": [
+    {
+      "locale": "ja",
+      "placement": {
+        "type": "appAssetLibraryPlacements",
+        "id": "ff000018-014e-8c25-8f35-c17b4fb13dfa",
+        "attributes": {
+          "mediaType": "IMAGE",
+          "placementType": "APP_SCREENSHOT",
+          "placementGroup": "IPHONE_DUO_PROFILE",
+          "createdDate": "2026-11-13T04:48:05.267018Z",
+          "lastModifiedDate": "2026-11-13T04:48:05.267018Z",
+          "state": "ACTIVE",
+          "stateDetails": null
+        },
+        "links": {
+          "self": "https://api.appstoreconnect.apple.com/v1/appAssetLibraryPlacements/ff000018-014e-8c25-8f35-c17b4fb13dfa"
+        }
+      }
+    },
+    {
+      "locale": "ja",
+      "placement": {
+        "type": "appAssetLibraryPlacements",
+        "id": "bc400018-014e-8c25-8f14-0924622791d5",
+        "attributes": {
+          "mediaType": "IMAGE",
+          "placementType": "APP_SCREENSHOT",
+          "placementGroup": "IPHONE_DUO_PROFILE",
+          "createdDate": "2026-11-13T04:48:05.267018Z",
+          "lastModifiedDate": "2026-11-13T04:48:05.267018Z",
+          "state": "ACTIVE",
+          "stateDetails": null
+        },
+        "links": {
+          "self": "https://api.appstoreconnect.apple.com/v1/appAssetLibraryPlacements/bc400018-014e-8c25-8f14-0924622791d5"
+        }
+      }
+    },
+    {
+      "locale": "ja",
+      "placement": {
+        "type": "appAssetLibraryPlacements",
+        "id": "e9c00018-014e-8c25-8f20-dd4769d0134c",
+        "attributes": {
+          "mediaType": "IMAGE",
+          "placementType": "APP_SCREENSHOT",
+          "placementGroup": "IPHONE_DUO_PROFILE",
+          "createdDate": "2026-11-13T04:48:05.267018Z",
+          "lastModifiedDate": "2026-11-13T04:48:05.267018Z",
+          "state": "ACTIVE",
+          "stateDetails": null
+        },
+        "links": {
+          "self": "https://api.appstoreconnect.apple.com/v1/appAssetLibraryPlacements/e9c00018-014e-8c25-8f20-dd4769d0134c"
+        }
+      }
+    },
+    {
+      "locale": "ja",
+      "placement": {
+        "type": "appAssetLibraryPlacements",
+        "id": "2c800018-014e-8c25-8f1c-b8ca93349a44",
+        "attributes": {
+          "mediaType": "IMAGE",
+          "placementType": "APP_SCREENSHOT",
+          "placementGroup": "IPHONE_DUO_PROFILE",
+          "createdDate": "2026-11-13T04:48:05.267018Z",
+          "lastModifiedDate": "2026-11-13T04:48:05.267018Z",
+          "state": "ACTIVE",
+          "stateDetails": null
+        },
+        "links": {
+          "self": "https://api.appstoreconnect.apple.com/v1/appAssetLibraryPlacements/2c800018-014e-8c25-8f1c-b8ca93349a44"
+        }
+      }
+    }
+  ],
+  "placementsBefore": {
+    "en-US": [],
+    "ko": [],
+    "zh-Hant": [],
+    "es-MX": [],
+    "pt-BR": [],
+    "id": [],
+    "ja": [
+      {
+        "type": "appAssetLibraryPlacements",
+        "id": "b8400018-014e-8c25-8f1a-84b484706ee8",
+        "attributes": {
+          "mediaType": "VIDEO",
+          "placementType": "APP_PREVIEW",
+          "placementGroup": "IPHONE_HOME_BUTTON_LARGE_PROFILE",
+          "createdDate": "2026-11-13T04:48:05.267018Z",
+          "lastModifiedDate": "2026-11-13T04:48:05.267018Z",
+          "state": "ACTIVE",
+          "stateDetails": null
+        },
+        "links": {
+          "self": "https://api.appstoreconnect.apple.com/v1/appAssetLibraryPlacements/b8400018-014e-8c25-8f1a-84b484706ee8"
+        }
+      },
+      {
+        "type": "appAssetLibraryPlacements",
+        "id": "eb000018-014e-8c25-8f0e-ae141fc86e44",
+        "attributes": {
+          "mediaType": "VIDEO",
+          "placementType": "APP_PREVIEW",
+          "placementGroup": "IPHONE_FACE_ID_LARGE_PROFILE",
+          "createdDate": "2026-11-13T04:48:05.267018Z",
+          "lastModifiedDate": "2026-11-13T04:48:05.267018Z",
+          "state": "ACTIVE",
+          "stateDetails": null
+        },
+        "links": {
+          "self": "https://api.appstoreconnect.apple.com/v1/appAssetLibraryPlacements/eb000018-014e-8c25-8f0e-ae141fc86e44"
+        }
+      },
+      {
+        "type": "appAssetLibraryPlacements",
+        "id": "ff000018-014e-8c25-8f35-c17b4fb13dfa",
+        "attributes": {
+          "mediaType": "IMAGE",
+          "placementType": "APP_SCREENSHOT",
+          "placementGroup": "IPHONE_DUO_PROFILE",
+          "createdDate": "2026-11-13T04:48:05.267018Z",
+          "lastModifiedDate": "2026-11-13T04:48:05.267018Z",
+          "state": "ACTIVE",
+          "stateDetails": null
+        },
+        "links": {
+          "self": "https://api.appstoreconnect.apple.com/v1/appAssetLibraryPlacements/ff000018-014e-8c25-8f35-c17b4fb13dfa"
+        }
+      },
+      {
+        "type": "appAssetLibraryPlacements",
+        "id": "bc400018-014e-8c25-8f14-0924622791d5",
+        "attributes": {
+          "mediaType": "IMAGE",
+          "placementType": "APP_SCREENSHOT",
+          "placementGroup": "IPHONE_DUO_PROFILE",
+          "createdDate": "2026-11-13T04:48:05.267018Z",
+          "lastModifiedDate": "2026-11-13T04:48:05.267018Z",
+          "state": "ACTIVE",
+          "stateDetails": null
+        },
+        "links": {
+          "self": "https://api.appstoreconnect.apple.com/v1/appAssetLibraryPlacements/bc400018-014e-8c25-8f14-0924622791d5"
+        }
+      },
+      {
+        "type": "appAssetLibraryPlacements",
+        "id": "e9c00018-014e-8c25-8f20-dd4769d0134c",
+        "attributes": {
+          "mediaType": "IMAGE",
+          "placementType": "APP_SCREENSHOT",
+          "placementGroup": "IPHONE_DUO_PROFILE",
+          "createdDate": "2026-11-13T04:48:05.267018Z",
+          "lastModifiedDate": "2026-11-13T04:48:05.267018Z",
+          "state": "ACTIVE",
+          "stateDetails": null
+        },
+        "links": {
+          "self": "https://api.appstoreconnect.apple.com/v1/appAssetLibraryPlacements/e9c00018-014e-8c25-8f20-dd4769d0134c"
+        }
+      },
+      {
+        "type": "appAssetLibraryPlacements",
+        "id": "2c800018-014e-8c25-8f1c-b8ca93349a44",
+        "attributes": {
+          "mediaType": "IMAGE",
+          "placementType": "APP_SCREENSHOT",
+          "placementGroup": "IPHONE_DUO_PROFILE",
+          "createdDate": "2026-11-13T04:48:05.267018Z",
+          "lastModifiedDate": "2026-11-13T04:48:05.267018Z",
+          "state": "ACTIVE",
+          "stateDetails": null
+        },
+        "links": {
+          "self": "https://api.appstoreconnect.apple.com/v1/appAssetLibraryPlacements/2c800018-014e-8c25-8f1c-b8ca93349a44"
+        }
+      },
+      {
+        "type": "appAssetLibraryPlacements",
+        "id": "19000018-014e-8c25-8f38-67c00ffc1d52",
+        "attributes": {
+          "mediaType": "IMAGE",
+          "placementType": "APP_SCREENSHOT",
+          "placementGroup": "IPHONE_HOME_BUTTON_LARGE_PROFILE",
+          "createdDate": "2026-11-13T04:48:05.267018Z",
+          "lastModifiedDate": "2026-11-13T04:48:05.267018Z",
+          "state": "ACTIVE",
+          "stateDetails": null
+        },
+        "links": {
+          "self": "https://api.appstoreconnect.apple.com/v1/appAssetLibraryPlacements/19000018-014e-8c25-8f38-67c00ffc1d52"
+        }
+      },
+      {
+        "type": "appAssetLibraryPlacements",
+        "id": "8fc00018-014e-8c25-8f34-d24cbf31f107",
+        "attributes": {
+          "mediaType": "IMAGE",
+          "placementType": "APP_SCREENSHOT",
+          "placementGroup": "IPHONE_HOME_BUTTON_LARGE_PROFILE",
+          "createdDate": "2026-11-13T04:48:05.267018Z",
+          "lastModifiedDate": "2026-11-13T04:48:05.267018Z",
+          "state": "ACTIVE",
+          "stateDetails": null
+        },
+        "links": {
+          "self": "https://api.appstoreconnect.apple.com/v1/appAssetLibraryPlacements/8fc00018-014e-8c25-8f34-d24cbf31f107"
+        }
+      },
+      {
+        "type": "appAssetLibraryPlacements",
+        "id": "64400018-014e-8c25-8f33-5f7660f3198c",
+        "attributes": {
+          "mediaType": "IMAGE",
+          "placementType": "APP_SCREENSHOT",
+          "placementGroup": "IPHONE_HOME_BUTTON_LARGE_PROFILE",
+          "createdDate": "2026-11-13T04:48:05.267018Z",
+          "lastModifiedDate": "2026-11-13T04:48:05.267018Z",
+          "state": "ACTIVE",
+          "stateDetails": null
+        },
+        "links": {
+          "self": "https://api.appstoreconnect.apple.com/v1/appAssetLibraryPlacements/64400018-014e-8c25-8f33-5f7660f3198c"
+        }
+      },
+      {
+        "type": "appAssetLibraryPlacements",
+        "id": "04000018-014e-8c25-8f3a-6c3d2d6802bd",
+        "attributes": {
+          "mediaType": "IMAGE",
+          "placementType": "APP_SCREENSHOT",
+          "placementGroup": "IPHONE_HOME_BUTTON_LARGE_PROFILE",
+          "createdDate": "2026-11-13T04:48:05.267018Z",
+          "lastModifiedDate": "2026-11-13T04:48:05.267018Z",
+          "state": "ACTIVE",
+          "stateDetails": null
+        },
+        "links": {
+          "self": "https://api.appstoreconnect.apple.com/v1/appAssetLibraryPlacements/04000018-014e-8c25-8f3a-6c3d2d6802bd"
+        }
+      },
+      {
+        "type": "appAssetLibraryPlacements",
+        "id": "bdc00018-014e-8c25-8f00-e8d9cff06b94",
+        "attributes": {
+          "mediaType": "IMAGE",
+          "placementType": "APP_SCREENSHOT",
+          "placementGroup": "IPHONE_HOME_BUTTON_LARGE_PROFILE",
+          "createdDate": "2026-11-13T04:48:05.267018Z",
+          "lastModifiedDate": "2026-11-13T04:48:05.267018Z",
+          "state": "ACTIVE",
+          "stateDetails": null
+        },
+        "links": {
+          "self": "https://api.appstoreconnect.apple.com/v1/appAssetLibraryPlacements/bdc00018-014e-8c25-8f00-e8d9cff06b94"
+        }
+      },
+      {
+        "type": "appAssetLibraryPlacements",
+        "id": "2cc00018-014e-8c25-8f02-a63f79cfe8bd",
+        "attributes": {
+          "mediaType": "IMAGE",
+          "placementType": "APP_SCREENSHOT",
+          "placementGroup": "IPHONE_FACE_ID_LARGE_PROFILE",
+          "createdDate": "2026-11-13T04:48:05.267018Z",
+          "lastModifiedDate": "2026-11-13T04:48:05.267018Z",
+          "state": "ACTIVE",
+          "stateDetails": null
+        },
+        "links": {
+          "self": "https://api.appstoreconnect.apple.com/v1/appAssetLibraryPlacements/2cc00018-014e-8c25-8f02-a63f79cfe8bd"
+        }
+      },
+      {
+        "type": "appAssetLibraryPlacements",
+        "id": "be400018-014e-8c25-8f1e-4f0eac0224e3",
+        "attributes": {
+          "mediaType": "IMAGE",
+          "placementType": "APP_SCREENSHOT",
+          "placementGroup": "IPHONE_FACE_ID_LARGE_PROFILE",
+          "createdDate": "2026-11-13T04:48:05.267018Z",
+          "lastModifiedDate": "2026-11-13T04:48:05.267018Z",
+          "state": "ACTIVE",
+          "stateDetails": null
+        },
+        "links": {
+          "self": "https://api.appstoreconnect.apple.com/v1/appAssetLibraryPlacements/be400018-014e-8c25-8f1e-4f0eac0224e3"
+        }
+      },
+      {
+        "type": "appAssetLibraryPlacements",
+        "id": "fb000018-014e-8c25-8f0a-15b462476d66",
+        "attributes": {
+          "mediaType": "IMAGE",
+          "placementType": "APP_SCREENSHOT",
+          "placementGroup": "IPHONE_FACE_ID_LARGE_PROFILE",
+          "createdDate": "2026-11-13T04:48:05.267018Z",
+          "lastModifiedDate": "2026-11-13T04:48:05.267018Z",
+          "state": "ACTIVE",
+          "stateDetails": null
+        },
+        "links": {
+          "self": "https://api.appstoreconnect.apple.com/v1/appAssetLibraryPlacements/fb000018-014e-8c25-8f0a-15b462476d66"
+        }
+      },
+      {
+        "type": "appAssetLibraryPlacements",
+        "id": "bbc00018-014e-8c25-8f09-b30a2504d3e0",
+        "attributes": {
+          "mediaType": "IMAGE",
+          "placementType": "APP_SCREENSHOT",
+          "placementGroup": "IPHONE_FACE_ID_LARGE_PROFILE",
+          "createdDate": "2026-11-13T04:48:05.267018Z",
+          "lastModifiedDate": "2026-11-13T04:48:05.267018Z",
+          "state": "ACTIVE",
+          "stateDetails": null
+        },
+        "links": {
+          "self": "https://api.appstoreconnect.apple.com/v1/appAssetLibraryPlacements/bbc00018-014e-8c25-8f09-b30a2504d3e0"
+        }
+      },
+      {
+        "type": "appAssetLibraryPlacements",
+        "id": "8b000018-014e-8c25-8f14-711bcae04ab0",
+        "attributes": {
+          "mediaType": "IMAGE",
+          "placementType": "APP_SCREENSHOT",
+          "placementGroup": "IPHONE_FACE_ID_LARGE_PROFILE",
+          "createdDate": "2026-11-13T04:48:05.267018Z",
+          "lastModifiedDate": "2026-11-13T04:48:05.267018Z",
+          "state": "ACTIVE",
+          "stateDetails": null
+        },
+        "links": {
+          "self": "https://api.appstoreconnect.apple.com/v1/appAssetLibraryPlacements/8b000018-014e-8c25-8f14-711bcae04ab0"
+        }
+      }
+    ],
+    "es-ES": []
+  }
+}

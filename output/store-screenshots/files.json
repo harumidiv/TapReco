@@ -1,0 +1,562 @@
+[
+  {
+    "path": "iphone/ja/01-record-anywhere.png",
+    "width": 1320,
+    "height": 2868,
+    "bytes": 2513761,
+    "language": "ja",
+    "device": "iphone"
+  },
+  {
+    "path": "iphone/ja/02-tap-to-record.png",
+    "width": 1320,
+    "height": 2868,
+    "bytes": 778015,
+    "language": "ja",
+    "device": "iphone"
+  },
+  {
+    "path": "iphone/ja/03-slide-to-stop.png",
+    "width": 1320,
+    "height": 2868,
+    "bytes": 301088,
+    "language": "ja",
+    "device": "iphone"
+  },
+  {
+    "path": "iphone/ja/04-share-recordings.png",
+    "width": 1320,
+    "height": 2868,
+    "bytes": 186250,
+    "language": "ja",
+    "device": "iphone"
+  },
+  {
+    "path": "iphone/ja/05-recording-list.png",
+    "width": 1320,
+    "height": 2868,
+    "bytes": 227527,
+    "language": "ja",
+    "device": "iphone"
+  },
+  {
+    "path": "iphone/en/01-record-anywhere.png",
+    "width": 1320,
+    "height": 2868,
+    "bytes": 2480143,
+    "language": "en",
+    "device": "iphone"
+  },
+  {
+    "path": "iphone/en/02-tap-to-record.png",
+    "width": 1320,
+    "height": 2868,
+    "bytes": 752453,
+    "language": "en",
+    "device": "iphone"
+  },
+  {
+    "path": "iphone/en/03-slide-to-stop.png",
+    "width": 1320,
+    "height": 2868,
+    "bytes": 280207,
+    "language": "en",
+    "device": "iphone"
+  },
+  {
+    "path": "iphone/en/04-share-recordings.png",
+    "width": 1320,
+    "height": 2868,
+    "bytes": 178662,
+    "language": "en",
+    "device": "iphone"
+  },
+  {
+    "path": "iphone/en/05-recording-list.png",
+    "width": 1320,
+    "height": 2868,
+    "bytes": 210693,
+    "language": "en",
+    "device": "iphone"
+  },
+  {
+    "path": "iphone/ko/01-record-anywhere.png",
+    "width": 1320,
+    "height": 2868,
+    "bytes": 2463133,
+    "language": "ko",
+    "device": "iphone"
+  },
+  {
+    "path": "iphone/ko/02-tap-to-record.png",
+    "width": 1320,
+    "height": 2868,
+    "bytes": 734853,
+    "language": "ko",
+    "device": "iphone"
+  },
+  {
+    "path": "iphone/ko/03-slide-to-stop.png",
+    "width": 1320,
+    "height": 2868,
+    "bytes": 276374,
+    "language": "ko",
+    "device": "iphone"
+  },
+  {
+    "path": "iphone/ko/04-share-recordings.png",
+    "width": 1320,
+    "height": 2868,
+    "bytes": 150966,
+    "language": "ko",
+    "device": "iphone"
+  },
+  {
+    "path": "iphone/ko/05-recording-list.png",
+    "width": 1320,
+    "height": 2868,
+    "bytes": 169558,
+    "language": "ko",
+    "device": "iphone"
+  },
+  {
+    "path": "iphone/zh-Hant/01-record-anywhere.png",
+    "width": 1320,
+    "height": 2868,
+    "bytes": 2495863,
+    "language": "zh-Hant",
+    "device": "iphone"
+  },
+  {
+    "path": "iphone/zh-Hant/02-tap-to-record.png",
+    "width": 1320,
+    "height": 2868,
+    "bytes": 781321,
+    "language": "zh-Hant",
+    "device": "iphone"
+  },
+  {
+    "path": "iphone/zh-Hant/03-slide-to-stop.png",
+    "width": 1320,
+    "height": 2868,
+    "bytes": 294123,
+    "language": "zh-Hant",
+    "device": "iphone"
+  },
+  {
+    "path": "iphone/zh-Hant/04-share-recordings.png",
+    "width": 1320,
+    "height": 2868,
+    "bytes": 194804,
+    "language": "zh-Hant",
+    "device": "iphone"
+  },
+  {
+    "path": "iphone/zh-Hant/05-recording-list.png",
+    "width": 1320,
+    "height": 2868,
+    "bytes": 225335,
+    "language": "zh-Hant",
+    "device": "iphone"
+  },
+  {
+    "path": "iphone/es/01-record-anywhere.png",
+    "width": 1320,
+    "height": 2868,
+    "bytes": 2484521,
+    "language": "es",
+    "device": "iphone"
+  },
+  {
+    "path": "iphone/es/02-tap-to-record.png",
+    "width": 1320,
+    "height": 2868,
+    "bytes": 753298,
+    "language": "es",
+    "device": "iphone"
+  },
+  {
+    "path": "iphone/es/03-slide-to-stop.png",
+    "width": 1320,
+    "height": 2868,
+    "bytes": 276970,
+    "language": "es",
+    "device": "iphone"
+  },
+  {
+    "path": "iphone/es/04-share-recordings.png",
+    "width": 1320,
+    "height": 2868,
+    "bytes": 178105,
+    "language": "es",
+    "device": "iphone"
+  },
+  {
+    "path": "iphone/es/05-recording-list.png",
+    "width": 1320,
+    "height": 2868,
+    "bytes": 218268,
+    "language": "es",
+    "device": "iphone"
+  },
+  {
+    "path": "iphone/pt-BR/01-record-anywhere.png",
+    "width": 1320,
+    "height": 2868,
+    "bytes": 2484511,
+    "language": "pt-BR",
+    "device": "iphone"
+  },
+  {
+    "path": "iphone/pt-BR/02-tap-to-record.png",
+    "width": 1320,
+    "height": 2868,
+    "bytes": 755070,
+    "language": "pt-BR",
+    "device": "iphone"
+  },
+  {
+    "path": "iphone/pt-BR/03-slide-to-stop.png",
+    "width": 1320,
+    "height": 2868,
+    "bytes": 271021,
+    "language": "pt-BR",
+    "device": "iphone"
+  },
+  {
+    "path": "iphone/pt-BR/04-share-recordings.png",
+    "width": 1320,
+    "height": 2868,
+    "bytes": 176832,
+    "language": "pt-BR",
+    "device": "iphone"
+  },
+  {
+    "path": "iphone/pt-BR/05-recording-list.png",
+    "width": 1320,
+    "height": 2868,
+    "bytes": 224665,
+    "language": "pt-BR",
+    "device": "iphone"
+  },
+  {
+    "path": "iphone/id/01-record-anywhere.png",
+    "width": 1320,
+    "height": 2868,
+    "bytes": 2480078,
+    "language": "id",
+    "device": "iphone"
+  },
+  {
+    "path": "iphone/id/02-tap-to-record.png",
+    "width": 1320,
+    "height": 2868,
+    "bytes": 747792,
+    "language": "id",
+    "device": "iphone"
+  },
+  {
+    "path": "iphone/id/03-slide-to-stop.png",
+    "width": 1320,
+    "height": 2868,
+    "bytes": 270407,
+    "language": "id",
+    "device": "iphone"
+  },
+  {
+    "path": "iphone/id/04-share-recordings.png",
+    "width": 1320,
+    "height": 2868,
+    "bytes": 169106,
+    "language": "id",
+    "device": "iphone"
+  },
+  {
+    "path": "iphone/id/05-recording-list.png",
+    "width": 1320,
+    "height": 2868,
+    "bytes": 197222,
+    "language": "id",
+    "device": "iphone"
+  },
+  {
+    "path": "iphone-duo/ja/01-record-anywhere.png",
+    "width": 1398,
+    "height": 2034,
+    "bytes": 1822690,
+    "language": "ja",
+    "device": "iphone-duo"
+  },
+  {
+    "path": "iphone-duo/ja/02-tap-to-record.png",
+    "width": 1398,
+    "height": 2034,
+    "bytes": 588547,
+    "language": "ja",
+    "device": "iphone-duo"
+  },
+  {
+    "path": "iphone-duo/ja/03-slide-to-stop.png",
+    "width": 1398,
+    "height": 2034,
+    "bytes": 327199,
+    "language": "ja",
+    "device": "iphone-duo"
+  },
+  {
+    "path": "iphone-duo/ja/04-share-recordings.png",
+    "width": 1398,
+    "height": 2034,
+    "bytes": 168466,
+    "language": "ja",
+    "device": "iphone-duo"
+  },
+  {
+    "path": "iphone-duo/ja/05-recording-list.png",
+    "width": 1398,
+    "height": 2034,
+    "bytes": 259086,
+    "language": "ja",
+    "device": "iphone-duo"
+  },
+  {
+    "path": "iphone-duo/en/01-record-anywhere.png",
+    "width": 1398,
+    "height": 2034,
+    "bytes": 1795998,
+    "language": "en",
+    "device": "iphone-duo"
+  },
+  {
+    "path": "iphone-duo/en/02-tap-to-record.png",
+    "width": 1398,
+    "height": 2034,
+    "bytes": 571852,
+    "language": "en",
+    "device": "iphone-duo"
+  },
+  {
+    "path": "iphone-duo/en/03-slide-to-stop.png",
+    "width": 1398,
+    "height": 2034,
+    "bytes": 319679,
+    "language": "en",
+    "device": "iphone-duo"
+  },
+  {
+    "path": "iphone-duo/en/04-share-recordings.png",
+    "width": 1398,
+    "height": 2034,
+    "bytes": 170967,
+    "language": "en",
+    "device": "iphone-duo"
+  },
+  {
+    "path": "iphone-duo/en/05-recording-list.png",
+    "width": 1398,
+    "height": 2034,
+    "bytes": 251059,
+    "language": "en",
+    "device": "iphone-duo"
+  },
+  {
+    "path": "iphone-duo/ko/01-record-anywhere.png",
+    "width": 1398,
+    "height": 2034,
+    "bytes": 1783917,
+    "language": "ko",
+    "device": "iphone-duo"
+  },
+  {
+    "path": "iphone-duo/ko/02-tap-to-record.png",
+    "width": 1398,
+    "height": 2034,
+    "bytes": 551077,
+    "language": "ko",
+    "device": "iphone-duo"
+  },
+  {
+    "path": "iphone-duo/ko/03-slide-to-stop.png",
+    "width": 1398,
+    "height": 2034,
+    "bytes": 306527,
+    "language": "ko",
+    "device": "iphone-duo"
+  },
+  {
+    "path": "iphone-duo/ko/04-share-recordings.png",
+    "width": 1398,
+    "height": 2034,
+    "bytes": 136521,
+    "language": "ko",
+    "device": "iphone-duo"
+  },
+  {
+    "path": "iphone-duo/ko/05-recording-list.png",
+    "width": 1398,
+    "height": 2034,
+    "bytes": 206052,
+    "language": "ko",
+    "device": "iphone-duo"
+  },
+  {
+    "path": "iphone-duo/zh-Hant/01-record-anywhere.png",
+    "width": 1398,
+    "height": 2034,
+    "bytes": 1809739,
+    "language": "zh-Hant",
+    "device": "iphone-duo"
+  },
+  {
+    "path": "iphone-duo/zh-Hant/02-tap-to-record.png",
+    "width": 1398,
+    "height": 2034,
+    "bytes": 589752,
+    "language": "zh-Hant",
+    "device": "iphone-duo"
+  },
+  {
+    "path": "iphone-duo/zh-Hant/03-slide-to-stop.png",
+    "width": 1398,
+    "height": 2034,
+    "bytes": 321443,
+    "language": "zh-Hant",
+    "device": "iphone-duo"
+  },
+  {
+    "path": "iphone-duo/zh-Hant/04-share-recordings.png",
+    "width": 1398,
+    "height": 2034,
+    "bytes": 179044,
+    "language": "zh-Hant",
+    "device": "iphone-duo"
+  },
+  {
+    "path": "iphone-duo/zh-Hant/05-recording-list.png",
+    "width": 1398,
+    "height": 2034,
+    "bytes": 254637,
+    "language": "zh-Hant",
+    "device": "iphone-duo"
+  },
+  {
+    "path": "iphone-duo/es/01-record-anywhere.png",
+    "width": 1398,
+    "height": 2034,
+    "bytes": 1801613,
+    "language": "es",
+    "device": "iphone-duo"
+  },
+  {
+    "path": "iphone-duo/es/02-tap-to-record.png",
+    "width": 1398,
+    "height": 2034,
+    "bytes": 574641,
+    "language": "es",
+    "device": "iphone-duo"
+  },
+  {
+    "path": "iphone-duo/es/03-slide-to-stop.png",
+    "width": 1398,
+    "height": 2034,
+    "bytes": 317314,
+    "language": "es",
+    "device": "iphone-duo"
+  },
+  {
+    "path": "iphone-duo/es/04-share-recordings.png",
+    "width": 1398,
+    "height": 2034,
+    "bytes": 173355,
+    "language": "es",
+    "device": "iphone-duo"
+  },
+  {
+    "path": "iphone-duo/es/05-recording-list.png",
+    "width": 1398,
+    "height": 2034,
+    "bytes": 258691,
+    "language": "es",
+    "device": "iphone-duo"
+  },
+  {
+    "path": "iphone-duo/pt-BR/01-record-anywhere.png",
+    "width": 1398,
+    "height": 2034,
+    "bytes": 1799917,
+    "language": "pt-BR",
+    "device": "iphone-duo"
+  },
+  {
+    "path": "iphone-duo/pt-BR/02-tap-to-record.png",
+    "width": 1398,
+    "height": 2034,
+    "bytes": 577860,
+    "language": "pt-BR",
+    "device": "iphone-duo"
+  },
+  {
+    "path": "iphone-duo/pt-BR/03-slide-to-stop.png",
+    "width": 1398,
+    "height": 2034,
+    "bytes": 309961,
+    "language": "pt-BR",
+    "device": "iphone-duo"
+  },
+  {
+    "path": "iphone-duo/pt-BR/04-share-recordings.png",
+    "width": 1398,
+    "height": 2034,
+    "bytes": 171697,
+    "language": "pt-BR",
+    "device": "iphone-duo"
+  },
+  {
+    "path": "iphone-duo/pt-BR/05-recording-list.png",
+    "width": 1398,
+    "height": 2034,
+    "bytes": 264581,
+    "language": "pt-BR",
+    "device": "iphone-duo"
+  },
+  {
+    "path": "iphone-duo/id/01-record-anywhere.png",
+    "width": 1398,
+    "height": 2034,
+    "bytes": 1794375,
+    "language": "id",
+    "device": "iphone-duo"
+  },
+  {
+    "path": "iphone-duo/id/02-tap-to-record.png",
+    "width": 1398,
+    "height": 2034,
+    "bytes": 570544,
+    "language": "id",
+    "device": "iphone-duo"
+  },
+  {
+    "path": "iphone-duo/id/03-slide-to-stop.png",
+    "width": 1398,
+    "height": 2034,
+    "bytes": 309512,
+    "language": "id",
+    "device": "iphone-duo"
+  },
+  {
+    "path": "iphone-duo/id/04-share-recordings.png",
+    "width": 1398,
+    "height": 2034,
+    "bytes": 162195,
+    "language": "id",
+    "device": "iphone-duo"
+  },
+  {
+    "path": "iphone-duo/id/05-recording-list.png",
+    "width": 1398,
+    "height": 2034,
+    "bytes": 239154,
+    "language": "id",
+    "device": "iphone-duo"
+  }
+]

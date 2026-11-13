@@ -1,0 +1,394 @@
+[
+  {
+    "device": "iphone",
+    "language": "id",
+    "scene": "share",
+    "path": "raw/iphone/id/share.png",
+    "simulator": "TapReco-Store-iPhone"
+  },
+  {
+    "device": "iphone",
+    "language": "id",
+    "scene": "list",
+    "path": "raw/iphone/id/list.png",
+    "simulator": "TapReco-Store-iPhone"
+  },
+  {
+    "device": "iphone",
+    "language": "id",
+    "scene": "recording",
+    "path": "raw/iphone/id/recording.png",
+    "simulator": "TapReco-Store-iPhone"
+  },
+  {
+    "device": "iphone",
+    "language": "id",
+    "scene": "standby",
+    "path": "raw/iphone/id/standby.png",
+    "simulator": "TapReco-Store-iPhone"
+  },
+  {
+    "device": "iphone",
+    "language": "pt-BR",
+    "scene": "share",
+    "path": "raw/iphone/pt-BR/share.png",
+    "simulator": "TapReco-Store-iPhone"
+  },
+  {
+    "device": "iphone",
+    "language": "pt-BR",
+    "scene": "list",
+    "path": "raw/iphone/pt-BR/list.png",
+    "simulator": "TapReco-Store-iPhone"
+  },
+  {
+    "device": "iphone",
+    "language": "pt-BR",
+    "scene": "recording",
+    "path": "raw/iphone/pt-BR/recording.png",
+    "simulator": "TapReco-Store-iPhone"
+  },
+  {
+    "device": "iphone",
+    "language": "pt-BR",
+    "scene": "standby",
+    "path": "raw/iphone/pt-BR/standby.png",
+    "simulator": "TapReco-Store-iPhone"
+  },
+  {
+    "device": "iphone",
+    "language": "es",
+    "scene": "share",
+    "path": "raw/iphone/es/share.png",
+    "simulator": "TapReco-Store-iPhone"
+  },
+  {
+    "device": "iphone",
+    "language": "es",
+    "scene": "list",
+    "path": "raw/iphone/es/list.png",
+    "simulator": "TapReco-Store-iPhone"
+  },
+  {
+    "device": "iphone",
+    "language": "es",
+    "scene": "recording",
+    "path": "raw/iphone/es/recording.png",
+    "simulator": "TapReco-Store-iPhone"
+  },
+  {
+    "device": "iphone",
+    "language": "es",
+    "scene": "standby",
+    "path": "raw/iphone/es/standby.png",
+    "simulator": "TapReco-Store-iPhone"
+  },
+  {
+    "device": "iphone",
+    "language": "zh-Hant",
+    "scene": "share",
+    "path": "raw/iphone/zh-Hant/share.png",
+    "simulator": "TapReco-Store-iPhone"
+  },
+  {
+    "device": "iphone",
+    "language": "zh-Hant",
+    "scene": "list",
+    "path": "raw/iphone/zh-Hant/list.png",
+    "simulator": "TapReco-Store-iPhone"
+  },
+  {
+    "device": "iphone",
+    "language": "zh-Hant",
+    "scene": "recording",
+    "path": "raw/iphone/zh-Hant/recording.png",
+    "simulator": "TapReco-Store-iPhone"
+  },
+  {
+    "device": "iphone",
+    "language": "zh-Hant",
+    "scene": "standby",
+    "path": "raw/iphone/zh-Hant/standby.png",
+    "simulator": "TapReco-Store-iPhone"
+  },
+  {
+    "device": "iphone",
+    "language": "ko",
+    "scene": "share",
+    "path": "raw/iphone/ko/share.png",
+    "simulator": "TapReco-Store-iPhone"
+  },
+  {
+    "device": "iphone",
+    "language": "ko",
+    "scene": "list",
+    "path": "raw/iphone/ko/list.png",
+    "simulator": "TapReco-Store-iPhone"
+  },
+  {
+    "device": "iphone",
+    "language": "ko",
+    "scene": "recording",
+    "path": "raw/iphone/ko/recording.png",
+    "simulator": "TapReco-Store-iPhone"
+  },
+  {
+    "device": "iphone",
+    "language": "ko",
+    "scene": "standby",
+    "path": "raw/iphone/ko/standby.png",
+    "simulator": "TapReco-Store-iPhone"
+  },
+  {
+    "device": "iphone",
+    "language": "en",
+    "scene": "share",
+    "path": "raw/iphone/en/share.png",
+    "simulator": "TapReco-Store-iPhone"
+  },
+  {
+    "device": "iphone",
+    "language": "en",
+    "scene": "list",
+    "path": "raw/iphone/en/list.png",
+    "simulator": "TapReco-Store-iPhone"
+  },
+  {
+    "device": "iphone",
+    "language": "en",
+    "scene": "recording",
+    "path": "raw/iphone/en/recording.png",
+    "simulator": "TapReco-Store-iPhone"
+  },
+  {
+    "device": "iphone",
+    "language": "en",
+    "scene": "standby",
+    "path": "raw/iphone/en/standby.png",
+    "simulator": "TapReco-Store-iPhone"
+  },
+  {
+    "device": "iphone",
+    "language": "ja",
+    "scene": "share",
+    "path": "raw/iphone/ja/share.png",
+    "simulator": "TapReco-Store-iPhone"
+  },
+  {
+    "device": "iphone",
+    "language": "ja",
+    "scene": "list",
+    "path": "raw/iphone/ja/list.png",
+    "simulator": "TapReco-Store-iPhone"
+  },
+  {
+    "device": "iphone",
+    "language": "ja",
+    "scene": "recording",
+    "path": "raw/iphone/ja/recording.png",
+    "simulator": "TapReco-Store-iPhone"
+  },
+  {
+    "device": "iphone",
+    "language": "ja",
+    "scene": "standby",
+    "path": "raw/iphone/ja/standby.png",
+    "simulator": "TapReco-Store-iPhone"
+  },
+  {
+    "device": "iphone-duo",
+    "language": "id",
+    "scene": "share",
+    "path": "raw/iphone-duo/id/share.png",
+    "simulator": "TapReco-Store-Duo"
+  },
+  {
+    "device": "iphone-duo",
+    "language": "id",
+    "scene": "list",
+    "path": "raw/iphone-duo/id/list.png",
+    "simulator": "TapReco-Store-Duo"
+  },
+  {
+    "device": "iphone-duo",
+    "language": "id",
+    "scene": "recording",
+    "path": "raw/iphone-duo/id/recording.png",
+    "simulator": "TapReco-Store-Duo"
+  },
+  {
+    "device": "iphone-duo",
+    "language": "id",
+    "scene": "standby",
+    "path": "raw/iphone-duo/id/standby.png",
+    "simulator": "TapReco-Store-Duo"
+  },
+  {
+    "device": "iphone-duo",
+    "language": "pt-BR",
+    "scene": "share",
+    "path": "raw/iphone-duo/pt-BR/share.png",
+    "simulator": "TapReco-Store-Duo"
+  },
+  {
+    "device": "iphone-duo",
+    "language": "pt-BR",
+    "scene": "list",
+    "path": "raw/iphone-duo/pt-BR/list.png",
+    "simulator": "TapReco-Store-Duo"
+  },
+  {
+    "device": "iphone-duo",
+    "language": "pt-BR",
+    "scene": "recording",
+    "path": "raw/iphone-duo/pt-BR/recording.png",
+    "simulator": "TapReco-Store-Duo"
+  },
+  {
+    "device": "iphone-duo",
+    "language": "pt-BR",
+    "scene": "standby",
+    "path": "raw/iphone-duo/pt-BR/standby.png",
+    "simulator": "TapReco-Store-Duo"
+  },
+  {
+    "device": "iphone-duo",
+    "language": "es",
+    "scene": "share",
+    "path": "raw/iphone-duo/es/share.png",
+    "simulator": "TapReco-Store-Duo"
+  },
+  {
+    "device": "iphone-duo",
+    "language": "es",
+    "scene": "list",
+    "path": "raw/iphone-duo/es/list.png",
+    "simulator": "TapReco-Store-Duo"
+  },
+  {
+    "device": "iphone-duo",
+    "language": "es",
+    "scene": "recording",
+    "path": "raw/iphone-duo/es/recording.png",
+    "simulator": "TapReco-Store-Duo"
+  },
+  {
+    "device": "iphone-duo",
+    "language": "es",
+    "scene": "standby",
+    "path": "raw/iphone-duo/es/standby.png",
+    "simulator": "TapReco-Store-Duo"
+  },
+  {
+    "device": "iphone-duo",
+    "language": "zh-Hant",
+    "scene": "share",
+    "path": "raw/iphone-duo/zh-Hant/share.png",
+    "simulator": "TapReco-Store-Duo"
+  },
+  {
+    "device": "iphone-duo",
+    "language": "zh-Hant",
+    "scene": "list",
+    "path": "raw/iphone-duo/zh-Hant/list.png",
+    "simulator": "TapReco-Store-Duo"
+  },
+  {
+    "device": "iphone-duo",
+    "language": "zh-Hant",
+    "scene": "recording",
+    "path": "raw/iphone-duo/zh-Hant/recording.png",
+    "simulator": "TapReco-Store-Duo"
+  },
+  {
+    "device": "iphone-duo",
+    "language": "zh-Hant",
+    "scene": "standby",
+    "path": "raw/iphone-duo/zh-Hant/standby.png",
+    "simulator": "TapReco-Store-Duo"
+  },
+  {
+    "device": "iphone-duo",
+    "language": "ko",
+    "scene": "share",
+    "path": "raw/iphone-duo/ko/share.png",
+    "simulator": "TapReco-Store-Duo"
+  },
+  {
+    "device": "iphone-duo",
+    "language": "ko",
+    "scene": "list",
+    "path": "raw/iphone-duo/ko/list.png",
+    "simulator": "TapReco-Store-Duo"
+  },
+  {
+    "device": "iphone-duo",
+    "language": "ko",
+    "scene": "recording",
+    "path": "raw/iphone-duo/ko/recording.png",
+    "simulator": "TapReco-Store-Duo"
+  },
+  {
+    "device": "iphone-duo",
+    "language": "ko",
+    "scene": "standby",
+    "path": "raw/iphone-duo/ko/standby.png",
+    "simulator": "TapReco-Store-Duo"
+  },
+  {
+    "device": "iphone-duo",
+    "language": "en",
+    "scene": "share",
+    "path": "raw/iphone-duo/en/share.png",
+    "simulator": "TapReco-Store-Duo"
+  },
+  {
+    "device": "iphone-duo",
+    "language": "en",
+    "scene": "list",
+    "path": "raw/iphone-duo/en/list.png",
+    "simulator": "TapReco-Store-Duo"
+  },
+  {
+    "device": "iphone-duo",
+    "language": "en",
+    "scene": "recording",
+    "path": "raw/iphone-duo/en/recording.png",
+    "simulator": "TapReco-Store-Duo"
+  },
+  {
+    "device": "iphone-duo",
+    "language": "en",
+    "scene": "standby",
+    "path": "raw/iphone-duo/en/standby.png",
+    "simulator": "TapReco-Store-Duo"
+  },
+  {
+    "device": "iphone-duo",
+    "language": "ja",
+    "scene": "share",
+    "path": "raw/iphone-duo/ja/share.png",
+    "simulator": "TapReco-Store-Duo"
+  },
+  {
+    "device": "iphone-duo",
+    "language": "ja",
+    "scene": "list",
+    "path": "raw/iphone-duo/ja/list.png",
+    "simulator": "TapReco-Store-Duo"
+  },
+  {
+    "device": "iphone-duo",
+    "language": "ja",
+    "scene": "recording",
+    "path": "raw/iphone-duo/ja/recording.png",
+    "simulator": "TapReco-Store-Duo"
+  },
+  {
+    "device": "iphone-duo",
+    "language": "ja",
+    "scene": "standby",
+    "path": "raw/iphone-duo/ja/standby.png",
+    "simulator": "TapReco-Store-Duo"
+  }
+]

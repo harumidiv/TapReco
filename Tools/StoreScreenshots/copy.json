@@ -1,0 +1,51 @@
+{
+  "ja": [
+    ["確実に録音！", "どんな状況下でも"],
+    ["ポケットの中でも…", "画面を見ずに", "録音可能！"],
+    ["スライド式だから…", "失敗しない", "停止ボタン"],
+    ["らくらく簡単", "他アプリに", "転送可能！"],
+    ["複雑な機能はありません", "簡単シンプル", "録音一覧！"]
+  ],
+  "en": [
+    ["Record instantly!", "Whenever you need it"],
+    ["Even in your pocket…", "No need to look", "Tap to record!"],
+    ["Slide to stop…", "Avoid stray taps", "Keep recording!"],
+    ["Quick and easy", "Share with apps", "Send recordings!"],
+    ["No clutter. No complexity.", "Simple and clear", "Your recordings!"]
+  ],
+  "ko": [
+    ["확실하게 녹음!", "어떤 상황에서도"],
+    ["주머니 속에서도…", "화면을 보지 않고", "바로 녹음!"],
+    ["밀어서 정지하니까…", "실수 없이", "안전하게 정지"],
+    ["쉽고 간편하게", "다른 앱으로", "녹음 공유!"],
+    ["복잡한 기능 없이", "쉽고 심플한", "녹음 목록!"]
+  ],
+  "zh-Hant": [
+    ["即刻錄音！", "隨時記錄重要時刻"],
+    ["放在口袋裡也能…", "不用看螢幕", "輕點即錄！"],
+    ["滑動即可停止…", "避免誤觸", "安心錄音"],
+    ["輕鬆又簡單", "傳送到其他 App", "分享錄音！"],
+    ["沒有複雜的功能", "簡單又清楚", "錄音清單！"]
+  ],
+  "es": [
+    ["¡Graba al instante!", "Cuando más lo necesitas"],
+    ["Incluso en el bolsillo…", "Sin mirar la pantalla", "¡Toca y graba!"],
+    ["Desliza para parar…", "Evita toques por error", "¡Sigue grabando!"],
+    ["Fácil y rápido", "Comparte con apps", "¡Envía tus audios!"],
+    ["Sin funciones complicadas", "Claro y sencillo", "¡Tus grabaciones!"]
+  ],
+  "pt-BR": [
+    ["Grave na hora!", "Quando você precisar"],
+    ["Até dentro do bolso…", "Sem olhar para a tela", "Toque e grave!"],
+    ["Deslize para parar…", "Evite toques sem querer", "Continue gravando!"],
+    ["Fácil e rápido", "Compartilhe com apps", "Envie suas gravações!"],
+    ["Sem funções complicadas", "Simples e claro", "Suas gravações!"]
+  ],
+  "id": [
+    ["Langsung rekam!", "Kapan pun dibutuhkan"],
+    ["Bahkan di dalam saku…", "Tanpa melihat layar", "Ketuk dan rekam!"],
+    ["Geser untuk berhenti…", "Hindari salah ketuk", "Terus merekam!"],
+    ["Mudah dan cepat", "Bagikan ke aplikasi", "Kirim rekaman!"],
+    ["Tanpa fitur yang rumit", "Simpel dan jelas", "Daftar rekaman!"]
+  ]
+}

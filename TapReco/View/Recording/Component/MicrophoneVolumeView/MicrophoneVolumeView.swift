@@ -36,8 +36,14 @@ private struct EqualizerCanvas: View {
     var body: some View {
         TimelineView(.animation) { timeline in
             Canvas { context, size in
+#if DEBUG
+                let screenshot = ProcessInfo.processInfo.environment["TAPRECO_SCREENSHOT_SCENE"] != nil
+                let t = screenshot ? 123.4 : timeline.date.timeIntervalSinceReferenceDate
+                let vol = screenshot ? 0.65 : Double(volume)
+#else
                 let t = timeline.date.timeIntervalSinceReferenceDate
                 let vol = Double(volume)
+#endif
                 let barCount = allBars.count
                 let barWidth = size.width / CGFloat(barCount)
                 let barFill = barWidth * 0.60
@@ -76,6 +82,9 @@ struct MicrophoneVolumeView: View {
     var body: some View {
         EqualizerCanvas(volume: manager.volume)
             .task(id: scenePhase) {
+#if DEBUG
+                guard ProcessInfo.processInfo.environment["TAPRECO_SCREENSHOT_SCENE"] == nil else { return }
+#endif
                 guard scenePhase == .active else {
                     manager.stopUpdatingVolume()
                     return
