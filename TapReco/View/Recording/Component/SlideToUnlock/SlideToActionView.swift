@@ -17,7 +17,10 @@ final class SlideToActionView: UIView {
     let descriptionLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 16, weight: .bold)
-        label.text = "スライドして録音停止"
+        label.text = NSLocalizedString("スライドして録音停止", comment: "")
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.75
+        label.textAlignment = .center
         label.textColor = UIColor(named: "modal_background")
         return label
     }()
@@ -153,6 +156,7 @@ extension SlideToActionView {
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         descriptionLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
         descriptionLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        descriptionLabel.widthAnchor.constraint(lessThanOrEqualTo: self.widthAnchor, constant: -124).isActive = true
         
         dragAreaView.translatesAutoresizingMaskIntoConstraints = false
         dragAreaView.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: sideMargin).isActive = true

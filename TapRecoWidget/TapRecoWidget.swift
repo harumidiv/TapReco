@@ -44,6 +44,8 @@ private struct TapRecoWidgetView: View {
                     .background(backgroundColor)
             }
         }
+        .lineLimit(1)
+        .minimumScaleFactor(0.75)
         .widgetURL(recordingURL)
     }
 

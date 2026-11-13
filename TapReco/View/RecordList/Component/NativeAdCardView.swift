@@ -62,7 +62,7 @@ final class NativeAdContentView: NativeAdView {
         clipsToBounds = true
 
         // ポリシー上、広告であることを明示するラベルが必要
-        adBadgeLabel.text = "広告"
+        adBadgeLabel.text = NSLocalizedString("広告", comment: "")
         adBadgeLabel.font = .systemFont(ofSize: 11, weight: .bold)
         adBadgeLabel.textAlignment = .center
         adBadgeLabel.textColor = UIColor(named: "box_gray")

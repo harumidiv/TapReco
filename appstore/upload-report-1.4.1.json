@@ -1,0 +1,187 @@
+{
+  "appId": "6443822117",
+  "version": "1.4.1",
+  "versionId": "d844dcd6-a044-41fd-8121-4681836d8949",
+  "submittedForReview": false,
+  "localizations": {
+    "en-US": {
+      "name": "One-Tap Emergency Recorder",
+      "subtitle": "Record without looking",
+      "screenshots": 10,
+      "groups": {
+        "IPHONE_DYNAMIC_ISLAND_LARGE_PROFILE": [
+          "e1c00018-014e-8c25-8f35-6cb967794eb8",
+          "41800018-014e-8c25-8f23-cd74b0321253",
+          "7d800018-014e-8c25-8f2a-b0df342151f2",
+          "bc000018-014e-8c25-8f29-f1f089fb728d",
+          "5ac00018-014e-8c25-8f00-7354ae96bdb2"
+        ],
+        "IPHONE_DUO_PROFILE": [
+          "cf800018-014e-8c25-8f2f-cdefeca24a26",
+          "b4800018-014e-8c25-8f3f-a4573d8b9fe8",
+          "1f000018-014e-8c25-8f0c-ffb19ddeb14a",
+          "dd400018-014e-8c25-8f33-43c32fc3faf0",
+          "41800018-014e-8c25-8f1b-79b7ae1e540c"
+        ]
+      }
+    },
+    "ko": {
+      "name": "긴급 녹음 - 주머니에서 원터치",
+      "subtitle": "화면을 보지 않고 바로 녹음 시작",
+      "screenshots": 10,
+      "groups": {
+        "IPHONE_DYNAMIC_ISLAND_LARGE_PROFILE": [
+          "13800018-014e-8c25-8f1d-8bdbf86728ac",
+          "e1400018-014e-8c25-8f3d-cb9ad6ca645e",
+          "ffc00018-014e-8c25-8f2a-f573832ee3f8",
+          "e2800018-014e-8c25-8f1f-359e34b49344",
+          "ce400018-014e-8c25-8f3c-a1824f37d222"
+        ],
+        "IPHONE_DUO_PROFILE": [
+          "43400018-014e-8c25-8f12-2f375d57f3d6",
+          "59800018-014e-8c25-8f0f-7702ed1875fd",
+          "fd400018-014e-8c25-8f1b-6c040bdeef19",
+          "66c00018-014e-8c25-8f1f-6264224f73e7",
+          "18400018-014e-8c25-8f07-defbc85106d7"
+        ]
+      }
+    },
+    "zh-Hant": {
+      "name": "緊急錄音：口袋裡一點即錄",
+      "subtitle": "不用看螢幕，緊急時刻也能立即開始錄音",
+      "screenshots": 10,
+      "groups": {
+        "IPHONE_DYNAMIC_ISLAND_LARGE_PROFILE": [
+          "28000018-014e-8c25-8f29-1fb993b1b5bc",
+          "61800018-014e-8c25-8f25-875b35da24e6",
+          "be000018-014e-8c25-8f05-157ca07af426",
+          "66400018-014e-8c25-8f19-65bf8c849713",
+          "4b800018-014e-8c25-8f3f-a82facd28dfa"
+        ],
+        "IPHONE_DUO_PROFILE": [
+          "c2400018-014e-8c25-8f13-4e6fb3b4f357",
+          "7d800018-014e-8c25-8f21-86d001b82ffb",
+          "00800018-014e-8c25-8f13-9ab3c8a11d8f",
+          "15800018-014e-8c25-8f01-7ab463198e31",
+          "04c00018-014e-8c25-8f27-9c035392b409"
+        ]
+      }
+    },
+    "es-MX": {
+      "name": "Grabadora para emergencias",
+      "subtitle": "Graba sin mirar la pantalla",
+      "screenshots": 10,
+      "groups": {
+        "IPHONE_DYNAMIC_ISLAND_LARGE_PROFILE": [
+          "ecc00018-014e-8c25-8f2a-ad0615812731",
+          "1c000018-014e-8c25-8f3d-597c501eb14b",
+          "23400018-014e-8c25-8f34-10d105c3ed55",
+          "aa000018-014e-8c25-8f21-20594906b3b5",
+          "bac00018-014e-8c25-8f20-8041c5853b55"
+        ],
+        "IPHONE_DUO_PROFILE": [
+          "11400018-014e-8c25-8f35-3aee9688ec46",
+          "fdc00018-014e-8c25-8f0b-e5e578d2cb5c",
+          "55c00018-014e-8c25-8f0b-9e67bc02e79c",
+          "11400018-014e-8c25-8f24-a8c2a5cb3adf",
+          "a0c00018-014e-8c25-8f33-9784acedf82e"
+        ]
+      }
+    },
+    "pt-BR": {
+      "name": "Gravador para emergências",
+      "subtitle": "Grave sem olhar para a tela",
+      "screenshots": 10,
+      "groups": {
+        "IPHONE_DYNAMIC_ISLAND_LARGE_PROFILE": [
+          "6fc00018-014e-8c25-8f26-9862a6c78b3e",
+          "35400018-014e-8c25-8f15-e8781f3ff061",
+          "20800018-014e-8c25-8f39-dfab0ecfdebc",
+          "e1c00018-014e-8c25-8f0f-06043935375e",
+          "cb000018-014e-8c25-8f28-5150aea1d6ee"
+        ],
+        "IPHONE_DUO_PROFILE": [
+          "05c00018-014e-8c25-8f2c-82c0762b74e7",
+          "e3000018-014e-8c25-8f04-8d9ba59099bc",
+          "22c00018-014e-8c25-8f38-09874587e8c4",
+          "21c00018-014e-8c25-8f11-0825833baf87",
+          "ee800018-014e-8c25-8f36-f63a2529907c"
+        ]
+      }
+    },
+    "id": {
+      "name": "Perekam Darurat Sekali Ketuk",
+      "subtitle": "Rekam tanpa melihat layar",
+      "screenshots": 10,
+      "groups": {
+        "IPHONE_DYNAMIC_ISLAND_LARGE_PROFILE": [
+          "a0800018-014e-8c25-8f0f-d8998a6aaa08",
+          "b7000018-014e-8c25-8f10-e82c2be461d9",
+          "06400018-014e-8c25-8f36-c3d0d69e5ae0",
+          "10800018-014e-8c25-8f31-c44808261a7d",
+          "ca800018-014e-8c25-8f26-198961215835"
+        ],
+        "IPHONE_DUO_PROFILE": [
+          "61400018-014e-8c25-8f09-297688dd0c33",
+          "5e000018-014e-8c25-8f10-69c953f1607e",
+          "0b400018-014e-8c25-8f3c-34a960eb71a5",
+          "8f000018-014e-8c25-8f30-51d74a1301d3",
+          "d1000018-014e-8c25-8f20-7fb506433285"
+        ]
+      }
+    },
+    "ja": {
+      "name": "緊急事態をポケットの中からワンタップで録音！",
+      "subtitle": "画面を見ずに録音開始!緊急性の高い録音に最適なアプリ",
+      "screenshots": 10,
+      "groups": {
+        "IPHONE_DYNAMIC_ISLAND_LARGE_PROFILE": [
+          "16400018-014e-8c25-8f05-74cd50818986",
+          "e8800018-014e-8c25-8f1e-552e17d05fa3",
+          "e5400018-014e-8c25-8f25-e56434c0e8d4",
+          "f0400018-014e-8c25-8f0b-ed0b49921cc5",
+          "f8c00018-014e-8c25-8f0f-bb9afd5d8103"
+        ],
+        "IPHONE_DUO_PROFILE": [
+          "76400018-014e-8c25-8f24-81c5d64afacb",
+          "4f400018-014e-8c25-8f1c-19aba74bd579",
+          "e2800018-014e-8c25-8f04-f7f968d83528",
+          "78400018-014e-8c25-8f02-8b8a61708eb9",
+          "39400018-014e-8c25-8f19-92b9bee54235"
+        ]
+      }
+    },
+    "es-ES": {
+      "name": "Grabadora para emergencias",
+      "subtitle": "Graba sin mirar la pantalla",
+      "screenshots": 10,
+      "groups": {
+        "IPHONE_DYNAMIC_ISLAND_LARGE_PROFILE": [
+          "8ac00018-014e-8c25-8f0f-c5953a20dcc3",
+          "58000018-014e-8c25-8f3c-417cb0a95d2e",
+          "7b800018-014e-8c25-8f3f-078bc98594ba",
+          "2c400018-014e-8c25-8f36-272145c97ed6",
+          "6d400018-014e-8c25-8f17-0530d1499b8a"
+        ],
+        "IPHONE_DUO_PROFILE": [
+          "a8400018-014e-8c25-8f00-d19ebe8cca55",
+          "14800018-014e-8c25-8f0c-7df7b061b147",
+          "5f000018-014e-8c25-8f02-7bcbd8957d12",
+          "13c00018-014e-8c25-8f2f-f010f3287bab",
+          "59000018-014e-8c25-8f0e-51400131f096"
+        ]
+      }
+    }
+  },
+  "uniqueImages": 70,
+  "previousTargetPlacementsReplaced": 4,
+  "sharedUrls": {
+    "supportUrl": "https://harumidiv.github.io/AppleStoreDevelopprSite/",
+    "marketingUrl": "https://harumidiv.github.io/AppleStoreDevelopprSite/detail/tapreco.html",
+    "privacyPolicyUrl": "https://harumidiv.github.io/AnimeSchedulePrivacyPolicy/"
+  },
+  "japaneseTextPreserved": true,
+  "liveAppInfoPreserved": true,
+  "screenshotPlacements": 80,
+  "versionState": "PREPARE_FOR_SUBMISSION"
+}

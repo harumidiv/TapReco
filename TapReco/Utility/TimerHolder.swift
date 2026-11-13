@@ -15,6 +15,12 @@ final class TimerHolder: ObservableObject {
     private var startedAt: Date?
     
     func start() {
+#if DEBUG
+        if ProcessInfo.processInfo.environment["TAPRECO_SCREENSHOT_SCENE"] != nil {
+            timerText = "00:00:84"
+            return
+        }
+#endif
         startedAt = Date()
         timerText = "00:00:00"
         resumeDisplayUpdates()

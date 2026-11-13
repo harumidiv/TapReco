@@ -18,50 +18,69 @@ struct TapRecoApp: App {
 
     var body: some Scene {
         WindowGroup {
-            RootView(records: $store.records) {
-                Task {
-                    do {
-                        try await store.save()
-                    } catch {
-                        errorWrapper = ErrorWrapper(error: error, guidance: "録音データの保存に失敗しました")
-                    }
+            Group {
+#if DEBUG
+                if let scene = ProcessInfo.processInfo.environment["TAPRECO_SCREENSHOT_SCENE"] {
+                    StoreScreenshotScene(scene: scene)
+                } else {
+                    appContent
                 }
-            }
-            .task {
-                do {
-                    try await store.loadIfNeeded()
-                } catch {
-                    errorWrapper = ErrorWrapper(error: error, guidance: "録音データの読み込みに失敗しました")
-                }
-            }
-            .onReceive(RecordingController.shared.failures) { failure in
-                guard case .saveFailed(let error) = failure else { return }
-                errorWrapper = ErrorWrapper(error: error, guidance: "録音データの保存に失敗しました")
-            }
-            .onOpenURL { url in
-                guard url.scheme == "tapreco", url.host == "record" else { return }
-                RecordingController.shared.requestStart()
-            }
-            .sheet(item: $errorWrapper, onDismiss: {
-                // NOP
-            }) { wrapper in
-                ErrorView(errorWrapper: wrapper)
+#else
+                appContent
+#endif
             }
         }
         .onChange(of: scenePhase) { scene in
-            switch scene {
-            case .active:
-                guard !isRequestingPermissions else { return }
-                isRequestingPermissions = true
-                Task {
-                    await requestPermissions()
-                    isRequestingPermissions = false
-                }
-            case .inactive, .background:
-                store.records = store.records.compactMap{ .init(record: $0, isSelected: false)}
+#if DEBUG
+            guard ProcessInfo.processInfo.environment["TAPRECO_SCREENSHOT_SCENE"] == nil else { return }
+#endif
+            handleScenePhase(scene)
+        }
+    }
 
-            @unknown default: break
+    private var appContent: some View {
+        RootView(records: $store.records) {
+            Task {
+                do {
+                    try await store.save()
+                } catch {
+                    errorWrapper = ErrorWrapper(error: error, guidance: "録音データの保存に失敗しました")
+                }
             }
+        }
+        .task {
+            do {
+                try await store.loadIfNeeded()
+            } catch {
+                errorWrapper = ErrorWrapper(error: error, guidance: "録音データの読み込みに失敗しました")
+            }
+        }
+        .onReceive(RecordingController.shared.failures) { failure in
+            guard case .saveFailed(let error) = failure else { return }
+            errorWrapper = ErrorWrapper(error: error, guidance: "録音データの保存に失敗しました")
+        }
+        .onOpenURL { url in
+            guard url.scheme == "tapreco", url.host == "record" else { return }
+            RecordingController.shared.requestStart()
+        }
+        .sheet(item: $errorWrapper, onDismiss: {}) { wrapper in
+            ErrorView(errorWrapper: wrapper)
+        }
+    }
+
+    private func handleScenePhase(_ scene: ScenePhase) {
+        switch scene {
+        case .active:
+            guard !isRequestingPermissions else { return }
+            isRequestingPermissions = true
+            Task {
+                await requestPermissions()
+                isRequestingPermissions = false
+            }
+        case .inactive, .background:
+            store.records = store.records.compactMap { .init(record: $0, isSelected: false) }
+        @unknown default:
+            break
         }
     }
 

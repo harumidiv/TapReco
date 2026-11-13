@@ -32,14 +32,17 @@ final class SlideToUPUnlockView: UIView {
 
         let label = UILabel()
         label.textColor = UIColor(named: "text_light_gray")
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.75
         label.font = UIFont.systemFont(ofSize: 16, weight: .bold)
-        label.text = "録音履歴を確認"
+        label.text = NSLocalizedString("録音履歴を確認", comment: "")
 
         baseView.addSubview(label)
 
         label.translatesAutoresizingMaskIntoConstraints = false
         label.centerYAnchor.constraint(equalTo: baseView.centerYAnchor).isActive = true
         label.centerXAnchor.constraint(equalTo: baseView.centerXAnchor).isActive = true
+        label.widthAnchor.constraint(lessThanOrEqualTo: baseView.widthAnchor, constant: -24).isActive = true
         
         return baseView
     }()

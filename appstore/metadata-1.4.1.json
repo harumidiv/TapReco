@@ -1,0 +1,78 @@
+{
+  "appId": "6443822117",
+  "bundleId": "harumidiv.TapReco",
+  "version": "1.4.1",
+  "versionId": "d844dcd6-a044-41fd-8121-4681836d8949",
+  "appInfoId": "4fb3da4e-7e7e-40d9-8042-ac976c8f402d",
+  "sharedUrls": {
+    "supportUrl": "https://harumidiv.github.io/AppleStoreDevelopprSite/",
+    "marketingUrl": "https://harumidiv.github.io/AppleStoreDevelopprSite/detail/tapreco.html",
+    "privacyPolicyUrl": "https://harumidiv.github.io/AnimeSchedulePrivacyPolicy/"
+  },
+  "localizations": {
+    "en-US": {
+      "name": "One-Tap Emergency Recorder",
+      "subtitle": "Record without looking",
+      "keywords": "voice memo,one tap,meeting,minutes,lecture,evidence,harassment,emergency,safety,discreet",
+      "description": "Record discreetly with this app.\nWhether you face workplace bullying, sexual or emotional harassment, threats, or a crime, you can start recording by opening the app and tapping the screen once—even when you are under intense pressure or panicking.\nThe entire screen is the record button, so you won't miss it by tapping the wrong spot!\nThe stop button uses a sliding action, so you don't have to worry about accidentally stopping a recording midway.\n\n■ Recording\n- Unlimited recording time\n\n■ Playback\n- Rename files\n- Use your current location as the file name\n- Sort files\n- Skip forward 15 seconds during playback\n\n■ Other features\n- Share files\n",
+      "screenshotLanguage": "en",
+      "whatsNew": "We've localized the app to support multiple languages."
+    },
+    "ko": {
+      "name": "긴급 녹음 - 주머니에서 원터치",
+      "subtitle": "화면을 보지 않고 바로 녹음 시작",
+      "keywords": "녹음,음성메모,원터치,회의,증거,긴급,괴롭힘,안전",
+      "description": "이 앱으로 눈에 띄지 않게 녹음할 수 있습니다.\n직장 내 괴롭힘, 성희롱, 정서적 학대, 협박을 당하거나 범죄에 휘말렸을 때도, 아무리 긴박한 상황이나 당황한 상태라도 앱을 열고 화면을 한 번 탭하면 녹음을 시작할 수 있습니다.\n화면 전체가 녹음 시작 버튼이므로 엉뚱한 곳을 눌러 녹음을 놓칠 일이 없습니다!\n녹음 정지 버튼은 슬라이드 방식이므로 도중에 실수로 녹음이 멈출 걱정도 없습니다.\n\n■ 녹음 기능\n- 녹음 시간 무제한\n\n■ 재생 기능\n- 파일 이름 변경\n- 현재 위치를 파일 이름으로 설정\n- 파일 정렬\n- 재생 중 15초 앞으로 이동\n\n■ 기타 기능\n- 파일 공유\n",
+      "screenshotLanguage": "ko",
+      "whatsNew": "앱을 현지화하여 다양한 언어를 지원하도록 했습니다."
+    },
+    "zh-Hant": {
+      "name": "緊急錄音：口袋裡一點即錄",
+      "subtitle": "不用看螢幕，緊急時刻也能立即開始錄音",
+      "keywords": "錄音,語音備忘錄,一鍵,會議,證據,緊急,防身,職場霸凌",
+      "description": "使用這款 App，即可低調地錄音。\n無論遇到職場霸凌、性騷擾、精神虐待、威脅，或捲入犯罪事件，即使情況再緊迫、心情再慌亂，只要開啟 App 並輕點一下螢幕，就能開始錄音。\n整個螢幕都是錄音開始按鈕，不必擔心因為點錯位置而錯過錄音！\n停止錄音採用滑動式按鈕，也不必擔心中途誤觸而停止錄音。\n\n■ 錄音功能\n- 錄音時間無限制\n\n■ 播放功能\n- 變更檔案名稱\n- 以目前位置作為檔案名稱\n- 檔案排序\n- 播放時快轉 15 秒\n\n■ 其他功能\n- 分享檔案\n",
+      "screenshotLanguage": "zh-Hant",
+      "whatsNew": "我們已將 App 在地化，支援多種語言。"
+    },
+    "es-MX": {
+      "name": "Grabadora para emergencias",
+      "subtitle": "Graba sin mirar la pantalla",
+      "keywords": "voz,notas,audio,un toque,reuniones,clases,pruebas,acoso,urgente,seguridad,discreto",
+      "description": "Graba de forma discreta con esta app.\nAnte el acoso laboral, sexual o psicológico, amenazas o una situación delictiva, puedes empezar a grabar con solo abrir la app y tocar la pantalla una vez, incluso bajo mucha presión o en un momento de pánico.\n¡Toda la pantalla es el botón de grabación, así que no perderás la grabación por tocar en el lugar equivocado!\nEl botón para detener la grabación funciona deslizando, para que no tengas que preocuparte por detenerla accidentalmente a mitad de camino.\n\n■ Grabación\n- Tiempo de grabación ilimitado\n\n■ Reproducción\n- Cambia el nombre de los archivos\n- Usa tu ubicación actual como nombre del archivo\n- Ordena los archivos\n- Avanza 15 segundos durante la reproducción\n\n■ Otras funciones\n- Comparte archivos\n",
+      "screenshotLanguage": "es",
+      "whatsNew": "Hemos localizado la app para que sea compatible con varios idiomas."
+    },
+    "pt-BR": {
+      "name": "Gravador para emergências",
+      "subtitle": "Grave sem olhar para a tela",
+      "keywords": "voz,notas,áudio,um toque,reunião,aula,prova,assédio,urgência,segurança,discreto",
+      "description": "Grave de forma discreta com este app.\nEm situações de assédio moral, sexual ou psicológico, ameaças ou envolvimento em um crime, basta abrir o app e tocar uma vez na tela para começar a gravar, mesmo sob muita pressão ou em um momento de pânico.\nA tela inteira é o botão de gravação, então você não perde a gravação por tocar no lugar errado!\nO botão de parar funciona deslizando, para que você não precise se preocupar em interromper a gravação sem querer.\n\n■ Gravação\n- Tempo de gravação ilimitado\n\n■ Reprodução\n- Altere o nome dos arquivos\n- Use a localização atual como nome do arquivo\n- Ordene os arquivos\n- Avance 15 segundos durante a reprodução\n\n■ Outros recursos\n- Compartilhe arquivos\n",
+      "screenshotLanguage": "pt-BR",
+      "whatsNew": "Localizamos o app para oferecer suporte a vários idiomas."
+    },
+    "id": {
+      "name": "Perekam Darurat Sekali Ketuk",
+      "subtitle": "Rekam tanpa melihat layar",
+      "keywords": "suara,memo,audio,rapat,notulen,kuliah,bukti,pelecehan,darurat,keamanan,diam-diam",
+      "description": "Rekam secara diam-diam dengan aplikasi ini.\nSaat menghadapi perundungan di tempat kerja, pelecehan seksual atau psikologis, ancaman, atau terlibat dalam suatu tindak kejahatan, cukup buka aplikasi dan ketuk layar sekali untuk mulai merekam, bahkan dalam situasi yang sangat menegangkan atau saat panik.\nSeluruh layar berfungsi sebagai tombol mulai merekam, sehingga Anda tidak akan melewatkan rekaman karena mengetuk tempat yang salah!\nTombol berhenti menggunakan gerakan geser, jadi Anda tidak perlu khawatir rekaman terhenti karena salah ketuk di tengah proses.\n\n■ Perekaman\n- Waktu perekaman tanpa batas\n\n■ Pemutaran\n- Ubah nama berkas\n- Gunakan lokasi saat ini sebagai nama berkas\n- Urutkan berkas\n- Maju 15 detik saat memutar rekaman\n\n■ Fitur lainnya\n- Bagikan berkas\n",
+      "screenshotLanguage": "id",
+      "whatsNew": "Aplikasi kini telah dilokalkan untuk mendukung berbagai bahasa."
+    },
+    "ja": {
+      "name": "緊急事態をポケットの中からワンタップで録音！",
+      "subtitle": "画面を見ずに録音開始!緊急性の高い録音に最適なアプリ",
+      "description": "このアプリなら、誰にもバレずに録音できます。\nパワハラ・セクハラ・モラハラ、脅された時、犯罪に巻き込まれた時、どんなに緊迫した状況やパニック状態になっていても、起動して画面をワンタップするだけで録音できます。\n画面全体が録音開始ボタンなので押し間違いで録音失敗するケースはありません！\n録音停止ボタンはスライド式なので途中で誤って録音を停止してしまう心配も不要です\n\n■録音機能\n-録音時間は無制限\n\n■再生機能\n-ファイル名の変更\n-ファイル名を現在地に設定\n-ファイルの並び替え\n-再生の15秒送り\n\n■その他の機能\n-ファイルの共有\n\n",
+      "keywords": "録音,ボイスレコーダー,ボイスメモ,ICレコーダー,音声メモ,ワンタップ,会議,議事録,授業,長時間,証拠,パワハラ,モラハラ,セクハラ,カスハラ,いじめ,DV,防犯,緊急,ひろゆき,こっそり,裁判",
+      "screenshotLanguage": "ja",
+      "whatsNew": "ローカライズを行い、さまざまな言語に対応しました。"
+    },
+    "es-ES": {
+      "name": "Grabadora para emergencias",
+      "subtitle": "Graba sin mirar la pantalla",
+      "keywords": "voz,notas,audio,un toque,reuniones,clases,pruebas,acoso,urgente,seguridad,discreto",
+      "description": "Graba de forma discreta con esta app.\nAnte el acoso laboral, sexual o psicológico, amenazas o una situación delictiva, puedes empezar a grabar con solo abrir la app y tocar la pantalla una vez, incluso bajo mucha presión o en un momento de pánico.\n¡Toda la pantalla es el botón de grabación, así que no perderás la grabación por tocar en el lugar equivocado!\nEl botón para detener la grabación funciona deslizando, para que no tengas que preocuparte por detenerla accidentalmente a mitad de camino.\n\n■ Grabación\n- Tiempo de grabación ilimitado\n\n■ Reproducción\n- Cambia el nombre de los archivos\n- Usa tu ubicación actual como nombre del archivo\n- Ordena los archivos\n- Avanza 15 segundos durante la reproducción\n\n■ Otras funciones\n- Comparte archivos\n",
+      "screenshotLanguage": "es",
+      "whatsNew": "Hemos localizado la app para que sea compatible con varios idiomas."
+    }
+  }
+}

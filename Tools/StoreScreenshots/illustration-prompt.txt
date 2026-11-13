@@ -1,0 +1,7 @@
+Tool: built-in image_gen.imagegen
+Mode: edit / background-extraction; transparent_background=true
+Reference/edit target: /Users/harumi.sagawa/Downloads/1.png
+
+Extract ONLY the two hand-drawn office characters at the bottom and their red jagged lightning marks as one transparent foreground illustration. Preserve the exact original characters, brushy black outlines, watercolor paper texture, facial expressions, black suit and white hair, their relative placement and the bottom/side cropping. The angry shouting older man remains at bottom left, worried white-haired woman remains at bottom right, lightning above them. Remove ALL text, the smartphone, microphone, slider, diagonal striped screen and gray background. Genuine alpha transparency everywhere outside the original characters and red lightning. Do not add characters, do not redraw as photorealism, do not add lettering. Keep the foreground illustration composition faithful to the source, at the same portrait aspect ratio as the source so it can be layered onto a code-built promotional screenshot layout.
+
+Saved asset: Tools/StoreScreenshots/assets/characters.png

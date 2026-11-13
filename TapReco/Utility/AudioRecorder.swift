@@ -181,7 +181,7 @@ private extension AudioRecorderImpl {
     }
 
     func getTitle() -> String {
-        LocationManager.shared.address ?? "新規作成"
+        LocationManager.shared.address ?? NSLocalizedString("新規作成", comment: "")
     }
 
     func getFileSize(filePath: String) -> String {
@@ -201,6 +201,6 @@ private extension AudioRecorderImpl {
         let duration = Int(player.duration)
         let min = duration / 60
         let sec = duration % 60
-        return min > 60 ? "1時間以上" : String(format: "%02d:%02d", min, sec)
+        return min > 60 ? NSLocalizedString("1時間以上", comment: "") : String(format: "%02d:%02d", min, sec)
     }
 }

@@ -23,10 +23,14 @@ struct SelectView: View {
             selectHandler()
         }) {
             if isSelected {
-                Label(selectType.rawValue, image: "radio_on")
+                Label(LocalizedStringKey(selectType.rawValue), image: "radio_on")
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.8)
                     .foregroundColor(AppColor.textLightGray)
             } else {
-                Label(selectType.rawValue, image: "radio_off")
+                Label(LocalizedStringKey(selectType.rawValue), image: "radio_off")
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.8)
                     .foregroundColor(AppColor.textLightGray)
             }
         }

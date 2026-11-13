@@ -1,0 +1,17 @@
+{
+  "version": "1.4.1",
+  "versionId": "d844dcd6-a044-41fd-8121-4681836d8949",
+  "versionState": "PREPARE_FOR_SUBMISSION",
+  "notes": {
+    "ja": "ローカライズを行い、さまざまな言語に対応しました。",
+    "en-US": "We've localized the app to support multiple languages.",
+    "ko": "앱을 현지화하여 다양한 언어를 지원하도록 했습니다.",
+    "zh-Hant": "我們已將 App 在地化，支援多種語言。",
+    "es-ES": "Hemos localizado la app para que sea compatible con varios idiomas.",
+    "es-MX": "Hemos localizado la app para que sea compatible con varios idiomas.",
+    "pt-BR": "Localizamos o app para oferecer suporte a vários idiomas.",
+    "id": "Aplikasi kini telah dilokalkan untuk mendukung berbagai bahasa."
+  },
+  "otherVersionMetadataPreserved": true,
+  "submittedForReview": false
+}

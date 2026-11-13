@@ -81,11 +81,15 @@ struct SortView: View {
                         changeOrderType(isLeftButton: true)
                     }) {
                         createOrderText(isLeftButton: true)
+                            .lineLimit(1)
+                            .minimumScaleFactor(0.8)
                     }
                     Button(action: {
                         changeOrderType(isLeftButton: false)
                     }) {
                         createOrderText(isLeftButton: false)
+                            .lineLimit(1)
+                            .minimumScaleFactor(0.8)
                     }
                 }
                 .padding([.top, .trailing])
