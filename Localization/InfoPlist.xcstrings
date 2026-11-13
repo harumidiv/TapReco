@@ -1,190 +1,206 @@
 {
-  "sourceLanguage": "ja",
-  "strings": {
-    "CFBundleDisplayName": {
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "たぷれこ"
+  "sourceLanguage" : "ja",
+  "strings" : {
+    "CFBundleDisplayName" : {
+      "comment" : "Bundle display name",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "TapReco"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "TapReco"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "TapReco"
           }
         },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "탭레코"
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "TapReco"
           }
         },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "TapReco"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "たぷれこ"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "TapReco"
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "탭레코"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "TapReco"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "TapReco"
           }
         },
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "TapReco"
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "TapReco"
           }
         }
       }
     },
-    "NSMicrophoneUsageDescription": {
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "録音にはマイクへのアクセス許可が必要です"
-          }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Microphone access is needed to record audio."
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "오디오를 녹음하려면 마이크 접근 권한이 필요합니다."
-          }
-        },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "錄音需要取得麥克風存取權限。"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Se necesita acceso al micrófono para grabar audio."
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "O acesso ao microfone é necessário para gravar áudio."
-          }
-        },
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Akses mikrofon diperlukan untuk merekam audio."
+    "CFBundleName" : {
+      "comment" : "Bundle name",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "TapReco"
           }
         }
       }
     },
-    "NSLocationWhenInUseUsageDescription": {
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "録音のタイトルを録音場所に設定するには許可が必要です"
+    "NSLocationWhenInUseUsageDescription" : {
+      "comment" : "Privacy - Location When In Use Usage Description",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Location access lets you use the recording location as its title."
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Location access lets you use the recording location as its title."
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El acceso a tu ubicación permite usar el lugar de grabación como título."
           }
         },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "녹음 장소를 제목으로 사용하려면 위치 접근 권한이 필요합니다."
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Akses lokasi memungkinkan lokasi rekaman digunakan sebagai judul."
           }
         },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "若要以錄音地點作為標題，需要取得位置存取權限。"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "録音のタイトルを録音場所に設定するには許可が必要です"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "El acceso a tu ubicación permite usar el lugar de grabación como título."
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "녹음 장소를 제목으로 사용하려면 위치 접근 권한이 필요합니다."
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "O acesso à localização permite usar o local da gravação como título."
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O acesso à localização permite usar o local da gravação como título."
           }
         },
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Akses lokasi memungkinkan lokasi rekaman digunakan sebagai judul."
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "若要以錄音地點作為標題，需要取得位置存取權限。"
           }
         }
       }
     },
-    "NSUserTrackingUsageDescription": {
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "あなたの興味に合った広告を表示するために使用します"
+    "NSMicrophoneUsageDescription" : {
+      "comment" : "Privacy - Microphone Usage Description",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Microphone access is needed to record audio."
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Your data is used to show ads that match your interests."
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Se necesita acceso al micrófono para grabar audio."
           }
         },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "관심사에 맞는 광고를 표시하는 데 사용됩니다."
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Akses mikrofon diperlukan untuk merekam audio."
           }
         },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "您的資料將用於顯示符合您興趣的廣告。"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "録音にはマイクへのアクセス許可が必要です"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tus datos se usan para mostrar anuncios según tus intereses."
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "오디오를 녹음하려면 마이크 접근 권한이 필요합니다."
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Seus dados são usados para mostrar anúncios de seu interesse."
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O acesso ao microfone é necessário para gravar áudio."
           }
         },
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Data Anda digunakan untuk menampilkan iklan sesuai minat Anda."
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "錄音需要取得麥克風存取權限。"
+          }
+        }
+      }
+    },
+    "NSUserTrackingUsageDescription" : {
+      "comment" : "Privacy - Tracking Usage Description",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your data is used to show ads that match your interests."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tus datos se usan para mostrar anuncios según tus intereses."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Data Anda digunakan untuk menampilkan iklan sesuai minat Anda."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "あなたの興味に合った広告を表示するために使用します"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "관심사에 맞는 광고를 표시하는 데 사용됩니다."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Seus dados são usados para mostrar anúncios de seu interesse."
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "您的資料將用於顯示符合您興趣的廣告。"
           }
         }
       }
     }
   },
-  "version": "1.0"
+  "version" : "1.0"
 }
