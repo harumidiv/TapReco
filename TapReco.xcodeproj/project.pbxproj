@@ -46,8 +46,6 @@
 		499A48FE28F930C500BE9C36 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499A48FD28F930C500BE9C36 /* ErrorView.swift */; };
 		499A490028F94A8000BE9C36 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499A48FF28F94A8000BE9C36 /* LocationManager.swift */; };
 		49BEE51F26EDDF460002C43B /* TimerHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BEE51E26EDDF460002C43B /* TimerHolder.swift */; };
-		BB10000000000000000000A1 /* RecordingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB10000000000000000000A2 /* RecordingController.swift */; };
-		BB10000000000000000000B1 /* StartRecordingIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB10000000000000000000B2 /* StartRecordingIntent.swift */; };
 		49C0D12526E8DE6E00B3666E /* WaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C0D12426E8DE6E00B3666E /* WaveView.swift */; };
 		49C0D12C26E9033900B3666E /* SlideSideActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C0D12B26E9033900B3666E /* SlideSideActionView.swift */; };
 		49C0D12E26E904AA00B3666E /* SlideToActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C0D12D26E904AA00B3666E /* SlideToActionView.swift */; };
@@ -62,12 +60,14 @@
 		AD0000000000000000000007 /* BannerAdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0000000000000000000006 /* BannerAdView.swift */; };
 		AD0000000000000000000009 /* NativeAdStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0000000000000000000008 /* NativeAdStore.swift */; };
 		AD000000000000000000000B /* NativeAdCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD000000000000000000000A /* NativeAdCardView.swift */; };
-		CC2000000000000000000001 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = CC1000000000000000000001; };
-		CC3000000000000000000001 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = CC1000000000000000000001; };
-		CC2000000000000000000002 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = CC1000000000000000000002; };
-		CC3000000000000000000002 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = CC1000000000000000000002; };
-		CC2000000000000000000003 /* AppShortcuts.strings in Resources */ = {isa = PBXBuildFile; fileRef = CC1000000000000000000003; };
-		CD1000000000000000000001 /* StoreScreenshotScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1000000000000000000002; };
+		BB10000000000000000000A1 /* RecordingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB10000000000000000000A2 /* RecordingController.swift */; };
+		BB10000000000000000000B1 /* StartRecordingIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB10000000000000000000B2 /* StartRecordingIntent.swift */; };
+		CC2000000000000000000001 /* Localization/Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = CC1000000000000000000001 /* Localization/Localizable.xcstrings */; };
+		CC2000000000000000000002 /* Localization/InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = CC1000000000000000000002 /* Localization/InfoPlist.xcstrings */; };
+		CC2000000000000000000003 /* AppShortcuts.strings in Resources */ = {isa = PBXBuildFile; fileRef = CC1000000000000000000003 /* AppShortcuts.strings */; };
+		CC3000000000000000000001 /* Localization/Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = CC1000000000000000000001 /* Localization/Localizable.xcstrings */; };
+		CC3000000000000000000002 /* Localization/InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = CC1000000000000000000002 /* Localization/InfoPlist.xcstrings */; };
+		CD1000000000000000000001 /* StoreScreenshotScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1000000000000000000002 /* StoreScreenshotScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -154,8 +154,6 @@
 		499A48FD28F930C500BE9C36 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		499A48FF28F94A8000BE9C36 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		49BEE51E26EDDF460002C43B /* TimerHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerHolder.swift; sourceTree = "<group>"; };
-		BB10000000000000000000A2 /* RecordingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingController.swift; sourceTree = "<group>"; };
-		BB10000000000000000000B2 /* StartRecordingIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartRecordingIntent.swift; sourceTree = "<group>"; };
 		49C0D12426E8DE6E00B3666E /* WaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveView.swift; sourceTree = "<group>"; };
 		49C0D12B26E9033900B3666E /* SlideSideActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideSideActionView.swift; sourceTree = "<group>"; };
 		49C0D12D26E904AA00B3666E /* SlideToActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideToActionView.swift; sourceTree = "<group>"; };
@@ -170,15 +168,17 @@
 		AD0000000000000000000006 /* BannerAdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerAdView.swift; sourceTree = "<group>"; };
 		AD0000000000000000000008 /* NativeAdStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeAdStore.swift; sourceTree = "<group>"; };
 		AD000000000000000000000A /* NativeAdCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeAdCardView.swift; sourceTree = "<group>"; };
-		CC1000000000000000000001 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localization/Localizable.xcstrings; sourceTree = SOURCE_ROOT; };
-		CC1000000000000000000002 /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localization/InfoPlist.xcstrings; sourceTree = SOURCE_ROOT; };
-		CC4000000000000000000001 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "ja"; path = Localization/ja.lproj/AppShortcuts.strings; sourceTree = SOURCE_ROOT; };
-		CC4000000000000000000002 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en"; path = Localization/en.lproj/AppShortcuts.strings; sourceTree = SOURCE_ROOT; };
-		CC4000000000000000000003 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "ko"; path = Localization/ko.lproj/AppShortcuts.strings; sourceTree = SOURCE_ROOT; };
-		CC4000000000000000000004 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = Localization/zh-Hant.lproj/AppShortcuts.strings; sourceTree = SOURCE_ROOT; };
-		CC4000000000000000000005 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es"; path = Localization/es.lproj/AppShortcuts.strings; sourceTree = SOURCE_ROOT; };
-		CC4000000000000000000006 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = Localization/pt-BR.lproj/AppShortcuts.strings; sourceTree = SOURCE_ROOT; };
-		CC4000000000000000000007 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "id"; path = Localization/id.lproj/AppShortcuts.strings; sourceTree = SOURCE_ROOT; };
+		BB10000000000000000000A2 /* RecordingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingController.swift; sourceTree = "<group>"; };
+		BB10000000000000000000B2 /* StartRecordingIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartRecordingIntent.swift; sourceTree = "<group>"; };
+		CC1000000000000000000001 /* Localization/Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localization/Localizable.xcstrings; sourceTree = SOURCE_ROOT; };
+		CC1000000000000000000002 /* Localization/InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localization/InfoPlist.xcstrings; sourceTree = SOURCE_ROOT; };
+		CC4000000000000000000001 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = Localization/ja.lproj/AppShortcuts.strings; sourceTree = SOURCE_ROOT; };
+		CC4000000000000000000002 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localization/en.lproj/AppShortcuts.strings; sourceTree = SOURCE_ROOT; };
+		CC4000000000000000000003 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = Localization/ko.lproj/AppShortcuts.strings; sourceTree = SOURCE_ROOT; };
+		CC4000000000000000000004 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "Localization/zh-Hant.lproj/AppShortcuts.strings"; sourceTree = SOURCE_ROOT; };
+		CC4000000000000000000005 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = Localization/es.lproj/AppShortcuts.strings; sourceTree = SOURCE_ROOT; };
+		CC4000000000000000000006 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "Localization/pt-BR.lproj/AppShortcuts.strings"; sourceTree = SOURCE_ROOT; };
+		CC4000000000000000000007 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = Localization/id.lproj/AppShortcuts.strings; sourceTree = SOURCE_ROOT; };
 		CD1000000000000000000002 /* StoreScreenshotScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreScreenshotScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -249,8 +249,8 @@
 		4925089926DCF7D3005169AE /* TapReco */ = {
 			isa = PBXGroup;
 			children = (
-				CC1000000000000000000001 /* Localizable.xcstrings */,
-				CC1000000000000000000002 /* InfoPlist.xcstrings */,
+				CC1000000000000000000001 /* Localization/Localizable.xcstrings */,
+				CC1000000000000000000002 /* Localization/InfoPlist.xcstrings */,
 				CC1000000000000000000003 /* AppShortcuts.strings */,
 				49856ECC26E474A40015C12E /* Utility */,
 				49856F8626E6E7070015C12E /* View */,
@@ -544,23 +544,6 @@
 		};
 /* End PBXNativeTarget section */
 
-/* Begin PBXVariantGroup section */
-		CC1000000000000000000003 /* AppShortcuts.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CC4000000000000000000001 /* ja */,
-				CC4000000000000000000002 /* en */,
-				CC4000000000000000000003 /* ko */,
-				CC4000000000000000000004 /* zh-Hant */,
-				CC4000000000000000000005 /* es */,
-				CC4000000000000000000006 /* pt-BR */,
-				CC4000000000000000000007 /* id */,
-			);
-			name = AppShortcuts.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin PBXProject section */
 		4925088F26DCF7D3005169AE /* Project object */ = {
 			isa = PBXProject;
@@ -620,8 +603,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC2000000000000000000003 /* AppShortcuts.strings in Resources */,
-				CC2000000000000000000002 /* InfoPlist.xcstrings in Resources */,
-				CC2000000000000000000001 /* Localizable.xcstrings in Resources */,
+				CC2000000000000000000002 /* Localization/InfoPlist.xcstrings in Resources */,
+				CC2000000000000000000001 /* Localization/Localizable.xcstrings in Resources */,
 				492508A226DCF7D4005169AE /* Preview Assets.xcassets in Resources */,
 				4925089F26DCF7D4005169AE /* Assets.xcassets in Resources */,
 			);
@@ -645,8 +628,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CC3000000000000000000002 /* InfoPlist.xcstrings in Resources */,
-				CC3000000000000000000001 /* Localizable.xcstrings in Resources */,
+				CC3000000000000000000002 /* Localization/InfoPlist.xcstrings in Resources */,
+				CC3000000000000000000001 /* Localization/Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -752,6 +735,23 @@
 			targetProxy = AA1000000000000000000003 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		CC1000000000000000000003 /* AppShortcuts.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CC4000000000000000000001 /* ja */,
+				CC4000000000000000000002 /* en */,
+				CC4000000000000000000003 /* ko */,
+				CC4000000000000000000004 /* zh-Hant */,
+				CC4000000000000000000005 /* es */,
+				CC4000000000000000000006 /* pt-BR */,
+				CC4000000000000000000007 /* id */,
+			);
+			name = AppShortcuts.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		492508BA26DCF7D4005169AE /* Debug */ = {
@@ -879,7 +879,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 15;
 				DEVELOPMENT_ASSET_PATHS = "\"TapReco/Preview Content\"";
 				DEVELOPMENT_TEAM = 24BSY9Z4H5;
 				ENABLE_PREVIEWS = YES;
@@ -890,7 +890,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4.1;
+				MARKETING_VERSION = 1.4.2;
 				PRODUCT_BUNDLE_IDENTIFIER = harumidiv.TapReco;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -906,7 +906,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 15;
 				DEVELOPMENT_ASSET_PATHS = "\"TapReco/Preview Content\"";
 				DEVELOPMENT_TEAM = 24BSY9Z4H5;
 				ENABLE_PREVIEWS = YES;
@@ -917,7 +917,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4.1;
+				MARKETING_VERSION = 1.4.2;
 				PRODUCT_BUNDLE_IDENTIFIER = harumidiv.TapReco;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
